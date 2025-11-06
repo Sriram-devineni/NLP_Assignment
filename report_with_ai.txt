@@ -1,0 +1,1873 @@
+================================================================================
+ASSIGNMENT 3: COMPARATIVE & NON-ATOMIC REQUIREMENT ANALYSIS
+================================================================================
+
+SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+Total Comparative Terms Found: 10
+Total Superlative Terms Found: 4
+Total Non-Atomic Requirements Found: 66
+AI Suggestions: Enabled (Gemini)
+
+
+========================================================================
+COMPARATIVE TERMS
+========================================================================
+
+1. Document: 0000 - cctns.txt
+   Sentence #23
+   Keyword: 'better' (POS Tag: RBR)
+   Sentence: It shows information such as cases assigned, alerts, pending tasks etc hence helping police personnel to plan better and execute with greater efficiency.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "The system shall display a real-time dashboard detailing assigned cases, critical alerts, and pending tasks, enabling police personnel to prioritize their daily workload and identify immediate action items within 5 minutes of review."
+
+2.  **EXPLANATION:** This version replaces vague comparative terms with specific, measurable actions (prioritize workload, identify immediate actions) and introduces a time constraint for measurability. It focuses on the system's direct enablement rather than an abstract outcome.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: It shows information such as cases assigned, alerts, pending tasks etc hence helping police personnel to plan better and execute with greater efficiency.
+     Issue: Contains comparative term 'better' (POS: RBR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+2. Document: 0000 - cctns.txt
+   Sentence #69
+   Keyword: 'more' (POS Tag: JJR)
+   Sentence: The System must allow a user to be a member of more than one group.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System must allow a user to be a member of at least two groups.
+2.  **EXPLANATION:** This removes the comparative "more than one" and explicitly states the minimum number of groups, making the requirement precise and testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must allow a user to be a member of more than one group.
+     Issue: Contains comparative term 'more' (POS: JJR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+3. Document: 0000 - cctns.txt
+   Sentence #129
+   Keyword: 'more' (POS Tag: RBR)
+   Sentence: They could make it cognitively more difficult to understand the navigation structure with negative effects on both usability and accessibility.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "The navigation structure shall enable users to comprehend primary navigation paths and locate core features with a task success rate of at least 90% and an average perceived cognitive load not exceeding 3 (on a 7-point Likert scale), ensuring high usability and WCAG 2.1 AA accessibility compliance."
+
+2.  **EXPLANATION:** This replaces the vague "more difficult" with specific, measurable thresholds for user task success and perceived cognitive load. It directly links to testable outcomes for usability and accessibility standards.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: They could make it cognitively more difficult to understand the navigation structure with negative effects on both usability and accessibility.
+     Issue: Contains comparative term 'more' (POS: RBR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+4. Document: 0000 - cctns.txt
+   Sentence #179
+   Keyword: 'more' (POS Tag: RBR)
+   Sentence: Short pages are generally more appropriate for homepages, navigation pages, or overview pages that need to be read quickly.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Homepages, navigation pages, and overview pages shall limit textual content to a maximum of 150 words to facilitate quick comprehension.
+
+2.  **EXPLANATION:** This version replaces the vague "more appropriate" and "short" with a specific, measurable word count. It provides a clear, verifiable criterion for page length.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Short pages are generally more appropriate for homepages, navigation pages, or overview pages that need to be read quickly.
+     Issue: Contains comparative term 'more' (POS: RBR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+5. Document: 0000 - cctns.txt
+   Sentence #180
+   Keyword: 'more' (POS Tag: RBR)
+   Sentence: Longer pages can be more appropriate when users want to read the content without interruptions or when the page needs to match a paper counterpart.
+
+32.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall display content as a single, continuous page, without pagination, when it is designated for uninterrupted reading or when it digitally replicates a single paper document.
+2.  **EXPLANATION:** Replaces the vague "more appropriate" with a specific system action ("shall display"). Defines "longer pages" with measurable attributes (single, continuous, no pagination).
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Longer pages can be more appropriate when users want to read the content without interruptions or when the page needs to match a paper counterpart.
+
+32.
+     Issue: Contains comparative term 'more' (POS: RBR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+6. Document: 0000 - cctns.txt
+   Sentence #211
+   Keyword: 'more' (POS Tag: RBR)
+   Sentence: Individualization and user adaptation : Adapting the content and the navigation of a user interface to individual users or user groups can be a useful mechanism for providing information that is of interest to the users and for making access to relevant information more efficient.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED**: The system shall provide personalized content and navigation adaptations to individual users or user groups, enabling users to locate specific relevant information at least 20% faster compared to a non-adapted interface.
+
+2.  **EXPLANATION**: The original was vague due to "more efficient." The revised requirement specifies a measurable target (at least 20% faster) for locating relevant information, making it testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Individualization and user adaptation : Adapting the content and the navigation of a user interface to individual users or user groups can be a useful mechanism for providing information that is of interest to the users and for making access to relevant information more efficient.
+     Issue: Contains comparative term 'more' (POS: RBR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+7. Document: 0000 - cctns.txt
+   Sentence #212
+   Keyword: 'more' (POS Tag: RBR)
+   Sentence: User adaptation can also be important for making the user interface more accessible.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  IMPROVED: The system shall provide user interface customization options, including adjustable font sizes and color contrasts, to comply with WCAG 2.1 Level AA accessibility standards.
+2.  EXPLANATION: This version specifies *what* user adaptations are provided and *to what measurable standard* accessibility will be achieved. It replaces the vague "more accessible" with a clear, verifiable benchmark.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: User adaptation can also be important for making the user interface more accessible.
+     Issue: Contains comparative term 'more' (POS: RBR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+8. Document: 0000 - cctns.txt
+   Sentence #213
+   Keyword: 'more' (POS Tag: RBR)
+   Sentence: Different approaches can be used for achieving these goals, like providing users with means for customizing the user interface to their personal needs i.e. individualization designing content and navigation differently for varying user groups or roles i.e. such as employees of different levels, citizens etc, monitoring the user's behaviour and adapting to the user's goals that are inferred from the behaviour observed, recommending information that is potentially more relevant or interesting to the specific user, based on the behaviour of all users or a user group.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:**
+    "The system shall support adaptive approaches to achieve its goals, including:
+    1.  Allowing users to customize the user interface to their personal needs (individualization).
+    2.  Designing content and navigation tailored for varying user groups or roles (e.g., employees of different levels, citizens).
+    3.  Monitoring user behavior and adapting to user goals inferred from observed behavior.
+    4.  Recommending information to specific users based on the behavior of all users or a user group, such that the recommended content achieves a minimum user engagement rate of X% (e.g., click-through rate or dwell time)."
+
+2.  **EXPLANATION:**
+    The vague "more relevant or interesting" is replaced with a specific, measurable outcome: "minimum user engagement rate of X%". The requirement is also rephrased for clarity and uses stronger, verifiable language ("shall support").
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Different approaches can be used for achieving these goals, like providing users with means for customizing the user interface to their personal needs i.e. individualization designing content and navigation differently for varying user groups or roles i.e. such as employees of different levels, citizens etc, monitoring the user's behaviour and adapting to the user's goals that are inferred from the behaviour observed, recommending information that is potentially more relevant or interesting to the specific user, based on the behaviour of all users or a user group.
+     Issue: Contains comparative term 'more' (POS: RBR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+9. Document: 0000 - cctns.txt
+   Sentence #233
+   Keyword: 'more' (POS Tag: JJR)
+   Sentence: In the event of any software or hardware failure, it must be possible to restore the System (with inline synchronization) within no more than <xx> hours.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Upon any software or hardware failure, the System, including inline synchronization, SHALL be fully restored within <xx> hours.
+
+2.  **EXPLANATION:** This requirement replaces the comparative "no more than" with a direct, absolute time limit "within <xx> hours," making it unequivocally measurable. It also uses "shall" for clear obligation.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: In the event of any software or hardware failure, it must be possible to restore the System (with inline synchronization) within no more than <xx> hours.
+     Issue: Contains comparative term 'more' (POS: JJR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+10. Document: 0000 - cctns.txt
+   Sentence #244
+   Keyword: 'slower' (POS Tag: JJR)
+   Sentence: This requirement is intended to allow for cases where cases used infrequently are stored on slower media than more active records.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "Records not accessed for more than 90 days shall be automatically moved to secondary storage media. Secondary storage media shall provide read access latency that is no more than five times that of primary storage media used for active records."
+2.  **EXPLANATION:** It replaces vague terms like "infrequently" and "slower" with quantifiable thresholds for access frequency and storage latency ratios. This makes the requirement specific, measurable, and verifiable, enabling clear testing and implementation.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: This requirement is intended to allow for cases where cases used infrequently are stored on slower media than more active records.
+     Issue: Contains comparative term 'slower' (POS: JJR) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+========================================================================
+SUPERLATIVE TERMS
+========================================================================
+
+1. Document: 0000 - cctns.txt
+   Sentence #11
+   Keyword: 'most' (POS Tag: JJS)
+   Sentence: The Investigation module of the CCTNS facilitates the investigation process and introduces operational efficiencies by automating most of the tasks that take place after initial entries are made during Registration.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  IMPROVED: The Investigation module of the CCTNS automates at least 80% of the manual tasks that occur after initial entries are made during Registration, thereby reducing the average investigation processing time by 25%.
+
+2.  EXPLANATION: Replaced the vague "most" with a quantifiable percentage for automation. It also makes "operational efficiencies" measurable by defining a specific reduction in processing time.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The Investigation module of the CCTNS facilitates the investigation process and introduces operational efficiencies by automating most of the tasks that take place after initial entries are made during Registration.
+     Issue: Contains superlative term 'most' (POS: JJS) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+2. Document: 0000 - cctns.txt
+   Sentence #50
+   Keyword: 'least' (POS Tag: JJS)
+   Sentence: The System must maintain the audit trail for as long as required, which will be at least for the life of the case to which it refers.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "The System must maintain the audit trail for the life of the case to which it refers, plus an additional 7 years after the case is closed."
+
+2.  **EXPLANATION:** This version defines a specific and measurable retention period, removing the vague "as long as required" and "at least" to make it testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must maintain the audit trail for as long as required, which will be at least for the life of the case to which it refers.
+     Issue: Contains superlative term 'least' (POS: JJS) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+3. Document: 0000 - cctns.txt
+   Sentence #79
+   Keyword: 'most' (POS Tag: RBS)
+   Sentence: Note that the requirement in the third option (i.e. the most stringent) implies that the System must not include such cases in any count of search results; this level of security is normally appropriate for cases dealing with matters such as national security.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System shall implement an absolute exclusion, ensuring that such cases are never included in any count of search results. This stringent level of security is mandated for critical contexts such as national security.
+2.  **EXPLANATION:** It replaces the vague "most stringent" with specific, measurable terms like "absolute exclusion" and "never included." The requirement now clearly defines the system's behavior without relying on external context or subjective superlatives.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Note that the requirement in the third option (i.e. the most stringent) implies that the System must not include such cases in any count of search results; this level of security is normally appropriate for cases dealing with matters such as national security.
+     Issue: Contains superlative term 'most' (POS: RBS) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+4. Document: 0000 - cctns.txt
+   Sentence #287
+   Keyword: 'most' (POS Tag: JJS)
+   Sentence: A hierarchical cache should be configured and used for caching of results of most
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** A hierarchical cache shall be configured and used to cache results from the top 75% of distinct queries, based on their execution frequency.
+2.  **EXPLANATION:** This replaces the vague term "most" with a specific, measurable percentage (75%) and defines the criterion for selection (execution frequency of distinct queries). It makes the requirement testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: A hierarchical cache should be configured and used for caching of results of most
+     Issue: Contains superlative term 'most' (POS: JJS) which may be vague.
+     Suggestions:
+      - Replace with specific numeric thresholds, e.g., 'shall respond within 2 seconds' or 'shall process 1000 TPS'.
+      - If comparing to baseline, state the baseline and metric (e.g., '30% faster than v1.2 in 95th percentile latency').
+      - Use units (ms, s, %), sample sizes, percentiles, or standards to make testable.
+------------------------------------------------------------------------
+
+========================================================================
+NON-ATOMIC REQUIREMENTS
+========================================================================
+
+1. Document: 0000 - cctns.txt
+   Sentence #8
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 4
+   Sentence: Registration
+Citizens can register their complaints with police and then based on the evidence, facts and following investigation, police shall take the complaint forward.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED**: "Citizens shall be able to register their complaints with the police."
+2.  **EXPLANATION**: This requirement is now atomic, focusing solely on the user's ability to register. It removes the subsequent police process description, which should be a separate requirement.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Registration
+Citizens can register their complaints with police and then based on the evidence, facts and following investigation, police shall take the complaint forward.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: Registration
+Citizens can register their complaints with police
+      - REQ-X.2: The system shall then based on the evidence, facts
+      - REQ-X.3: following investigation, police shall take the complaint forward
+------------------------------------------------------------------------
+
+2. Document: 0000 - cctns.txt
+   Sentence #33
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: The solution should provide an interface for the user to log any defects or enhancement requests on the application and track thereafter.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The solution shall provide a user interface enabling users to submit defect reports and enhancement requests, and to view the status and history of their submitted items.
+
+2.  **EXPLANATION:** It clarifies "track thereafter" into specific, measurable actions (view status and history). The requirement now clearly distinguishes the capabilities of submission and tracking provided by the interface.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The solution should provide an interface for the user to log any defects or enhancement requests on the application and track thereafter.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: The solution should provide an interface for the user to log any defects or enhancement requests on the application
+      - REQ-X.2: The system should track thereafter
+------------------------------------------------------------------------
+
+3. Document: 0000 - cctns.txt
+   Sentence #36
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 3
+   Sentence: The solution should enable the user to track the submitted defect or enhancement request.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The solution shall enable the user to view the current status and historical updates for any submitted item, including defects and enhancement requests.
+2.  **EXPLANATION:** This requirement clarifies "track" into measurable actions (view status, history) and removes the ambiguous "or" by using "including" to define the scope of items covered by the tracking feature.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The solution should enable the user to track the submitted defect or enhancement request.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The solution should enable the user to track the submitted defect
+      - REQ-X.2: The system should enhancement request
+------------------------------------------------------------------------
+
+4. Document: 0000 - cctns.txt
+   Sentence #38
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: The solution should enable the help-desk user to view the reports on the submitted defects or enhancement requests category-wise, status-wise, and age- wise.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "The solution shall enable the help-desk user to view, filter, and group reports on submitted defects or enhancement requests by Category, Status, and Age, individually or in combination."
+
+2.  **EXPLANATION:** This explicitly defines the interactive capabilities (view, filter, group) and clarifies that the listed criteria (Category, Status, Age) can be used independently or combined for analysis, removing the ambiguity of the "and".
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The solution should enable the help-desk user to view the reports on the submitted defects or enhancement requests category-wise, status-wise, and age- wise.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The solution should enable the help-desk user to view the reports on the submitted defects or enhancement requests category-wise, status-wise
+      - REQ-X.2: The system should age- wise
+------------------------------------------------------------------------
+
+5. Document: 0000 - cctns.txt
+   Sentence #44
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 5
+   Sentence: The System must keep an unalterable audit trail capable of automatically capturing and storing information about:
+* All the actions (create/read/update/delete) that are taken upon the critical entities (case, suspect, property,...) in the system
+*
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System must maintain an unalterable audit trail. For every Create, Read, Update, and Delete action performed on any critical entity (e.g., Case, Suspect, Property), the system must automatically capture and record the following information: the user performing the action, the specific action taken, the timestamp of the action, the critical entity type and identifier, and relevant data changes (for Create, Update, and Delete actions).
+
+2.  **EXPLANATION:** This revision explicitly details the information required for each audited event, making the requirement specific and measurable. It clarifies the scope and content of the audit trail by enumerating its atomic components.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must keep an unalterable audit trail capable of automatically capturing and storing information about:
+* All the actions (create/read/update/delete) that are taken upon the critical entities (case, suspect, property,...) in the system
+*
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must keep an unalterable audit trail capable of automatically capturing
+      - REQ-X.2: The system must storing information about:
+* All the actions (create/read/update/delete) that are taken upon the critical entities (case, suspect, property,...) in the system
+*
+------------------------------------------------------------------------
+
+6. Document: 0000 - cctns.txt
+   Sentence #47
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 5
+   Sentence: * Administrative parameters
+The word "unalterable" is to mean that the audit trail data cannot be modified in any way or deleted by any user; it may be subject to re-department and copying to removable media if required, so long as its contents remain unchanged.
+
+2.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The word "unalterable" means audit trail data cannot be modified or deleted by any user. Audit trail data may be re-departmented if required, provided its contents remain unchanged. Audit trail data may also be copied to removable media if required, provided its contents remain unchanged.
+
+2.  **EXPLANATION:** Separates the compound "re-department and copying" into two distinct, atomic permissions. This clarifies that re-departmenting and copying are independent allowed actions, each subject to the stated conditions.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: * Administrative parameters
+The word "unalterable" is to mean that the audit trail data cannot be modified in any way or deleted by any user; it may be subject to re-department and copying to removable media if required, so long as its contents remain unchanged.
+
+2.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: * Administrative parameters
+The word "unalterable" is to mean that the audit trail data cannot be modified in any way or deleted by any user; it may be subject to re-department
+      - REQ-X.2: The system shall copying to removable media if required, so long as its contents remain unchanged.
+
+2
+------------------------------------------------------------------------
+
+7. Document: 0000 - cctns.txt
+   Sentence #48
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: Once the audit trail functionality has been activated, the System must track events without manual intervention, and store in the audit trail information about them.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Once the audit trail functionality has been activated, the System must automatically record all audited event data into the audit trail.
+
+2.  **EXPLANATION:** "Automatically record" replaces the compound "track... and store" with a single, clear action. "All audited event data" specifies the information to be stored, making the requirement more precise and measurable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Once the audit trail functionality has been activated, the System must track events without manual intervention, and store in the audit trail information about them.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: Once the audit trail functionality has been activated, the System must track events without manual intervention
+      - REQ-X.2: The system must store in the audit trail information about them
+------------------------------------------------------------------------
+
+8. Document: 0000 - cctns.txt
+   Sentence #52
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 7
+   Sentence: The System must ensure that audit trail data is available for inspection on request, so that a specific event can be identified and all related data made accessible, and that this can be achieved by authorised external personnel who have little or no familiarity with the system.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System shall provide an intuitive interface for authorized external personnel with minimal system familiarity to retrieve and inspect audit trail data. This interface must enable the identification of specific events and the comprehensive accessibility of all data related to such events, upon request.
+2.  **EXPLANATION:** The original requirement used "and" to combine a functional capability with a user experience constraint. The improved version integrates the user persona and their needs as a primary constraint, making the requirement more cohesive, specific, and actionable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must ensure that audit trail data is available for inspection on request, so that a specific event can be identified and all related data made accessible, and that this can be achieved by authorised external personnel who have little or no familiarity with the system.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 7 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must ensure that audit trail data is available for inspection on request, so that a specific event can be identified
+      - REQ-X.2: The system must all related data made accessible
+      - REQ-X.3: The system must that this can be achieved by authorised external personnel who have little or no familiarity with the system
+------------------------------------------------------------------------
+
+9. Document: 0000 - cctns.txt
+   Sentence #57
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 6
+   Sentence: The System must be able to capture and store violations (i.e. A user's attempts to access a case to which he is denied access), and (where violations can validly be attempted) attempted violations, of access control mechanisms.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System must capture and store:
+    1.  Events where a user attempts to access a case and is denied due to lack of authorization.
+    2.  Other attempted bypasses or probes of access control mechanisms.
+
+2.  **EXPLANATION:** The requirement is split into two distinct, measurable types of access control events. Ambiguous and contradictory phrasing, such as "where violations can validly be attempted," has been removed.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must be able to capture and store violations (i.e. A user's attempts to access a case to which he is denied access), and (where violations can validly be attempted) attempted violations, of access control mechanisms.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 6 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must be able to capture
+      - REQ-X.2: The system must store violations (i.e. A user's attempts to access a case to which he is denied access)
+      - REQ-X.3: The system must (where violations can validly be attempted) attempted violations, of access control mechanisms
+------------------------------------------------------------------------
+
+10. Document: 0000 - cctns.txt
+   Sentence #62
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: The System should be able to provide reports for actions on cases organised by workstation and (where technically appropriate) by network address.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "The System shall provide reports for actions on cases, with options to organize or filter the report data by workstation and, where technically appropriate, by network address."
+2.  **EXPLANATION:** The original "and" was ambiguous about whether it meant combined organization or two separate reporting capabilities. The improved requirement clarifies that both workstation and network address are distinct *options* for organizing or filtering report data, making it specific and testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System should be able to provide reports for actions on cases organised by workstation and (where technically appropriate) by network address.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: The System should be able to provide reports for actions on cases organised by workstation
+      - REQ-X.2: The system should (where technically appropriate) by network address
+------------------------------------------------------------------------
+
+11. Document: 0000 - cctns.txt
+   Sentence #65
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 3
+   Sentence: The System must allow the user to limit access to cases to specified users or user groups.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System must allow the user to limit access to cases by specifying individual users and/or user groups.
+2.  **EXPLANATION:** This clarifies that access can be limited by individual users, user groups, or a combination of both, addressing the ambiguity of the original "or". It makes the requirement more specific and testable by explicitly covering all logical possibilities for access limitation.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must allow the user to limit access to cases to specified users or user groups.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must allow the user to limit access to cases to specified users
+      - REQ-X.2: The system must user groups
+------------------------------------------------------------------------
+
+12. Document: 0000 - cctns.txt
+   Sentence #71
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: The System must allow only admin-users to set up user profiles and allocate users to groups.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: The System must allow only admin-users to perform distinct actions for user management: setting up user profiles, and allocating users to groups.
+
+2. EXPLANATION: This explicitly clarifies that the "and" connects two distinct actions, enhancing atomicity and making each capability independently verifiable and testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must allow only admin-users to set up user profiles and allocate users to groups.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must allow only admin-users to set up user profiles
+      - REQ-X.2: The system must allocate users to groups
+------------------------------------------------------------------------
+
+13. Document: 0000 - cctns.txt
+   Sentence #73
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 3
+   Sentence: The System should allow a user to stipulate which other users or groups can access cases.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: The System shall allow a user to stipulate access for specific individual users and for defined user groups to cases.
+
+2. EXPLANATION: This clarifies that both individual users *and* user groups can be granted access, removing the ambiguity of "or". It makes the requirement more precise and testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System should allow a user to stipulate which other users or groups can access cases.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The System should allow a user to stipulate which other users
+      - REQ-X.2: The system should groups can access cases
+------------------------------------------------------------------------
+
+14. Document: 0000 - cctns.txt
+   Sentence #75
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: The System must allow changes to security attributes for groups or users (such as access rights, security level, privileges, password allocation and management) to be made only by super-user.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System must allow modifications to security attributes for groups or users (such as access rights, security level, privileges, and password attributes) to be made only by a super-user.
+
+2.  **EXPLANATION:** Replaced the compound "password allocation and management" with the atomic "password attributes." This clarifies the scope of attributes to be managed, making the requirement more specific and testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must allow changes to security attributes for groups or users (such as access rights, security level, privileges, password allocation and management) to be made only by super-user.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must allow changes to security attributes for groups or users (such as access rights, security level, privileges, password allocation
+      - REQ-X.2: The system must management) to be made only by super-user
+------------------------------------------------------------------------
+
+15. Document: 0000 - cctns.txt
+   Sentence #77
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 8
+   Sentence: If a user requests access to, or searches for, a case which he does not have the right to access, the System must provide one of the following responses (selectable at configuration time):
+* display title and metadata;
+* display the existence of a case but not its title or other metadata;
+* do not display any case information or indicate its existence in any way.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED:
+"If a user requests access to, or searches for, a case for which they do not have authorization, the System must provide one of the following responses (selectable at configuration time):
+* display the case title and a pre-defined set of metadata fields;
+* display the existence of a case but not its title or other metadata;
+* do not display any case information or indicate its existence in any way."
+
+2. EXPLANATION:
+Clarifies "metadata" as a "pre-defined set of metadata fields" to make the term atomic and remove vagueness. This ensures the requirement is specific and measurable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: If a user requests access to, or searches for, a case which he does not have the right to access, the System must provide one of the following responses (selectable at configuration time):
+* display title and metadata;
+* display the existence of a case but not its title or other metadata;
+* do not display any case information or indicate its existence in any way.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 8 action verbs.
+     Suggestions:
+      - REQ-X.1: If a user requests access to, or searches for, a case which he does not have the right to access, the System must provide one of the following responses (selectable at configuration time):
+* display title
+      - REQ-X.2: The system must metadata;
+* display the existence of a case but not its title or other metadata;
+* do not display any case information or indicate its existence in any way
+------------------------------------------------------------------------
+
+16. Document: 0000 - cctns.txt
+   Sentence #81
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 4
+   Sentence: If a user performs a quick or advanced search, the System must never include in the search result list any record which the user does not have the right to access.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** When a user performs any search, the System must ensure the search result list exclusively contains records for which the user has authorized access.
+
+2.  **EXPLANATION:** This improvement replaces the non-atomic "quick or advanced search" with "any search," making the condition singular and unambiguous. It ensures consistent application of access control regardless of the specific search method.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: If a user performs a quick or advanced search, the System must never include in the search result list any record which the user does not have the right to access.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: If a user performs a quick
+      - REQ-X.2: advanced search, the System must never include in the search result list any record which the user does not have the right to access
+------------------------------------------------------------------------
+
+17. Document: 0000 - cctns.txt
+   Sentence #85
+   Coordinator: 'and' (count: 3)
+   Action Verbs: 6
+   Sentence: Any access to cases, and all other activities involving the cases and related documents or data should also need to be stored in the audit trail to ensure legal admissibility and to assist in data recovery.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** All user activities, including creation, modification, deletion, and access, pertaining to cases, their associated documents, and their associated data shall be recorded in the audit trail. This audit trail is required to ensure legal admissibility and to facilitate data recovery.
+
+2.  **EXPLANATION:** Explicitly lists audit-triggering activities (creation, modification, deletion, access) and all distinct audited entities (cases, documents, data). This removes ambiguity from compound "and" phrases, ensuring clear scope and testability.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Any access to cases, and all other activities involving the cases and related documents or data should also need to be stored in the audit trail to ensure legal admissibility and to assist in data recovery.
+     Issue: Non-atomic requirement using coordinator 'and' (3 times).
+     Contains 6 action verbs.
+     Suggestions:
+      - REQ-X.1: Any access to cases
+      - REQ-X.2: The system should all other activities involving the cases
+      - REQ-X.3: related documents or data should also need to be stored in the audit trail to ensure legal admissibility
+      - REQ-X.4: The system should to assist in data recovery
+------------------------------------------------------------------------
+
+18. Document: 0000 - cctns.txt
+   Sentence #88
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: Ideally, each error message will be accompanied by explanatory text and an indication of the action(s) which the user can take in response to the error.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Each error message shall provide explanatory text and clearly indicate the specific action(s) a user can take to resolve the error.
+2.  **EXPLANATION:** The term "ideally" is removed, making the requirement mandatory. "Clearly indicate" improves measurability for the action(s), enhancing atomicity by delineating the two distinct, required components.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Ideally, each error message will be accompanied by explanatory text and an indication of the action(s) which the user can take in response to the error.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: Ideally, each error message will be accompanied by explanatory text
+      - REQ-X.2: The system will an indication of the action(s) which the user can take in response to the error
+------------------------------------------------------------------------
+
+19. Document: 0000 - cctns.txt
+   Sentence #90
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 3
+   Sentence: The System must employ a single set of user interface rules, or a small number of sets to provide a familiar and common look and feel for the application.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System must adhere to a maximum of two distinct sets of user interface rules to ensure a consistent user experience across all application modules, as defined by the UI/UX Style Guide vX.X.
+2.  **EXPLANATION:** "Small number" is quantified to remove ambiguity. "Familiar and common look and feel" is replaced by measurable consistency against a specific UI/UX style guide.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must employ a single set of user interface rules, or a small number of sets to provide a familiar and common look and feel for the application.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must employ a single set of user interface rules, or a small number of sets to provide a familiar
+      - REQ-X.2: The system must common look
+      - REQ-X.3: The system must feel for the application
+------------------------------------------------------------------------
+
+20. Document: 0000 - cctns.txt
+   Sentence #99
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 3
+   Sentence: The System must provide End User and Administrator functions which are easy to use and intuitive throughout.
+
+
+
+7.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED**: The System shall achieve a minimum System Usability Scale (SUS) score of 70 for both End User and Administrator functions when evaluated with representative user tasks.
+
+2.  **EXPLANATION**: This requirement replaces subjective terms ("easy to use," "intuitive") with the quantifiable "System Usability Scale (SUS) score" and a specific target (70). This makes the requirement measurable, testable, and removes the ambiguity of the original "and."
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must provide End User and Administrator functions which are easy to use and intuitive throughout.
+
+
+
+7.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must provide End User
+      - REQ-X.2: The system must Administrator functions which are easy to use
+      - REQ-X.3: The system must intuitive throughout.
+
+
+
+7
+------------------------------------------------------------------------
+
+21. Document: 0000 - cctns.txt
+   Sentence #103
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: Customisation should include, but need not be limited to the following changes:
+* menu contents;
+* layout of screens;
+* use of function keys;
+* on-screen colours, fonts and font sizes;
+
+
+Usability
+1.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED:
+The system shall allow users to customise, but not be limited to, the following aspects:
+*   Menu contents.
+*   Layout of screens.
+*   Assignment of function keys.
+*   On-screen colours.
+*   On-screen fonts.
+*   On-screen font sizes.
+
+Usability
+1.
+
+2. EXPLANATION:
+This version separates combined elements into distinct, atomic requirements, making each customisation option individually measurable and testable. It removes ambiguity inherent in compound terms, improving clarity for implementation and verification.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Customisation should include, but need not be limited to the following changes:
+* menu contents;
+* layout of screens;
+* use of function keys;
+* on-screen colours, fonts and font sizes;
+
+
+Usability
+1.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: Customisation should include, but need not be limited to the following changes:
+* menu contents;
+* layout of screens;
+* use of function keys;
+* on-screen colours, fonts
+      - REQ-X.2: The system should font sizes;
+
+
+Usability
+1
+------------------------------------------------------------------------
+
+22. Document: 0000 - cctns.txt
+   Sentence #113
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: 4.
+Providing text equivalents for non-text media objects: All non-text media objects, such as graphical images or video, should be provided with alternative equivalent textual descriptions and/or with equivalent text-based functionality.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** All non-text media objects (e.g., graphical images, video) shall be provided with an equivalent text alternative. This alternative shall be a textual description for informational content, and equivalent text-based functionality for interactive content. When an object contains both informational and interactive elements, both a textual description and equivalent text-based functionality shall be provided.
+
+2.  **EXPLANATION:** This version explicitly defines when to provide a textual description, when to provide text-based functionality, and when both are required. This removes the ambiguity of "and/or" and makes the requirement clearly testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: 4.
+Providing text equivalents for non-text media objects: All non-text media objects, such as graphical images or video, should be provided with alternative equivalent textual descriptions and/or with equivalent text-based functionality.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: 4.
+Providing text equivalents for non-text media objects: All non-text media objects, such as graphical images or video, should be provided with alternative equivalent textual descriptions
+      - REQ-X.2: The system should /or with equivalent text-based functionality
+------------------------------------------------------------------------
+
+23. Document: 0000 - cctns.txt
+   Sentence #114
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 5
+   Sentence: 5.
+Making navigation self-descriptive: Navigation should be designed to help users understand where they are, where they have been and where they can go next.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  IMPROVED:
+    *   **5.1.** The navigation shall visually indicate the user's current location within the system.
+    *   **5.2.** The navigation shall provide a visible and navigable trail (e.g., breadcrumbs) of the user's path.
+    *   **5.3.** The navigation shall clearly display all immediate available navigation options and actions from the current view.
+
+2.  EXPLANATION: The original compound "and" is split into three distinct, atomic requirements. This makes each part independently specific, measurable, and testable, eliminating vagueness.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: 5.
+Making navigation self-descriptive: Navigation should be designed to help users understand where they are, where they have been and where they can go next.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: 5.
+Making navigation self-descriptive: Navigation should be designed to help users understand where they are, where they have been
+      - REQ-X.2: The system should where they can go next
+------------------------------------------------------------------------
+
+24. Document: 0000 - cctns.txt
+   Sentence #117
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 2
+   Sentence: Showing users where they are: Each presentation segment (page or window) should provide the user with a clear and sufficient indication of where he or she is in the navigation structure and of the current segment position with respect to the overall structure.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Each presentation segment (page or window) shall clearly display the user's hierarchical position within the navigation structure (e.g., 'Home > Section > Page') and its sequential position within the overall process flow (e.g., 'Step X of Y').
+2.  **EXPLANATION:** This explicitly defines the two distinct pieces of information required. Measurable examples are provided for each, clarifying "clear and sufficient indication."
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Showing users where they are: Each presentation segment (page or window) should provide the user with a clear and sufficient indication of where he or she is in the navigation structure and of the current segment position with respect to the overall structure.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: Showing users where they are: Each presentation segment (page or window) should provide the user with a clear
+      - REQ-X.2: The system should sufficient indication of where he or she is in the navigation structure
+      - REQ-X.3: The system should of the current segment position with respect to the overall structure
+------------------------------------------------------------------------
+
+25. Document: 0000 - cctns.txt
+   Sentence #121
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 5
+   Sentence: Minimizing navigation effort: The number of navigation steps needed to reach a certain piece of content should be minimized as long as different mental models, navigation strategies and tasks of the user are taken into account.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall enable users to reach any core content item within a maximum of 3 navigation steps, ensuring a task completion rate of at least 90% when evaluated with user personas representing diverse mental models, navigation strategies, and tasks.
+
+2.  **EXPLANATION:** This version defines "minimized" with a measurable step count and replaces the vague "taken into account" with specific, testable usability criteria using diverse user personas. This addresses the non-atomic "and" by making the combined consideration measurable through evaluation.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Minimizing navigation effort: The number of navigation steps needed to reach a certain piece of content should be minimized as long as different mental models, navigation strategies and tasks of the user are taken into account.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Minimizing navigation effort: The number of navigation steps needed to reach a certain piece of content should be minimized as long as different mental models, navigation strategies
+      - REQ-X.2: The system should tasks of the user are taken into account
+------------------------------------------------------------------------
+
+26. Document: 0000 - cctns.txt
+   Sentence #123
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 2
+   Sentence: Splash screens should be avoided unless they provide useful content or feedback about the application state to the user.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "Splash screens are permissible only if they display essential branding or version information, or provide continuous, real-time progress feedback during a prolonged application loading state."
+
+2.  **EXPLANATION:** This version replaces the vague term "useful content" with specific examples (branding/version) and clarifies "feedback about application state" to be measurable, real-time progress during prolonged loading.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Splash screens should be avoided unless they provide useful content or feedback about the application state to the user.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: Splash screens should be avoided unless they provide useful content
+      - REQ-X.2: The system should feedback about the application state to the user
+------------------------------------------------------------------------
+
+27. Document: 0000 - cctns.txt
+   Sentence #126
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 5
+   Sentence: Avoiding opening unnecessary windows: Additional windows such as new browser windows or pop-up windows should only be opened if this supports the user's task.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** New browser windows and pop-up windows shall only be opened if their content or functionality is strictly required for the user to complete their current step in the primary workflow.
+
+2.  **EXPLANATION:** This revision replaces "or" with "and", clarifying that the constraint applies to both window types independently. It also enhances verifiability by defining necessity more specifically with "strictly required" and "current step in the primary workflow."
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Avoiding opening unnecessary windows: Additional windows such as new browser windows or pop-up windows should only be opened if this supports the user's task.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Avoiding opening unnecessary windows: Additional windows such as new browser windows
+      - REQ-X.2: pop-up windows should only be opened if this supports the user's task
+------------------------------------------------------------------------
+
+28. Document: 0000 - cctns.txt
+   Sentence #143
+   Coordinator: 'and' (count: 3)
+   Action Verbs: 4
+   Sentence: : Application pages should be designed and implemented so that there are acceptable opening times and download times for the expected range of technical contexts of use (e.g. bandwidth between the application and the user).
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Application pages shall fully load and become interactive within 3 seconds for users on a 3G connection (500 kbps) and within 1 second for users on a broadband connection (10 Mbps).
+2.  **EXPLANATION:** The vague "acceptable opening and download times" is replaced with specific, measurable durations for page load and interactivity. "Expected range of technical contexts" is clarified with defined bandwidth scenarios, making the requirement testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: : Application pages should be designed and implemented so that there are acceptable opening times and download times for the expected range of technical contexts of use (e.g. bandwidth between the application and the user).
+     Issue: Non-atomic requirement using coordinator 'and' (3 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: : Application pages should be designed
+      - REQ-X.2: The system should implemented so that there are acceptable opening times
+      - REQ-X.3: The system should download times for the expected range of technical contexts of use (e.g. bandwidth between the application
+      - REQ-X.4: The system should the user)
+------------------------------------------------------------------------
+
+29. Document: 0000 - cctns.txt
+   Sentence #145
+   Coordinator: 'as well as' (count: 1)
+   Action Verbs: 4
+   Sentence: Minimizing user errors:	Potential user errors as well as the effort needed to recover from errors should be minimized.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall minimize critical user errors, ensuring an occurrence rate of less than [X] critical errors per [Y] user interactions, and facilitate efficient recovery, enabling users to resolve any encountered errors within an average of [Z] seconds.
+
+2.  **EXPLANATION:** This separates the original compound statement into two distinct, measurable objectives: error prevention and recovery. It provides clear placeholders for quantifiable targets, making the requirement specific and testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Minimizing user errors:	Potential user errors as well as the effort needed to recover from errors should be minimized.
+     Issue: Non-atomic requirement using coordinator 'as well as' (1 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: Minimizing user errors:	Potential user errors
+      - REQ-X.2: the effort needed to recover from errors should be minimized
+------------------------------------------------------------------------
+
+30. Document: 0000 - cctns.txt
+   Sentence #147
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 6
+   Sentence: Providing clear error messages: The content of error messages shown on the pages or special error pages should clearly state the reason why the error occurred and, if possible, actions the user can take to resolve the error.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: Error messages must clearly state the specific reason for the error's occurrence and, where applicable, provide actionable steps for the user to resolve it.
+
+2. EXPLANATION: This version replaces vague terms ("reason why it occurred", "if possible") with precise, measurable ones ("specific reason", "where applicable"). It clarifies the conditionality of providing actions, making the combined requirement atomic by defining the exact scope of each part.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Providing clear error messages: The content of error messages shown on the pages or special error pages should clearly state the reason why the error occurred and, if possible, actions the user can take to resolve the error.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 6 action verbs.
+     Suggestions:
+      - REQ-X.1: Providing clear error messages: The content of error messages shown on the pages or special error pages should clearly state the reason why the error occurred
+      - REQ-X.2: The system should if possible, actions the user can take to resolve the error
+------------------------------------------------------------------------
+
+31. Document: 0000 - cctns.txt
+   Sentence #150
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 3
+   Sentence: Using appropriate formats, units of measurement or currency: When designing user interfaces for use by diverse groups, input and output of information elements such as currency, units of measurement, temperatures, date and time, phone numbers, address or postal codes should be designed so that they are usable.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** User interfaces must dynamically format input and output of information elements (e.g., currency, units of measurement, temperatures, date/time, phone numbers, addresses, postal codes) according to the user's specified locale or preferences to ensure proper comprehension and interaction.
+2.  **EXPLANATION:** The improved requirement defines 'usable' with specific, measurable criteria (locale/preferences), making it atomic and testable. It replaces vague 'appropriate formats' with clear behavioral standards for the 'input and output' scope.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Using appropriate formats, units of measurement or currency: When designing user interfaces for use by diverse groups, input and output of information elements such as currency, units of measurement, temperatures, date and time, phone numbers, address or postal codes should be designed so that they are usable.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: Using appropriate formats, units of measurement or currency: When designing user interfaces for use by diverse groups, input
+      - REQ-X.2: The system should output of information elements such as currency, units of measurement, temperatures, date
+      - REQ-X.3: time, phone numbers, address or postal codes should be designed so that they are usable
+------------------------------------------------------------------------
+
+32. Document: 0000 - cctns.txt
+   Sentence #152
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 5
+   Sentence: Making text resizable by the user: Text should be able to be resized by the user, using functions provided by the user agent or other appropriate means i.e. see ISO 9241-171.
+
+19.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: Text shall be resizable by the user, either via user agent functions (e.g., browser zoom) or dedicated application controls (e.g., zoom buttons, keyboard shortcuts).
+2. EXPLANATION: This version clarifies the ambiguous "or other appropriate means" by explicitly defining the expected mechanisms. It makes the requirement specific and measurable by outlining testable methods for text resizing.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Making text resizable by the user: Text should be able to be resized by the user, using functions provided by the user agent or other appropriate means i.e. see ISO 9241-171.
+
+19.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Making text resizable by the user: Text should be able to be resized by the user, using functions provided by the user agent
+      - REQ-X.2: The system should other appropriate means i.e. see ISO 9241-171.
+
+19
+------------------------------------------------------------------------
+
+33. Document: 0000 - cctns.txt
+   Sentence #154
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: Writing style: The reading and understanding of the textual content on the screen should be supported by suitable means, including the use of short sentences, the division of the text into shorter chunks or the presentation of content items in the form of bullet points.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Textual content on the screen shall support readability and comprehension through the following: average sentence length shall not exceed 20 words; paragraphs shall contain no more than 5 sentences; and lists of three or more items shall utilize bullet points.
+2.  **EXPLANATION:** This revision transforms vague goals into three specific, measurable, and verifiable criteria for content structure. It eliminates ambiguity and provides clear standards for implementation.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Writing style: The reading and understanding of the textual content on the screen should be supported by suitable means, including the use of short sentences, the division of the text into shorter chunks or the presentation of content items in the form of bullet points.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: Writing style: The reading
+      - REQ-X.2: understanding of the textual content on the screen should be supported by suitable means, including the use of short sentences, the division of the text into shorter chunks or the presentation of content items in the form of bullet points
+------------------------------------------------------------------------
+
+34. Document: 0000 - cctns.txt
+   Sentence #156
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 3
+   Sentence: Supporting text skimming: Fast skimming of text should be supported by the provision of clear links, bulleted lists, highlighted keywords, logical headings, and short phrases and sentences.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: "Text content shall be designed for efficient identification and extraction of key information by users, utilizing a strategic combination of formatting elements such as clear links, bulleted lists, highlighted keywords, logical headings, and concise phrases and sentences."
+
+2. EXPLANATION: This rephrasing replaces the mandatory conjunction ("and") with an illustrative list ("such as"), making the requirement atomic and allowing flexibility. It also introduces a more specific and measurable goal ("efficient identification and extraction of key information").
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Supporting text skimming: Fast skimming of text should be supported by the provision of clear links, bulleted lists, highlighted keywords, logical headings, and short phrases and sentences.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: Supporting text skimming: Fast skimming of text should be supported by the provision of clear links, bulleted lists, highlighted keywords, logical headings
+      - REQ-X.2: The system should short phrases
+      - REQ-X.3: The system should sentences
+------------------------------------------------------------------------
+
+35. Document: 0000 - cctns.txt
+   Sentence #158
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: Readability of text: Text presented on the pages should be readable taking into account the expected display characteristics and spatial arrangement.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Text presented on the pages shall comply with WCAG 2.1 Level AA success criteria for text contrast and minimum font size.
+
+2.  **EXPLANATION:** This requirement is specific and measurable by referencing WCAG 2.1 Level AA criteria for readability. It removes the vague "taking into account" and implicitly addresses display characteristics and spatial arrangement without a compound "and."
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Readability of text: Text presented on the pages should be readable taking into account the expected display characteristics and spatial arrangement.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: Readability of text: Text presented on the pages should be readable taking into account the expected display characteristics
+      - REQ-X.2: The system should spatial arrangement
+------------------------------------------------------------------------
+
+36. Document: 0000 - cctns.txt
+   Sentence #166
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 5
+   Sentence: Using familiar terminology for navigation links: Navigation links - particularly links representing the main navigation structure - should be labelled with terms that are familiar to the user, based on his/her general knowledge, prior experience in the application domain or experience of using other systems.
+
+
+26.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Navigation links, particularly for the main navigation structure, shall be labeled using terms that are defined in the project's approved terminology glossary or are understood by at least 80% of the target user base during comprehension testing.
+
+2.  **EXPLANATION:** This requirement is now specific and measurable by defining "familiar terminology" through two verifiable criteria. It replaces the vague "based on general knowledge or experience" with concrete, testable conditions.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Using familiar terminology for navigation links: Navigation links - particularly links representing the main navigation structure - should be labelled with terms that are familiar to the user, based on his/her general knowledge, prior experience in the application domain or experience of using other systems.
+
+
+26.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Using familiar terminology for navigation links: Navigation links - particularly links representing the main navigation structure - should be labelled with terms that are familiar to the user, based on his/her general knowledge, prior experience in the application domain
+      - REQ-X.2: The system should experience of using other systems.
+
+
+26
+------------------------------------------------------------------------
+
+37. Document: 0000 - cctns.txt
+   Sentence #167
+   Coordinator: 'or' (count: 3)
+   Action Verbs: 6
+   Sentence: Using descriptive link labels: The target or purpose of a link should be directly indicated by its label, avoiding generic labels such as "go" or "click here" except where the purpose of the link is clear from its context on the page or the labels have commonly understood semantics in the particular application domain.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: Each link label shall uniquely and descriptively identify its target resource or intended action. Generic labels such as 'go' or 'click here' are forbidden, unless the label's meaning is unambiguously clear to an average user, either from its immediate contextual placement on the page, or by its inclusion in the project's approved and documented domain-specific terminology.
+
+2. EXPLANATION: This version makes both the core requirement and its exceptions specific and measurable. The "or" clause is clarified by making its conditions verifiable against user perception and documented standards.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Using descriptive link labels: The target or purpose of a link should be directly indicated by its label, avoiding generic labels such as "go" or "click here" except where the purpose of the link is clear from its context on the page or the labels have commonly understood semantics in the particular application domain.
+     Issue: Non-atomic requirement using coordinator 'or' (3 times).
+     Contains 6 action verbs.
+     Suggestions:
+      - REQ-X.1: Using descriptive link labels: The target
+      - REQ-X.2: purpose of a link should be directly indicated by its label, avoiding generic labels such as "go"
+      - REQ-X.3: The system should "click here" except where the purpose of the link is clear from its context on the page
+      - REQ-X.4: The system should the labels have commonly understood semantics in the particular application domain
+------------------------------------------------------------------------
+
+38. Document: 0000 - cctns.txt
+   Sentence #170
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 5
+   Sentence: Marking links opening new windows: Links that open new browser windows or pop-up windows should be clearly marked.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: "Links that open a new browser window or a new pop-up window shall be visually marked with an external link icon (e.g., ↗) and include an 'opens in new window' announcement for screen readers."
+
+2. EXPLANATION: This clarifies "clearly marked" by specifying exact visual and accessibility indicators. It addresses the non-atomic "or" by ensuring a consistent, measurable marking method for all links that open new browsing contexts.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Marking links opening new windows: Links that open new browser windows or pop-up windows should be clearly marked.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Marking links opening new windows: Links that open new browser windows
+      - REQ-X.2: pop-up windows should be clearly marked
+------------------------------------------------------------------------
+
+39. Document: 0000 - cctns.txt
+   Sentence #174
+   Coordinator: 'or' (count: 2)
+   Action Verbs: 4
+   Sentence: Providing printable document versions: If a document is either too long, dispersed over several pages or in a specific layout that is not suitable for online reading, a printer-friendly version of the document should be provided that prints the content in a form acceptable to the user (e.g. in the expected layout, paper format, or orientation).
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** A dedicated printable version of a document MUST be provided if its content exceeds 5 printed pages, OR if its online layout includes interactive elements (e.g., collapsible sections, embedded media) or styling that degrades print readability (e.g., fixed sidebars, fonts below 10pt). This version shall render all essential content in a clean, single-column layout, optimized for standard paper formats (A4/Letter) with appropriate margins, ensuring legibility and completeness.
+
+2.  **EXPLANATION:** It defines specific, measurable triggers for providing a printable version (page count, interactive elements, font size) and objective criteria for the printable output. Each condition linked by "or" is now distinct and can be objectively evaluated, removing ambiguity.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Providing printable document versions: If a document is either too long, dispersed over several pages or in a specific layout that is not suitable for online reading, a printer-friendly version of the document should be provided that prints the content in a form acceptable to the user (e.g. in the expected layout, paper format, or orientation).
+     Issue: Non-atomic requirement using coordinator 'or' (2 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: Providing printable document versions: If a document is either too long, dispersed over several pages
+      - REQ-X.2: in a specific layout that is not suitable for online reading, a printer-friendly version of the document should be provided that prints the content in a form acceptable to the user (e.g. in the expected layout, paper format
+      - REQ-X.3: The system should orientation)
+------------------------------------------------------------------------
+
+40. Document: 0000 - cctns.txt
+   Sentence #178
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: Selecting appropriate page lengths The length of a page should be selected so as to support the primary purpose and use of the page.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The length of each page shall be optimized to facilitate the user's primary task and content consumption method.
+2.  **EXPLANATION:** This version replaces vague "purpose and use" with specific, actionable drivers ("primary task" and "content consumption method"). "Optimized to facilitate" makes the requirement measurable by focusing on user outcomes.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Selecting appropriate page lengths The length of a page should be selected so as to support the primary purpose and use of the page.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: Selecting appropriate page lengths The length of a page should be selected so as to support the primary purpose
+      - REQ-X.2: The system should use of the page
+------------------------------------------------------------------------
+
+41. Document: 0000 - cctns.txt
+   Sentence #180
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 4
+   Sentence: Longer pages can be more appropriate when users want to read the content without interruptions or when the page needs to match a paper counterpart.
+
+32.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall support longer, single-scroll page layouts when presenting dedicated long-form content (e.g., articles, reports, documentation) or when the digital page must precisely replicate the layout of a physical paper document.
+
+2.  **EXPLANATION:** This revision makes each condition of the "or" clause specific and measurable. It replaces vague terms like "can be more appropriate" and "users want to read" with concrete system actions and defined content types.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Longer pages can be more appropriate when users want to read the content without interruptions or when the page needs to match a paper counterpart.
+
+32.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: Longer pages can be more appropriate when users want to read the content without interruptions
+      - REQ-X.2: The system shall when the page needs to match a paper counterpart.
+
+32
+------------------------------------------------------------------------
+
+42. Document: 0000 - cctns.txt
+   Sentence #181
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 5
+   Sentence: Using colour: Colour should be used with care, taking into account human capabilities and restrictions in perceiving colour, and not as the only means of conveying information.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Colour usage must adhere to WCAG 2.1 AA guidelines for visual contrast and colour perception accessibility, and all information conveyed via colour must also be provided through non-colour dependent indicators (e.g., text labels, patterns, icons).
+
+2.  **EXPLANATION:** The requirement replaces vague terms ('used with care') with specific, measurable standards (WCAG 2.1 AA) and explicitly requires non-colour indicators for all information. This makes both conditions joined by 'and' independently verifiable and unambiguous, improving testability.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Using colour: Colour should be used with care, taking into account human capabilities and restrictions in perceiving colour, and not as the only means of conveying information.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Using colour: Colour should be used with care, taking into account human capabilities
+      - REQ-X.2: The system should restrictions in perceiving colour
+      - REQ-X.3: The system should not as the only means of conveying information
+------------------------------------------------------------------------
+
+43. Document: 0000 - cctns.txt
+   Sentence #185
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 6
+   Sentence: Using frames with care: If frames are used, care should be taken to avoid possible problems, for example, those involving the use of the back button, bookmarking of pages, or scrolling of information.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED**: If frames are used, the system shall ensure that browser back button behavior, page bookmarking, and content scrolling operate consistently with a non-framed page, preventing unintended navigation, incorrect bookmarks, or inaccessible content.
+2.  **EXPLANATION**: This revision specifies system responsibilities for each listed issue, replacing vague "care" with measurable outcomes. It addresses the non-atomic "or" by ensuring all mentioned functionalities perform consistently with a standard non-framed page.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Using frames with care: If frames are used, care should be taken to avoid possible problems, for example, those involving the use of the back button, bookmarking of pages, or scrolling of information.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 6 action verbs.
+     Suggestions:
+      - REQ-X.1: Using frames with care: If frames are used, care should be taken to avoid possible problems, for example, those involving the use of the back button, bookmarking of pages
+      - REQ-X.2: The system should scrolling of information
+------------------------------------------------------------------------
+
+44. Document: 0000 - cctns.txt
+   Sentence #188
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 5
+   Sentence: Providing alternative text-only pages: When style sheets and/or frames are turned off it should be possible for the user to read and understand the page; alternatively, the user should be provided with an equivalent alternative text-only page.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** When stylesheets are disabled or frames are disabled, the system must provide a clearly accessible link to an equivalent text-only version of the page content.
+
+2.  **EXPLANATION:** This clarifies the conditions with a precise 'or' and provides a single, measurable outcome (providing an accessible link), removing ambiguity about native readability.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Providing alternative text-only pages: When style sheets and/or frames are turned off it should be possible for the user to read and understand the page; alternatively, the user should be provided with an equivalent alternative text-only page.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Providing alternative text-only pages: When style sheets
+      - REQ-X.2: /or frames are turned off it should be possible for the user to read
+      - REQ-X.3: understand the page; alternatively, the user should be provided with an equivalent alternative text-only page
+------------------------------------------------------------------------
+
+45. Document: 0000 - cctns.txt
+   Sentence #202
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: In addition, when designing multimedia information presentations, the design principles and recommendations described in ISO 14915-1 to ISO 14915-3 should be taken into account.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** When designing multimedia information presentations, the design must conform to the principles outlined in ISO 14915-1 to ISO 14915-3, and any non-adherence to their recommendations must be justified and documented.
+
+2.  **EXPLANATION:** This revision separates the distinct actions required for "principles" versus "recommendations," making the requirement atomic. It also replaces the vague "should be taken into account" with specific, verifiable actions for compliance and justification.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: In addition, when designing multimedia information presentations, the design principles and recommendations described in ISO 14915-1 to ISO 14915-3 should be taken into account.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: In addition, when designing multimedia information presentations, the design principles
+      - REQ-X.2: recommendations described in ISO 14915-1 to ISO 14915-3 should be taken into account
+------------------------------------------------------------------------
+
+46. Document: 0000 - cctns.txt
+   Sentence #204
+   Coordinator: 'or' (count: 2)
+   Action Verbs: 4
+   Sentence: Linking back to the home page or landmark pages: Each page should contain a link leading to the home page of the application or to a landmark page that is easy to recognize for the user.
+
+39.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** Each page shall contain a clearly identifiable link that leads directly to the application's home page.
+2.  **EXPLANATION:** This removes the ambiguous "or" clause, ensuring a consistent and measurable navigation point on every page. It also eliminates the vague term "landmark page" for improved clarity.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Linking back to the home page or landmark pages: Each page should contain a link leading to the home page of the application or to a landmark page that is easy to recognize for the user.
+
+39.
+     Issue: Non-atomic requirement using coordinator 'or' (2 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: Linking back to the home page
+      - REQ-X.2: landmark pages: Each page should contain a link leading to the home page of the application
+      - REQ-X.3: The system should to a landmark page that is easy to recognize for the user.
+
+39
+------------------------------------------------------------------------
+
+47. Document: 0000 - cctns.txt
+   Sentence #207
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 5
+   Sentence: Consistency between navigation components and content: If navigation components (or overviews) are shown in conjunction with associated content, consistency between the navigation component and the content shown should be
+maintained by indicating in the navigation component (e.g. highlighting) the topic
+
+
+
+currently visible in the content area.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** When navigation components (or overviews) are displayed alongside associated content, the navigation component shall visibly distinguish the entry corresponding to the primary content section currently displayed in the content area.
+
+2.  **EXPLANATION:** This version replaces the vague 'consistency' with a specific, measurable action (visibly distinguish) and clarifies the 'topic currently visible'. It makes the requirement atomic by defining a single, testable behavior.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Consistency between navigation components and content: If navigation components (or overviews) are shown in conjunction with associated content, consistency between the navigation component and the content shown should be
+maintained by indicating in the navigation component (e.g. highlighting) the topic
+
+
+
+currently visible in the content area.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 5 action verbs.
+     Suggestions:
+      - REQ-X.1: Consistency between navigation components
+      - REQ-X.2: The system should content: If navigation components (or overviews) are shown in conjunction with associated content, consistency between the navigation component
+      - REQ-X.3: the content shown should be
+maintained by indicating in the navigation component (e.g. highlighting) the topic
+
+
+
+currently visible in the content area
+------------------------------------------------------------------------
+
+48. Document: 0000 - cctns.txt
+   Sentence #209
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 2
+   Sentence: Placing navigation components consistently: Navigation components should be placed consistently on the pages or in the framesets in the pages of the application.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** All navigation components shall consistently appear in the identical relative screen position and possess the identical visual style across all application pages and within any embedded framesets.
+2.  **EXPLANATION:** This revision specifies the exact aspects of consistency required (position and visual style) and mandates their application universally across both pages and framesets, eliminating the ambiguity of the "or" term.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Placing navigation components consistently: Navigation components should be placed consistently on the pages or in the framesets in the pages of the application.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: Placing navigation components consistently: Navigation components should be placed consistently on the pages
+      - REQ-X.2: The system should in the framesets in the pages of the application
+------------------------------------------------------------------------
+
+49. Document: 0000 - cctns.txt
+   Sentence #215
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 3
+   Sentence: Taking account of the users' tasks and information needs: When providing different access paths or navigation structures for different user groups, the tasks and information needs of these user groups should be taken into consideration.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED**: For each user group, access paths and navigation structures shall be designed to ensure both the efficient execution of their specific tasks and the rapid retrieval of their required information.
+
+2.  **EXPLANATION**: This revision explicitly mandates addressing *both* user tasks and information needs as distinct but equally important design objectives. It replaces vague "taken into consideration" with measurable outcomes like "efficient execution" and "rapid retrieval."
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Taking account of the users' tasks and information needs: When providing different access paths or navigation structures for different user groups, the tasks and information needs of these user groups should be taken into consideration.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: Taking account of the users' tasks
+      - REQ-X.2: The system should information needs: When providing different access paths or navigation structures for different user groups, the tasks
+      - REQ-X.3: information needs of these user groups should be taken into consideration
+------------------------------------------------------------------------
+
+50. Document: 0000 - cctns.txt
+   Sentence #217
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 3
+   Sentence: Making individualization and adaptation evident: It should be made evident to the user when individualization and/or adaptation are used.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall display distinct visual indicators to the user, clearly showing when individualization is applied and when adaptation is applied.
+
+2.  **EXPLANATION:** This requirement separates 'individualization' and 'adaptation' into distinct, atomic conditions, requiring separate indicators for each. It specifies a measurable mechanism ('distinct visual indicators') for user awareness.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Making individualization and adaptation evident: It should be made evident to the user when individualization and/or adaptation are used.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: Making individualization
+      - REQ-X.2: adaptation evident: It should be made evident to the user when individualization
+      - REQ-X.3: The system should /or adaptation are used
+------------------------------------------------------------------------
+
+51. Document: 0000 - cctns.txt
+   Sentence #219
+   Coordinator: 'or' (count: 2)
+   Action Verbs: 8
+   Sentence: Making user profiles evident: If predefined user profiles or user-specified profiles are used for individualizing or adapting content, the profile currently used should be made evident.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. IMPROVED: "When any active user profile is utilized to modify content presentation, the name of the currently active profile shall be persistently displayed in a designated area of the user interface."
+
+2. EXPLANATION: The revised requirement removes 'or' conjunctions by using broader, encompassing terms ('any active user profile', 'modify content presentation'). It also improves measurability by specifying *what* (profile name), *how* (persistently displayed), and *where* (designated UI area) the profile should be made evident.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Making user profiles evident: If predefined user profiles or user-specified profiles are used for individualizing or adapting content, the profile currently used should be made evident.
+     Issue: Non-atomic requirement using coordinator 'or' (2 times).
+     Contains 8 action verbs.
+     Suggestions:
+      - REQ-X.1: Making user profiles evident: If predefined user profiles
+      - REQ-X.2: The system should user-specified profiles are used for individualizing
+      - REQ-X.3: adapting content, the profile currently used should be made evident
+------------------------------------------------------------------------
+
+52. Document: 0000 - cctns.txt
+   Sentence #221
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 8
+   Sentence: Allowing users to see and change profiles: If user-specified profiles are used, users should be able to see, modify and delete that profile on demand.
+
+47.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** If user-specified profiles are used, users shall be able to independently view, modify, and delete their profile on demand.
+2.  **EXPLANATION:** This breaks down the compound "see, modify, and delete" into distinct, independently testable actions. It also replaces "should" with "shall" for clear obligation.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: Allowing users to see and change profiles: If user-specified profiles are used, users should be able to see, modify and delete that profile on demand.
+
+47.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 8 action verbs.
+     Suggestions:
+      - REQ-X.1: Allowing users to see
+      - REQ-X.2: change profiles: If user-specified profiles are used, users should be able to see, modify
+      - REQ-X.3: The system should delete that profile on demand.
+
+47
+------------------------------------------------------------------------
+
+53. Document: 0000 - cctns.txt
+   Sentence #235
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: The System must provide adequate response times for commonly performed functions under both standard and peak conditions
+
+
+2.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System shall respond within 500 milliseconds for critical user-facing functions (e.g., login, search, data submission) under standard load (e.g., up to 100 concurrent users), and within 2000 milliseconds for the same functions under peak load (e.g., up to 500 concurrent users).
+
+2.  **EXPLANATION:** This version replaces vague terms like "adequate" and "commonly performed" with specific, measurable thresholds and defined conditions. It clearly separates distinct performance targets for standard and peak loads, resolving the "non-atomic and" ambiguity.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must provide adequate response times for commonly performed functions under both standard and peak conditions
+
+
+2.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must provide adequate response times for commonly performed functions under both standard
+      - REQ-X.2: The system must peak conditions
+
+
+2
+------------------------------------------------------------------------
+
+54. Document: 0000 - cctns.txt
+   Sentence #240
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: The System must be able to retrieve and display within 5-8 seconds the case which has been accessed within the previous 2 months, regardless of storage capacity or number of cases in the system.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "The System must make visible a requested case, which has been accessed within the previous 2 months, within 5-8 seconds, regardless of storage capacity or number of cases in the system."
+2.  **EXPLANATION:** The phrase "make visible" replaces the compound "retrieve and display" with a single, atomic verb. This clarifies that the 5-8 second performance metric applies to the entire, unified action of presenting the case to the user.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must be able to retrieve and display within 5-8 seconds the case which has been accessed within the previous 2 months, regardless of storage capacity or number of cases in the system.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must be able to retrieve
+      - REQ-X.2: The system must display within 5-8 seconds the case which has been accessed within the previous 2 months, regardless of storage capacity or number of cases in the system
+------------------------------------------------------------------------
+
+55. Document: 0000 - cctns.txt
+   Sentence #243
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: The System must be able to retrieve and display within 20 seconds the case which has not been accessed within the previous 2 months, regardless of storage capacity or number of cases in the system.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "Upon initiation of a user request, the System must display a case that has not been accessed within the previous 2 months within 20 seconds, regardless of storage capacity or number of cases in the system."
+2.  **EXPLANATION:** This clarifies that the 20-second performance applies to the entire end-to-end process from request to user-observable display. It makes the requirement more atomic by focusing on the single, measurable user outcome (display).
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System must be able to retrieve and display within 20 seconds the case which has not been accessed within the previous 2 months, regardless of storage capacity or number of cases in the system.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The System must be able to retrieve
+      - REQ-X.2: The system must display within 20 seconds the case which has not been accessed within the previous 2 months, regardless of storage capacity or number of cases in the system
+------------------------------------------------------------------------
+
+56. Document: 0000 - cctns.txt
+   Sentence #246
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 4
+   Sentence: The System be scaleable and must not have any features which would preclude use in small or large police stations, with varying numbers of cases handled.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The System shall efficiently support police stations ranging from [N1] concurrent users handling [M1] daily cases up to [N2] concurrent users handling [M2] daily cases, and shall be deployable without requiring any features or infrastructure that are non-essential or cost-prohibitive for the lower end of this operational range.
+
+2.  **EXPLANATION:** This version separates the scalability and deployment concerns, providing specific, measurable placeholders for user and case numbers. It clarifies that the system must be cost-effective and suitable for both small and large stations, addressing the "preclude use" aspect directly.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The System be scaleable and must not have any features which would preclude use in small or large police stations, with varying numbers of cases handled.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: The System be scaleable
+      - REQ-X.2: must not have any features which would preclude use in small or large police stations, with varying numbers of cases handled
+------------------------------------------------------------------------
+
+57. Document: 0000 - cctns.txt
+   Sentence #255
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 2
+   Sentence: CCTNS Functional Architecture Overview
+
+The deployment of the application will be at state level and will be configured and customized as per the state specific extensions.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The CCTNS application, deployed at the state level, shall enable adaptation to state-specific extensions through configurable parameters and bespoke modifications.
+
+2.  **EXPLANATION:** This revision separates "configured" and "customized" into distinct, measurable mechanisms (configurable parameters, bespoke modifications). It clarifies the application's capability for state-level adaptation.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: CCTNS Functional Architecture Overview
+
+The deployment of the application will be at state level and will be configured and customized as per the state specific extensions.
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: CCTNS Functional Architecture Overview
+
+The deployment of the application will be at state level
+      - REQ-X.2: will be configured
+      - REQ-X.3: The system will customized as per the state specific extensions
+------------------------------------------------------------------------
+
+58. Document: 0000 - cctns.txt
+   Sentence #258
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 2
+   Sentence: The system should be designed in manner that operational data is not lost in case of any
+failure of equipment or communication network.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1. **IMPROVED**: The system shall ensure a Recovery Point Objective (RPO) of zero for all operational data, meaning no data loss, during any single point of failure within equipment or the communication network infrastructure.
+
+2. **EXPLANATION**:
+    - It specifies "RPO of zero" and "no data loss" for clear measurability and testability.
+    - "Any single point of failure" clarifies the scope of resilience, addressing both failure types precisely.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The system should be designed in manner that operational data is not lost in case of any
+failure of equipment or communication network.
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: The system should be designed in manner that operational data is not lost in case of any
+failure of equipment
+      - REQ-X.2: The system should communication network
+------------------------------------------------------------------------
+
+59. Document: 0000 - cctns.txt
+   Sentence #261
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 7
+   Sentence: The system should be designed to have satisfactory performance even in Police Stations
+connected on low-bandwidth
+5)
+The system should be implemented using Service Oriented Architecture (SOA) and have a
+modular design
+6)
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:**
+    *   The system shall be implemented following Service Oriented Architecture (SOA) principles.
+    *   The system shall consist of loosely coupled, independently deployable modules.
+
+2.  **EXPLANATION:**
+    The original requirement was split into two atomic statements, addressing the "and" issue for better clarity and verifiability. This also makes "modular design" more specific and measurable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The system should be designed to have satisfactory performance even in Police Stations
+connected on low-bandwidth
+5)
+The system should be implemented using Service Oriented Architecture (SOA) and have a
+modular design
+6)
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 7 action verbs.
+     Suggestions:
+      - REQ-X.1: The system should be designed to have satisfactory performance even in Police Stations
+connected on low-bandwidth
+5)
+The system should be implemented using Service Oriented Architecture (SOA)
+      - REQ-X.2: The system should have a
+modular design
+6)
+------------------------------------------------------------------------
+
+60. Document: 0000 - cctns.txt
+   Sentence #263
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 3
+   Sentence: The system should be built on a common User Access and Authentication Service to
+ensure Single-Sign on for the end-user
+8)
+The system should be developed for a centralized deployment and maintenance
+9)
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:**
+    *   The system shall support centralized deployment.
+    *   The system shall support centralized maintenance.
+
+2.  **EXPLANATION:**
+    Separating "deployment" and "maintenance" clarifies two distinct requirements, making each atomic and individually testable. This resolves the compound "and" term.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The system should be built on a common User Access and Authentication Service to
+ensure Single-Sign on for the end-user
+8)
+The system should be developed for a centralized deployment and maintenance
+9)
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The system should be built on a common User Access
+      - REQ-X.2: Authentication Service to
+ensure Single-Sign on for the end-user
+8)
+The system should be developed for a centralized deployment
+      - REQ-X.3: The system should maintenance
+9)
+------------------------------------------------------------------------
+
+61. Document: 0000 - cctns.txt
+   Sentence #268
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: The system should be designed for access through browser-based systems and must
+impose minimal requirements on the client device
+14)
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  IMPROVED:
+    *   The system shall be accessible via a standard, commercially available web browser.
+    *   The client device shall not require the installation of any proprietary software, plugins, or specialized hardware.
+2.  EXPLANATION: The original compound requirement was split into two atomic statements. This clarifies the independent aspects and makes "minimal requirements" specific and testable.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The system should be designed for access through browser-based systems and must
+impose minimal requirements on the client device
+14)
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The system should be designed for access through browser-based systems
+      - REQ-X.2: must
+impose minimal requirements on the client device
+14)
+------------------------------------------------------------------------
+
+62. Document: 0000 - cctns.txt
+   Sentence #270
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 2
+   Sentence: The system should have capability to support public access to a subset of data and
+functionality
+16)
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall provide an unauthenticated public web interface to allow viewing of a configurable subset of system data and enable execution of a configurable subset of system functionality.
+
+2.  **EXPLANATION:** This revision clarifies the access method (unauthenticated web interface) and explicitly distinguishes actions for data (viewing) and functionality (execution). It makes the "subset" measurable by specifying it is "configurable," improving clarity and testability.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The system should have capability to support public access to a subset of data and
+functionality
+16)
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: The system should have capability to support public access to a subset of data
+      - REQ-X.2: The system should 
+functionality
+16)
+------------------------------------------------------------------------
+
+63. Document: 0000 - cctns.txt
+   Sentence #277
+   Coordinator: 'and' (count: 2)
+   Action Verbs: 2
+   Sentence: The system should ensure secure transmission of data over the network and utilize SSL
+and 2-way digital signatures
+
+
+
+
+
+23)
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall utilize SSL/TLS for encrypted data transmission over the network and 2-way digital signatures for mutual endpoint authentication and data integrity.
+2.  **EXPLANATION:** This requirement clarifies the distinct functions of SSL/TLS and 2-way digital signatures, making it more atomic and precise. It defines specific, measurable mechanisms for secure transmission.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The system should ensure secure transmission of data over the network and utilize SSL
+and 2-way digital signatures
+
+
+
+
+
+23)
+     Issue: Non-atomic requirement using coordinator 'and' (2 times).
+     Contains 2 action verbs.
+     Suggestions:
+      - REQ-X.1: The system should ensure secure transmission of data over the network
+      - REQ-X.2: The system should utilize SSL
+
+      - REQ-X.3: The system should 2-way digital signatures
+
+
+
+
+
+23)
+------------------------------------------------------------------------
+
+64. Document: 0000 - cctns.txt
+   Sentence #281
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 4
+   Sentence: The system should ensure high scalability and performance through:
+a) Use of cache for storing frequent data
+b) Use of AJAX based technology to improve user experience.
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall support 500 concurrent users while maintaining an average response time of less than 2 seconds for critical transactions, and provide immediate visual feedback (within 0.5 seconds) for user interactions with dynamic content.
+
+2.  **EXPLANATION:** This separates the vague terms "scalability" and "performance" into quantifiable metrics (concurrent users, response time) and replaces implementation details with measurable user experience outcomes.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The system should ensure high scalability and performance through:
+a) Use of cache for storing frequent data
+b) Use of AJAX based technology to improve user experience.
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 4 action verbs.
+     Suggestions:
+      - REQ-X.1: The system should ensure high scalability
+      - REQ-X.2: The system should performance through:
+a) Use of cache for storing frequent data
+b) Use of AJAX based technology to improve user experience
+------------------------------------------------------------------------
+
+65. Document: 0000 - cctns.txt
+   Sentence #284
+   Coordinator: 'or' (count: 1)
+   Action Verbs: 3
+   Sentence: The search results should be fetched from the database in batches of 10 or 20 maximum as configured within the application
+f) Display of records on the screen in batches/paged manner
+g)
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** "The application shall allow configuration of the search results' database fetch batch size to be either 10 or 20 items. Search results shall be fetched from the database and displayed on screen in pages corresponding to the configured batch size."
+
+2.  **EXPLANATION:** This clarifies that "10 or 20" refers to *configurable options* for the batch size, removing ambiguity. It also explicitly links the display paging to the configured fetch size, ensuring consistency.
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: The search results should be fetched from the database in batches of 10 or 20 maximum as configured within the application
+f) Display of records on the screen in batches/paged manner
+g)
+     Issue: Non-atomic requirement using coordinator 'or' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: The search results should be fetched from the database in batches of 10
+      - REQ-X.2: The system should 20 maximum as configured within the application
+f) Display of records on the screen in batches/paged manner
+g)
+------------------------------------------------------------------------
+
+66. Document: 0000 - cctns.txt
+   Sentence #287
+   Coordinator: 'and' (count: 1)
+   Action Verbs: 3
+   Sentence: A hierarchical cache should be configured and used for caching of results of most
+   Suggestions:
+     === AI-POWERED SUGGESTION (Gemini) ===
+     1.  **IMPROVED:** The system shall utilize a hierarchical cache to store results from the top 10% of operations, ranked by access frequency.
+2.  **EXPLANATION:** This clarifies the non-atomic "configured and used" to a singular functional action ("utilize"). It also quantifies "results of most" with a specific, measurable threshold ("top 10%... by access frequency").
+     
+=== RULE-BASED SUGGESTIONS ===
+     Original: A hierarchical cache should be configured and used for caching of results of most
+     Issue: Non-atomic requirement using coordinator 'and' (1 times).
+     Contains 3 action verbs.
+     Suggestions:
+      - REQ-X.1: A hierarchical cache should be configured
+      - REQ-X.2: The system should used for caching of results of most
+------------------------------------------------------------------------
+
+========================================================================
+FREQUENCY ANALYSIS
+========================================================================
+
+Comparative Terms Frequency:
+  more: 8
+  better: 1
+  slower: 1
+
+Superlative Terms Frequency:
+  most: 3
+  least: 1
+
+Coordinator Frequency:
+  and: 47
+  or: 18
+  as well as: 1
