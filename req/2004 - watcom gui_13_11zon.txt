@@ -1,0 +1,10335 @@
+ 
+ 
+ 
+ 
+Open Watcom Linux Port 
+GUI Software Requirements Specification 
+ 
+  
+ 
+Copyright © 2004 SciTech Software, Inc.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Created on
+ 1/15/2004 2:01 PM 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 2
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Table of Contents 
+Exec
+utive Summary 
+7
+ 
+1.
+ 
+Introd
+uction 
+7
+ 
+1.1
+ 
+Abou
+t th
+is do
+cument 
+7
+ 
+1.2
+ 
+Doc
+ument structure
+ 
+7
+ 
+2.
+ 
+GTK Ov
+erview 
+8
+ 
+3.
+ 
+Gene
+ral
+ GU
+I Porting A
+pproac
+h 
+8
+ 
+4.
+ 
+Issue
+s 
+12
+ 
+5.
+ 
+Target
+ Sy
+stem
+ Requi
+rem
+ents 
+13
+ 
+Detailed
+ Po
+rting
+ Gu
+idelin
+es an
+d Estim
+atio
+n 
+14
+ 
+Initial Stag
+e 
+14
+ 
+6.
+ 
+GUI Li
+brary Initializa
+tio
+n. 
+14
+ 
+GU
+IXM
+ain 
+14
+ 
+Set
+upC
+lass 
+15
+ 
+_w
+pi_postquitmessage 
+15
+ 
+GU
+ILoad
+StrInit 
+15
+ 
+GUIW
+inMessa
+geL
+oop 
+15
+ 
+Sum
+mary 
+15
+ 
+7.
+ 
+Disp
+lay wind
+ow 
+initializatio
+n 
+16
+ 
+GUIW
+ndInit 
+16
+ 
+_w
+pi_setdoui
+blecl
+icktim
+e 
+16
+ 
+GUIIn
+itDialogFun
+c 
+16
+ 
+_w
+pi_enddi
+alog 
+16
+ 
+Sum
+mary 
+17
+ 
+8.
+ 
+Wind
+ow
+ cr
+eatio
+n 
+17
+ 
+GUIXC
+reate
+Window 
+19
+ 
+GUICalcLocat
+ion 
+19
+ 
+_w
+pi_creat
+esol
+idbrush 
+20
+ 
+_w
+pi_creat
+e_window
+_ex 
+20
+ 
+_w
+pi_setred
+raw 
+20
+ 
+GUIMax
+im
+ize
+Window 
+20
+ 
+GUIMin
+im
+ize
+Window 
+20
+ 
+_w
+pi_showwindo
+w 
+20
+ 
+GUIShowW
+ind
+owN
+A 
+20
+ 
+GU
+IFree
+WindowM
+em
+ory
+ 
+20
+ 
+Sum
+mary 
+21
+ 
+9.
+ 
+Standa
+rd sam
+ple 
+22
+ 
+GUIXC
+reateDi
+alog 
+27
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 3
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIDoCreate
+ResDialog 
+28
+ 
+Dialog
+Tem
+plate 
+28
+ 
+Ad
+dC
+ontrol 
+28
+ 
+Do
+neAd
+dingCont
+rol
+s 
+28
+ 
+Dy
+nam
+icDi
+alogB
+ox 
+28
+ 
+GUIDialogFunc 
+28
+ 
+GU
+IDe
+stroy
+Wnd 
+28
+ 
+GU
+IGetTe
+xt 
+28
+ 
+GU
+ISe
+ndM
+essage 
+29
+ 
+GU
+IWndDirty
+ 
+29
+ 
+GUIGetMetrics 
+29
+ 
+GUIGetClient
+Rect 
+29
+ 
+_w
+pi_m
+apwi
+ndowpoi
+nts 
+29
+ 
+_wpi_getwrect
+values
+ 
+30
+ 
+_w
+pi_gethei
+ghtrect
+ 
+30
+ 
+Dra
+wRect 
+30
+ 
+GUIXDr
+aw
+Tex
+t 
+30
+ 
+Sum
+mary 
+30
+ 
+Elaboration
+ stage 
+30
+ 
+10
+.
+ 
+Common cont
+rol funct
+ions
+ 
+30
+ 
+GU
+IA
+ddCo
+ntr
+ol 
+31
+ 
+GUIResizeControl
+ 
+31
+ 
+_w
+pi_dest
+roywindow 
+31
+ 
+GU
+IEnabl
+eC
+ontrol 
+31
+ 
+_w
+pi_enablewi
+ndow 
+31
+ 
+GU
+IIsC
+ontrol
+Enabled 
+31
+ 
+_wpi_isw
+indow
+enabled 
+32
+ 
+GUIGetC
+ont
+rolRect 
+32
+ 
+_w
+pi_showwindo
+w 
+32
+ 
+_w
+pi_iswindowwi
+sible 
+32
+ 
+Sum
+mary 
+32
+ 
+11
+.
+ 
+Common t
+ext funct
+ions 
+32
+ 
+GU
+ISetTe
+xt 
+32
+ 
+GUIClearTe
+xt 
+33
+ 
+GUISelectAll
+ 
+33
+ 
+GUISetE
+ditSelect 
+33
+ 
+GUIGetE
+ditSe
+lect 
+33
+ 
+GU
+IDl
+gBu
+ffGetText 
+33
+ 
+Sum
+mary 
+33
+ 
+12
+.
+ 
+Speci
+al di
+alogs
+ funct
+ions 
+34
+ 
+GU
+IDi
+splayMessage
+ 
+34
+ 
+DlgO
+pen 
+34
+ 
+GUIGet
+DlgTe
+xtMetrics 
+34
+ 
+GUIGetSystemMetrics
+ 
+35
+ 
+DlgSetCtlSizes 
+35
+ 
+GUIGetE
+ditSe
+lect 
+35
+ 
+GU
+IDl
+gBu
+ffGetText 
+35
+ 
+Sum
+mary 
+35
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 4
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+13
+.
+ 
+Scr
+olling fu
+nct
+ions
+ 
+35
+ 
+Common gui
+delines 
+36
+ 
+Sum
+mary 
+36
+ 
+14
+.
+ 
+Status wi
+ndow funct
+ions 
+36
+ 
+Common gui
+delines 
+36
+ 
+GUICreateStat
+usWindow 
+37
+ 
+GUICloseStat
+usW
+indo
+w 
+37
+ 
+GU
+ID
+rawStatu
+sText
+ 
+37
+ 
+GUIResizeStatus
+Window 
+37
+ 
+Sum
+mary 
+37
+ 
+15
+.
+ 
+To
+olbar
+ funct
+ions
+ 
+37
+ 
+Common gui
+delines 
+37
+ 
+GUICreateFl
+oatToolBar 
+37
+ 
+GUICreateT
+oolBar 
+37
+ 
+GU
+ICloseT
+oolBar 
+38
+ 
+GUIChang
+eToo
+lBar 
+38
+ 
+Sum
+mary 
+38
+ 
+16
+.
+ 
+Menu funct
+ions 
+38
+ 
+Common gui
+delines 
+38
+ 
+GUIAppendM
+enu 
+38
+ 
+GU
+IA
+ppendM
+enuB
+yOffset
+ 
+39
+ 
+GUIInsertMenu 
+39
+ 
+GU
+IEnabl
+eM
+enuItem 
+39
+ 
+GU
+IEnabl
+eM
+enuItem 
+39
+ 
+GU
+ISetM
+enuText 
+39
+ 
+GU
+ISetHi
+ntTe
+xt 
+39
+ 
+GUIDeleteMe
+nuItem 
+40
+ 
+GUIResetMenus
+ 
+40
+ 
+GU
+IEnabl
+eM
+DIM
+enus
+ 
+40
+ 
+GUICreateFl
+oatin
+gPopup 
+40
+ 
+GUITrackFlo
+atin
+gPopup 
+40
+ 
+GUIGetMen
+uPo
+pup
+Coun
+t 
+40
+ 
+GUIApp
+end
+MenuToPopu
+p 
+40
+ 
+GUIInsertMenu
+ToPopup 
+40
+ 
+Sum
+mary 
+41
+ 
+17
+.
+ 
+Text
+ Han
+dling Fu
+nct
+ions 
+41
+ 
+GUISetWind
+ow
+Tex
+t 
+41
+ 
+GUIGetWindow
+Tex
+t 
+41
+ 
+GUIGetWindow
+Tex
+tLeng
+th                                                                                                                                 4
+1
+ 
+GU
+IGetE
+xtent
+X 
+41
+ 
+GU
+IGetE
+xtent
+Y 
+42
+ 
+GU
+IGet
+Cont
+rolExtent
+X 
+42
+ 
+GU
+IGet
+Cont
+rolExtent
+Y 
+42
+ 
+GU
+IGetSt
+rin
+gPos 
+43
+ 
+Sum
+mary 
+43
+ 
+18
+.
+ 
+Dra
+wing fu
+nct
+ions
+ 
+43
+ 
+GU
+ID
+rawLine
+ and
+ GUIDraw
+LineRGB
+ 
+43
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 5
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GU
+ID
+rawBar
+ 
+43
+ 
+Sum
+mary 
+44
+ 
+19
+.
+ 
+Fo
+nt ha
+ndling funct
+ions 
+44
+ 
+GUIFontsSuppo
+rted 
+44
+ 
+GUIChang
+eFon
+t 
+44
+ 
+GU
+IGetF
+ontI
+nfo 
+44
+ 
+GU
+ISetF
+ont
+Info 
+44
+ 
+GUISetSystemFont 
+44
+ 
+GU
+IGet
+FontFrom
+User 
+44
+ 
+Sum
+mary 
+45
+ 
+20
+.
+ 
+Cursor functions 
+45
+ 
+GU
+ISet
+Mouse
+Curs
+or 
+45
+ 
+GUIResetMouseCurs
+or 
+45
+ 
+Sum
+mary 
+45
+ 
+21
+.
+ 
+Window funct
+ions
+ 
+45
+ 
+GU
+ICo
+ntrolDi
+rty
+ 
+46
+ 
+GU
+IWndDirty
+Row
+ 
+46
+ 
+GU
+IWndDirty
+Rect 
+46
+ 
+GU
+IRef
+resh
+ 
+46
+ 
+GU
+IBrin
+gToFront
+ 
+46
+ 
+GU
+ISetF
+ocus 
+46
+ 
+GU
+IGetF
+ocus 
+47
+ 
+GUIResizeW
+indow 
+47
+ 
+GU
+IIsM
+inimized a
+nd GUIIs
+Maximized 
+47
+ 
+GU
+IResto
+reWindow 
+47
+ 
+GUIHideW
+indow 
+47
+ 
+GUIIsWindo
+wVisib
+le 
+47
+ 
+GUISetRestore
+dSize
+ 
+47
+ 
+GUIGetRest
+oredSize
+ 
+47
+ 
+GU
+ISetIc
+on 
+48
+ 
+GU
+ICasca
+deWi
+ndows
+ 
+48
+ 
+Sum
+mary 
+48
+ 
+22
+.
+ 
+Hot
+ spot funct
+ions
+ 
+48
+ 
+GU
+IInitHotSp
+ots 
+48
+ 
+GU
+ID
+rawH
+otSpot
+ 
+48
+ 
+Sum
+mary 
+48
+ 
+23
+.
+ 
+Inform
+ation fu
+nction
+s 
+48
+ 
+GU
+IGet
+Key
+State 
+49
+ 
+GUIGetPai
+ntRect 
+49
+ 
+GUIGet
+AbsRect 
+49
+ 
+GUIGet
+AbsRect 
+49
+ 
+GU
+IGet
+Mouse
+Posn 
+49
+ 
+GUIGetMinSize 
+49
+ 
+GU
+IEnum
+ChildWindows 
+50
+ 
+Sum
+mary 
+50
+ 
+24
+.
+ 
+Co
+lor fun
+ctio
+ns 
+50
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 6
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GU
+IGetR
+GBF
+rom
+User
+ 
+50
+ 
+Sum
+mary 
+50
+ 
+25
+.
+ 
+Co
+mbo list/b
+ox
+ fun
+ction
+s 
+50
+ 
+GU
+IA
+ddTe
+xt 
+51
+ 
+GU
+ISetListIte
+mData 
+51
+ 
+GU
+IGetListIte
+mData 
+51
+ 
+GU
+IA
+ddTe
+xtL
+ist 
+51
+ 
+GU
+IInse
+rtText
+ 
+51
+ 
+GUIClearList
+ 
+51
+ 
+GUIDeleteIte
+m 
+51
+ 
+GU
+IGetListSiz
+e 
+51
+ 
+GUIGetC
+urrSe
+lect 
+52
+ 
+GUISetCurrSe
+lect 
+52
+ 
+GU
+IGetListIte
+m 
+52
+ 
+GUILim
+itEd
+itTex
+t 
+52
+ 
+GU
+IInse
+rtMenuB
+yID 
+52
+ 
+Sum
+mary 
+52
+ 
+26
+.
+ 
+Radio button and chec
+k box funct
+ions 
+52
+ 
+GU
+IIsC
+hecked
+ 
+52
+ 
+GUISetChec
+ked 
+52
+ 
+Sum
+mary 
+53
+ 
+27
+.
+ 
+F1
+ key h
+ook
+ functio
+ns 
+53
+ 
+GUIHoo
+kF1 
+53
+ 
+GUIUnH
+ook
+F1 
+53
+ 
+Sum
+mary 
+53
+ 
+28
+.
+ 
+Other funct
+ions. 
+53
+ 
+29
+.
+ 
+Typ
+e defin
+ition
+s 
+53
+ 
+30
+.
+ 
+Fu
+nct
+ions that are neve
+r use
+d in the curre
+nt code
+ 
+54
+ 
+GUIDropDo
+wn 
+54
+ 
+GUIScrollCa
+ret 
+54
+ 
+GUISetT
+opIndex 
+54
+ 
+GUIGetT
+opIndex 
+54
+ 
+GUISetHorizontalExtent
+ 
+54
+ 
+GUIActi
+vateNC 
+54
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 7
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUI Software Requirements Specification  
+ 
+ 
+Executive Summar
+y 
+Thi
+s doc
+um
+ent
+ desc
+ribes
+ a det
+ailed ap
+proac
+h to portin
+g low-lev
+el Op
+en 
+Watco
+m GUI library to
+ Li
+nux 
+platform
+ using GTK too
+lkit for th
+e X 
+Window System
+.  
+ 
+1.  Introduction  
+1.1 
+Abou
+t this d
+ocumen
+t 
+Th
+is p
+aper represen
+ts a resu
+lt of the Op
+en Watco
+m low lev
+el GUI library 
+research. 
+It prov
+ides po
+rting
+ 
+guidelin
+es and
+ identifies t
+he effo
+rt requ
+ired
+ to port the
+ GUI library
+ to
+ Lin
+ux platfo
+rm
+ usin
+g GTK
+ 
+windowing t
+oolkit fo
+r the X Window Sy
+stem
+. The resear
+ch was 
+base
+d on the Ope
+n Wat
+com
+ versi
+on 1.1.7 
+Thi
+s pape
+r is intended as a
+ ba
+se So
+ftwa
+re R
+equi
+rem
+ents Sp
+eci
+ficat
+ion 
+for the O
+pen Wat
+com
+ GUI 
+porting 
+project. 
+1.2   Docume
+nt   
+structur
+e   
+Thi
+s doc
+um
+ent
+ consi
+sts of sev
+eral
+ parts. 
+ “GT
+K Overview” 
+provides a
+ shor
+t overview of 
+the GIM
+P To
+olkit 
+“Gene
+ral GUI Porti
+ng Approach” 
+descri
+bes 
+a p
+orting a
+pproach. 
+“Issues” ide
+ntifies a set 
+of possible 
+caveat
+s that should be
+ consi
+dere
+d before c
+ommenci
+ng t
+he porting ef
+fort. 
+“Target
+ Sy
+stem
+ Requi
+rem
+ents” pr
+ovides in
+form
+ation a
+bout req
+uire
+d software
+ on a targe
+t sy
+stem
+ for t
+he 
+ported
+ libra
+ry to 
+run. 
+ “Detailed
+ Portin
+g Gu
+idelin
+es 
+and Estim
+ation” pr
+ov
+ides d
+etailed
+ gu
+idelin
+es 
+on portin
+g each
+ library 
+funct
+ion. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 8
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+2.  GTK  
+Overview
+  
+GTK (GIM
+P T
+ool
+kit) is a li
+brary for creating 
+gra
+phical use
+r interfaces. It i
+s licensed using the
+ LGPL 
+license, s
+o ope
+n s
+oftware
+, free so
+ftwa
+re, 
+or com
+merci
+al no
+n-free
+ so
+ftwa
+re can 
+be 
+devel
+oped
+ using GT
+K 
+with
+ou
+t having to
+ sp
+end co
+sts 
+on licen
+ses 
+or ro
+yalties. 
+It's called the 
+GIMP toolkit because
+ it was originally 
+written for deve
+lopi
+ng the
+ GNU 
+Im
+age Ma
+nipulation 
+Progr
+am
+ (GIMP), bu
+t GTK has no
+w been u
+sed in a larg
+e num
+ber of s
+oftware 
+projects
+, including t
+he GNU 
+Netwo
+rk Ob
+ject Mo
+del Env
+iron
+ment (GNOM
+E) 
+project. 
+GTK 
+is b
+uilt o
+n top
+ of GDK (GIMP Dr
+awi
+ng Kit) 
+whic
+h is 
+basica
+lly a wra
+ppe
+r a
+round the l
+ow-leve
+l functions
+ for acce
+ssing 
+the unde
+rlying windowing 
+fun
+ction
+s (Xlib in
+ th
+e case 
+of the X wind
+ows 
+syste
+m), and
+ gd
+k-p
+ixb
+uf, a lib
+rary fo
+r clien
+t-sid
+e im
+age 
+manipul
+ation. 
+GTK is essen
+tially an
+ ob
+ject orien
+ted app
+lica
+tio
+n ’programmers 
+interface 
+(API). Altho
+ugh
+ written
+ 
+completely in
+ C, it is i
+mplemented
+ using th
+e id
+ea 
+of classes and
+ callb
+ack
+ function
+s (p
+ointers to fun
+ctio
+ns). 
+Th
+ere is also a 
+third co
+mpon
+ent called
+ GLib 
+wh
+ich
+ co
+ntains a fe
+w replace
+ments for s
+ome standard call
+s, as 
+well as so
+me addition
+al fun
+ctio
+ns fo
+r hand
+ling
+ link
+ed lists, etc. Th
+e rep
+lacemen
+t fun
+ction
+s are 
+used to 
+increase 
+GTK's po
+rtab
+ility, as so
+me of the fun
+ctio
+ns im
+plemented
+ here are no
+t av
+ailab
+le or are 
+no
+n-stand
+ard 
+on ot
+her
+ Unixes (one
+ exam
+ple bei
+ng g_strerror)(). Som
+e also c
+ont
+ain en
+hancem
+ent
+s to the libc ve
+rsi
+ons, 
+such as g_
+malloc() 
+that h
+as enh
+anced debuggin
+g utilities. 
+In ve
+rsi
+on 2.0, GLi
+b has
+ pi
+cked up the type system
+ whi
+ch form
+s the f
+oundation 
+for GT
+K's cl
+ass 
+hierarc
+hy, 
+the sign
+al system
+ wh
+ich
+ is 
+used thro
+ugh
+ou
+t GTK, a th
+read
+ API whic
+h a
+bstracts the 
+diffe
+rent native
+ th
+rea
+d 
+APIs 
+of the vario
+us platfo
+rm
+s an
+d a 
+facility fo
+r lo
+ading
+ m
+odu
+les. 
+As t
+he last co
+mponent
+, GT
+K uses
+ the Pan
+go library
+ for internat
+ional
+ized 
+text output. 
+Why
+ use
+ GT
+K? 
+It is: 
+• 
+Stable, 
+• 
+Free, 
+• 
+Fast, 
+• 
+Well docum
+ented, 
+• 
+Broadly ad
+opt
+ed, 
+• 
+Them
+es support, 
+• 
+Ex
+ten
+sible. 
+ 
+3. 
+General GUI Porting Approach 
+The 
+Watcom
+ GUI library 
+depends
+ on t
+he Watcom
+ Progra
+mming 
+Inte
+rface (WPI) a
+nd Me
+mory Trac
+ker 
+(TrMem
+) lib
+raries. 
+WPI is explicitl
+y d
+esig
+ned to
+ port W
+ind
+ows fun
+ction
+ality 
+to OS/2
+ Presen
+tatio
+n Man
+ager 
+(no
+t th
+e o
+ther way arou
+nd
+). Bo
+th Windo
+ws and
+ OS/2 APIs h
+ave sim
+ilar an
+d co
+mpatib
+le d
+esigns to
+ a larg
+e 
+exten
+t. GTK 
+API is sim
+ilar n
+eith
+er to 
+Windows 
+nor to OS/2 API, 
+so it wo
+uld
+ be in
+effective to
+ ex
+tend
+ the 
+WPI lib
+rary 
+with
+ GTK supp
+ort. Ho
+wev
+er takin
+g into accoun
+t th
+at the 
+Watco
+m GUI lib
+rary activ
+ely u
+ses 
+WPI calls it see
+ms reason
+able to
+ port m
+ost of th
+e WPI 
+functio
+ns called in
+ the library. 
+Sin
+ce th
+e GUI 
+lib
+rary 
+relies on
+ OS/2 PM and
+ Wind
+ows API,
+ it 
+uses 
+predefin
+ed typ
+es that ex
+ist on
+ly in
+ these 
+envi
+ronm
+ent
+s, suc
+h as 
+HWND
+ and 
+HBRUSH
+. It will b
+e an
+ add
+itio
+nal work
+ fo
+r th
+e prog
+ram
+mer to
+ ad
+d 
+appro
+priate type d
+efin
+itio
+ns in a sp
+ecial file. 
+Fo
+r in
+stan
+ce, 
+HWND
+ sh
+oul
+d be de
+fined as 
+GtkWidget*
+, and 
+HBRUSH
+ shoul
+d be defi
+ned
+ as 
+GdkStyle*
+.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 9
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+As long as
+ in 
+Windows
+ and 
+OS/2 en
+vironments 
+user interface controls ar
+e placed acc
+ording to the 
+spe
+cified 
+coo
+rdinat
+es we
+ m
+ust repl
+icat
+e this in GT
+K using t
+he fol
+lowing wi
+dget
+ hierarchy
+:   
+Window – Ve
+rtical
+ Box – 
+Scrolled W
+indow – Vi
+ew Po
+rt – Fi
+xed 
+ 
+r
+0
+File    E
+dit    V
+iew
+Windo
+w
+Vert
+ical Box
+ (4 row
+s)
+Menu Bar
+Ha
+ndle Box
+Sc
+roll
+ed W
+indo
+w
+View
+ Port
+Fixed
+Butto
+n
+Tool
+ Bar
+Status
+ Bar
+ 
+Fig
+.1 Widg
+et hier
+archy for a stan
+dard Op
+en Watco
+m GUI wind
+ow
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 10
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+ 
+ 
+Fig.2 Ope
+n Wa
+tcom
+ IDE 
+GTK pr
+ototype. 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 11
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+ 
+ 
+Fig 3. O
+pen Wat
+com
+ IDE 
+GTK pr
+ototype 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 12
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+4.  Issues  
+Due
+ to t
+he fact that Ope
+n Wat
+com
+ itself is heavy 
+orien
+ted toward
+s Windo
+ws, sev
+eral issu
+es shou
+ld be 
+consid
+ered
+ and d
+ealt with 
+before 
+comm
+encing the 
+po
+rting
+ effo
+rt. 
+ 
+• 
+Resource files 
+Th
+ere is 
+no po
+ssib
+ility in
+ GTK to
+ hand
+le t
+he Wind
+ows 
+or OS/2
+ – style 
+resou
+rce 
+files. GTK u
+ses 
+its o
+wn 
+reso
+urce fi
+les whi
+ch a
+re very
+ m
+uch di
+ffere
+nt from
+ thos
+e in 
+Wind
+ows or 
+OS/2
+ an
+d allo
+ws 
+to sp
+ecify on
+ly 
+styles an
+d key bind
+ing
+s of th
+e widg
+ets. Th
+ere is a 
+possib
+ility to
+ ov
+erco
+me th
+is issu
+e to
+ some ex
+ten
+t by usin
+g 
+libglade
+ library 
+whic
+h is 
+used i
+n GTK 
+to 
+build user i
+nterface 
+descri
+bed 
+in the 
+XML 
+file. A utility can be 
+written t
+o extra
+ct all the necessary inform
+atio
+n from
+ the W
+indows – OS/
+2 resour
+ce 
+files a
+nd prese
+nt it in 
+the XM
+L form
+at whi
+ch ca
+n be ha
+ndl
+ed by 
+libglade
+ to 
+build a 
+use
+r inte
+rface.
+ Howeve
+r this 
+will provide 
+only a 
+partial so
+lution
+ as th
+ere is no
+thing like 
+String Table
+ in
+ 
+libgl
+ade
+ as stri
+ng resources
+ are 
+hand
+led b
+y 
+gettext
+ lib
+rary
+ in GTK. Also th
+ere 
+are n
+o numeric
+ resou
+rce id
+entifiers in 
+GTK. Pro
+blematic 
+funct
+ions a
+re: 
+GUICreateResDialog()
+, 
+GUICreate
+DialogFromRes()
+ and 
+GUILoadString()
+.  
+• 
+MD
+I "W
+indo
+ws in
+ Windo
+w" model 
+GTK has 
+no possib
+ility to
+ implement ap
+plicatio
+ns with MDI 
+"W
+ind
+ows i
+n Wind
+ow" m
+odel. Ho
+wev
+er, it
+ is 
+possib
+le to assi
+gn a paren
+t for 
+wind
+ows, an
+d th
+ey will b
+e destro
+yed wh
+en the p
+aren
+t is cl
+osed.  
+• 
+Help
+ sub
+system 
+GTK has 
+no built in
+ user help
+ subsystem
+, as t
+his lev
+el of user in
+teracti
+on is 
+hand
+led b
+y desktop
+ 
+environ
+ments. Prob
+lem
+atic fu
+nctio
+ns 
+here are: 
+GUIHelpInit()
+, 
+GUIHelpFini()
+, 
+GUIShowHelp()
+, 
+GUIDis
+playHelp()
+, 
+GUIDispla
+yHelpWin4()
+ and 
+GUIDisplayHelpId()
+.  
+Oth
+er issu
+es to con
+sider in
+clud
+e: 
+• 
+Num
+eric identi
+fiers 
+of wi
+dget
+s.  
+• 
+Specific a
+pproach to wi
+ndow 
+build
+ing in
+cludes 
+Window Classes an
+d Dial
+og Tem
+plates.  
+• 
+Th
+e toolkit allo
+ws m
+odifyin
+g windo
+w (syste
+m) menu, w
+hich i
+s impossi
+ble in GT
+K.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 13
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+5. 
+Target System Requirements 
+GTK
+ is broadly ado
+pted am
+ong
+ the m
+ajor L
+inux distribution ven
+dors includi
+ng RedHat, SuSE
+, 
+Tur
+boLi
+nux. So, in gene
+ral
+ ca
+se de
+ployment of
+ the ported library should not be
+ a problem. In case t
+he 
+targ
+et distribu
+tio
+n do
+es no
+t sup
+port GTK at all o
+r uses incompati
+ble or
+ ol
+der versi
+ons
+ of the toolkit the 
+lib
+rary can
+ be linked statically
+, th
+e drawb
+ack of th
+is ap
+pro
+ach will b
+e an
+ increased size 
+of the lib
+rary. 
+In situ
+atio
+ns 
+wh
+en th
+e library 
+wou
+ld b
+e sh
+ipped
+ in so
+urce 
+files and
+ then com
+piled, targ
+et syste
+m will h
+ave 
+to satisfy to a 
+nu
+mber of 
+requ
+irem
+ents. Nam
+ely it 
+must h
+ave a C co
+mpiler an
+d an X 
+Window System
+ 
+inclu
+ding th
+e fo
+llo
+wing lib
+raries:  
+• 
+pkg-
+con
+fig (only f
+or co
+mpilatio
+n) 
+• 
+GN
+U m
+ake (
+only for c
+ompilation) 
+• 
+JPEG, PNG a
+nd T
+IFF im
+age libraries 
+• 
+FreeType 
+• 
+fontconfi
+g 
+• 
+GNU lib
+ico
+nv lib
+rary 
+• 
+GN
+U gettext 
+• 
+GLib 
+• 
+Pan
+go 
+• 
+ATK 
+• 
+GTK+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 14
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Detailed Porting Guidelines and Estimation 
+Init
+ial Stag
+e 
+6. 
+GUI Librar
+y Initializa
+tion. 
+GUI library i
+nitializat
+ion procedure starts from
+ 
+GUIXMain
+()
+ fun
+ction
+ called
+ fro
+m predefin
+ed in th
+e 
+library
+ 
+main(
+)
+.  
+Belo
+w is t
+he li
+st o
+f sub
+sequ
+ent fun
+ctio
+n calls orig
+inated
+ from
+ 
+GUIXMain
+()
+.  
+ 
+GUIXMain()
+ 
+  
+GUIStoreA
+rgs()
+ 
+    
+GUISetWi
+ndowClassName()
+ 
+      
+GUIGetW
+indowClassName()
+ 
+  
+_wpi_setw
+piinst()
+ 
+  
+GUIMemOpe
+n()
+ 
+  
+GUIFirstC
+rack()
+ 
+  
+SetupClas
+s()
+ 
+  
+GUILoadSt
+rInit()
+ 
+    
+GUIGetEx
+tName()
+ 
+  
+GUIInitIn
+ternalStringTable()
+ 
+  
+GUIInitGU
+IMenuHint()
+ 
+  
+GUIGetFro
+nt()
+ 
+  
+GUIWinMes
+sageLoop()
+ 
+  
+GUICleanu
+p()
+ 
+    
+GUIDeath
+()
+ 
+    
+GUIClean
+upHotSpots()
+ 
+    
+GUIFreeS
+tatus()
+ 
+    
+GUIFiniI
+nternalStringTable()
+ 
+    
+GUILoadS
+trFini()
+ 
+    
+GUISysFi
+ni()
+ 
+    
+GUIFiniD
+ialog()
+ 
+      
+GUIFree
+()
+ 
+  
+GUIDead()
+ 
+  
+GUIMemClo
+se()
+ 
+ 
+Majority of
+ these f
+unct
+ions does n
+ot need
+ to be c
+hanged, 
+GUISetWindowClassName()
+ and 
+GUIGetWindowClassName()
+ is no
+t needed fo
+r GTK po
+rt at all,
+ since 
+GTK has 
+no wi
+ndow classes
+.  
+ 
+The fol
+lowing fu
+nct
+ions 
+shoul
+d be po
+rted:
+ 
+GUIXMain() 
+–  0.5 h
+our(s
+)  
+SetupClass() - 
+0.5 ho
+ur(s
+) 
+_wpi_postquitmessage()
+ –  0.5 hou
+r(s)
+ 
+GUILoadStrInit()
+ –  0.5 ho
+ur(s) 
+GUIWinMessageLoop()
+ –  
+1 hour(s
+) 
+GUIXMain 
+The 
+only fu
+nct
+ion cal
+led f
+orm
+ the 
+main()
+. It in
+itializes p
+rogram
+ GUI, 
+processes m
+essa
+ge queue and
+ 
+finishes th
+e pro
+gram.
+  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 15
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+Setup
+Class 
+Registers a 
+window class.  
+There
+ are
+ no window
+ classes i
+n GTK
+, so this funct
+ion s
+hould be em
+pty for
+ the G
+TK port.  
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+_wpi_po
+stqu
+itmessag
+e 
+Post 
+QUIT
+ me
+ssage in
+to th
+e program.
+  
+Th
+is fun
+ction
+ sh
+ou
+ld b
+e em
+pty in
+ GTK po
+rt sin
+ce th
+ere is 
+no
+ need to
+ em
+it 
+QUIT
+ m
+essage if m
+essage loop is 
+not
+ start
+ed.  
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+GUILoa
+dStrI
+nit 
+Loa
+d external resource 
+DLL
+ unde
+r Windows
+, and set 
+GUIMsgInitFlag
+.  
+Since the
+re is
+ no "e
+xternal res
+ource 
+DLLs"
+ in Li
+nux, 
+the GTK
+ po
+rt sho
+uld do
+ th
+e sam
+e th
+at O
+S/2 por
+t does, 
+nam
+ely, ju
+st se
+t 
+GUIMsgInitFlag
+.  
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+GUIWinM
+ess
+ageLoo
+p 
+Starts th
+e m
+ain prog
+ram
+ lo
+op
+.  
+In GT
+K program message
+ lo
+op
+ strats with 
+gtk_main()
+.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+Summar
+y 
+3 hour
+s ar
+e needed fo
+r por
+tin
+g and
+, add
+itio
+nally, ap
+prox
+im
+ately 3
+ m
+ore hour
+s ar
+e need
+ed for testin
+g and
+ 
+tuning
+, totaling 
+to 6 hours for th
+is part. 
+At th
+e co
+mpletio
+n of th
+is step we 
+will b
+e ab
+le to
+ ex
+ecu
+te the fo
+llo
+wing cod
+e.  
+int 
+GUImain() {} 
+  
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 16
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+7.  Display
+  windo
+w  init
+ialization  
+In ord
+er to in
+itialize th
+e lib
+rary, prog
+ramm
+er sho
+uld call 
+GUIWndInit()
+ funct
+ion.  
+Belo
+w is t
+he li
+st o
+f sub
+sequ
+ent fun
+ctio
+n calls orig
+inated
+ from
+ 
+GUIWndIn
+it()
+. 
+ 
+GUIWndInit()
+ 
+  
+GUISysIni
+t()
+ 
+  
+_wpi_setd
+oubleclicktime()
+ 
+  
+GUISetScr
+een()
+ 
+  
+GUIInitDi
+alog()
+ 
+    
+GUIStrDu
+p()
+ 
+      
+GUIAllo
+c()
+ 
+    
+DialogTe
+mplate()
+ 
+    
+DoneAddi
+ngControls()
+ 
+    
+DynamicD
+ialogBox()
+ 
+    
+GUIInitD
+ialogFunc()
+ 
+      
+_wpi_en
+ddialog()
+ 
+The fol
+lowing fu
+nct
+ions 
+shoul
+d be po
+rted:
+  
+GUIWndInit()
+– 1 ho
+ur(s) 
+_wpi_setdouibleclicktime()
+ – 0.
+5 ho
+ur(s
+) 
+GUIInitDialogFunc()
+ – 4 ho
+ur(s
+) 
+_wpi_enddialog()
+ – 1 h
+our(s
+) 
+GUIWndInit 
+High
+ lev
+el functio
+n for th
+e lib
+rary in
+itializat
+ion.  
+It is needed to
+ use 
+gdk_scr
+een_get_width()
+ and 
+gdk_screen_get_height()
+ app
+lied
+ to t
+he 
+resu
+lt o
+f 
+gdk_screen_get_default()
+in order t
+o ret
+rieve sc
+reen
+ wi
+dth an
+d high, instead 
+of 
+_wpi_get_systemmetric()
+.  
+Tim
+e neede
+d for portin
+g: 1 h
+our(s
+).  
+_wpi_setdo
+uibleclicktime
+ 
+Sets th
+e do
+ub
+le click
+ tim
+e.  
+Pro
+gram
+mer sh
+oul
+d use 
+gdk_set_double_click_time()
+  
+Tim
+e neede
+d for porting: 0.5 ho
+ur(s
+).  
+GUIInitDialo
+gFunc 
+Callback f
+unct
+ion the test dialog box use
+d to get
+ the dialog box font
+ and cl
+ient size i
+nformation.  
+In GT
+K i
+t is possi
+ble to get
+ the di
+alog box font from
+ the st
+yle ret
+urne
+d by 
+gtk_widget_get_default_style()
+.  
+Inst
+ead of
+ 
+_wpi_getclientrect()
+, 
+_wpi_getwidthrect()
+ and 
+_wpi_getheightrect()
+ 
+fun
+ction
+s th
+e 
+gtk_widget_get_request_size()
+ sh
+oul
+d be cal
+led.  
+Tim
+e neede
+d for portin
+g: 4 h
+our(s
+).  
+_wpi_en
+ddia
+log 
+Th
+is fun
+ction
+ is used to dism
+iss a 
+dialo
+g. Note, th
+at th
+is do
+es no
+t destro
+y the d
+ialog
+ by defau
+lt bu
+t on
+ly 
+hides
+ the dialog.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 17
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+The si
+milar behavi
+our c
+ould be ac
+hieve
+d in GTK
+ by
+ em
+itting 
+"delete_
+event"
+ to the gi
+ven wi
+ndow. 
+g_signal_emit()
+ or
+ 
+g_signal_emit_by_name()
+ shoul
+d be use
+d.  
+Tim
+e neede
+d for portin
+g: 1 h
+our(s
+).  
+Summar
+y 
+6.5 hour
+s ar
+e need
+ed fo
+r por
+tin
+g activ
+ity and, add
+itio
+nally, 
+appro
+ximatel
+y 3.5 hours are 
+need
+ed fo
+r testin
+g 
+and tun
+ing
+. Th
+is step
+ req
+uires 1
+0 hou
+rs. 
+At the end
+ of th
+is st
+ep we 
+will b
+e ab
+le to
+ ex
+ecu
+te the following
+ 
+code
+.  
+ 
+int 
+GUImain() { 
+    GUIWndInit(250); 
+} 
+8.  Window
+  creation  
+Th
+is step
+ requ
+ires Reso
+urce 
+Files h
+andling i
+mplem
+ent
+ed (s
+ee “Iss
+ues” 
+sec
+tion)
+. 
+Belo
+w is t
+he li
+st o
+f sub
+sequ
+ent fun
+ctio
+n calls orig
+inated
+ from
+ 
+GUICreat
+eWindow()
+. 
+GUICreateWindow() 
+  
+GUISetupW
+nd() 
+    
+GUIXSetu
+pWnd() 
+  
+GUIXCreat
+eWindow() 
+    
+GUISetup
+Struct() 
+      
+GUICalc
+Location() 
+        
+GUISca
+leToScreen() 
+          
+GUICon
+vertRect() 
+            
+GUICo
+nvert() 
+              
+GUIMulDiv() 
+        
+GUISca
+leToScreenR() 
+          
+GUICon
+vertRect() 
+            
+GUICo
+nvert() 
+              
+GUIMulDiv() 
+        
+_wpi_g
+etclientrect() 
+        
+_wpi_g
+etheightrect() 
+        
+_wpi_c
+vtc_y_size_plus1() 
+          
+_wpi_c
+vtc_y() 
+            
+_wpi_
+getclientrect() 
+            
+_wpi_
+getheightrect() 
+      
+GUISetC
+olours() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 18
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+        
+GUIXSe
+tColours() 
+          
+SetBKB
+rush() 
+            
+GUIGe
+tRGB() 
+              
+FillInRGB() 
+                
+GetRValue() 
+                
+GetGValue() 
+                
+GetBValue() 
+                
+GUIRGB() 
+            
+_wpi_
+createsolidbrush() 
+      
+_wpi_lo
+admenu() 
+      
+GUICrea
+teMenus() 
+        
+_wpi_c
+reatemenu() 
+        
+Append
+Menus() 
+          
+GUICre
+ateSubMenu() 
+          
+GUICre
+ateMenuFlags() 
+          
+_wpi_a
+ppendmenu() 
+            
+Appen
+dMenu() 
+            
+Inser
+tMenu() 
+          
+Insert
+Popup() 
+            
+GetPo
+pupHMENU() 
+              
+GetParentOffset() 
+              
+_wpi_getmenuitemcount() 
+              
+_wpi_getsubmenu() 
+            
+GUIGe
+tHMENU() 
+              
+_wpi_get_systemmenu() 
+              
+_wpi_get_menu() 
+    
+GUIInitH
+int() 
+      
+GetStru
+ctNum() 
+      
+CountMe
+nus() 
+      
+InsertH
+int() 
+    
+GUISetGU
+IHint() 
+    
+_wpi_cre
+ate_window_ex() 
+    
+GUISetRe
+draw() 
+      
+_wpi_se
+tredraw() 
+    
+GUIMaxim
+izeWindow() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 19
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+    
+GUIMinim
+izeWindow() 
+    
+_wpi_sho
+wwindow() 
+    
+GUIShowW
+indowNA() 
+      
+GUIInva
+lidatePaintHandles(
+) 
+        
+GUIFre
+eWndPaintHandles() 
+  
+GUIInitMD
+I() 
+  
+GUIIsVali
+dWindow() 
+    
+GUIGetFr
+ont() 
+    
+GUIGetNe
+xtWindow() 
+      
+InList(
+) 
+  
+GUIFreeWi
+ndowMemory() 
+It is im
+possible to im
+ple
+ment 
+_wpi_l
+oadm
+enu() a
+nd GU
+ICreateMenus
+() on GTK 
+becaus
+e GT
+K doesn'
+t 
+suppo
+rt OS/
+2-like resou
+rce 
+files and
+ has no
+ po
+ssib
+ility to
+ mo
+dify wi
+ndow 
+(system
+) menu.  
+Refer t
+o th
+e “Issu
+es” sectio
+n. 
+The fol
+lowing fu
+nct
+ions 
+shoul
+d be po
+rted:
+ 
+GUIXCreateWindow()
+ – 4 ho
+ur(s
+) 
+GUICalcLocation()
+ – 2 ho
+ur(s
+) 
+_wpi_createsolidbrush()
+ – 2 h
+our(s
+) 
+_wpi_create_window_ex()
+ – 4 h
+our(s
+) 
+_wpi_setredraw()
+ – 1 h
+our(s
+) 
+GUIMaximizeWindow()
+ – 1 ho
+ur(s
+) 
+GUIMinimizeWindow()
+ – 1 ho
+ur(s
+) 
+_wpi_showwindow()
+ – 1 ho
+ur(s
+) 
+GUIShowWindowNA()
+ – 1 ho
+ur(s
+) 
+GUIFreeWindowMemory()
+ – 2 h
+our(s
+) 
+GUIXCr
+eate
+Windo
+w 
+Th
+is high
+ level fu
+nction
+ creat
+es a 
+wind
+ow 
+wid
+get an
+d app
+lies th
+e passed
+ param
+eters to
+ it.  
+Desp
+ite t
+he fact th
+at all th
+e low-lev
+el fu
+nction
+ality
+ is p
+erformed
+ by sub
+-cal
+ls, so
+me tweakin
+g m
+ay b
+e 
+neede
+d.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUICalcLoc
+ation 
+Thi
+s funct
+ion c
+alculates co
+ordinat
+es o
+f the new window. Note that X 
+Wi
+ndow
+ Sy
+stem
+ wi
+ndow m
+anager
+s 
+are free t
+o ignore this; m
+ost window m
+anagers ignore
+ requests for i
+nitia
+l window placem
+ent (using a user-
+defi
+ned placement algorithm
+ instead
+) a
+nd honors 
+requests
+ only after 
+the wi
+ndow has bee
+n shown. 
+ 
+Inst
+ead of
+ usi
+ng 
+_wpi_get
+clientrect()
+ to get
+ client area c
+oordinates of
+ the window, program
+mers 
+shoul
+d use 
+gtk_widget_get_request_size()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 20
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+_wpi_cr
+eate
+solidbrush 
+In 
+Windows this return
+s a so
+lid
+ brush with
+ co
+lor. 
+In 
+OS/2
+ PM th
+is allo
+cates sp
+ace
+ for the 
+object struct
+ure 
+and
+ set
+s the foreground colour for the brush.  
+For GTK this s
+hould create 
+GtkStyle
+ structure wi
+th the gi
+ven param
+eters. 
+ 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+_wpi_cr
+eate
+_windo
+w_ex 
+Thi
+s funct
+ion r
+eturns poi
+nter t
+o newl
+y creat
+ed 
+window widget wi
+th the gi
+ven
+ pa
+ram
+eters.  
+Whe
+n ported, this funct
+ion shoul
+d m
+ake a ca
+ll of 
+gtk_win
+dow_new()
+, and
+ ap
+ply pa
+rameters passe
+d i
+n 
+info
+. After t
+he windo
+w is created
+, it is 
+necessary to pu
+t 
+GtkScrolledWindow
+ widget in
+ it and
+ then put 
+GtkFixed
+ wi
+dget in th
+e 
+scrolled window
+ widget. 
+ See “Ge
+neral 
+Po
+rting Approach” section. 
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+_wpi_setre
+draw 
+Thi
+s funct
+ion e
+nabl
+es/disabl
+es wi
+ndow updates.  
+Sh
+oul
+d be do
+ne via 
+gdk_wi
+ndow_thaw_updates()
+ and 
+gdk_wind
+ow_freeze_updates()
+  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIMaximiz
+eWindo
+w 
+Thi
+s fu
+nct
+ion m
+axim
+izes 
+the specified wi
+ndow.  
+In order to as
+k the wi
+ndow m
+anage
+r to m
+aximize t
+he wi
+ndow in GT
+K 
+gtk_window_maximize() 
+sho
+uld be cal
+led.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIMinimiz
+eWindo
+w 
+Thi
+s fu
+nct
+ion m
+inim
+izes 
+the 
+specified wi
+ndow.  
+In or
+der to ask
+ wind
+ow
+ m
+anager
+ to m
+inimize 
+the w
+indow
+ in 
+GTK, 
+gtk_w
+indow_minimize() 
+should
+ 
+be called.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+_wpi_sh
+owwindo
+w 
+Sh
+ows
+ the wi
+ndow acc
+ording to the gi
+ven st
+ate. W
+indows pre
+defi
+ned 
+states 
+are use
+d.  
+In the 
+GT
+K 
+gtk_widget_show()
+ and 
+gtk_window_hide()
+  should
+ be used. 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUISho
+wWindo
+wNA 
+Sho
+ws th
+e w
+indow
+.  
+ 
+gdk_window_show()
+ shoul
+d be use
+d 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur. 
+GUIFreeWindo
+wMemory
+ 
+Frees 
+all resources related
+ to 
+the g
+iven windo
+w. 
+ 
+In GT
+K 
+gtk_object_destory()
+ sho
+uld be called wh
+ich au
+tomatical
+ly will d
+estro
+y all ch
+ild
+ren
+. Some 
+addition
+al tweak
+ing
+ m
+ay b
+e needed.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 21
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+Summar
+y 
+19 hou
+rs are n
+eeded fo
+r porting
+ activ
+ity and
+, addition
+ally, ap
+pro
+ximately 16 m
+ore 
+hours are 
+need
+ed for 
+testin
+g an
+d tunin
+g. Th
+is step req
+uires 
+35 hours. 
+At th
+e fi
+nish of th
+is step
+ we w
+ill b
+e ab
+le t
+o ex
+ecu
+te t
+he 
+following
+ cod
+e.  
+ 
+#include "gui.h" 
+#include "guitypes.h" 
+ 
+static  gui_rect        Scale           = { 0, 0, 1000, 1000 }; 
+ 
+bool MainEventWnd( gui_window *gui, gui_event gui_ev, void *param ) 
+{ 
+    gui = gui; 
+    gui_ev = gui_ev; 
+    param = param; 
+    return( TRUE ); 
+} 
+ 
+static gui_create_info Parent = { 
+    "Sample Application", 
+    { 250, 250, 500, 500 }, 
+    GUI_HSCROLL | GUI_VSCROLL, 
+    GUI_GADGETS | GUI_VISIBLE, 
+    NULL, 
+    0, NULL, 
+    0, NULL, 
+    &MainEventWnd, 
+    NULL, 
+    NULL, 
+    0 
+}; 
+ 
+static gui_create_info Child = { 
+    "Child Window", 
+    { 300, 300, 200, 200 }, 
+    GUI_SCROLL_BOTH, 
+    GUI_VISIBLE+GUI_CLOSEABLE+GUI_MAXIMIZE+GUI_RESIZEABLE+GUI_MINIMIZE, 
+    NULL, 
+    0, 
+    NULL, 
+    0, NULL, 
+    &MainEventWnd, 
+    NULL, 
+    NULL, 
+    0 
+}; 
+ 
+void GUImain( void ) 
+{ 
+    GUIMemOpen(); 
+    GUIWndInit( 300, GUI_GMOUSE ); 
+    GUISetScale( &Scale ); 
+    Child.parent = GUICreateWindow( &Parent ); 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 22
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+    GUICreateWindow( &Child ); 
+} 
+ 
+  
+  
+9.  Standard  
+sample  
+The ne
+xt 
+objec
+tive 
+is to run a standa
+rd 
+Watco
+m GUI 
+sam
+ple prog
+ram
+ lo
+cated
+ in
+ 
+gui/sa
+mple/samp2.c
+.  
+Belo
+w is its listin
+g.  
+  
+#include <string.h> 
+#include "gui.h" 
+ 
+#define TRUE 1 
+#define FALSE 0 
+ 
+#define HEIGHT 5 
+#define WIDTH 8 
+ 
+static gui_ord Width = 0; 
+ 
+#define NUM_TEXT 5 
+ 
+static char Text[][NUM_TEXT] = { {"0%"}, {"25%"}, {"50%"}, {"75%"}, {"100%"} 
+}; 
+static int Strlen[NUM_TEXT] = { 2, 3, 3, 3, 4 }; 
+ 
+static GUICALLBACK GetNewFunction; 
+static GUICALLBACK StatusFunction; 
+ 
+static gui_create_info DialogWnd = { 
+    "Install Program: ", 
+    { 20, 20, 40, 40 }, 
+    GUI_NOSCROLL, 
+    GUI_VISIBLE, 
+    NULL, 
+    0, 
+    NULL, 
+    0, 
+    NULL, 
+    &GetNewFunction, 
+    NULL, 
+    0 
+}; 
+ 
+static gui_rect Rect; 
+static int Row; 
+static int NumEnters = 0; 
+ 
+static gui_colour_set StatusColours[GUI_NUM_ATTRS+1] = { 
+    /* Fore              Back        */ 
+    GUI_BLUE,          GUI_WHITE,   /* GUI_MENU_PLAIN     */ 
+    GUI_BLUE,          GUI_WHITE,   /* GUI_MENU_STANDOUT  */ 
+    GUI_BLUE,          GUI_WHITE,   /* GUI_BACKGROUND     */ 
+    GUI_BLUE,          GUI_WHITE,   /* GUI_TITLE_ACTIVE   */ 
+    GUI_GREY,          GUI_WHITE,   /* GUI_TITLE_INACTIVE */ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 23
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+    GUI_BLUE,          GUI_WHITE,   /* GUI_FRAME_ACTIVE   */ 
+    GUI_GREY,          GUI_WHITE,   /* GUI_FRAME_INACTIVE */ 
+    GUI_BRIGHT_WHITE,  GUI_MAGENTA  /* GUI_FIRST_UNUSED   */ 
+}; 
+ 
+static gui_create_info StatusWnd = { 
+    "Percent of Installation Complete", 
+    { 19, 70, 42, 20 }, 
+    GUI_NOSCROLL, 
+    GUI_VISIBLE | GUI_DIALOG_LOOK, 
+    NULL, 
+    0, 
+    NULL, 
+    GUI_NUM_ATTRS + 1, 
+    &StatusColours, 
+    &StatusFunction, 
+    NULL, 
+    0 
+}; 
+ 
+enum { 
+   ctr_static, 
+   ctr_edit, 
+   ctr_cancelbutton, 
+   ctr_okbutton 
+}; 
+ 
+static gui_control_info GetNew[] = { 
+    { GUI_STATIC,         "Please enter install path:",     { 4, 4, 30, 
+HEIGHT }, NULL, GUI_NOSCROLL, GUI_NONE, ctr_static }, 
+    { GUI_EDIT,           NULL,     { 4, 15, 30, HEIGHT }, NULL, 
+GUI_NOSCROLL, GUI_NONE, ctr_edit }, 
+    { GUI_PUSH_BUTTON,   "CANCEL",  { 6, 30, WIDTH, HEIGHT }, NULL, 
+GUI_NOSCROLL, GUI_NONE, ctr_cancelbutton }, 
+    { GUI_DEFPUSH_BUTTON, "OK",     { 26, 30, WIDTH, HEIGHT }, NULL, 
+GUI_NOSCROLL, GUI_NONE, ctr_okbutton } 
+}; 
+ 
+static gui_colour_set Colours[GUI_NUM_INIT_COLOURS] = 
+{ 
+    { GUI_BRIGHT_WHITE, GUI_BLUE }, 
+    { GUI_BRIGHT_WHITE, GUI_BLUE } 
+}; 
+ 
+static char * text = NULL; 
+static gui_message_return ret_val = GUI_RET_CANCEL; 
+ 
+static gui_window * Status = NULL; 
+ 
+/* 
+ * GetNewFunction - call back routine for the GetNewVal dialog 
+ */ 
+ 
+static bool GetNewFunction( gui_window * gui, gui_event gui_ev, void * param 
+) 
+{ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 24
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+    unsigned id; 
+ 
+    switch( gui_ev ) { 
+        case GUI_INIT_DIALOG : 
+            ret_val = GUI_RET_CANCEL; 
+            break; 
+        case GUI_DESTROY : 
+            if( Status != NULL ) { 
+                GUIDestroyWnd( Status ); 
+            } 
+            break; 
+        case GUI_CLICKED : 
+            GUI_GETID( param, id ); 
+            switch( id ) { 
+                case ctr_cancelbutton : 
+                    GUICloseDialog( gui ); 
+                    ret_val = GUI_RET_CANCEL; 
+                    break; 
+                case ctr_okbutton : 
+                    text = GUIGetText( gui, ctr_edit ); 
+                    if( Status == NULL ) { 
+                        Status = GUICreateWindow( &StatusWnd ); 
+                    } else { 
+                        NumEnters ++; 
+                        Rect.width = ( NumEnters * Width ) / 4; 
+                        if( NumEnters > 4 ) { 
+                            GUICloseDialog( gui ); 
+                        } else { 
+                            GUIWndDirty( Status ); 
+                        } 
+                    } 
+                    ret_val = GUI_RET_OK; 
+                    break; 
+            } 
+        break; 
+    } 
+    return( TRUE ); 
+} 
+ 
+/* 
+ * StatusFunction - call back routine for the status window 
+ */ 
+ 
+static bool StatusFunction( gui_window * gui, gui_event gui_ev, void * param 
+) 
+{ 
+    int              i; 
+    int              pos; 
+    gui_text_metrics metrics; 
+ 
+    param = param; 
+ 
+    switch( gui_ev ) { 
+        case GUI_INIT_WINDOW : 
+            Row = GUIGetNumRows( gui ) / 2; 
+            GUIGetTextMetrics( gui, &metrics ); 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 25
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+            GUIGetClientRect( gui, &Rect ); 
+            Rect.x = 1; 
+            Rect.y = 1; 
+            Width = Rect.width - 2 * Rect.x; 
+            Rect.width = 0; 
+            for( i = 0; i < NUM_TEXT; i++ ) { 
+                Strlen[i] *= metrics.max.x; 
+            } 
+            break; 
+        case GUI_DESTROY : 
+            break; 
+        case GUI_PAINT : 
+            GUIDrawRect( gui, &Rect, GUI_FIRST_UNUSED ); 
+            for( i = 0; i < NUM_TEXT; i++ ) { 
+                pos = ( i * Width / 4 ) - Strlen[i] + Rect.x; 
+                if( pos < (int)Rect.x ) { 
+                    pos = Rect.x; 
+                } 
+                if( ( i > NumEnters ) || 
+                    ( i == 0 ) && ( NumEnters == 0 ) ) { 
+                    GUIDrawText( gui, &Text[i], Strlen[i], Row, pos, 
+                                 GUI_TITLE_ACTIVE ); 
+                } else { 
+                    GUIDrawText( gui, &Text[i], Strlen[i], Row, pos, 
+                                 GUI_FIRST_UNUSED ); 
+                } 
+            } 
+            break; 
+    } 
+    return( TRUE ); 
+} 
+ 
+void GUImain( void ) 
+{ 
+ 
+    GUIMemOpen(); 
+    GUIWndInit( 250 ); 
+    GUICreateDialog( &DialogWnd, NUM_CONTROLS, &GetNew ); 
+} 
+  
+  
+Here is a list of fu
+nction
+s no
+t yet d
+escrib
+ed: 
+GUICreateDialog()
+ 
+GUIDestroyWnd()
+ 
+GUIGetText()
+ 
+GUICloseDialog()
+ 
+GUIWndDirty()
+ 
+GUIGetNumRows()
+ (d
+oes
+n't need
+ to be 
+ported) 
+GUIGetTextMetrics()
+ 
+GUIGetClientRect()
+ 
+GUIDrawRect()
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 26
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIDrawText()
+.  
+Belo
+w is t
+he li
+st o
+f sub
+sequ
+ent fun
+ctio
+n calls.  
+GUICreateDialog() 
+  
+CreateDlg
+() 
+    
+GUISetup
+Wnd() 
+    
+GUIXCrea
+teDialog() 
+      
+GUISetu
+pStruct() 
+      
+GUIDoCr
+eateResDialog() 
+      
+AdjustF
+orFrame() 
+      
+AdjustT
+oDialogUnits() 
+        
+ToDial
+ogUnits() 
+      
+GUIDlgC
+alcLocation() 
+      
+GUISetC
+ontrolStyle() 
+      
+DialogT
+emplate() 
+      
+AddCont
+rol() 
+      
+GUICont
+rolInsert() 
+      
+DoneAdd
+ingControls() 
+      
+Dynamic
+DialogBox() 
+      
+GUIDial
+ogFunc() 
+    
+GUIFreeW
+indowMemory() 
+ 
+GUIDestroyWnd() 
+ 
+GUIGetText() 
+  
+GUIGetCon
+trolClass() 
+    
+GUIGetCo
+ntrolByID() 
+ 
+ 
+GUICloseDialog() 
+  
+GUISendMe
+ssage() 
+ 
+GUIWndDirty() 
+  
+GUIGetFro
+nt() 
+  
+GUIGetNex
+tWindow() 
+  
+GUIGetPar
+entFrameHWND() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 27
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+ 
+GUIGetTextMetrics() 
+  
+GUIGetMet
+rics() 
+    
+GUIGetTh
+eDC() 
+    
+GUIRelea
+seTheDC() 
+  
+GUISetMet
+rics() 
+    
+GUIScree
+nToScaleR() 
+      
+GUIConv
+ert() 
+ 
+GUIGetClientRect() 
+  
+_wpi_mapw
+indowpoints() 
+  
+_wpi_getw
+rectvalues() 
+  
+_wpi_geth
+eightrect() 
+  
+GUIClient
+ToScaleRect() 
+    
+GUIScree
+nToScaleRect() 
+      
+GUIConv
+ertRect() 
+ 
+GUIDrawRect 
+  
+DrawRect(
+) 
+    
+GUIGetSc
+rollPos() 
+    ... 
+ 
+GUIDrawText() 
+  
+GUIGetTex
+tMetrics() 
+  
+GUIXDrawT
+ext() 
+    
+GUIDrawT
+extBitmapAttr() 
+      
+GUIGetF
+ore() 
+      
+GUIGetB
+ack() 
+      
+GUIDraw
+TextBitmapRGB() 
+      ... 
+GUIXCreateDialog 
+Creates a 
+dialog 
+with s
+pecifie
+d cont
+rols.  
+Instead
+ of callin
+g 
+GlobalFr
+ee()
+ here th
+e wind
+ow
+ sho
+uld b
+e destro
+yed 
+with
+ 
+gtk_widget_destroy()
+ Som
+e tweaki
+ng m
+ay be nee
+ded.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 28
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIDoCr
+eateRe
+sDialog 
+Creates dialog 
+defi
+ned in 
+res
+ource
+ file.  
+Consi
+der Iss
+ues section. 
+DialogTempl
+ate 
+Creates a 
+dialog tem
+plate.  
+There
+ are
+ no dialog t
+emplates in GTK. Howe
+ver
+, Ope
+n Wat
+com
+ GUI
+ Li
+brary
+ ad
+ds c
+ontrols to di
+alog 
+templates, so
+ we 
+will create 
+a d
+ialog
+ in th
+is fu
+nction
+. 
+gtk_window_create()
+ is ne
+eded to c
+reate 
+a 
+dialog. 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+Add
+Con
+trol 
+Add
+s con
+trol to
+ th
+e sp
+ecified 
+dialo
+g tem
+plate.  
+There
+ is 
+big a
+mount of 
+work he
+re. 
+This function s
+houl
+d create all necess
+ary controls, a
+nd apply s
+pecified 
+attributes for 
+every requeste
+d cont
+rol. 
+ 
+Dep
+end
+ing
+ on typ
+e of th
+e contro
+l an
+d attri
+butes vari
+ous GT
+K f
+unct
+ions s
+houl
+d be 
+use
+d. 
+Time need
+ed fo
+r po
+rting
+: 8 ho
+urs.  
+Done
+Adding
+Con
+trols 
+Called when there are
+ no m
+ore controls.  
+Sh
+oul
+d be em
+pty in GT
+K port.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+DynamicDialogBo
+x 
+Creates a 
+dyna
+mic dialog 
+box.  
+Sh
+oul
+d do
+ nothing 
+in GT
+K po
+rt, since
+ 
+DialogTemplate()
+ function c
+reated the
+ dialog.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+GUIDialogFunc 
+Callb
+ack
+ fun
+ctio
+n fo
+r all d
+ynamically created dialogs.  
+Sho
+uld be rewritten
+ for GTK v
+ersion. Th
+e callb
+ack
+ sho
+uld co
+rrectly p
+rocess resizing
+ 
+"resize-
+request"
+ and 
+"close"
+ events
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIDestro
+yWnd 
+Destro
+ys th
+e g
+iven w
+indow
+ or all w
+ind
+ow
+s if NU
+LL.  
+In GT
+K port, the funct
+ion s
+houl
+d cal
+l 
+gtk_widget_destroy()
+ for the g
+iven window
+ or for the top-
+lev
+el windo
+w if NULL.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs 
+GUIGe
+tTe
+xt 
+Retu
+rns a cop
+y of th
+e tex
+t.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 29
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Sh
+oul
+d be 
+grea
+tly modi
+fied i
+n GT
+K port, but it is a  st
+rai
+ght
+forwa
+rd t
+ask. T
+ext of almost all wi
+dget
+s co
+uld 
+be ret
+rieved vi
+a 
+gtk_label_get_label()
+, and 
+gtk_button_get_label()
+. No
+te th
+at return
+ed 
+strin
+g will b
+e own
+ed by a widg
+et and
+ m
+ust no
+t b
+e m
+odified
+ or freed. So
+, it is n
+eeded to
+ dup
+licate th
+em
+ in
+ 
+this fu
+nction
+.  
+Sel
+ect
+ion of
+ 
+GtkTreeView
+ co
+uld be ac
+ces
+sed 
+via 
+gtk_t
+ree_view_get_selection()
+ function.  
+Time need
+ed fo
+r po
+rting
+: 6 ho
+urs.  
+GUISendM
+essage 
+Sends a
+ m
+essa
+ge to the 
+speci
+fied wi
+ndow.  
+g_signal_emit()
+ sh
+oul
+d be 
+use
+d for this purpose. 
+ 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIWndDirty
+ 
+Tells the user interface
+ that i
+nterface s
+houl
+d be 
+repai
+nted.  
+gdk_window_process_updates()
+ can 
+repai
+nt the window
+ in GT
+K.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIGe
+tMe
+trics 
+Returns text m
+etrics for font
+ of the given window.  
+GUIGetDC()
+ and 
+GUIRel
+easeDC
+ sh
+oul
+d not
+ be cal
+led in GTK port. There
+ is no nee
+d to wo
+rk on so
+ 
+low lev
+el in GTK. 
+FontMetrics
+ of
+ the gi
+ven
+ wi
+ndow could be 
+ret
+rieved i
+n the following way
+:  
+ 
+PangoContext context = gtk_widget_get_pango_context(widget); 
+ 
+PangoFontMetrics metrics = pango_context_get_metrics(context, 
+widget->style->font_desk, pango_context_get_language(context)); 
+      g_memmove(&GUItm,      
+metrics);      
+      pango_font_metrics_unref(metrics);      
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetClientRect 
+Returns scal
+ed, de
+pen
+ding upon cu
+rre
+nt scal
+ing 
+set
+tings,
+ re
+ctangl
+e of the given window in ab
+sol
+ute 
+coo
+rdinat
+es.  
+Note, that client area 
+of t
+he window
+ is t
+he ar
+ea of
+ th
+e 
+GtkScrolledWindow
+ widget 
+placed in the
+ 
+window
+.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+_wpi_map
+windo
+wpoin
+ts 
+Translates coo
+rdinates 
+relativ
+e to
+ sou
+rce 
+widget's allo
+catio
+n to
+ co
+ord
+inates 
+relativ
+e to
+ destin
+atio
+n wi
+dget's 
+allo
+catio
+ns.  
+Th
+e sim
+ilar fun
+ctio
+nality in
+ GTK sh
+ou
+ld be ach
+ieved b
+y 
+gtk_widget_translate_coordinates()
+. No
+te that th
+ere is 
+no
+ defin
+itio
+n sim
+ilar to 
+HWND_DESKTOP
+ in GTK
+. To get
+ the nee
+ded val
+ue (root window
+ of a gi
+ven widget) 
+gtk_widget_get_root_window()
+ shoul
+d be 
+cal
+led fo
+r a gi
+ven wi
+dget.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 30
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+_wpi_ge
+twrectvalues 
+Returns c
+oordinat
+es of t
+he rec
+tangl
+e.  
+Sho
+uld be rewritten
+ using
+ 
+GdkRectangle
+ type.  
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+_wpi_ge
+thei
+ghtre
+ct 
+Returns hei
+ght of
+ the gi
+ven re
+ctangl
+e.  
+Sho
+uld be rewritten
+ using
+ 
+GdkRectangle
+ struct
+ure
+.  
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+Dra
+wRect 
+Dra
+ws s
+pecifie
+d rectangle in t
+he give
+n window.  
+Sho
+uld be rewritten
+. GTK 
+paint fun
+ctio
+ns app
+lied
+ to th
+e 
+GtkFixed
+ widget placed in t
+he window shoul
+d 
+be used for th
+is pu
+rpo
+se. Th
+is appro
+ach will 
+allo
+w av
+oiding all th
+e su
+b-calls.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUIXDr
+awText 
+Dra
+ws s
+peci
+fied text in the given
+ wi
+ndow.  
+Sho
+uld be rewritten
+. 
+pango_layout_set_text()
+ sh
+ould be 
+use
+d for text re
+nderi
+ng, an
+d 
+gtk_paint_layout()
+ app
+lied
+ to 
+GtkFixed
+ widget 
+placed in t
+he window s
+houl
+d be use
+d for 
+drawing
+. Th
+is appro
+ach will 
+allo
+w av
+oiding all th
+e su
+b-calls.  
+Time need
+ed fo
+r po
+rting
+: 6 ho
+urs.  
+Summar
+y 
+41 hours are
+ ne
+eded
+ for porting act
+ivity an
+d a
+pproxi
+mately 24 m
+ore 
+hours a
+re re
+quired for testing a
+nd 
+tuning
+. Th
+is st
+ep requ
+ires 65
+ hour
+s.  
+Elaboration stage 
+10. 
+Common control functions 
+There a
+re a
+ cou
+ple of co
+mmo
+n window
+ con
+trol function
+s in the 
+Ope
+n Wat
+com
+ GUI
+ Lib
+rary
+. Belo
+w is t
+he 
+list o
+f th
+em
+ with
+ th
+eir su
+b-calls. 
+  
+GUIAddControl() 
+GUIResizeControl() 
+GUIDeleteControl() 
+  
+_wpi_dest
+roywindow() 
+  
+GUIContro
+lDelete() 
+    
+GUIDelet
+eCtrlWnd() 
+GUIEnableControl() 
+  
+_wpi_enab
+lewindow() 
+GUIIsControlEnabled() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 31
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+  
+_wpi_iswi
+ndowenabled() 
+GUIGetControlRect() 
+GUIHideControl() 
+  
+ShowContr
+ol() 
+    
+_wpi_sho
+wwindow() 
+GUIShowControl() 
+GUIIsControlVisible() 
+  
+_wpi_iswi
+ndowwisible()
+ 
+GUIAddControl 
+Ad
+ds a
+ cont
+rol to a window.  
+The 
+function s
+hould create a
+n approp
+riate c
+ontrol with appropriate styl
+es an
+d o
+ther attribu
+tes in th
+e 
+requ
+ested po
+sition. Alread
+y descr
+ibed 
+AddControl
+ shoul
+d be use
+d here.
+  
+Time need
+ed fo
+r po
+rting
+: 5 ho
+urs.  
+GUIResizeControl 
+Set size and l
+ocation 
+of a c
+ontrol (relative 
+parent).  
+Inst
+ead of
+ usi
+ng 
+_wpi_get
+dlgitem()
+ it is n
+eeded to
+ use 
+GUIGetControlByID()
+ beca
+use t
+he last 
+is po
+rtab
+le.  
+Inst
+ead of
+ usi
+ng 
+_wpi_mov
+ewindow()
+ it is n
+eeded to
+ use 
+gtk_fixed_move()
+ to 
+move the s
+pecified 
+cont
+rol
+ in the fixed 
+widget of window where
+ the c
+ont
+rol
+ is locat
+ed.
+  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+_wpi_
+destroy
+window 
+Dest
+roys the gi
+ven
+ wi
+dget
+.  
+gtk_widget_destroy()
+ sh
+oul
+d be cal
+led i
+n GTK port.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+GUIEnable
+Control 
+Set
+s co
+ntrol en
+abl
+ed or not
+ enabl
+ed.  
+Inst
+ead of
+ usi
+ng 
+_wpi_mov
+ewindow()
+ it is n
+eed to u
+se 
+gtk_fixed_move()
+ to 
+move the s
+pecified 
+cont
+rol
+ in the fixed 
+widget of window where
+ the c
+ont
+rol
+ is locat
+ed.
+  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+_wpi_en
+able
+window 
+Sets speci
+fied 
+widget ena
+bled or 
+disabled.  
+gtk_widget_set_sensitive()
+ sh
+oul
+d be cal
+led wi
+thin this funct
+ion.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+GUIIsContr
+olEnabled 
+Ch
+eck
+s if con
+trol is en
+abled
+.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 32
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Inst
+ead of
+ usi
+ng 
+_wpi_mov
+ewindow()
+ it is n
+eeded to
+ use 
+gtk_fixed_move()
+ to 
+move the s
+pecified 
+cont
+rol
+ in the fixed 
+widget of window where
+ the c
+ont
+rol
+ is locat
+ed.
+  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+_w
+pi_isw
+indowenabled 
+Checks
+ if t
+he given 
+widget is 
+enable
+d.  
+gtk_widget_get_sensitive()
+ sh
+oul
+d be cal
+led wi
+thin this funct
+ion.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+GUIGetControlRect 
+Gets lo
+cation
+ of a con
+trol relativ
+e to
+ the paren
+t.  
+Inst
+ead of
+ usi
+ng 
+_wpi_mov
+ewindow()
+ it is n
+eeded to
+ use 
+gtk_fixed_move()
+ to 
+move the s
+pecified 
+cont
+rol
+ in the fixed 
+widget of window where
+ the c
+ont
+rol
+ is locat
+ed.
+  
+Inst
+ead of
+ usi
+ng 
+GUIGetRe
+lRect()
+ it is n
+eeded to
+ use 
+g_object_get_property()
+ to 
+read the 
+coo
+rdinat
+es of
+ the control, and use 
+gtk_wi
+dget_get_size_request()
+ to
+ get its size.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+_wpi_sh
+owwindo
+w 
+Sh
+ows
+ or hi
+des
+ widget depe
+nding u
+pon the fl
+ag. 
+ 
+Depe
+nding upon the flag 
+gtk_widget_show_all()
+ or
+ 
+gtk_widget_hide_all()
+ fu
+nct
+ion 
+sho
+uld be cal
+led.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+_w
+pi_isw
+indowwisible 
+Checks
+ if t
+he widget is 
+visible.  
+Prope
+rty 
+"visible"
+ sh
+oul
+d be 
+use
+d to test if the wi
+dget
+ is vi
+sible.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+Summar
+y 
+13.5 hours are
+ neede
+d for porting act
+ivity and, a
+dditional
+ly, ap
+proximately 1
+3.5 hours a
+re re
+qui
+red for 
+testin
+g an
+d tunin
+g. Th
+is step req
+uires ab
+ou
+t 27
+ hour
+s.  
+11. 
+Common text functions 
+Belo
+w is t
+he li
+st o
+f th
+e co
+mmo
+n tex
+t related
+ fun
+ction
+s.  
+GUISetText() 
+GUIClearText() 
+GUISelectAll() 
+GUISetEditSelect() 
+GUIGetEditSelect() 
+GUIDlgBuffGetText()
+ 
+GUISetTex
+t 
+Set
+s the text of the given widget to the given t
+ext.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 33
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Depe
+nding on
+ the class of
+ the given wi
+dget 
+gtk_entry_set_text()
+ or
+ 
+gtk_label_set_label()
+ shoul
+d be us
+ed. 
+ 
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUIClearText 
+Clears the te
+xt.  
+GUISetText()
+ sh
+oul
+d be c
+alled t
+o per
+form the o
+perat
+ion.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+GUISelec
+tAll
+ 
+Selects th
+e tex
+t with
+in th
+e contro
+ls 
+GUI_ED
+IT
+ or
+ 
+GUI_ED
+IT_COMBOBOX
+.  
+Sh
+oul
+d cal
+l 
+gtk_editable_select()
+ ap
+plied to
+ a valid
+ 
+GtkEntry
+ widg
+et to
+ perform
+ th
+e o
+peration
+. 
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUISetEdi
+tSelect 
+Selects 
+the p
+ortio
+n of tex
+t with
+in con
+trols 
+GUI_EDIT
+ or
+ 
+GUI_EDIT_COMBOBOX
+.  
+Sh
+oul
+d cal
+l 
+gtk_editable_select()
+ ap
+plied to
+ valid 
+GtkEntry
+ wi
+dget to perform
+ the op
+eration
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetEditS
+elect 
+Fin
+ds ou
+t the po
+rtion
+ of th
+e tex
+t selected
+ with
+in 
+GUI_EDI
+T
+ or
+ 
+GUI_EDI
+T_COMBOBOX
+.  
+Sh
+oul
+d cal
+l 
+gtk_editable_get_selection_bounds()
+ and 
+gtk_editable_get_chars()
+ 
+applied to
+ valid 
+GtkEntry
+ widg
+et to
+ perform
+ th
+e o
+peration
+.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUIDlg
+Bu
+ffGetT
+ext 
+Gets tex
+t fro
+m th
+e con
+trol in
+to a buffer.  
+Add
+itio
+nal investig
+atio
+n is n
+eeded in
+ ord
+er to find
+ out, wh
+eth
+er the cu
+rren
+t m
+emory allo
+catio
+n algorith
+m in
+ 
+Ope
+n Wat
+com
+ GU
+I Libra
+ry can be reuse
+d in the GT
+K po
+rt.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+Summar
+y 
+15.5 hours are
+ neede
+d for porting act
+ivity and, a
+dditional
+ly, ap
+proximately 8.
+5 hours a
+re neede
+d for testing 
+and tun
+ing
+. Th
+is step
+ requires ab
+ou
+t 2
+4 hou
+rs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 34
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+12. 
+Special dialogs functions 
+Belo
+w is t
+he li
+st o
+f fun
+ctio
+ns related
+ to special d
+ialo
+gs with
+ their su
+b-calls. 
+ 
+ 
+GUIDisplayMessage
+ 
+GUIGetNewVal()
+ 
+  
+GUIDlgOpe
+n()
+ 
+    
+DlgOpen(
+)
+ 
+      
+GUIGetD
+lgTextMetrics()
+ 
+      
+GUITrun
+cToPixel()
+ 
+      
+DlgSetS
+ize()
+ 
+        
+GUIGet
+SystemMetrics()
+ 
+      
+DlgSetC
+tlSizes()
+ 
+      
+GUICrea
+teSysModalDialog()
+ 
+      
+GUICrea
+teDialog()
+ 
+ 
+GUIDlgPickWithRtn()
+ 
+  
+GUIDlgOpe
+n()
+ 
+ 
+GUIDlgPick()
+ 
+  
+GUIDlgPic
+kWithRtn()
+ 
+ 
+GUIGetFileName()
+ 
+GUIDis
+pla
+yMessa
+ge 
+Disp
+lays a m
+essag
+e and
+ gets th
+e respon
+se. Iden
+tical fun
+ction
+ality co
+uld be ach
+iev
+ed by usin
+g GTK's 
+message di
+alog vi
+a 
+gtk_mes
+sage_new()
+.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+DlgOpe
+n 
+Calls 
+GUICreateDilog()
+, form
+atting l
+ocat
+ions t
+o look good on eve
+ry OS.
+  
+So
+me effort to 
+mak
+e th
+e con
+trols look
+ sim
+ilar in Linu
+x to
+ all o
+ther system
+s will b
+e needed.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs 
+GUIGe
+tDlgT
+extM
+etric
+s 
+Gets th
+e m
+etric
+s of th
+e d
+ialog
+ fon
+t.  
+Fo
+ntMetrics of the gi
+ven wi
+ndow could be r
+etrieved
+ in the fol
+lowing way
+:  
+ 
+PangoContext context = gtk_widget_get_pango_context(widget); 
+ 
+PangoFontMetrics metrics = pango_context_get_metrics(context, 
+widget->style->font_desk, pango_context_get_language(context)); 
+      g_memmove(&GUItm,      
+metrics);      
+      pango_font_metrics_unref(metrics);      
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 35
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+ 
+GUIGe
+tSy
+stemMetrics 
+Selects th
+e tex
+t with
+in 
+GUI_E
+DIT
+ or
+ 
+GUI_E
+DIT_COMBOBOX
+.  
+Instead
+ of callin
+g 
+_wpi_get
+systemmetrics()
+ the function s
+houl
+d ca
+ll vari
+ous GT
+K funct
+ions t
+o get 
+diffe
+rent val
+ues. 
+Tim
+e neede
+d for porting: 10
+ ho
+urs.  
+DlgSetCtlSizes 
+Sets sizes 
+of con
+trols in
+ 
+GUIDlgOpen
+.  
+So
+me effort to 
+mak
+e th
+e con
+trols look
+ sim
+ilar in all syste
+ms will b
+e needed.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetEditS
+elect 
+Fin
+ds ou
+t the po
+rtion
+ of tex
+t selected
+ with
+in 
+GUI_EDIT
+ or
+ 
+GUI_EDIT_COMBOBOX
+.  
+Sh
+oul
+d cal
+l 
+gtk_editable_get_selection_bounds()
+ and 
+gtk_editable_get_chars()
+ 
+applied to
+ valid 
+GtkEntry
+ widg
+et to
+ perform
+ th
+e o
+peration
+.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUIDlg
+Bu
+ffGetT
+ext 
+Gets tex
+t fro
+m th
+e con
+trol in
+to a buffer.  
+Ad
+ditional
+ rese
+arch
+ sh
+ould be 
+per
+formed i
+n order to find out whether Ope
+n Wat
+com
+ GU
+I Libra
+ry m
+emory 
+allo
+catio
+n algorith
+m can
+ be reu
+sed in th
+e GTK 
+port.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+Summar
+y 
+27 hours are
+ ne
+eded
+ for porting act
+ivity an
+d a
+pproxi
+mately 44 m
+ore 
+hours a
+re neede
+d for testing a
+nd 
+tuning
+. Th
+is st
+ep requ
+ires abou
+t 71
+ ho
+ur.  
+13.  Scrolling  
+functions  
+GUIInitHScrollCol() 
+GUIInitVScrollRow() 
+GUISetHScrollCol() 
+GUISetVScrollRow() 
+GUIGetHScrollCol() 
+GUIGetVScrollRow() 
+GUISetHScrollRangeCols() 
+GUISetVScrollRangeRows() 
+GUIGetHScrollRangeCols() 
+GUIGetVScrollRangeRows() 
+GUIDoHScroll() 
+GUIDoVScroll() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 36
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIDoHScrollClip() 
+GUIDoVScrollClip() 
+GUIInitHScroll() 
+GUIInitVScroll() 
+GUISetHScroll() 
+GUISetVScroll() 
+GUIGetHScroll() 
+GUIGetVScroll() 
+GUISetHScrollRange() 
+GUISetVScrollRange() 
+GUIGetHScrollRange() 
+GUIGetVScrollRange() 
+GUISetHScrollThumb() 
+GUISetVScrollThumb()
+ 
+Common gui
+delines 
+WGL wind
+ow
+s of
+ th
+e G
+TK por
+t m
+ush have 
+GTKScroledWindow
+ in them. Thi
+s sh
+oul
+d co
+ntain 
+GTKViewPort
+ that contains
+ 
+GtkFixed
+.  
+Val
+ues of the scrol
+l bars
+ co
+uld be set
+ and get vi
+a 
+gtk_sc
+rolled_window_set_hajustment()
+, 
+gtk_scrolled_window_set_vajustment()
+, 
+gtk_scrolled_window_get_hajustment()
+ and 
+gtk_scrolled_window_get_vajustment()
+ fu
+nct
+ions
+.  
+Sin
+ce th
+e scro
+ll bars b
+ehavior is au
+tomatic, th
+ere 
+is no
+ po
+ssib
+ility to
+ set/g
+et scro
+ll bar rang
+e values. 
+Req
+uired
+ values cou
+ld b
+e ach
+ieved b
+y getting
+ wid
+th and
+ height of th
+e 
+GtkFixed
+ widget. Settin
+g ran
+ge of 
+a scroll m
+eans resizing of t
+he 
+GtkFixed
+ wi
+dget
+.  
+Page 
+size co
+uld be 
+obt
+ained from
+ size of
+ the 
+GtkViewPort
+ widget.  
+Summar
+y 
+16 hours
+ are
+ ne
+eded for th
+e portin
+g activ
+ity an
+d 16
+ m
+ore 
+hou
+rs are req
+uired
+ for 
+for testing
+ an
+d tun
+ing
+. Th
+is 
+step
+ requ
+ires ab
+ou
+t 32 hou
+rs.  
+14.  Status  
+window
+  functions  
+ 
+GUICreateStatusWindow()
+ 
+GUICloseStatusWindow()
+ 
+GUIHasStatus()
+ 
+GUIDrawStatusText()
+ 
+GUIClearStatusText()
+ 
+GUIResizeStatusWindow()
+ 
+Common gui
+delines 
+WGL wind
+ow
+s of
+ th
+e G
+TK por
+t m
+ush have 
+GTKStatus
+ wi
+dget in th
+em
+. All th
+ese 
+fun
+ctions will in
+teract 
+with
+ it.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 37
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUICreateStatusW
+indow 
+Creates a status window.  
+Sh
+oul
+d m
+ake t
+he 
+GtkStatu
+s
+ vi
+sible usi
+ng 
+gtk_widget_show()
+. 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUICloseStatusWindo
+w 
+Closes the
+ status 
+window.  
+Sh
+oul
+d m
+ake t
+he 
+GtkStatu
+s
+ invi
+sible usi
+ng 
+Gtk_widg
+et_hide() 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GU
+IDrawStatusText
+ 
+Draws t
+he tex
+t to th
+e statu
+s win
+dow.  
+Sh
+oul
+d use 
+gtk_status_push()
+.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIResizeStatus
+Windo
+w 
+Resizes the sta
+tus wi
+ndow.  
+It is im
+possib
+le to
+ ch
+ang
+e 
+X
+ po
+sitio
+n of th
+e 
+GtkStatus
+ in
+ our layou
+t; howev
+er it is 
+never ch
+ang
+ed 
+through
+ all Open
+ Watco
+m sou
+rces. 
+In add
+itio
+n, it isn
+'t n
+ecessary to ch
+ange v
+ertical size o
+f th
+e bar b
+ecau
+se it 
+is do
+ne au
+tomatically. So
+, th
+is fu
+nction
+ can
+ be em
+pty in
+ th
+e GTK port. 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+Summar
+y 
+4 hours are requ
+ired
+ for th
+e po
+rting
+ activ
+ity 
+and, ad
+dition
+ally, 4
+ hours ar
+e requ
+ired
+ for testin
+g an
+d tun
+ing. 
+Th
+is step
+ requ
+ires ab
+ou
+t 8 hour
+s.  
+15.  Toolbar  
+functions  
+ 
+GUICreateFloatToolBar()
+ 
+GUICreateToolBar()
+ 
+GUICloseToolBar()
+ 
+GUIHasToolBar()
+ 
+GUIChangeToolBar()
+ 
+GUIToolBarFixed()
+ 
+Common gui
+delines 
+WGL wind
+ow
+s of
+ th
+e G
+TK por
+t m
+ush have 
+GtkHandleBox
+ wi
+dget whi
+ch c
+ont
+ains 
+GtkToolbar
+ 
+widg
+et in
+ itself. All th
+ese fun
+ctio
+ns will in
+teract with
+ it.  
+GUICr
+eateFl
+oatTo
+olBar 
+Does
+ the
+ sam
+e as 
+GUICreateToolbar()
+ which i
+s desc
+ribed 
+bel
+ow.  
+GUICreateToolBar 
+Creates a tool 
+bar.  
+Sh
+oul
+d m
+ake t
+he 
+GtkHandl
+eBox
+ vi
+sible using 
+gtk_widget_show() 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 38
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUICloseToolBar 
+Closes the
+ status 
+window.  
+Sh
+oul
+d m
+ake t
+he 
+GtkHandl
+eBox
+ invi
+sible usi
+ng 
+gtk_widget_hide() 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIChang
+eT
+oolBar 
+Changes t
+he tool ba
+r. M
+akes
+ it fixed or 
+float
+ing.  
+To m
+ake t
+he tool ba
+r fixed i
+t is nee
+ded to m
+ake 
+GtkHandl
+eBox
+ invi
+sible an
+d set
+ pare
+nt of the 
+GtkToobar
+ to pare
+nt of 
+GtkHandleBox
+. To
+ rev
+erse the op
+eration
+ it i
+s needed to m
+ake th
+e 
+GtkHandleBo
+x vi
+sible and set
+ pare
+nt of
+ the 
+GtkToobar
+ to
+ th
+e 
+GtkHa
+ndleBox
+ widget.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+Summar
+y 
+4 hours are 
+needed fo
+r portin
+g activ
+ity an
+d, ad
+dition
+ally
+, app
+rox
+im
+ately 6
+ m
+ore h
+ours are n
+eeded fo
+r testin
+g 
+and tun
+ing
+. Th
+is step
+ requires ab
+ou
+t 1
+0 hou
+rs.  
+16.  Menu  
+functions  
+GUIAppendMenu() 
+GUIAppendMenuByOffset() 
+GUIInsertMenu() 
+GUIEnableMenuItem() 
+GUICheckMenuItem() 
+GUISetMenuText() 
+GUISetHintText() 
+GUIDeleteMenuItem() 
+GUIResetMenus() 
+GUIEnableMDIMenus() 
+GUICreateFloatingPopup() 
+GUITrackFloatingPopup() 
+GUIGetMenuPopupCount() 
+GUIAppendMenuToPopup() 
+GUIInsertMenuToPopup()
+ 
+Common gui
+delines 
+WGL wind
+ow
+s of
+ th
+e G
+TK por
+t m
+ust h
+ave 
+GtkMenuBar
+ widg
+et in
+ them. All th
+ese fun
+ctio
+ns will in
+teract 
+with
+ it.  
+GUIAppend
+Menu 
+Ap
+pends
+ a m
+enu to the m
+enu ba
+r.  
+gtk_menu_shell_append()
+ sh
+oul
+d be use
+d to add the m
+enu t
+o 
+GtkMenuBar
+ wi
+dget. Fl
+oat
+ing 
+status could be
+ adjusted 
+via “t
+ear-off” state 
+of the
+ 
+GtkMenu
+.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 39
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Ad
+ditional
+ly, the m
+enu a
+nd all items shoul
+d be a
+dde
+d i
+n global co
+ntrols table vi
+a 
+GUIControlInsert()
+, sin
+ce 
+GTK 
+doesn't allo
+w assign
+ing
+ ID to
+ the men
+u item
+s.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIAppend
+Menu
+ByOffs
+et 
+Ap
+pends
+ sub menu t
+o the m
+enu.  
+gtk_menu_shell_append()
+ sh
+oul
+d be use
+d to insert the m
+enu t
+o 
+GtkMenu
+ widget
+.  
+Ad
+ditional
+ly, the m
+enu a
+nd all items shoul
+d be a
+dde
+d i
+n global co
+ntrols table vi
+a 
+GUICo
+ntrolInsert
+, 
+sin
+ce 
+GTK do
+esn
+'t allo
+w assi
+gn
+ing
+ ID fo
+r th
+e m
+enu ite
+ms.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIInsertMenu 
+Inse
+rts a m
+enu 
+into the m
+enu 
+bar
+.  
+gtk_menu_shell_insert()
+ sh
+oul
+d be use
+d to add the m
+enu t
+o 
+GtkMenuBar
+ wi
+dget. Fl
+oat
+ing 
+status could be
+ adjusted
+ via te
+ar-off state.  
+Ad
+ditional
+ly, the m
+enu a
+nd all items shoul
+d be a
+dde
+d t
+o the gl
+obal cont
+rol
+s table via 
+GUIControlInsert()
+, si
+nce 
+GT
+K does
+n't allow t
+o assign 
+ID for the menu i
+tems.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIEnableM
+enuItem 
+Ena
+bles/disabl
+es m
+enu i
+tem.  
+gtk_widget_set_sensitive()
+ applied to the a
+ppropriate 
+GtkMen
+uItem
+ sh
+oul
+d be 
+use
+d in this 
+funct
+ion. T
+he 
+GtkMenuItem
+ widg
+et can
+ be ob
+tain
+ed v
+ia 
+GUIGetControlByID()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIEnableM
+enuItem 
+Checks/
+unc
+hec
+ks m
+enu i
+tem.  
+gtk_check_menu_item_set_active()
+ applied to t
+he a
+ppropriate 
+GtkMenuItem
+ shoul
+d be us
+ed 
+in th
+is fun
+ction. Th
+e 
+GtkMen
+uItem
+ widget
+ can be obtaine
+d via 
+GUIGet
+ControlByID()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUISetMenu
+Text 
+Change t
+he text of
+ a m
+enu i
+tem.  
+gtk_label_set_label()
+ app
+lied
+ to 
+GtkLabel
+ contain
+ed in ap
+prop
+riate 
+GtkMen
+uItem
+ sh
+oul
+d be 
+used in th
+is functio
+n. Th
+e 
+GtkMenuItem
+ widget
+ can be o
+btained vi
+a 
+GUIGetControlByID()
+. The
+ 
+GtkLabel
+ wi
+dget
+ could be obtained vi
+a 
+gtk_bin_get_child()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUISetHintT
+ext 
+Sets th
+e hint for th
+e m
+enu item
+.  
+gtk_tooltips_set_tip()
+ app
+lied
+ to 
+GtkLabel
+ contained in 
+appropriate 
+GtkMe
+nuItem
+ sh
+oul
+d 
+be used in th
+is fun
+ction
+. Th
+e 
+GtkMenuItem
+ widg
+et can
+ be ob
+tain
+ed v
+ia 
+GUIGetControlByID()
+. The 
+GtkLabel
+ widget
+ can be o
+btained vi
+a 
+gtk_bin_get_child()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 40
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIDelete
+MenuItem 
+Delete a m
+enu ite
+m fo
+r a 
+pu
+ll down
+ m
+enu.  
+gtk_widget_destroy()
+ applied to the
+ appropriate 
+GtkMenuItem
+ sh
+ou
+ld b
+e used in
+ th
+is fu
+nction
+. 
+The 
+GtkMenu
+Item
+ widget can be obt
+ained vi
+a 
+GUIGetC
+ontrolByID()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIRese
+tMe
+nus 
+Resets th
+e en
+tire m
+enu structu
+re fo
+r a 
+window
+.  
+The 
+function s
+hould de
+stroy 
+and create 
+new 
+GtkMenuBar
+. A
+nd, t
+hen, build and ad
+d given
+ m
+enu st
+ructure. 
+Time need
+ed fo
+r po
+rting
+: 6 ho
+urs.  
+GUIEnableM
+DIMenu
+s 
+Ena
+bles/disabl
+es t
+he M
+DI m
+enus
+.  
+Since t
+he "Window i
+n Window" M
+DI m
+odel
+ is not pos
+sible in GT
+K. T
+his funct
+ion s
+hould do nothing for 
+the GTK po
+rt.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+GUICr
+eateFl
+oatingPop
+up
+ 
+Creates a fl
+oating popup m
+enu.  
+Shoul
+d c
+reate 
+a 
+GtkMenu
+ widget
+, and cal
+l 
+GUITrackFloatingPopup
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUITra
+ckFlo
+atingPopu
+p 
+Track
+s a 
+float
+ing popup m
+enu.  
+gtk_menu_popup()
+ applied to the a
+ppropriate 
+GtkMen
+u
+ sh
+oul
+d be 
+used i
+n this funct
+ion.
+ The 
+GtkMenu
+ widget can be
+ obta
+ined 
+via 
+GUIGetControlByID()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGe
+tMe
+nu
+PopupCo
+unt 
+Returns num
+ber 
+of i
+tems in the gi
+ven float
+ing popup m
+enu.
+  
+gtk_container_get_children()
+ applied to the
+ appropriate 
+GtkMenu
+ sh
+oul
+d be use
+d in this 
+fun
+ction
+ to ob
+tain a list of t
+he ite
+ms. Th
+en 
+g_list_length()
+ sho
+uld be app
+lied
+ to th
+e list to
+ ob
+tain
+ a 
+number of elemen
+ts in
+ th
+e list. Th
+e 
+GtkMe
+nu
+ widget can be obt
+ained vi
+a 
+GUIGetControlByID()
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIAppend
+MenuToPo
+pup 
+Ap
+pends
+ sub menu t
+o the gi
+ven
+ popup m
+enu.  
+GUIAppendMenu()
+ sho
+uld b
+e called
+ in this fun
+ction
+ to perfo
+rm th
+e op
+eratio
+n.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIInser
+tMe
+nuToPopup 
+Inser
+ts su
+b m
+enu to
+ the given po
+pup
+ m
+enu.  
+GUIAppendMenuByOffset()
+ sh
+oul
+d be cal
+led i
+n this funct
+ion t
+o per
+form
+ the o
+perat
+ion.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 41
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+Summar
+y 
+32.5 hours
+ are
+ neede
+d for t
+he por
+ting
+ activ
+ity and
+, add
+itio
+nally, ap
+prox
+im
+ately 3
+2.5 ho
+urs 
+are requ
+ired
+ for 
+testin
+g an
+d tunin
+g. Th
+is step req
+uires ab
+ou
+t 65
+ hour
+s.  
+17. 
+Text Handling Functions 
+GUISetWindowText() 
+GUIGetWindowTextLength() 
+GUIGetWindowText()
+  
+GUIGetRow() 
+GUIGetCol() 
+GUIGetStringPos() 
+GUIGetExtentX() 
+GUIGetExtentY() 
+GUIGetControlExtentX() 
+GUIGetControlExtentY() 
+GUIGetTextMetrics() 
+GUIGetDlgTextMetrics() 
+GUIGetPoint()
+ 
+GUIGetRow()
+, 
+GUIGetCo
+l()
+, 
+GUIGet
+TextMetrics()
+, 
+GUIGet
+DlgTextMetrics()
+ and 
+GUIGetPoint()
+ does not
+ need 
+to be port
+ed. 
+GUISetWind
+owText 
+Set windo
+w cap
+tio
+n. 
+gtk_set_window_title()
+ shoul
+d be u
+sed here
+. 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs 
+GUIGetW
+indowTe
+xt 
+Get wi
+ndow cap
+tio
+n. 
+gtk_get_window_title()
+ shoul
+d be u
+sed here
+. 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs 
+GUIGe
+tWind
+owTextLe
+ng
+th 
+Get cap
+tion
+ text len
+gth. 
+In GTK t
+he leng
+th of a ch
+ar, 
+po
+inter to
+ wh
+ich is return
+ed b
+y 
+gtk_get_window_title()
+ can 
+be 
+measured.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs 
+GUIGetExtentX 
+Finds
+ X extent of the given st
+ring i
+n current
+ font
+.  
+Width of the given
+ string in speci
+fied 
+window coul
+d be 
+obt
+ained i
+n the f
+ollowi
+ng way
+.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 42
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+ 
+PangoLayout pango_layout = gtk_widget_create_layout(fixed, NULL); 
+ 
+pango_layout_set_text(pango_layout, text, text_len); 
+ 
+pango_layout_get_pixel_size(pango_layout, &width, NULL); 
+Whe
+re 
+fixed
+ is th
+e 
+GtkFi
+xed
+ widget located in t
+he given 
+window, 
+text
+ is th
+e given tex
+t in
+ the UTF-8 
+ecodi
+ng, 
+text_len
+ is th
+e len
+gth if th
+e tex
+t, and
+ 
+width
+ is vari
+able for de
+sired 
+val
+ue.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetExtentY 
+Finds
+ Y extent of the given st
+ring i
+n current
+ font
+.  
+Hei
+ght of the given 
+string in speci
+fied wi
+ndow coul
+d be 
+obt
+ained i
+n the f
+ollowi
+ng way
+.  
+ 
+PangoLayout pango_layout = gtk_widget_create_layout(fixed, NULL); 
+ 
+pango_layout_set_text(pango_layout, text, text_len); 
+ 
+pango_layout_get_pixel_size(pango_layout, NULL, &height);
+  
+ 
+Whe
+re 
+fixed
+ is th
+e 
+GtkFi
+xed
+ widget located in t
+he given 
+window, 
+text
+ is th
+e given tex
+t in
+ the UTF-8 
+ecodi
+ng, 
+text_len
+ is th
+e len
+gth if th
+e tex
+t, and
+ 
+height
+ is variable fo
+r d
+esired value
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetControlExtentX 
+Finds
+ X extent of the given st
+ring i
+n font of t
+he given c
+ont
+rol.  
+Width of the given
+ string in speci
+fied 
+window coul
+d be 
+obt
+ained i
+n the f
+ollowi
+ng way
+.  
+PangoLayout pango_layout = gtk_widget_create_layout(widget, 
+NULL); 
+ 
+pango_layout_set_text(pango_layout, text, text_len); 
+ 
+pango_layout_get_pixel_size(pango_layout, &width, NULL); 
+Whe
+re 
+widge
+t
+ is the given widget ret
+urned by 
+GUIGet
+ControlByID
+ lo
+cated
+ in the g
+iven window
+, 
+text
+ is th
+e given tex
+t in th
+e UTF-8 ecod
+ing, 
+text_len
+ is th
+e len
+gth if th
+e tex
+t, and
+ 
+width
+ is v
+ariab
+le 
+for desire
+d value. 
+ 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetControlExtentY 
+Finds
+ Y extent of the given st
+ring i
+n font of t
+he given c
+ont
+rol.  
+Hei
+ght of the given 
+string in speci
+fied wi
+ndow coul
+d be 
+obt
+ained i
+n the f
+ollowi
+ng way
+.  
+ 
+PangoLayout pango_layout = gtk_widget_create_layout(widget, 
+NULL); 
+ 
+pango_layout_set_text(pango_layout, text, text_len); 
+ 
+pango_layout_get_pixel_size(pango_layout, NULL, &height); 
+Whe
+re 
+widge
+t
+ is the given widget ret
+urned by 
+GUIGet
+ControlByID
+ lo
+cated
+ in the g
+iven window
+, 
+text
+ is th
+e given tex
+t in th
+e UTF-8 en
+cod
+ing
+, 
+text_len
+ is th
+e leng
+th of th
+e tex
+t, an
+d 
+height
+ is 
+vari
+able for de
+sired 
+val
+ue.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 43
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIGetStringPos 
+Returns offset
+ (in c
+haract
+ers) of the given point if string is offset
+ from
+ left by
+ gi
+ven
+ am
+ount
+.  
+Callin
+g of 
+GUIGetTheDC()
+ and 
+DoRetu
+rn
+ sh
+oul
+d be e
+lim
+inated i
+n this function 
+as GTK operates 
+at a 
+higher level
+. 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+Summar
+y 
+15 hou
+rs are n
+eeded fo
+r porting
+ activ
+ity and
+, additio
+nally, ap
+pro
+ximately 15 hours are 
+needed fo
+r testin
+g 
+and tun
+ing
+. Th
+is step
+ requires ab
+ou
+t 3
+0 hou
+rs.  
+18.  Dra
+wing  
+functions  
+GUIFillRect() 
+GUIDrawRect() 
+GUIDrawLine() 
+GUIFillRectRGB() 
+GUIDrawRectRGB() 
+GUIDrawLineRGB() 
+GUIDrawText() 
+GUIDrawTextPos() 
+GUIDrawTextExtent() 
+GUIDrawTextExtentPos() 
+GUIDrawTextRGB() 
+GUIDrawTextPosRGB() 
+GUIDrawTextExtentRGB() 
+GUIDrawTextExtentPosRGB() 
+GUIDrawBar() 
+GUIDrawBarGroup()
+ 
+Since a c
+oupl
+e of funct
+ions us
+e ot
+her al
+ready
+ ported funct
+ions, 
+just a few of these
+ funct
+ions 
+nee
+ds 
+modi
+ficat
+ions t
+o m
+ake t
+hem
+ wor
+k unde
+r GT
+K.  
+GUIDra
+wLine and GUI
+DrawLineRGB 
+Draw
+ a lin
+e given a
+ 
+gui_at
+tr
+ or
+ RGB and st
+yle inform
+ation.  
+These f
+unct
+ions use
+ 
+DrawLi
+ne()
+ fun
+ction 
+wh
+ich
+ shou
+ld be rewritten
+ usin
+g 
+gtk_pai
+nt_hline()
+, 
+gtk_paint_vline()
+ or
+ 
+gtk_paint_polygon()
+.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+ur.  
+GUIDr
+awBar 
+Dra
+ws the out
+line o
+f a rect
+angle gi
+ven
+ a 
+gui_attr
+.  
+Th
+e fun
+ction
+ sh
+ou
+ld use 
+gtk_paint_bar()
+ to
+ perform
+ th
+e op
+eratio
+n. 
+Time need
+ed fo
+r po
+rting
+: 4 ho
+ur.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 44
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Summar
+y 
+8 hours are 
+needed fo
+r portin
+g activ
+ity an
+d, ad
+dition
+ally
+, app
+rox
+im
+ately 1
+6 ho
+urs are 
+needed
+ for testing
+ an
+d 
+tuning
+. Th
+is st
+ep requ
+ires abou
+t 24
+ ho
+urs.  
+19. 
+Font handling functions 
+GUIFontsSupported() 
+GUIChangeFont() 
+GUIGetFontInfo() 
+GUISetFontInfo() 
+GUISetSystemFont() 
+GUIGetFontFromUser()
+ 
+GUIFon
+tsSu
+pported 
+Retu
+rns 
+TRUE
+ if th
+ese 
+font fun
+ctio
+ns are su
+pp
+orted.  
+All these 
+funct
+ions
+ exce
+pt 
+GUISetSystemFont()
+ can 
+be im
+ple
+mented. So, 
+GUIFontsSupported()
+ sh
+ou
+ld alw
+ays 
+retu
+rn 
+TRUE
+. 
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+GUIChang
+eF
+ont 
+Get
+s font ch
+oice from
+ user a
+nd c
+hanges
+ the font
+ of the gi
+ven window.  
+The fu
+nct
+ion coul
+d be po
+rted im
+plem
+ent
+ed with 
+GUIGet
+FontFromUser()
+ and 
+GUISetFontInfo()
+. 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGe
+tFon
+tInfo 
+Gets th
+e fo
+nt in
+formatio
+n fo
+r a w
+indo
+w.  
+pango_font_description_to_string()
+ ap
+plied t
+o a style at
+tribut
+e o
+f the given window should 
+be 
+use
+d to pe
+rform
+ the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUISetFontI
+nfo 
+Sets the 
+font in
+form
+ation 
+for a
+ win
+dow.  
+The 
+function s
+hould create 
+PangoFontDescription
+ vi
+a 
+pango_font_description_from_string()
+ fu
+nct
+ion,
+ an
+d m
+odi
+fy style of t
+he given 
+window with 
+gtk_widget_modify_style()
+.  
+Time need
+ed fo
+r po
+rting
+: 3 ho
+urs.  
+GUISetSy
+stemFont 
+Set
+s font
+ to the sy
+stem
+ fo
+nt (fixed or proportional
+).  
+It is im
+possib
+le to
+ im
+plement this fun
+ctio
+n in
+ GTK. So
+, th
+is function
+ shou
+ld do
+ nothing
+ in th
+e GTK 
+port.  
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+GUIGetFontFromU
+ser 
+Get
+s the font
+ inform
+ation f
+rom the use
+r usi
+ng a 
+dialog.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 45
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Thi
+s funct
+ion s
+hould be
+ implem
+ent
+ed u
+sing s
+tanda
+rd 
+GtkFontSelectionDialog()
+.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+Summar
+y 
+12 hou
+rs are n
+eeded fo
+r porting
+ activ
+ity and
+, additio
+nally, ap
+pro
+ximately 12 hours are 
+needed fo
+r testin
+g 
+and
+ tuning. Thi
+s step 
+requi
+res 24 hours.  
+20.  Cursor  
+functions  
+GUISetMouseCursor() 
+GUIResetMouseCursor()
+ 
+GUISetMous
+eCur
+sor 
+Sets th
+e typ
+e of m
+ouse cu
+rsor.  
+Th
+is fun
+ction
+ sh
+ou
+ld create an aprop
+riate cu
+rso
+r with 
+gdk_cursor_new()
+. A
+nd use 
+gdk_window_set_cursor()
+ app
+lied
+ to th
+e resu
+lt of 
+gdk_get_default_root_window()
+ to
+ 
+change t
+he c
+ursor.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIRese
+tMo
+useCursor 
+Reset
+s the type of m
+ouse c
+ursor.  
+Th
+is fun
+ction
+ sh
+ou
+ld use 
+gdk_window_set_cursor()
+ app
+lied
+ to th
+e resu
+lt of 
+gdk_get_default_root_window()
+ and pa
+ss 
+NULL
+ as cu
+rsor t
+ype to change t
+he c
+ursor to de
+faul
+t. 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+Summar
+y 
+4 hours a
+re nee
+ded for porting act
+ivity and
+ 2 more ho
+urs are
+ re
+qui
+red for testing a
+nd t
+uning. Thi
+s step 
+requ
+ires 
+abou
+t 6
+ hour
+s.  
+21.  Window
+  functions  
+GUIGetWindowColours() 
+GUIControlDirty() 
+GUIWndDirtyRow() 
+GUIWndDirtyRect() 
+GUIRefresh() 
+GUIActivateNC() 
+GUIBringToFront() 
+GUIGetRootWindow() 
+GUISetFocus() 
+GUIGetFocus() 
+GUIResizeWindow() 
+GUIIsMinimized() 
+GUIIsMaximized() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 46
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIRestoreWindow() 
+GUIHideWindow() 
+GUIShowWindow() 
+GUIIsWindowVisible() 
+GUISetRestoredSize() 
+GUIGetRestoredSize() 
+GUISetIcon() 
+GUICascadeWindows()
+ 
+GUIControlDirt
+y 
+Causes ref
+resh of
+ the gi
+ven control.  
+gdk_window_process_updates()
+ can
+ rep
+aint th
+e co
+ntrol ob
+tain
+ed v
+ia 
+GUIGetC
+ontrolByID()
+. 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIWndDirty
+Ro
+w 
+Causes ref
+resh of
+ the gi
+ven ro
+w. 
+ 
+gdk_widget_queue_draw_area()
+ can 
+repai
+nt the window
+ re
+gion. Note t
+hat calculation of t
+he row 
+coo
+rdinat
+es is neede
+d.  
+Time need
+ed fo
+r po
+rting
+: 3 ho
+urs.  
+GUIWndDirty
+Rect 
+Causes ref
+resh of
+ the gi
+ven re
+ct.  
+gdk_widget_queue_draw_area()
+ can 
+repai
+nt the window
+ re
+gion.  
+Time need
+ed fo
+r po
+rting
+: 3 ho
+urs.  
+GUIRefr
+esh 
+Causes 
+ref
+resh of the sc
+ree
+n.  
+gdk_window_process_all_updates()
+ can
+ rep
+aint all win
+dows.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIBrin
+gTo
+Front 
+Brin
+g th
+e windo
+w to
+ the top
+ of all o
+thers.  
+Gdk_window_show()
+ should be use
+d. 
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUISetFocu
+s 
+Set
+s input
+ foc
+us to a co
+ntrol in a dialog box or in a wi
+ndow.  
+gtk_window_set_focus()
+ app
+lied
+ to t
+he co
+ntrol ob
+tain
+ed via 
+GUIGetControlByID()
+ sh
+oul
+d be 
+use
+d here.
+  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 47
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIGe
+tFo
+cu
+s 
+Finds
+ out which m
+ain wi
+ndow has t
+he f
+ocus.  
+Th
+is fun
+ction
+ mak
+es no
+ sen
+se in
+ GTK as it 
+is i
+mpossib
+le to im
+plement an
+ MDI i
+n GTK. 
+Wh
+en ported 
+– it 
+will always ret
+urn sup
+plied param
+eter with
+ou
+t m
+odificatio
+n. 
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+GUIResizeWindo
+w 
+Gives
+ the 
+window a 
+new size 
+and location.  
+gtk_window_move()
+ shou
+ld be called
+ to m
+ove th
+e wind
+ow, and
+ 
+gtk_widget_set_size_request()
+ called
+ to
+ set a new size.  
+Note, th
+at wind
+ow
+ m
+anagers are fr
+ee t
+o ignor
+e th
+e m
+oving req
+uest; m
+ost w
+indow m
+anagers igno
+re request 
+for in
+itial wi
+ndow po
+sition
+s (in
+stead u
+sing a 
+user-d
+efin
+ed place
+ment alg
+orith
+m) an
+d ho
+nor requ
+ests after th
+e 
+wind
+ow
+ has alread
+y b
+een show
+n.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIIsMinimized an
+d GUII
+sMaximized
+ 
+Retu
+rns tru
+e if 
+wind
+ow is m
+inimized
+/maximized
+.  
+gdk_window_get_state()
+ shoul
+d be u
+sed 
+to per
+form the operation.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIRestore
+Windo
+w 
+Resto
+re window
+ to pr
+e-minimize o
+r m
+aximize size.  
+gdk_window_unmaximize()
+ sh
+oul
+d be use
+d to per
+form the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIHideWindo
+w 
+Hides
+ the gi
+ven wi
+ndow.  
+gdk_window_show()
+ shou
+ld be used to perform th
+e oper
+atio
+n.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIIsWind
+ow
+Vis
+ible 
+Checks
+ if the given 
+window is vi
+sible.  
+gdk_is_window_visible()
+ sh
+oul
+d be use
+d to per
+form the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUISetRe
+sto
+redSize 
+Sets a size 
+of the 
+give
+n window to a
+ rest
+ore
+d state.  
+gtk_window_set_size()
+ sh
+oul
+d be 
+used t
+o pe
+rform the 
+ope
+rat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIGetR
+esto
+redSiz
+e 
+Gets a size 
+of t
+he give
+n window in a
+ rest
+ore
+d state.  
+gtk_window_get_size()
+ sh
+oul
+d be 
+used t
+o pe
+rform the 
+ope
+rat
+ion.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 48
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUISetIcon 
+Sets an icon
+ for
+ th
+e g
+iven w
+ind
+ow
+.  
+gtk_window_set_icon()
+ sh
+oul
+d be 
+used t
+o pe
+rform the 
+ope
+rat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUICasc
+ade
+Windo
+ws 
+Arrange all c
+hild wi
+ndows i
+n MDI i
+n casca
+de.  
+It is im
+possib
+le to
+ im
+plement in GTK, so
+ this fun
+ction
+ sh
+ou
+ld just return
+ TRUE.  
+Tim
+e neede
+d for porting: 0.5 ho
+ur.  
+Summar
+y 
+25 hou
+rs are n
+eeded fo
+r th
+e portin
+g activ
+ity an
+d, addition
+ally, app
+rox
+im
+ately 3
+0 ho
+urs are req
+uired
+ for 
+testin
+g an
+d tunin
+g. Th
+is step req
+uires ab
+ou
+t 55
+ hour
+s.  
+22. 
+Hot spot functions 
+GUIInitHotSpots() 
+GUIGetNumHoSpots() 
+GUIGetHotSpotSize() 
+GUIDrawHotSpot()
+ 
+GUIInitHotS
+pots 
+Sets the 
+bitm
+aps ass
+ociated 
+with user
+ defined hot
+ sp
+ots.  
+The 
+function s
+hould create a
+n array 
+of 
+GtkImage
+ object
+s. Som
+e code t
+o convert bi
+tmaps passe
+d i
+n 
+function to some acceptable 
+form
+at will be neede
+d.  
+Time need
+ed fo
+r po
+rting
+: 8 ho
+urs.  
+GUIDr
+awHotSpot 
+Dra
+ws a
+ hot spot at a given l
+ocat
+ion.  
+The 
+function should place t
+he re
+queste
+d hot 
+spot
+ in t
+he a
+ppropriate 
+position 
+with 
+gtk_f
+ixed_put()
+ 
+funct
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+Summar
+y 
+10 hours are
+ ne
+eded
+ for porting act
+ivity an
+d 6 m
+ore 
+hours a
+re neede
+d for testing a
+nd t
+uning. T
+his step 
+requ
+ires abou
+t 16 hou
+rs.  
+23.  Informatio
+n  function
+s  
+GUIGetKeyState() 
+GUISetExtra() 
+GUIGetExtra() 
+GUIGetClientRect() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 49
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIGetPaintRect() 
+GUIGetAbsRect() 
+GUIGetRect() 
+GUIGetScrollStyle() 
+GUIGetCreateStyle() 
+GUIGetMousePosn() 
+GUIGetSystemMetrics() 
+GUIGetMinSize() 
+GUIEnumChildWindows() 
+GUIEnumControls() 
+GUIGetArgs()
+ 
+GUIGe
+tKe
+yState 
+Gets th
+e current Sh
+ift-k
+ey stat
+e.  
+Sin
+ce th
+e fun
+ctio
+n do
+esn
+'t allo
+w sp
+ecifying
+ wh
+ich
+ inpu
+t device shou
+ld be tested
+, it isn
+'t clear.Sh
+ift key on 
+wh
+ich
+ inpu
+t d
+evice sh
+ou
+ld b
+e check
+ed. Howev
+er as th
+is fu
+nctio
+n is called 
+only in ev
+ent callb
+ack
+s, it is 
+possib
+le to g
+et the curren
+t Sh
+ift state of th
+e in
+pu
+t device 
+which
+ in
+itiated
+ the ev
+ent v
+ia 
+gdk_keymap_translate_keyboard_state()
+ functio
+n.  
+GUIGetPaintRect 
+The fu
+nct
+ion u
+ses 
+_wpi_ge
+tpaintrect()
+ wh
+ich
+ should
+ be reim
+plemented
+ for the GTK
+ po
+rt to su
+pp
+ort 
+GdkRectangle
+ struct
+ure
+.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetA
+bsRe
+ct 
+Get a 
+wind
+ow 
+size and
+ lo
+cati
+on in
+ ab
+solute user d
+efin
+ed un
+its.  
+Windows size can be obt
+ained vi
+a 
+gtk_wi
+ndow_get_size()
+ fun
+ction
+ an
+d po
+sition
+ can
+ be obtained 
+via 
+gtk_win
+dow_get_position
+ fu
+nct
+ion.
+  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetA
+bsRe
+ct 
+Get a 
+window 
+size and locati
+on relative t
+o its pa
+rent.  
+Th
+e fun
+ction
+ sh
+ou
+ld call 
+GUIGetAbsRect()
+.  
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+GUIGe
+tMou
+sePosn 
+Gets th
+e m
+ouse po
+sitio
+n (in user co
+ord
+inates).  
+gtk_widget_get_pointer()
+ fun
+ction sho
+uld be used to ob
+tain
+ the locatio
+n of th
+e mouse po
+inter 
+in 
+widget co
+ordinates. The
+n the coo
+rdinat
+es s
+houl
+d be tra
+nsform
+ed relative to a 
+WGL scali
+ng fact
+or.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetMinSiz
+e 
+Retu
+rns th
+e smallest v
+alid
+ size fo
+r the wind
+ow. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 50
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+Th
+e fun
+ction
+ retu
+rns resu
+lt b
+ased
+ in 
+MIN_W
+IDTH
+ and 
+MIN_HEIGHT
+ de
+finitions
+ that are de
+fined as 
+0. But 
+in GTK wi
+ndows m
+ay not
+ be 
+resi
+zed 
+sm
+all
+er that 1 by
+ 1 pixels. S
+o these
+ definitions
+ should be
+ cha
+nged
+ in 
+the GTK po
+rt. 
+Tim
+e neede
+d for porting: 0.5 ho
+urs.  
+GUIEnumCh
+ildWindo
+ws 
+En
+um
+erat
+es chi
+ld wi
+ndows by cal
+ling gi
+ven funct
+ion with the 
+gui_wind
+ow
+ fo
+r eac
+h.  
+Th
+e fun
+ction
+ sh
+ou
+ld call 
+gdk_window_get_children()
+, g
+et the ch
+ild
+'s 
+gui_window
+ vi
+a 
+GUIFindWindowFromHWND
+, and call 
+nec
+essary callbac
+k.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+Summar
+y 
+11 hours are
+ re
+qui
+red
+ for the porting act
+ivity an
+d, a
+dditiona
+lly, 10 
+hours a
+re re
+qui
+red for testing a
+nd t
+uning. 
+Th
+is step
+ requ
+ires ab
+ou
+t 21 hou
+rs.  
+24.  Color  
+functions  
+GUISetWindowColours() 
+GUISetWndColour() 
+GUIGetRGBFromUser() 
+GUIGetColourFromUser()
+ 
+GUIGetR
+GBF
+romU
+ser 
+Creates dialog 
+to as
+k user fo
+r color, 
+return
+s its RGB.  
+GtkColorSelection()
+ sh
+ou
+ld used fo
+r this pu
+rpo
+se.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+Summar
+y 
+4 hours a
+re nee
+ded for porting act
+ivity and
+ 2 more ho
+urs are
+ nee
+ded for testing a
+nd t
+uning. Thi
+s step 
+requ
+ires 
+abou
+t 6
+ hour
+s.  
+25. 
+Combo list/box functions 
+GUIAddText() 
+GUISetListItemData() 
+GUIGetListItemData() 
+GUIAddTextList() 
+GUIInsertText() 
+GUIClearList() 
+GUIDeleteItem() 
+GUIGetListSize() 
+GUIGetCurrSelect() 
+GUISetCurrSelect() 
+GUIGetListItem() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 51
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUILimitEditText() 
+GUIInsertMenuByID
+ 
+GUIAddTe
+xt 
+Add
+s a tex
+t item
+ to th
+e list.  
+gtk_list_append_items()
+ fu
+nct
+ion s
+hould be
+ used to per
+form the ope
+rat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUISetListItemDa
+ta 
+Asso
+ciates d
+ata with
+ a list box
+ item
+.  
+gtk_object_set_user_data()
+ function shou
+ld be used
+ to perform the op
+eratio
+n.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+GUIGetListIte
+mData 
+Gets th
+e d
+ata asso
+ciated
+ with
+ a list b
+ox item
+.  
+gtk_object_get_user_data()
+ function shou
+ld be used
+ to perform the op
+eratio
+n.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUIAddTe
+xtList 
+Add
+s a tex
+t list ite
+m to
+ th
+e list u
+sing a callb
+ack
+.  
+gtk_list_append_items()
+ fu
+nct
+ion s
+hould be
+ used to per
+form the ope
+rat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUIInser
+tTe
+xt 
+Inserts a tex
+t ite
+m to
+ a g
+iven locatio
+n in
+ list. 
+ 
+gtk_list_insert_items()
+ fu
+nct
+ion s
+hould be
+ used to per
+form the ope
+rat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIClearList 
+Re
+moves all ite
+ms fro
+m th
+e li
+st.  
+gtk_list_clear_items()
+ fu
+nct
+ion s
+houl
+d be 
+use
+d to pe
+rform
+ the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIDeleteI
+tem 
+Deletes an item
+ fro
+m th
+e list
+.  
+gtk_list_clear_items()
+ fu
+nct
+ion s
+houl
+d be 
+use
+d to pe
+rform
+ the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetListSiz
+e 
+Retu
+rns th
+e num
+ber o
+f item
+s in th
+e list. 
+The 
+num
+ber of ite
+ms in the lis
+t can 
+be 
+obtai
+ned 
+via 
+g_lis
+t_length()
+ app
+lied
+ to th
+e resu
+lt of 
+gtk_container_get_children()
+ fun
+ctio
+n.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 52
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+GUIGetCurrSelect 
+Gets th
+e po
+sitio
+n of t
+he cu
+rren
+t selectio
+n.  
+To
+ get th
+e list o
+f th
+e selected
+ ite
+ms 
+select
+ion
+ field of the 
+GtkList
+ shoul
+d be use
+d. The
+n, it is nee
+ded 
+to co
+mpare all 
+the elem
+ents in
+ th
+e list with the select
+ed item, and
+ find
+ ou
+t nu
+mber of th
+e selected
+ ite
+m.  
+Time need
+ed fo
+r po
+rting
+: 3 ho
+urs.  
+GUISetCurrS
+elect 
+Set
+s cu
+rre
+nt sel
+ect
+ion 
+by position.
+  
+gtk_list_select_item()
+ fu
+nct
+ion s
+houl
+d be 
+use
+d to pe
+rform
+ the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUIGetListIte
+m 
+Gets th
+e tex
+t of a list ite
+m by position
+.  
+g_list_nth()
+ app
+lied
+ to t
+he resu
+lt of 
+gtk_container_get_children()
+ funct
+ion sh
+ould be 
+use
+d to pe
+rform the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 3 ho
+urs.  
+GUILimitEditText 
+Set
+s the m
+aximum allowed
+ lengt
+h of the c
+ontent
+s of the combo bo
+x.  
+gtk_entry_set_max_length()
+ app
+lied
+ to 
+entry
+ field of t
+he 
+GtkCombo
+ sh
+oul
+d be 
+use
+d to 
+perform th
+e oper
+atio
+n.  
+Time need
+ed fo
+r po
+rting
+: 3 ho
+urs.  
+GUIInsertMenuB
+yID 
+Inserts a 
+sub
+ m
+enu in
+to th
+e men
+u before t
+he ite
+m with
+ th
+e giv
+en ID.  
+Th
+e fun
+ction
+ sh
+ou
+ld in
+sert an en
+try i
+n th
+e 
+GtkList
+ widget u
+sing
+ 
+g_list_insert_before()
+ 
+funct
+ion.  
+Time need
+ed fo
+r po
+rting
+: 3 ho
+urs.  
+Summar
+y 
+33 hou
+rs is 
+needed fo
+r portin
+g activ
+ity an
+d, ad
+dition
+ally
+, it is n
+eeded ap
+prox
+im
+ately 3
+3 hours fo
+r testin
+g and 
+tuning
+. Th
+is st
+ep requ
+ires abou
+t 66
+ ho
+urs.  
+26. 
+Radio button and check box functions 
+GUIIsChecked() 
+GUISetChecked()
+ 
+GUIIsCheck
+ed 
+Finds
+ out if button i
+s chec
+ked or not.  
+gtk_toggle_button_get_active()
+ sh
+oul
+d be 
+use
+d to pe
+rform the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+GUISetCh
+ecked 
+Sets 
+button 
+as checke
+d or not. 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 53
+ of 54 
+GUI Software Requirements Sp
+ecification 
+ 
+ 
+gtk_toggle_button_set_active()
+ sh
+oul
+d be 
+use
+d to pe
+rform the o
+perat
+ion.  
+Time need
+ed fo
+r po
+rting
+: 2 ho
+urs.  
+Summar
+y 
+4 hours are 
+needed fo
+r portin
+g activ
+ity an
+d, ad
+dition
+ally
+, 6 ho
+urs are 
+requ
+ired
+ for testing
+ an
+d tun
+ing
+. Th
+is 
+step
+ requ
+ires ab
+ou
+t 10 hou
+rs.  
+27. 
+F1 key
+ hook functions 
+GUIHookF1() 
+GUIUnHookF1()
+ 
+GUIHookF
+1 
+Sets th
+e ho
+ok
+ for F1 key pr
+essin
+g ev
+ent.  
+Req
+uired
+ fu
+nctionality 
+can
+ be ach
+iev
+ed by usin
+g 
+gtk_key
+_snooper_install()
+ fun
+ctio
+n.  
+Time need
+ed fo
+r po
+rting
+: 4 ho
+urs.  
+GUIUnHo
+okF1 
+Re
+moves th
+e ho
+ok
+ for F1 k
+ey pr
+essing
+ ev
+ent.  
+Req
+uired
+ fu
+nctionality 
+can
+ be ach
+iev
+ed by usin
+g 
+gtk_key
+_snooper_install()
+ fun
+ctio
+n.  
+Time need
+ed fo
+r po
+rting
+: 1 ho
+ur.  
+Summar
+y 
+5 hours are 
+needed fo
+r portin
+g activ
+ity an
+d, ad
+dition
+ally
+, 4 ho
+urs are 
+needed for testing
+ and
+ tun
+ing
+. Th
+is 
+step
+ requ
+ires ab
+ou
+t 9 hour
+s.  
+28.  Other  
+func
+tions.  
+GUISpawnStart() 
+GUISpawnEnd() 
+GUICharLen()
+ 
+First
+ two doe
+s not
+hing in the GU
+I versi
+on. T
+he third funct
+ion ret
+urns length of a speci
+fied c
+haract
+er in a 
+char places. In 
+this case, t
+his f
+unction 
+should always ret
+urn 
+1.  
+29.  Ty
+pe  
+definitions  
+Here is th
+e basic list o
+f definitio
+ns th
+at need to
+ be defined in th
+e GTK 
+port. 
+Th
+e definitio
+ns of th
+is list 
+was 
+determ
+ined on
+ in
+vestig
+ation
+ stag
+e, ho
+wev
+er prog
+ramm
+er th
+at will b
+e porting
+ th
+e lib
+rary wi
+ll b
+e ab
+le 
+det
+erm
+ine al
+l necessary
+ type 
+definitions
+ m
+ore sha
+rply. Time req
+uired – 16 hours. 
+ 
+WPI_TEXTMETRIC – PangoFontMetrics 
+HBRUSH -- GtkRcStyle* 
+HWND -- GtkWindow* 
+WM_CLOSE -- "close" 
+WM_RESIZE -- "size-request" 
+WPI_COLOUR -- GdkColor* 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom Linux Port 
+Page 54 of 54 
+GUI Software Requirements Specification 
+ 
+ 
+SciTech Software, Inc. 
+ 
+30.  Functions that are never used in the current code 
+GUIDropDown 
+Drops down or raise dropped down list box.  
+GUIScrollCaret 
+Scrolls the caret. 
+GUISetTopIndex 
+Sets the index of item at the top of list.  
+GUIGetTopIndex 
+Gets the index of item at the top of list.  
+GUISetHorizontalExtent 
+Sets the width of the widest list box item.  
+GUIActivateNC 
+Activates non client MDI window. 
+ 

@@ -1,0 +1,6068 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+i
+ 
+ 
+Security and Privacy Requirements Analysis Tool 
+(SPRAT)
+ 
+Software Requirements Specification
+ 
+ 
+ 
+ 
+Version
+ 
+2.0
+0
+ 
+12
+, 
+Ju
+ly 
+2004
+ 
+ 
+ 
+ 
+ 
+Document Authors
+ 
+ 
+ 
+      Project Team                     Team
+ Role
+ 
+Neha Jain (Main)
+ 
+ 
+ 
+ 
+Dr. Anni
+e I. Ant
+ó
+n                      Project Manager
+ 
+Dr. Anni
+e I. Ant
+ó
+n 
+ 
+ 
+ 
+ 
+Qingf
+eng 
+He
+ 
+ 
+ 
+ 
+    PGMT Develope
+r 
+ 
+Qingf
+eng 
+He
+ 
+ 
+ 
+ 
+ 
+ 
+Neha Jain
+ 
+                            Project Manager
+ 
+William Stufflebeam
+ 
+ 
+ 
+ 
+William Stufflebeam
+ 
+ 
+    SMaRT Develope
+r
+ 
+Jack Frink
+ 
+ 
+ 
+ 
+Project Spon
+sor
+ 
+Dr. Anni
+e I. Ant
+ó
+n
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ii
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tab
+le of
+ Con
+tents
+ 
+ 
+1. INTRODUCTION
+................................
+................................
+................................
+................................
+................................
+1
+ 
+2. MODULE BREAKDOWN
+................................
+................................
+................................
+................................
+.................
+2
+ 
+3. MODULE REQUIREMEN
+TS
+................................
+................................
+................................
+................................
+...........
+2
+ 
+3.1. UAM: U
+SER
+ 
+A
+CCES
+S 
+M
+ODULE
+................................
+................................
+................................
+................................
+.....
+2
+ 
+3.2. GSM: G
+OAL 
+S
+PEC
+IFICATI
+ON AND 
+M
+ANAGEMEN
+T 
+M
+ODULE
+................................
+................................
+....................
+5
+ 
+3.3. PM: A
+NALY
+SIS 
+D
+OCUMEN
+T 
+M
+ANAGEM
+EN
+T 
+M
+ODULE
+................................
+................................
+.............................
+13
+ 
+3.4. FRE: F
+LE
+SCH 
+R
+EA
+DABI
+LI
+TY
+ 
+M
+ODULE
+................................
+................................
+................................
+.....................
+15
+ 
+3.5. SSM: S
+CEN
+ARIO 
+S
+PEC
+IFICATI
+ON AND 
+M
+ANAGEM
+EN
+T
+................................
+................................
+............................
+16
+ 
+3.6. RS: R
+EQ
+UIREM
+EN
+TS
+ 
+S
+PEC
+IFICATI
+ON 
+M
+ODULE
+................................
+................................
+................................
+.......
+18
+ 
+3.7. LC: L
+EG
+AL 
+C
+OMPLI
+ANCE 
+M
+ODULE
+................................
+................................
+................................
+..........................
+19
+ 
+3.8. RACAF: R
+EQ
+UIREM
+EN
+TS
+-
+LEV
+EL 
+A
+CCES
+S 
+C
+ONTR
+OL 
+A
+NALY
+SIS 
+F
+RAMEWO
+RK 
+M
+ODULE
+................................
+..
+20
+ 
+3.9. P3P: P3P M
+ODULE
+................................
+................................
+................................
+................................
+......................
+24
+ 
+4. SYSTEM REQUIREMEN
+TS
+................................
+................................
+................................
+................................
+...........
+26
+ 
+5.  REQUIREMENTS TRA
+CEABILITY MATRIX
+................................
+................................
+................................
+........
+26
+ 
+6. DOCUMENT REVISION
+ HISTORY
+................................
+................................
+................................
+............................
+26
+ 
+7. APPENDIX
+................................
+................................
+................................
+................................
+................................
+..........
+A
+ 
+G
+LO
+SSARY
+................................
+................................
+................................
+................................
+................................
+.............
+A
+ 
+A
+CKNOWLED
+GEMEN
+T
+................................
+................................
+................................
+................................
+..........................
+C
+ 
+R
+EF
+ER
+EN
+CES
+................................
+................................
+................................
+................................
+................................
+.........
+C
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1
+ 
+ 
+1. Introd
+uction
+ 
+ 
+Privacy  and 
+security  pol
+icies  for  web
+-
+based  syst
+ems  are  often  develope
+d  as  an  afterthought
+. 
+The  implications
+  are  signi
+ficant  because  the  systems’  requi
+rements,  pol
+icies  and
+  func
+tiona
+lity  are 
+often  misaligne
+d  and/
+or  in  conf
+lict  with  each  other.  Organizations
+  risk  custom
+er  mistrust  based 
+upon 
+custom
+er per
+ceptions
+ of conf
+licting 
+privacy statements. The identification 
+of high
+-
+level goa
+ls 
+is funda
+mental to requi
+rements analysis specification 
+process. This can be achieved by 
+asking 
+'why'
+ 
+que
+stions
+  about
+  the  op
+erationa
+l  descriptions
+  of  the  system  available.  Goa
+ls  are  impor
+tant  in  the 
+requi
+rements  engi
+neering 
+process  because  they  bring 
+com
+pleteness  and 
+ease  of  readability  to  the 
+requi
+rements. They also provi
+de rationa
+le for requirements and 
+help detect conf
+licts. On the other 
+hand,
+  scenarios  are  used 
+to 
+specify 
+d
+esired 
+behavior  of  the  system  and 
+are  the  means  of 
+com
+muni
+cation 
+among 
+stakehol
+ders.   Addi
+tiona
+lly,   they 
+suppor
+t   trade
+-
+offs   amongs
+t   design 
+alternatives. Based on 
+the utility of goa
+ls and 
+scenarios, there is a need to develop 
+a tool
+, which will 
+assist analys
+ts in the scenario and 
+go
+al 
+mining,
+ reconc
+iliation
+ and 
+manage
+ment
+ processes. The tool
+ 
+aims to maintain a goa
+l and 
+scenario repos
+itory for use in cont
+inui
+ng 
+analyses of pol
+icies and 
+other 
+doc
+um
+ents from
+ which goa
+ls and 
+scenarios can be derived. 
+ 
+All  goa
+ls  a
+re  fully  traceable  to  the  pol
+icies  in  which  they  are  stated  and 
+are  distingui
+shed  as 
+either 
+pol
+icy goal
+s
+ (strategic goa
+ls) or 
+scenar
+io goal
+s
+ (tactical goa
+ls) in each pol
+icy. This tool
+ will 
+provi
+de  strong 
+management,  which  will  offer  flexible  user  defined  c
+ondi
+tions
+  (like  ID,  keyw
+ords, 
+taxonom
+y, subj
+ect, actor, and 
+occurrences). The tool will also suppor
+t autom
+atic multi
+-
+user analysis 
+results  com
+parison.
+  For  example,  each  analyst  can  classify  goa
+ls  separately 
+and 
+the  tool
+  can 
+autom
+atically check the differen
+ces in their classification 
+results for their resolution. Requi
+rements 
+engi
+neers,  Chief  Privacy  Officers  (CPO),  pol
+icy  analysts  or  audi
+tors  will  be  able  to  use  this  tool
+. 
+This doc
+um
+ent specifies the services that the tool
+ will provi
+de and 
+the cons
+traints u
+nde
+r which the 
+system must ope
+rate. It cont
+ains the follow
+ing 
+sections
+: 
+ 
+ 
+Description
+  of  Mod
+ules
+:  This  section 
+cont
+ains  a  detailed  description 
+of  the  cont
+ents  of  each 
+modul
+e.
+ 
+FR:  Function
+al  Requirements
+:  This  section 
+specifies  the  ope
+rationa
+l  services  that  the  tool
+  will 
+provi
+de to its users.
+ 
+NFR:   Non
+-
+Function
+al   Requirements
+:   This   section 
+specifies   the   prope
+rties   like   accuracy, 
+performance etc. that the tool
+ must satisfy.
+ 
+SPR:  Security  an
+d  Privac
+y  Require
+ments
+:  This  section 
+specifies  security  and 
+privacy  related 
+requi
+rements that ensure security of all sensitive data.
+ 
+Requirements Traceab
+ility Matrix
+: This section 
+graphi
+cally displays requi
+rements depende
+ncies.
+ 
+Document Revision
+ History
+: This section 
+out
+li
+nes the version 
+of the current doc
+um
+ent being 
+used, 
+the peopl
+e respons
+ible for the doc
+um
+ent, dates the doc
+um
+ent is modi
+fied and 
+the change
+s made to 
+the doc
+um
+ent.
+ 
+Appendix
+:   This   section 
+cont
+ains   a   glossary 
+of   the   terms   used 
+throughout
+   this   doc
+um
+ent. 
+Addi
+tio
+nally, it cont
+ains a bibliogr
+aphy 
+of the references used in this doc
+um
+ent.
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+2
+ 
+ 
+2. Mod
+ule Break
+dow
+n
+ 
+ 
+The SPRAT will be com
+prised of 6 main modul
+es: 
+ 
+ 
+
+ 
+User Access Mod
+ule
+ 
+–
+ This modul
+e manages access levels and 
+permission
+s for eac
+h class 
+of user. The include
+d access levels are:
+ 
+a.
+ 
+Adm
+inistrator 
+ 
+b.
+ 
+Project Manage
+r
+ 
+c.
+ 
+Anal
+ysts
+ 
+d.
+ 
+Guest
+ 
+
+ 
+Goal
+ Specification
+ an
+d Man
+age
+ment Mod
+ule 
+-
+This modul
+e suppor
+ts go
+al management in 
+the tool
+.
+ 
+
+ 
+Policy Man
+age
+ment Mod
+ule
+-
+ 
+This modul
+e suppo
+rts pol
+icy management in the tool
+. 
+ 
+
+ 
+Flesch  Read
+ab
+ility  Index  Mod
+ule
+-
+  This  modul
+e  suppor
+ts  requi
+rements  that  calculate  the 
+Flesch Readability Inde
+x of pol
+icy doc
+um
+ents.
+ 
+
+ 
+Scenario 
+Specification
+  an
+d  Man
+age
+ment  Module 
+-
+ 
+This  modul
+e  suppor
+ts  scenario 
+management in the tool
+.
+ 
+
+ 
+Requirements Specification Mod
+ule
+-
+ This modul
+e suppor
+ts the requi
+rements for a system.
+ 
+
+ 
+Legal
+ Com
+plian
+ce
+ 
+
+ 
+Requirements
+-
+level   Access   Con
+trol   Analysis   Fram
+ework   (RACAF)   mod
+ule
+-
+ 
+This 
+section 
+defines th
+e func
+tiona
+l requi
+rements that suppor
+t RACAF.
+ 
+ 
+3. Mod
+ule Requirements
+ 
+This section 
+out
+lines the services to be provi
+ded by the tool
+. Each func
+tiona
+l requi
+rement include
+s: 
+the pur
+pos
+e of the requi
+rement, a brief description, the origin of the requi
+rement and 
+the priority of 
+the requi
+rement. These priorities have been set base
+d on 
+discussions
+ with the stakehol
+ders. 
+SPRAT 
+is a tool
+ bench and 
+will suppor
+t several other tool
+s. The software will be designe
+d keeping 
+all the 
+layers in mind.
+ But this  sum
+mer the focus is on
+ implementing 
+the database and 
+high 
+and 
+medium
+ 
+priority requi
+re
+ments for SPRAT and 
+also implement RACAF. 
+ 
+ 
+ 
+Priority Level
+ 
+Priority Description
+ 
+1
+ 
+High
+ 
+High 
+priority  requi
+rements  are  cr
+itical  and  must  be  satisfied.  The  system 
+may 
+fail  if  the  respective  high 
+priority  requi
+rements  are  not
+  satisfied. 
+Addi
+tiona
+lly, security related requi
+rements are categor
+ized as high 
+priority.
+ 
+2
+ 
+Medium
+ 
+Medium
+  priority  requi
+rements  are  impor
+tant  and  desirab
+le,  but
+  will  not 
+cause the system to fail if not
+ satisfied. These requirements are needed by
+ 
+Qingf
+eng 
+He for the developm
+ent of RACAF.
+ 
+3
+ 
+Low
+ 
+Low
+   priority 
+requi
+rements   are   desirable   but
+   not
+   necessary. 
+These 
+requi
+rements  are  non
+-
+critical  and 
+can  be  pos
+tpone
+d  for  implementation 
+in 
+later versions
+ of the system.
+ 
+ 
+ 
+ 
+3.1. UAM: User Access Mod
+ule
+ 
+ 
+ 
+This section 
+defines the three access levels, specifically out
+lining 
+permissions
+ and 
+restrictions
+.
+ 
+
+
+3
+ 
+ 
+ 
+ 
+ 
+ 
+3.1.1. Function
+al Requirements
+ 
+ 
+          FR
+-
+UA 1 
+ 
+Requi
+rement   Definition:
+   The   system   shall   suppor
+t   an 
+adm
+inistrator 
+level.
+ 
+ 
+Requi
+rement    Specification:
+    The 
+adm
+inistrator
+    will    have    the    follow
+ing 
+privileges:
+ 
+a.
+ 
+Ability to create user groups
+ such as NCSU TPP.org, GT TPP.org
+ 
+b.
+ 
+Ability to cr
+eate project managers, analysts and 
+guests
+ 
+c.
+ 
+Ability to reset user passwords when needed
+ 
+d.
+ 
+Ability  to 
+disable  access  for
+  old  project  managers,  analysts  and 
+gue
+sts. 
+Removi
+ng 
+old  users  implies  removi
+ng 
+their  ability  to  access  the  system 
+while still preserv
+ing 
+the 
+information 
+entered by 
+them.
+ 
+ 
+      
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+UA 2
+ 
+Requi
+rement Definition:
+ The system shall suppor
+t a 
+project manage
+r
+ level.
+ 
+ 
+Requi
+rement   Specification:
+   The 
+project   mana
+ger
+   will 
+have   the   follow
+ing 
+privileges:
+ 
+a.
+ 
+Ability to insert a new privacy pol
+icy to the repos
+itory
+ 
+b.
+ 
+Ability to delete a privacy pol
+icy from
+ the repos
+itory
+ 
+c.
+ 
+Ability  to  create/add 
+a  new  dom
+ain  of  privacy  policies  (e.g,  Healthcare, 
+financial, e
+-
+com
+merce, federal 
+agency, etc.)
+ 
+d.
+ 
+Ability to assign 
+analysts to user groups
+ created by the adm
+inistrator
+ 
+e.
+ 
+Ability to assign 
+usergroups
+ and 
+indi
+vidua
+l analysts to projects
+ 
+f.
+ 
+Project manager sets restrictions
+ on 
+access to certain kinds
+ of information 
+for gue
+sts
+ 
+g.
+ 
+Ability
+ to expor
+t data from
+ a project to an  XML  file so multiple project 
+managers can use that data
+ 
+h.
+ 
+Ability  to  save  the  current  version 
+of  the  repos
+itory  so  that  we  can  do
+ 
+evol
+ution 
+analysis
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+F
+R
+-
+UA 3
+ 
+
+
+4
+ 
+ 
+Requi
+rement    Definition:
+    The    system    shall    suppor
+t    an 
+anal
+yst
+    level.
+ 
+ 
+Requi
+rement Specification:
+ An 
+anal
+yst
+ will have the follow
+ing 
+privileges: 
+ 
+a.
+ 
+Ability  to  select  a  privacy  pol
+icy  that  has  been  assigne
+d  to  them  by 
+the 
+project manager
+.
+ 
+b.
+ 
+Ability to add, delete and upda
+te goa
+ls
+ 
+c.
+ 
+Ability to add, delete and upda
+te scenarios 
+ 
+d.
+ 
+Ability to view the details of any 
+goa
+l or a scenario in the repos
+itory
+ such 
+as   ID,   description,
+   sour
+ce,   keyw
+ord,   taxonom
+y,   actor,   occurrence, 
+relevant pol
+icy etc.
+ 
+e.
+ 
+Ability to upda
+te persona
+l profile
+ such as name, ID, cont
+act information,
+ 
+usergroups
+ and 
+passwords
+ 
+f.
+ 
+Ability to add, delete and upda
+te requi
+rements
+ 
+g.
+ 
+Ability to add,
+ delete and 
+upda
+te access cont
+rol pol
+icies 
+such as subj
+ect, 
+obj
+ect, action.
+ 
+h.
+ 
+Ability 
+to
+ view access cont
+rol pol
+icies
+ 
+ 
+i.
+ 
+ 
+ 
+Origin:
+ Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+ 
+ 
+ 
+ 
+FR
+-
+UA 4
+ 
+ 
+Requi
+rement 
+Definition:
+ 
+The 
+system 
+shall 
+suppor
+t 
+a 
+gue
+st
+ 
+level.
+ 
+ 
+Requi
+rement Specification:
+  The gue
+st will have the follow
+ing 
+privileges: 
+ 
+a.
+ 
+Ability 
+to 
+view
+   kinds
+   of   information 
+in 
+the   repos
+itory
+   with 
+restrictions
+  set  by 
+the  project  manager.
+  For  instance,  if  a  gue
+st  is 
+given access permission 
+to a certain privacy pol
+icy, he/she will not
+ be 
+able  to  view  goa
+  and 
+scenario  ocurrences  related  to 
+other  privacy 
+pol
+icies in the repos
+itory.
+ 
+ 
+Origin:
+ Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+3.1.2. Non
+-
+Function
+al Requirements
+ 
+This section 
+out
+lines the standa
+rds to be follow
+ed to ensure that data safety is maintained.
+ 
+ 
+      NFR
+-
+UAM 1
+ 
+ 
+
+
+5
+ 
+ 
+Requi
+rement  Definition:
+    The  system  shall  allow
+  all  users  to
+  have  different  access 
+levels to the projects. 
+ 
+ 
+Requi
+rement  Specification
+:    Each  user  will  have  different  projects  to  work  on
+  as 
+well  as  different  access  levels  that  will  allow
+  them  certain  privi
+leges  within  the 
+project. 
+ 
+ 
+Origin
+:  Custom
+er Interview (Qingf
+eng He) 02/
+06/
+04
+ 
+ 
+Priority
+:  1
+ 
+ 
+ 
+     NFR
+-
+UAM 2
+ 
+ 
+Requi
+rement Definition:
+  The system shall allow
+ secure storage of passwords in the 
+database. 
+ 
+ 
+Requi
+rement Specification
+:  The system will provi
+d
+e secure storage of passwords of 
+all users in the database.
+ 
+ 
+Origin:
+  Custom
+er Interview (Qingf
+eng He) 03/
+02/
+04
+ 
+ 
+Priority:
+  1
+ 
+ 
+NFR
+-
+UAM 3
+ 
+ 
+Requi
+rement  Definition:
+    The  system  shall  allow  users  to  securely  log 
+ont
+o  the 
+system.
+ 
+ 
+Requi
+rement  Specification
+:    The  system  will  provi
+de  secure  way  for  users  to  log
+ 
+ont
+o the system.
+ 
+ 
+Origin:
+  Custom
+er Interview (Qingf
+eng He) 03/
+02/
+04
+ 
+ 
+Priority:
+  1
+ 
+ 
+ 
+ 
+3.2. GSM: Goal
+ Specification
+ an
+d Man
+age
+ment Mod
+ule
+ 
+This section 
+defines the features prov
+ided by the tool for goa
+l specification 
+and management
+ 
+ 
+ 
+3.2.1. Function
+al Requirements
+ 
+ 
+         
+FR
+-
+GSM 1 
+ 
+Requi
+rement Definition:
+ The system shall 
+allow
+ analysts to 
+add 
+a new goa
+l. 
+ 
+
+
+6
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The
+  system  will  allow  analysts  to  enter  a  new  go
+al 
+into the system as new goa
+ls are 
+identified
+. Follow
+ing 
+are the necessary 
+elements 
+for each goa
+l:
+ 
+a.
+ 
+Goal ID
+ 
+b.
+ 
+Goal Description
+ (not
+ long)
+ 
+c.
+ 
+Taxonom
+y
+ Classification
+ 
+1.
+ 
+Protection
+ 
+
+ 
+Notice/Awareness
+ 
+
+ 
+Choice/Consent
+ 
+
+ 
+Security/Integrity
+ 
+
+ 
+Access/Participation 
+ 
+
+ 
+Enforcement/Redress
+ 
+2.
+ 
+Vulnerability
+ 
+
+ 
+Information Monitoring
+ 
+
+ 
+Information Aggregation
+ 
+
+ 
+Information Storage
+ 
+
+ 
+Information Transfer 
+ 
+
+ 
+Information Collection
+ 
+
+ 
+Information Personalization
+ 
+
+ 
+Contact
+ 
+d.
+ 
+Subj
+ect Classification 
+ 
+
+ 
+Business Aggregation
+ 
+
+ 
+Browsing Pattern/Site Usage
+ 
+
+ 
+CC Information 
+ 
+
+ 
+Children
+ 
+
+ 
+Customer Information (CI)
+ 
+
+ 
+Contacting Customer
+ 
+
+ 
+Contact Institutions
+ 
+
+ 
+Cookies/Web bugs
+ 
+
+ 
+Customer System Information
+ 
+
+ 
+Customer Aggregation
+ 
+
+ 
+General Information
+ 
+
+ 
+General User Preference
+ 
+
+ 
+Identity Theft/Fraud
+ 
+
+ 
+Law (HIPAA, COPPA, GLBA)
+ 
+
+ 
+Liability/Responsibility
+ 
+
+ 
+OPT in /out preferences
+ 
+
+ 
+Personal Financial Information (PFI)
+ 
+
+ 
+Personal Health Information (PHI)
+ 
+
+ 
+Persona
+lly Identifiable Information (PII)
+ 
+
+ 
+PFI/PHI/PII Usage
+ 
+
+ 
+Policies/Procedures
+ 
+
+ 
+PP/ToU
+ 
+
+ 
+Security Access
+ 
+e.
+ 
+Goal Actor
+ 
+f.
+ 
+Policy in which the goa
+l was found
+ 
+g.
+ 
+Granul
+arity 
+Classification 
+(Policy or Scenario goa
+l)
+ 
+h.
+ 
+Observable/Unobs
+ervable
+ 
+i.
+ 
+Occurrences
+ 
+
+
+7
+ 
+ 
+j.
+ 
+Cont
+ext Information (for the goa
+l)
+ 
+k.
+ 
+Relevant Legislation 
+(e.g, HIPAA, COPPA, GLBA)
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 2
+ 
+Requi
+rement Definition:
+ The system shall provi
+de 
+templates for goa
+ls, scenarios, 
+P3P
+ statments, EPAL rules and 
+access cont
+rol pol
+icies. 
+ 
+ 
+Requi
+rement Specification:
+ Th
+ese
+ template
+s
+ will 
+allow
+ analysts 
+ to enter detailed 
+information 
+about
+  each  goa
+l
+,  scenario,  P3P
+  statement,  EPAL  rule  and 
+access 
+cont
+rol po
+licy 
+that they enter into the tool
+. 
+ 
+ 
+Assum
+ption:
+ Guests are onl
+y allow
+ed to view templates.
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 02/13/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+FR
+-
+GSM 3
+ 
+Requi
+rement Definition:
+ The system shall 
+allow
+ analysts
+ to classify goa
+ls. 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  allow
+  the  adm
+inistrator,  project 
+manager and 
+analysts to classify goa
+ls in the following 
+categor
+ies:
+ 
+a.
+ 
+Policy goal
+s
+ or 
+scenar
+io goal
+s
+ 
+b.
+ 
+Observabl
+e goal
+s
+ or 
+unobs
+ervabl
+e goal
+s
+ 
+c.
+ 
+P
+rotection 
+goal
+s 
+or
+ vulnerabi
+liti
+es
+ 
+d.
+ 
+Goals based on 
+subj
+ect classification
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+GSM 4
+ 
+Requi
+rement  Definition:
+  The  system  shall 
+allow
+ multiple  subj
+ect  classifications
+ 
+for each goa
+l. 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  allow  analysts  to  choos
+e  multiple 
+subj
+ect  classifications
+  for  each  goa
+l.  For  instance,  a  goa
+l  coul
+d  be  a  part  of 
+‘security access’ as well as ‘persona
+l health information.
+’
+ 
+
+
+8
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 03/02/
+04
+ 
+ 
+Priority
+: 3
+ 
+FR
+-
+GSM 5
+ 
+Requi
+rement Definition:
+ The system shall provi
+de the ability to dyna
+mically add 
+a new classification
+ type
+ of goa
+ls to the tool
+.
+ 
+ 
+Requi
+rement Specification:
+ The system  will allow
+ the
+ 
+project manager
+ 
+to add 
+a 
+new classification 
+type
+ 
+of 
+goa
+ls.
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 03/02/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 6
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow
+  the  analysts  to  reque
+st  a  new 
+classification 
+type
+  of  goa
+ls  and 
+also  allow
+  the  project  manager  to  create  that 
+classification 
+type
+.
+ 
+ 
+Requi
+rement
+ Specification:
+ The system shall allow the analysts to reque
+st a new 
+classification 
+type
+  of  goa
+ls  and 
+also  allow
+  the  project  manager  to  create  that 
+classification 
+type
+.
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 07/12/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+FR
+-
+GSM 
+7
+ 
+Requi
+rement  Definition:
+  The  system  shall  provide  the  ability 
+to 
+upda
+te  an 
+existing 
+goa
+l.  
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will 
+a
+nalysts  to  edit  an  existing 
+goa
+l  in 
+the system.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+GSM
+ 
+8
+ 
+Requi
+rement Definition:
+ The system shall provi
+de the ability to delete a goa
+l. 
+ 
+
+
+9
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  analysts
+ 
+to  delete  an  existing
+  goa
+l 
+from
+ the repos
+itory. 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM
+ 
+9
+ 
+Requi
+rement  Definition:
+  The  system  shall  provi
+de  the  ability  to  autom
+atically 
+propa
+gate associated pol
+icy information 
+upon
+ 
+deletion 
+or replacement of a goa
+l. 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  provi
+de  a  way  to  merge  goa
+ls  into 
+pol
+icies to redu
+ce time spent on 
+the go
+al reconc
+iliation 
+process. For instance, if 
+goa
+l  A  is  deleted  from
+  the  repos
+itory  and 
+replaced  by 
+a  new  goa
+l  B,  all  the 
+pol
+icies where goa
+l A appe
+ared shoul
+d be upda
+ted autom
+atically to include
+ goa
+l 
+B.
+ 
+ 
+Origin
+: Custom
+er interview (Dr
+. Anni
+e I. Ant
+ó
+n) 02/13/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 
+10
+ 
+Requi
+rement  Definition:
+  The  system  shall 
+maintain  traceability  links
+  between  a 
+goa
+l and 
+the pol
+icy from which the goa
+l was derived. 
+ 
+ 
+Requi
+rement Specification:
+ The system will allow
+ 
+analysts and
+ gue
+st 
+to choos
+e a 
+goa
+l and 
+then the system will display all the pol
+icies in which that particular goa
+l 
+appe
+ars. 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 1
+1
+ 
+Requi
+rement  Definition:
+  The  system  shall  provi
+de  the  ability  to  display  th
+e 
+num
+ber  of  occurrences  of  a  goa
+l  in  a  pol
+icy
+,  in  multiple  pol
+icies  and 
+within  a 
+dom
+ain.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system will allow
+ 
+analysts and
+ gue
+st 
+to choos
+e a 
+pol
+icy and 
+a goa
+l and 
+then the system will 
+allow
+ analysts and 
+gue
+sts to view 
+the 
+tota
+l occurrences of that particular goa
+l in the chos
+en pol
+icy.
+ 
+ 
+ 
+Note:
+  For  ACP,  it  is  impor
+tant  to 
+know
+  who 
+the  system  will  display 
+this 
+information 
+to.
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+
+
+10
+ 
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 1
+2
+ 
+Requi
+rement  Definition:
+  The  syst
+em  shall  provi
+de  the  ability  to  display  the 
+num
+ber of 
+different goa
+ls
+ that occur in a pol
+icy.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system will allow
+ analysts and 
+gue
+sts 
+to choos
+e 
+a  pol
+icy  and
+  then  the  system  will 
+allow
+  analysts  and
+  gue
+sts  to  view  the 
+the 
+num
+b
+er  of  different 
+goa
+ls
+  that  occur  in  that  policy.  For  instance,  if  the  user 
+choos
+es a health pol
+icy and
+ there were 4 different goa
+ls found 
+in that pol
+icy then 
+the system will display 4. How
+ever, the pol
+icy might have thos
+e 4 goa
+ls repeated 
+a num
+ber of times
+.
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 03/02/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 1
+3
+ 
+Requi
+rement Definition:
+ The system shall display the cont
+ext of a goa
+l.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system will allow
+ 
+analysts and 
+gue
+sts 
+to choos
+e 
+a goa
+l and 
+the system wil
+l then 
+allow
+ analysts and gue
+sts to view
+ the cont
+ext of 
+the  goa
+l,  which 
+is  the  actual  statement  from
+  the  pol
+icy 
+in 
+which 
+the  goa
+l 
+originally appe
+ared. 
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 03/
+03/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 1
+4
+ 
+Requi
+rement  Definition:
+  The  system  shall 
+allow
+  analysts  to  create  and 
+upda
+te 
+goa
+l 
+keyword definitions
+ and 
+allow
+ gue
+sts to view keyw
+ord definitions
+.
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  provi
+de  a  way 
+to 
+display 
+the 
+definition 
+of  the  goa
+l  keyw
+ords  in 
+the  SPRAT  for  conve
+nie
+nt  access.  For 
+instance,  the  keyw
+ord  ‘ALLOW’  will  have  its  definition 
+associated  with  it. 
+Addi
+tiona
+lly, the system will provi
+de the ability to access these definitions
+ in a 
+separate section.
+ 
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 02/06/
+04
+ 
+ 
+Prio
+rity
+: 3
+ 
+ 
+FR
+-
+GSM 15
+ 
+
+
+11
+ 
+ 
+Requi
+rement Definition:
+ The system shall provi
+de the ability to lock and 
+unl
+ock 
+the  keyw
+ord  definition 
+by 
+either  the  project  manager  or  the  first  person 
+who
+ 
+created the definition in the repos
+itory. 
+ 
+ 
+Requi
+rement  Specification:
+  The  syste
+m  shall  provi
+de  the  ability  to  lock  and 
+unl
+ock  the  keyw
+ord  definition 
+by 
+either  the  project  manager  or  the  first  person
+ 
+who 
+created the definition 
+in the repos
+itory.
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 07/13/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+FR
+-
+GSM 1
+6
+ 
+Requi
+r
+ement  Definition:
+  The  system  shall
+  allow
+  analysts  and 
+gu
+ests  to  search 
+goa
+ls according 
+to analyst chos
+en attribut
+es.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system will generate
+ a
+ list of all goa
+ls that have 
+the  same  sour
+ce,  actor,  subj
+ect  etc. 
+upon 
+analyst’s  req
+uest. 
+This  will  allow
+  the 
+analyst  to  determine  effects  caused  by 
+a  change
+  in  condi
+tions
+  or  can  provi
+de 
+qui
+ck feedba
+ck on 
+what goa
+ls need further elabor
+ation.
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 03/
+03/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+GSM 1
+7
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow
+  analysts  to  view 
+elements 
+of  a 
+goa
+l returned by a que
+ry
+.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system will provi
+de analysts the ability to view 
+full details of any 
+goa
+l returned by 
+a que
+ry.
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 03/
+03/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+GSM 18
+ 
+Requi
+rement Definition:
+ The system shall provi
+de a template to expr
+ess goa
+ls in 
+BNF grammar. 
+ 
+ 
+Requi
+rement Specification
+: This template will conform to the BNF grammar of 
+allow
+able structure. E.g., 
+ 
+<Goal> ::= <keyw
+ord>
+ <subj
+ect> <action>
+; 
+ 
+
+
+12
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/13/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+GSM 1
+9
+ 
+Requi
+rement  Definition:
+  The  system  shall 
+supp
+ort  conf
+lict  identification 
+and 
+resolution.
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  provide  a  mechanism  to  autom
+ate 
+the identification 
+of conf
+licts between requi
+rements and 
+privacy pol
+icies. 
+ 
+ 
+Origin
+: Custom
+er interview (William Stufflebeam) 03/
+30/
+04
+ 
+This  was  a 
+sugge
+stion 
+from
+  his  review  of  Anni
+e’s  pape
+r.  Definitely  needs
+ 
+elabor
+ation
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+ GSM 20
+ 
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow
+  analysts  to 
+view  scenarios 
+associated with indi
+vidua
+l scenarios.
+ 
+ 
+Requi
+rement Specification:
+ When the analyst views the full details of a scenario, 
+the system will indi
+c
+ate the goals that are shared among 
+scenarios.
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 06/25/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+ GSM 21
+ 
+ 
+Requi
+rement Definition:
+ The system shall provi
+de a P3P
+ dedicated section 
+in the 
+ 
+tool
+. 
+ 
+ 
+Requi
+rement    Specification:
+ 
+The    elements    of    the    section 
+will    include
+: 
+specification,
+ rationa
+le, a drop dow
+n box
+ with options
+ such as yes, no 
+or partial.
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 06/25/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+ GSM 22
+ 
+
+
+13
+ 
+ 
+ 
+Requi
+rement Definition:
+ The system shall provi
+d
+e an EPAL dedicated section 
+in 
+the tool
+. 
+ 
+ 
+Requi
+rement    Specification:
+ 
+The    elements    of    the    section 
+will    include
+: 
+specification,
+ rationa
+le, a drop dow
+n box
+ with options
+ such as yes, no 
+or partial
+.
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 06/25/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+ 
+3.3. 
+ADM
+: 
+Analysis Document 
+Man
+age
+ment Mod
+ule
+ 
+There are different kinds
+ of analysis doc
+um
+ents, such as pol
+icy doc
+um
+ents. This section 
+defines the 
+features for the doc
+um
+ent management modu
+le. 
+ 
+ 
+3.3.1. Function
+al Requirements
+ 
+ 
+FR
+-
+ADM
+ 1
+ 
+Requi
+rement   Definition:
+  The   system   shall 
+allow   project   managers
+   to 
+add 
+analysis doc
+um
+ents and 
+assign 
+a dom
+ain to each docum
+ent. 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will 
+allow  the
+  project  manager  to  add 
+pol
+icies 
+doc
+um
+ents 
+repos
+itory 
+and 
+assign
+  a  do
+main 
+to 
+each 
+do
+cum
+ent.  The 
+dom
+ain coul
+d be 
+healthcare, financia
+l or
+ e
+-
+com
+merce. 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+This will requi
+re simply addi
+ng 
+the pol
+icy to the tool
+ and 
+not
+ goi
+ng 
+through
+ and 
+manual
+l
+y changi
+ng 
+the code
+ to add 
+the pol
+icy. This is implementation 
+bias but
+ is 
+som
+ething 
+Qingf
+eng 
+want
+ed to add
+ here.
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+ADM 2
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow
+  project  managers  to  edit  the 
+dom
+ain for the doc
+um
+ents. 
+ 
+ 
+Requi
+rement  Spec
+ification:
+  The  system  will  allow  the  project  manager  to  edit 
+the dom
+ain for the doc
+um
+ents such as change
+ the dom
+ain name. 
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 07/13/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+
+
+14
+ 
+ 
+FR
+-
+ADM 3
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow
+  project  managers  to  delete  the 
+dom
+ain for the doc
+um
+ents. 
+ 
+ 
+Requi
+rement Specification:
+ The system will allow
+ the project manager to delete 
+the dom
+ain for the doc
+um
+ents.
+ 
+ 
+Reasoni
+ng:
+ We make errors
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 07/13/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+FR
+-
+ADM 
+4
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow  project  managers  to  create 
+doc
+um
+ent type
+s. 
+ 
+ 
+Requi
+rement Specification:
+ The system will allow
+ the project manager to create 
+doc
+um
+ent 
+type
+ such as pol
+icy doc
+um
+ents, requi
+rements doc
+um
+ent, manua
+ls etc. 
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 07/12/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+ADM
+ 
+5
+ 
+Requi
+rement   Definition:
+   The   system   shall   provi
+de   the   ability 
+to   display 
+doc
+um
+ent names and 
+links
+ to the actual doc
+um
+ent text within a specific dom
+ain 
+in an alpha
+betical order.
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will 
+allow
+  analysts  and 
+gue
+st  to  view 
+pol
+icies in the system in an alpha
+betical order. 
+ 
+ 
+Origin
+: Custom
+er intervi
+ew (Neha Jain) 02/
+06/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+ADM 6
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow
+  project  managers  to  create  a 
+new dom
+ain and 
+assign 
+existing 
+doc
+um
+ents to this dom
+ain.
+ 
+ 
+
+
+15
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  allow  project  managers  to  creat
+e  a 
+new dom
+ain for the doc
+um
+ents  and 
+assign 
+existing 
+doc
+um
+ents to that particular 
+dom
+ain.
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 06/25/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+ADM
+ 
+7
+ 
+Requi
+rement Definition:
+ The system shall suppor
+t autom
+atic multi
+-
+user analysis 
+results com
+parison
+ upon 
+the project manager’s reque
+st. 
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will 
+allow
+ 
+analysts  to  classify  goa
+ls 
+separately  and 
+as  a  result  they  can  autom
+atically  check  the  differ
+ence  in  their 
+classification 
+results for their resolution.
+ 
+ 
+ 
+Cons
+traint:
+ 
+Other  analyst’
+s  classification 
+must  be  withhe
+ld  by 
+the  system  unt
+il 
+the  given  analyst  has  com
+pleted  his/her  classification.
+  At  that  time  the  analyst 
+will be able to view the other analyst’s classifications
+. This is to prevent bias.
+ 
+ 
+Note
+: Need to check with Dr. Earp wha
+t statistical analysis must be carried out
+ 
+behind 
+the scenes and 
+add 
+that as a new requi
+rement.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 02/06/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+3.4. F
+RE
+: Flesch Read
+ab
+ility Module
+ 
+This  section 
+cont
+ains  requi
+reme
+nts  that  calculate  the  Flesch  Readability 
+Inde
+x 
+of  pol
+icy 
+doc
+um
+ents.
+ 
+ 
+3.4.1. Function
+al Requirements
+ 
+ 
+FR
+-
+FR
+E
+ 1
+ 
+Requi
+rement  Definition:
+  The  system  shall  provi
+de  a  way  calculate  the 
+Flesch 
+Readabi
+lity
+ for
+ 
+textual
+ doc
+um
+ents.
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  s
+ystem  will  prov
+ide 
+analysts
+  way  to  calculate 
+the Flesch Readability 
+Score (FRES) and 
+Flesch
+-
+Kincaid Grade Level (FGL) for 
+textual doc
+um
+ents.
+ For this, a link 
+to the actual 
+textual doc
+um
+ent as well as the 
+correspondi
+ng 
+FRES  and 
+FGL  as  the  num
+ber  of  words  an
+d  sentences  in  each 
+doc
+um
+ent 
+will be provi
+ded.
+ 
+
+
+16
+ 
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) /03/
+26/
+04
+ 
+ 
+Priority: 2
+ 
+ 
+ 
+3.5. SSM: Scenario Specification
+ and Manage
+ment
+ 
+This section 
+defines the features associated with scenarios specification 
+and 
+management.
+ 
+ 
+3.5.1. Function
+al Requirements
+ 
+ 
+FR
+-
+ SSM 1
+ 
+Requi
+rement Definition:
+ The system shall provi
+de the ability to add 
+a scenario to 
+the system.
+ 
+ 
+Requi
+rement Specification:
+ The system shall 
+allow analysts 
+to add 
+a scenario to 
+the system. Follow
+ing are
+ the necessary elements for each scenario:
+ 
+•
+ 
+Scenario Name
+ 
+•
+ 
+Sour
+ces
+ 
+•
+ 
+Actor(s)
+ 
+•
+ 
+Event(s)
+ 
+•
+ 
+Action(
+s)
+ 
+•
+ 
+Obstacle(s)
+ 
+•
+ 
+Cons
+traint(s)
+ 
+•
+ 
+Pre
+-
+Condi
+tion(
+s)
+ 
+•
+ 
+Post
+-
+Condi
+tion(
+s)
+ 
+•
+ 
+Status
+ 
+ 
+•
+ 
+Issue(s)
+-
+ 
+These are que
+stions
+ that
+ com
+e up:
+ catch on
+ 
+•
+ 
+Goals
+ 
+•
+ 
+Requi
+rements
+ 
+ 
+Origin
+: Custom
+er interview (William Stufflebeam) 03/
+02/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+ 
+FR
+-
+ SSM 2
+ 
+Requi
+rement  Definition:
+  The  system  shall 
+allow  analysts 
+to 
+edit/modi
+fy 
+a 
+scenario within a project
+ 
+ 
+Requi
+rement  Specification:
+  The  system  shall 
+allow
+  analysts
+  to  edit/modi
+fy  a 
+scenario within a project.
+ 
+ 
+Origin
+: Custom
+er interview (William Stufflebeam) 03/
+02/
+04
+ 
+ 
+Priority
+: 3
+ 
+
+
+17
+ 
+ 
+ 
+FR
+-
+ SSM 3
+ 
+Requi
+rement Definition:
+ The system shall provi
+de the ability to delete a scenario 
+from
+ 
+a 
+project 
+withou
+t 
+deleting
+ it
+ from
+ the system
+ 
+ 
+Requi
+rement Specification:
+ The system shall 
+allow
+ analysts
+ to delete a  scenario 
+from
+ the system. 
+ 
+ 
+Origin
+: Custom
+er interview (William Stufflebea
+m) 03/
+02/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+ 
+ 
+FR
+-
+ SSM 
+4
+ 
+Requi
+rement   Definition:
+   The   system   shall
+   allow
+   analysts   to 
+reuse   other
+ 
+scenario
+s.
+ 
+ 
+Requi
+rement  Specification:
+ 
+The  system  shall  allow
+  analysts  to 
+reuse  other 
+scenarios when specifying 
+a scenario
+.
+ 
+ 
+Origin
+: Custom
+er inter
+view (William Stufflebeam) 03/
+02/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+ 
+FR
+-
+ SSM 
+5
+ 
+Requi
+rement   Definition:
+   The   system   shall 
+allow
+   analysts   to 
+view   goa
+ls 
+associated with indi
+vidua
+l scenarios.
+ 
+ 
+Requi
+rement Specification:
+ When the 
+analyst 
+views the full details of a goa
+l, the 
+system will indi
+cate the scenarios that are shared among 
+goa
+ls.
+ 
+ 
+Origin
+: Custom
+er interview (William Stufflebeam) 03/
+02/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+ SSM 
+6
+ 
+Requi
+rement Definition:
+ The system shall allow
+ analysts to view the 
+el
+ements 
+of 
+any 
+scenario in the project
+.
+ 
+ 
+Requi
+rement Specification:
+ The system shall allow analysts to view the 
+elements 
+of 
+any 
+scenario in the
+ project assigne
+d to this analyst.
+ 
+ 
+Origin
+: Custom
+er interview (William Stufflebeam) 03/
+02/
+04
+ 
+
+
+18
+ 
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+SSM
+ 
+7
+ 
+Requi
+rement  Definition:
+  The  system  shall  generate  a  list  of  all  scenarios  that 
+share the same attribut
+e or sets of attribut
+es
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system will 
+allow
+ analysts
+ to generate list of all 
+scenarios that have the same sour
+ce, goa
+l, 
+actor, etc. This will allow
+ the analyst 
+to  determine  effects  caused  by 
+a  change
+  in  con
+ditions
+  or  can  provi
+de  qui
+ck 
+feedba
+ck on 
+what scenarios need further elabor
+ation.
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 03/
+03/
+04
+ 
+ 
+Priority
+: 2
+ 
+ 
+ 
+3.6. RS: 
+Requirements Specification Module
+ 
+This section 
+defines the requi
+rements specifications
+.
+ 
+ 
+3.6.1. Function
+al Requirements
+ 
+ 
+FR
+-
+RS 1
+ 
+Requi
+rement   Definition:
+   The   system   shall   provi
+de   the   ability 
+to 
+specify 
+requi
+rements.
+ 
+ 
+ 
+Requi
+rement   Specification:
+   The   system 
+will   allow
+   analysts   to   specify 
+requi
+rements.
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 04/
+07/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+FR
+-
+RS 2
+ 
+Requi
+rement   Definition:
+   The   system   shall   provi
+de   the   ability 
+to 
+add 
+a 
+requi
+rement.
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  wil
+l  allow  analysts  to  add 
+requi
+rements 
+to the system.
+ The requi
+rement will include
+ the follow
+ing:
+ 
+ 
+-
+Goals
+ 
+ 
+-
+Cons
+traints
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 07/
+09/
+04
+ 
+ 
+
+
+19
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+RS 3
+ 
+Requi
+rement  Definition:
+  The  system   shall  provide  the  ability 
+to  delete   a 
+requi
+rement.
+ 
+ 
+ 
+Requi
+rement    Specification:
+    The    system    will    allow
+    analysts    to 
+delete 
+requi
+rements from
+ the system.
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 07/
+09/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+RS 4
+ 
+Requi
+rement   Definitio
+n:
+   The   system   shall   provi
+de   the   ability 
+to 
+edit   a 
+requi
+rement.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system will allow
+ analysts to edit 
+requi
+rements.
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 07/
+09/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+RS 5
+ 
+Requi
+rement  Definition:
+  The  system  shall  provi
+de  a  template  for  specifying 
+requi
+rements. 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  provi
+de  a  template  to 
+specify 
+requi
+rements
+.
+ 
+ 
+Origin
+: Custom
+er interview (Neha Jain) 07/
+09/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+ 
+3.7. LC: Legal
+ Com
+plian
+ce Mod
+ule
+ 
+ 
+This section 
+defines the legal com
+pliance for privacy pol
+icies.
+ 
+ 
+3.7.1. Function
+al Requirements
+ 
+ 
+FR
+-
+LC 1
+ 
+Requi
+rement Definition:
+ The system shall provi
+de a demo version 
+of the tool 
+ 
+
+
+20
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system  will  provi
+de  a  trial  version 
+of  the  tool
+ 
+allow
+ing 
+peopl
+e to enter about
+ 30 obj
+ects and 
+try our system. 
+ 
+ 
+Origin
+: Custom
+er interview (William Stufflebeam) 07139/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+3.8. RACAF: Requirements
+-
+level Access Con
+trol Analysis Framework Mod
+ule
+ 
+This section 
+defines the func
+tiona
+l requi
+rements that suppor
+t RACAF.
+ 
+ 
+I. Data Analysis
+ 
+ 
+FR
+-
+RACAF 1
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow
+ 
+analysts  to  add
+  new  obj
+ec
+ts 
+(names, type
+s and 
+other attribut
+es).
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system shall 
+allow
+ analysts to add
+ new obj
+ects. 
+Elements of an obj
+ect include
+: 
+name, type
+, hierarchical information,
+ preferences, 
+etc.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 2
+ 
+Requi
+rement   Definition:
+   The   system   shall   suppor
+t   association 
+of   privacy 
+preferences with obj
+ects.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system shall 
+allow analysts 
+to associate privacy 
+preferences  with  obj
+ects. 
+Elements  of  a 
+privacy 
+preference  include
+:
+  pur
+pos
+e, 
+recipient, retention, cons
+ent, etc.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 3
+ 
+Requi
+rement  Definition:
+ 
+The  system  shall  sup
+por
+t  hierarchical  structure  of 
+dataand 
+its type
+. 
+ 
+ 
+Requi
+rement   Specification:
+ 
+The   system   shall   allow
+   analysts   to 
+specify 
+hierarchies to organize data and its type
+s. 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+
+
+21
+ 
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 4
+ 
+Requi
+rement   Definition:
+   The   system   shall   allow
+   graphi
+cal   view   of   data 
+structures.
+ 
+ 
+ 
+Requi
+rement   Specification:
+   The   system   shall 
+allow
+   analysts   to 
+view   data 
+hierarchies graphi
+cally
+.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+II. Task Analysis
+ 
+ 
+ 
+FR
+-
+RACAF 
+5
+ 
+R
+equi
+rement  Definition:
+  The  system  shall
+   sup
+por
+t  deriving 
+access  cont
+rol
+ 
+elements.
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system
+  shall 
+allow
+  analysts  to  specify  access 
+cont
+rol elements. 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 
+6
+ 
+Requi
+rement  Definition:
+  The  system  shall  allow  analysts  to 
+view  scenario 
+elements and 
+edit access cont
+rol rules at the same time
+. 
+ 
+ 
+Requi
+rement  Specification:
+  The  system
+  shall  allow
+  analysts  to  view  scenario 
+elements on 
+the left hand 
+of the screen and 
+edit
+ access cont
+rol rules on 
+the right
+ 
+hand 
+of the screen. 
+ 
+ 
+Origin
+: Custom
+er interview (Dr. Anni
+e I. Ant
+ó
+n) 06/25/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+ 
+ 
+III. Organ
+ization
+al Structure Analysis
+ 
+ 
+FR
+-
+RACAF 
+7
+ 
+
+
+22
+ 
+ 
+Requi
+rement  Definition:
+  The  system  shall
+  suppor
+t  a  hierarchical  representation 
+of organizationa
+l structures
+.
+ 
+ 
+ 
+Requi
+rement  Specification:
+  The  system
+  shall
+  allow  analysts  to  specify  bus
+iness 
+and 
+organizationa
+l structures.
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 
+8
+ 
+Requi
+rement   Definition:
+   The   system   shall
+   suppor
+t   the   representation 
+of 
+organizationa
+l bounda
+ries
+.
+ 
+ 
+ 
+Requi
+rement   Specification:
+   The   system
+ 
+shall   allow
+   analysts   to 
+specify 
+organization 
+bounda
+ries via the use of roles.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 
+9
+ 
+Requi
+rement  Definition:
+  The  system  shall
+  suppo
+rt  the  representation 
+of  actor 
+relations
+hips
+.
+ 
+ 
+ 
+Requi
+rement   Specification:
+   The   system
+   shall 
+allow
+   analysts   to 
+specify 
+relations
+hips among 
+act
+ors
+. 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 1
+0
+ 
+Requi
+rement Definition:
+ The system shall
+ suppor
+t the definition of roles
+.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system
+ shall 
+allow
+ analysts to specify roles. 
+ 
+ 
+Origin
+: Custom
+er i
+nterview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+FR
+-
+RACAF 1
+1
+ 
+Requi
+rement Definition:
+ The system shall
+ suppor
+t 
+role 
+delegation
+. 
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system
+ shall 
+allow
+ project managers to delegate 
+their respons
+ibilities to analysts for a specific time frame. 
+ 
+
+
+23
+ 
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+ 
+IV. Information
+ Analysis
+ 
+ 
+FR
+-
+RACAF 1
+2
+ 
+Requi
+rement Definition:
+ The system  shall
+ suppor
+t analysis of a specific type
+ of 
+data flow
+ within or across the bounda
+ry of an organization,
+ given a set of access 
+cont
+rol pol
+icies
+.
+ 
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system shall
+ 
+allow analysts to graphi
+cally view 
+the allow
+able flow
+s for specific t
+ype
+s within an organization 
+and 
+across multiple 
+organizations
+ given a set of access cont
+rol pol
+icies.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 
+3
+ 
+ 
+ 
+V. 
+Access Con
+trol Policy Specification
+s
+ 
+ 
+FR
+-
+RACAF 1
+3
+ 
+Requi
+rement  Definition:
+  The  system 
+shall
+  suppo
+rt  access  cont
+rol  specification
+ 
+using 
+Ponde
+r langua
+ge
+.
+ 
+ 
+ 
+Requi
+rement Specification:
+ The system
+ shall 
+allow analysts to invok
+e the ponde
+r 
+pol
+icy editor. 
+ 
+ 
+Reasoni
+ng:
+ 
+Because  Ponde
+r  provi
+des  tool
+  sup
+por
+t  for  pol
+icy 
+specification,
+ 
+SPRAT shall provi
+de interface suppor
+t to interact with Ponde
+r editor.
+ 
+ 
+Origin
+: Custom
+er interview (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 1
+ 
+ 
+ 
+V
+I
+. 
+Formal Verification
+ 
+ 
+FR
+-
+RACAF 1
+4
+ 
+Requi
+rement Definition:
+ The system shall
+ provi
+de partial suppor
+t for translating 
+Ponde
+r pol
+icy into Alloy specifications
+ for security verification.
+ 
+ 
+ 
+Requi
+rement   Specification:
+   The   system   shall
+   provi
+de   partial   suppor
+t   for 
+
+
+24
+ 
+ 
+translating 
+Ponde
+r  pol
+icy 
+into 
+Alloy 
+specifications
+  for  security 
+verificat
+ion.
+ 
+“Partial  suppor
+t”  means  provi
+ding 
+as  much  automatic  translation 
+as  pos
+sible  so 
+that manua
+l specification 
+of Alloy 
+coul
+d be minimized. The partial suppor
+t also 
+include
+s provi
+ding 
+interface between Ponde
+r editor and 
+Alloy 
+tool
+.
+ 
+ 
+Origin
+: Custom
+er intervi
+ew (Qingfeng 
+He) 05/14/
+04
+ 
+ 
+Priority
+: 
+3
+ 
+ 
+ 
+3.9. P3P
+: P3P Mod
+ule
+ 
+ 
+ 
+ 
+FR
+-
+P3P 1
+ 
+Requirement  Definition:
+  The  system  shall  prov
+ide  a  way 
+to 
+extract  goals  data
+-
+usage 
+information 
+from a 
+P3P privacy policy 
+according to the P3P standa
+rd. 
+ 
+ 
+Requirement    Specification:
+    The    system    will    provi
+de    users    a    way    to 
+extract 
+goalsinformation 
+which is the information 
+pertaining to the usage of a data
+-
+item from a P3P
+ 
+privacy  policy  according  to  the  P3P  standa
+rd.  This  invo
+lves  parsing  the  respective  P3P 
+doc
+uments
+-
+ privacy policy doc
+uments or the user’s privacy preferences. 
+ 
+ 
+Origin
+: Custom
+er interview (Bharathy) /03/25/04
+ 
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+P3P 2
+ 
+Requirement  Definition:
+  The  system  shall  provide  a  way  to 
+extract  goalsdata
+-
+usage 
+information 
+according toas  per  t
+he user’s  privacy  preferences in accordance with  the P3P 
+standa
+rd.
+ 
+ 
+Requi
+rement Specification:
+ The system will  provi
+de users a way to extract goals which is 
+the information 
+pertaining to  the usage of a data
+-
+item accordings per  to  the user’s  privacy 
+prefere
+nces  in  accordance  with  the  P3P  standa
+rd.  Here  the  goalsinformation 
+pertaining 
+necessary to accepting as well as rejecting a policy according to user’s privacy preferences 
+are  extracted.  This  invo
+lves  ob
+tainingpa
+rsing  the  respective  documents
+-
+  privacy  poli
+cy 
+doc
+uments  or  the  user’s  privacy  preferences  and  deriving  the  goalspertinent  rules  from
+ 
+them.
+ 
+ 
+Origin
+: Custom
+er interview (Bharathy) /03/25/04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+P3P 3
+ 
+
+
+25
+ 
+ 
+Requirement   Definition:
+   The   system   shall   provide   a   way   to   capture   the   mined 
+goalsinformation 
+from  the  P3P  policy  into  a  database  correspondi
+ng  to  a  P3P  privacy 
+policy. 
+ 
+ 
+Requirement  Specification:
+  The  system  will  provide  users  a  way  to  concisely  capture 
+goalsinformation 
+mined  fr
+om  the  P3P  policy,  into  a  database  correspondi
+ng  to  a  P3P 
+privacy policy. 
+ 
+ 
+Origin
+: Custom
+er interview (Bharathy) /03/25/04
+ 
+ 
+Priority
+: 3
+ 
+ 
+ 
+FR
+-
+P3P 4
+ 
+Requirement   Definition:
+   The   system   shall   provide   a   way   to   capture   the   mined 
+goalsinformation 
+from  the user’
+s  privacy  preferences into a database correspondi
+ng to  the 
+user’s privacy preferences.
+ 
+ 
+Requirement  Specification:
+  The  system  will  provide  users  a  way  to  concisely  capture 
+goalsthe rules derived from the user’s privacy preferences into a database correspon
+ding to 
+the user’s privacy preferences.
+ 
+ 
+Origin
+: Custom
+er interview (Bharathy) /03/25/04
+ 
+ 
+Priority
+: 3
+ 
+ 
+FR
+-
+P3P 5
+ 
+Requirement  Definition:
+  The  system  shall  provi
+de  a  way  to  evaluate  the  information 
+extracted  from  the  P3P  privacy  policy  against  the  information
+  extracted  from  the  user’s 
+privacy preferences. 
+ 
+ 
+Requirement Specification:
+ The system will provi
+de users an unambiguous
+ way to evaluate 
+the  information 
+extracted  from  the  privacy  policy  against  the  information 
+extracted  from 
+the user’s  privacy  preference
+s. During the evaluation,
+ follow
+ing scenarios need to be dealt 
+with:
+ 
+ 
+If the data
+-
+usage goals information 
+mined from the P3P  policy match tho
+se from
+ the user's 
+privacy  preferences  correspondi
+ng  to  bo
+th  acceptance  and 
+rejection 
+of  a  policy,  then  a 
+conflict 
+shoul
+d be detected and a no
+tification 
+requiring user's intervention 
+raised.
+ 
+ 
+If the goals data
+-
+usage information 
+mined from the P3P  policy match tho
+se from
+ the user's 
+privacy  preferences  correspondi
+ng  to  either  accepting  or  rejecting  a  policy,  the  policy 
+shoul
+d be accepted or rejected respectively.
+ 
+ 
+ If the goals data
+-
+usage informa
+tion 
+mined from the P3P
+ policy doe
+s no
+t match tho
+se from
+ 
+the  user’s  privacy  preferences  correspondi
+ng  to  either  acceptance  or  and 
+rejection  of  a 
+
+
+26
+ 
+ 
+policy,   then 
+again 
+a  conf
+lict  shoul
+d 
+be  detected 
+and 
+a  no
+tification 
+requiring  user’s 
+intervention 
+raised.
+ 
+ 
+Orig
+in
+: Custom
+er interview (Bharathy) /03/25/04
+ 
+ 
+Priority: 3
+ 
+ 
+4. System Requirements
+ 
+This  section 
+out
+lines 
+cons
+traints
+  on 
+the  system  in  order  to  provi
+de  for  com
+patibility,  security  and 
+privacy as defined by the custom
+er.
+ 
+ 
+SR 1
+ 
+ 
+Requi
+rement  Definition:
+    The  system  shall 
+generate  an  access  log 
+for  every  add,
+ 
+delete and 
+edit action 
+in the system. 
+ 
+ 
+Requi
+rement  Specification
+:    The  system  will 
+generate  an  access  log 
+for  every  add,
+ 
+delete  and 
+edit  action 
+in  the  system  for  the  pur
+pos
+e  o
+f  future  tracking.
+  General 
+elements of an access log 
+cont
+ain time, date, user id, action 
+and obj
+ect.
+.
+ 
+ 
+Rational
+e
+: When multiple users are working 
+on 
+the tool
+ at the sam
+e time
+ 
+ 
+Origin:
+  Custom
+er Interview (William Stufflebeam) 03/
+02/
+04
+ 
+ 
+Priority:
+  
+1 (since 
+it is needed for empirical study)
+ 
+ 
+ 
+5
+.  Requirements Traceab
+ility Matrix
+ 
+This section 
+out
+lines requi
+rement depende
+ncies. 
+ 
+ 
+6
+. Document Revision History
+ 
+This section 
+out
+li
+nes the version 
+of the current doc
+um
+ent being 
+used, the peopl
+e respons
+ible for the 
+doc
+um
+ent, dates the doc
+um
+ent is modi
+fied and 
+the change
+s made to the doc
+um
+ent.
+ 
+ 
+ 
+Version
+ 
+1.0.0
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+02/
+13/
+2004
+ 
+Change
+ Description
+ 
+First doc
+um
+ent version created
+ 
+ 
+Version
+ 
+1.0.1
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+02/
+23/
+2004
+ 
+Change
+ Description
+ 
+Refined 
+requi
+rements 
+after 
+talking 
+to 
+custom
+er. 
+New 
+
+
+27
+ 
+ 
+requi
+rements were adde
+d namely, GM 7, GM 8, GM 9, GM 10.
+ 
+Som
+e requi
+rements were deleted namely, PM 6, BS 1
+ 
+ 
+ 
+ 
+Version
+ 
+1.0.2
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+03/
+02/
+2004
+ 
+Change
+ Description
+ 
+Further  refined  requi
+rements  after  talking 
+to  custom
+er.  UAL  2 
+and 
+4 were merged and 
+UAL 1 and 
+3 were redefined. The Goal 
+Management  modul
+e  was  com
+pletely  restructured.  PM  1  and 
+PM  4  were  deleted.  Three  new  modul
+es  were  adde
+d  namely, 
+Scenario 
+management, 
+re
+qui
+rements 
+specification 
+and 
+legislations
+.
+ 
+ 
+ 
+Version
+ 
+1.0.3
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+03/
+05/
+2004
+ 
+Change
+ Description
+ 
+Further  refined 
+requi
+rements  after  talking 
+to  custom
+er.  Adde
+d 
+GSM  4,  GSM  5,  GSM  14,  SPR  4,  SPR  5,  SSC  1.  Adde
+d 
+glossary terms, scenario specification 
+and 
+management modul
+e 
+Remove
+d Brow
+ser suppor
+t section,
+ remove
+d SPR 3.
+ 
+ 
+Version
+ 
+1.0.4
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of 
+last change
+ 
+03/
+19/
+2004
+ 
+Change
+ Description
+ 
+Further  refined  requi
+rements  after  talking 
+to  custom
+er.  Adde
+d 
+GSM 16.
+ Refined glossary terms. Deleted SSC1.
+ 
+ 
+Version
+ 
+1.0.5
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+03/
+26/
+2004
+ 
+Change
+ Description
+ 
+Refined glossary and 
+cont
+ent of introduc
+tion.
+ 
+ 
+ 
+ 
+Version
+ 
+1.0.6
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+04/
+09/
+2004
+ 
+Change
+ Description
+ 
+Adde
+d PM5, 6, 7, 8, 9
+ 
+ 
+Version
+ 
+1.0.7
+ 
+
+
+28
+ 
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+05/
+05/
+2004
+ 
+Change
+ Description
+ 
+Grammar corrections
+, enha
+nced glossary items
+ 
+ 
+Version
+ 
+1.0.8
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+05/
+14/
+2004
+ 
+Change
+ Description
+ 
+Cons
+istency 
+check,  rearrange
+d 
+requi
+rements  to 
+ensure  they 
+were in the correct modul
+e. Set priorities for requi
+rements.
+ 
+ 
+Version
+ 
+1.0.9
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+05/
+19/
+2004
+ 
+Change
+ Description
+ 
+Adde
+d RACAF requi
+rements.
+ 
+ 
+ 
+Version
+ 
+2.0
+0
+ 
+Name(s)
+ 
+Neha Jain 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date of last change
+ 
+07/
+12
+/2004
+ 
+Change
+ Description
+ 
+Adde
+d Anni
+e’s and 
+Qingf
+eng’
+s change
+s and 
+new requi
+rements.
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+A
+ 
+7
+. Appendix
+ 
+ 
+ 
+Glossary
+ 
+ 
+This section 
+cont
+ains glossary of the terms used throughout
+ the doc
+um
+ent.
+ 
+ 
+ 
+Adm
+inistrator:
+ A supe
+r user who 
+has the ability to grant/deny 
+access to anyone
+ he/she choos
+es.
+ 
+ 
+Analyst: 
+A user who 
+is a member of the project team and 
+analyzes the pol
+icies assign
+ed to him/her.
+ 
+ 
+Con
+straint: 
+A cons
+traint is a limit to a system entity. It restricts pos
+sible occurrences or allow
+able 
+com
+binations
+ in relations
+hip sets, interactions
+, obj
+ect sets, etc.
+ 
+ 
+Custom
+er: 
+The custom
+er is the originator of requi
+rements, and 
+hence, 
+external to the organization 
+that  actually 
+provi
+des  the  suppor
+t.  Whether  the  custom
+ers  are  internal  or  external  to 
+your
+ 
+organization,
+  they  use  the  produc
+t  provi
+ded  by 
+the  software  develope
+rs  as  an  input
+  to  their  work 
+processes. Almost anyone
+ you 
+interact w
+ith is a custom
+er. 
+ 
+ 
+Databas
+e
+: 
+An electroni
+c collection 
+of data stored in an organized and searchable manne
+r.
+ 
+ 
+Goal
+: 
+A goa
+l is an obj
+ective of the system unde
+r cons
+ideration.
+ 
+ 
+Goal
+ Actor: 
+An agent respons
+ible for achieving 
+the associated goa
+l.
+ 
+ 
+Goal
+  Recon
+ciliation
+: 
+The  process  of  com
+paring  goa
+ls  to  identify  conf
+licts,  redunda
+ncies  and
+ 
+synonym
+ous
+ goa
+ls and 
+resolve discrepancies.
+ 
+ 
+Goal
+ Mining: 
+The process of reading 
+privacy pol
+icies and 
+extracting 
+goa
+ls from them.
+ 
+ 
+Goal
+  Man
+age
+ment: 
+The  process  of  organizing 
+the  goa
+ls  collected  from
+  the  pol
+icies  in  a  readable 
+and 
+easy to access form.
+ 
+ 
+Project Man
+age
+r:
+ A user who 
+has access to all  elements of a project and
+ delegates work to other 
+members.
+ 
+ 
+Privacy Policy: 
+A privacy pol
+icy is a web site
+'s official statement on:
+ 1. what persona
+l information 
+is being 
+collected. 2. how
+ the information 
+is being
+ used. 3. how
+ an indi
+vidua
+l can access their ow
+n 
+data. 4. how
+ an indi
+vidua
+l can opt
+-
+out
+. 5. what security measures are in place to protect the user's 
+information 
+during 
+the collection 
+process and 
+in storage [1]
+ 
+ 
+Privacy Goal
+s an
+d Scenario Goal
+s:
+ 
+A 
+Policy  goal
+  reflects  general  high
+-
+level  enterprise  pol
+icies,  whereas  a 
+scenario  goal
+  envi
+sions
+ 
+pos
+sible usage situations
+ or practices. Scenario goals are usua
+lly instantiations
+ of pol
+icy goa
+ls, thus
+ 
+having 
+the adva
+ntages of being
+ conc
+rete, easier for user to unde
+rstand
+ and 
+the disadva
+ntage of not
+ 
+
+
+B
+ 
+ 
+being 
+exha
+ustive. This classification 
+is similar to the distinction 
+between strategic goa
+ls and 
+tactical 
+goa
+ls in re
+qui
+rements engi
+neering [2] and 
+[3].
+ 
+ 
+Priority level:
+ This prioritizes the requi
+rements in low
+, medium
+ or high 
+level.
+ 
+ 
+Project: 
+A  project  is  a  doc
+um
+ent  or  multiple  doc
+um
+ents,  which 
+need 
+to 
+be  analyzed.  These 
+doc
+um
+ents can be privacy pol
+icies of com
+panies, t
+erms and 
+condi
+tions
+, handbooks
+, manua
+ls etc.
+ 
+ 
+Security: 
+The  security  of  a  system  is  the  extent  of  protection 
+against  som
+e  unw
+anted  occurrence 
+such as the inva
+sion 
+of privacy, theft, and 
+the corruption 
+of information 
+or phys
+ical damage.
+ 
+ 
+Observabl
+e (visible
+) an
+d Unobs
+ervabl
+e (invisible) Goal
+s:
+ 
+Observable privacy go
+als are thos
+e that are extracted in such a way that an average Internet user is 
+aware of data collection 
+while assessing 
+websites with a brow
+ser using 
+default security and 
+privacy 
+settings
+. This is
+ a cons
+cious
+ process and 
+easy to conc
+lude
+. Information 
+is vol
+unt
+arily given, shared 
+and 
+used. For instance, emails, surveys, forms.
+ 
+Unobs
+ervable  privacy  goa
+ls  are  thos
+e  that  are  extracted  in  a  hidde
+n  manne
+r  that  requi
+res  users  to 
+take  a  proactive  role  in  l
+earning 
+about
+  website  privacy  practices  (e.g,  reading 
+a  privacy  pol
+icy, 
+setting 
+the  brow
+ser’s  security 
+and 
+privacy 
+settings
+,  learning 
+about
+  cooki
+e,  etc.).  This  is  a 
+subc
+ons
+ciou
+s  process  and 
+difficult  for  cons
+um
+ers  to  conc
+lude
+.  Information 
+is  vol
+unt
+arily  gi
+ven, 
+shared and 
+used. 
+ 
+ 
+Traceabi
+lity: 
+The ability to trace the history, appl
+ication 
+or location 
+of an item or activity by 
+means 
+of recorded identification.
+ 
+ 
+ 
+Con
+text: 
+Text  surroundi
+ng 
+a  passage  unde
+r  examination 
+that  may 
+throw
+  light
+  on 
+the  goa
+ls 
+extracted.
+ 
+ 
+Subject Classification
+ 
+ 
+
+ 
+Unclassified
+ 
+
+ 
+Business Aggregation
+ 
+
+ 
+Browsing Pattern/Site Usage
+ 
+
+ 
+CC Information 
+ 
+
+ 
+Children
+ 
+
+ 
+Customer Information (CI)
+ 
+
+ 
+Contacting Customer
+ 
+
+ 
+Contact Institutions
+ 
+
+ 
+Cookies/Web bugs
+ 
+
+ 
+Customer System Information
+ 
+
+ 
+Customer Aggregation
+ 
+
+ 
+General Information
+ 
+
+ 
+General User Preference
+ 
+
+ 
+Identity Theft/Fraud
+ 
+
+ 
+Law(HIPAA, COPPA, GLBA)
+ 
+
+ 
+Liability/Responsibility
+ 
+
+ 
+OPT in /out preferences
+ 
+
+ 
+Personal Financial Information (PFI)
+ 
+
+ 
+Personal Health Information (PHI)
+ 
+
+
+C
+ 
+ 
+
+ 
+Personally Identifiable Information (PII)
+ 
+
+ 
+PFI/PHI/PII Usage
+ 
+
+ 
+Policies/Procedures
+ 
+
+ 
+PP/ToU
+ 
+
+ 
+Security Access
+ 
+Keyw
+ord definitions
+ 
+P3P
+ privacy pol
+icy
+ 
+Felsch Readabi
+lity Inde
+x
+ 
+ 
+ 
+Acknow
+ledgement
+ 
+We would like to thank the National S
+cience Foundation (NSF) for supporting our research efforts.
+ 
+ 
+References
+ 
+ 
+This section 
+cont
+ains references used in this doc
+ument.
+ 
+ 
+1. www.ecommerce
+-
+dictionary.com/p.html
+ 
+ 
+2.  [AHB04]  Annie  I.  Ant
+ó
+n,  Qingfeng  He,  and  Davide  Bolchini.  The  Use  of  Goals  to  Extract  Privacy  and  Security 
+Requirements  from  Policy  Statements.  Submitted  to:  The  12th  International  Requirements  Engineering  Conference 
+(RE'04), January 26, 2004.
+ 
+ 
+3. [AEB04] Annie I. Ant
+ó
+n, Julia
+ B. Earp, Davide Bolchini, Qingfeng He, Carlos Jensen and William Stufflebeam. The 
+Lack of Clarity in Financial Privacy Policies and the Need for Standardization, Accepted, to appear in: IEEE Security 
+& Privacy, 2004.
+ 
+ 
+4.  [JE
+A02]  Olli  Jarvinen,  Julia  B.  Ea
+rp  and  Annie  I.  Ant
+ó
+n.  A  Visibility  Framework  for  Privacy  Management 
+Requirements.
+ 2nd Symposium on Requirements Engineering for Information Security
+, Raleigh, NC, 15 October 2002.
+ 
+ 
+ 
+ 

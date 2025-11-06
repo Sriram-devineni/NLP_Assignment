@@ -1,0 +1,1661 @@
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+Software Requirements
+Specificat
+ion
+for 
+Grid 3D Application
+Versio
+n 1.0 To Be Approved
+Prepared by Ben Tagger
+National Instit
+ute for Medical Research
+Mill Hill, LONDON, NW7 1AA
+Created on: 4
+th
+ March 2005
+Page 
+1
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+Table of Contents
+Doc
+ument Introduction
+.........................................................................................................................
+3
+PRO
+DUCT CONSTRAINTS
+...............................................................................................................
+4
+1.1 Purpos
+e of th
+e the Product
+.........................................................................................................
+4
+1.1.1 B
+ackground t
+o the Project Effo
+rt
+.......................................................................................
+4
+1.1.2 Go
+als o
+f the Pr
+oduct
+...........................................................................................................
+4
+1.2 Client, Custo
+mer an
+d oth
+er Stak
+ehold
+ers
+..................................................................................
+5
+1.2.1 Th
+e Client
+...........................................................................................................................
+5
+1.2.2 Th
+e Custo
+mer
+.....................................................................................................................
+5
+1.2.3 Oth
+er Stakehold
+ers
+.............................................................................................................
+5
+1.3 Th
+e Users of the Produ
+ct
+............................................................................................................
+6
+1.4 Requir
+ements Const
+raints
+..........................................................................................................
+7
+1.4.1 Solution
+ Constraints
+...........................................................................................................
+7
+1.4.2 I
+mplementation Envi
+ronment
+.............................................................................................
+7
+1.4.3 Pa
+rtner Appli
+cations
+...........................................................................................................
+7
+1.4.4 How L
+ong to D
+evelop?
+......................................................................................................
+7
+1.5 N
+aming Conventions
+ and De
+finiti
+ons
+........................................................................................
+8
+1.6 Assumptions
+...............................................................................................................................
+8
+FUNCTIONAL REQU
+IREMENTS
+.....................................................................................................
+9
+2.1 Th
+e Scop
+e of th
+e Product
+...........................................................................................................
+9
+2.1.1 Th
+e Context
+ of t
+he Work
+...................................................................................................
+9
+2.1.1.1 I
+nitialisation
+................................................................................................................
+9
+2.1.1.2 Runnin
+g
+....................................................................................................................
+10
+2.1.2 Wor
+k Partitionin
+g
+.............................................................................................................
+11
+2.1.3 Produ
+ct Bound
+ary
+.............................................................................................................
+12
+2.2 F
+unction
+al an
+d Data Requi
+rements
+..........................................................................................
+14
+2.2.1 F
+unction
+al Requir
+ements
+.................................................................................................
+14
+2.2.2 D
+ata Requi
+rements
+...........................................................................................................
+14
+NON-FUNCT
+IONAL REQ
+UIREMENTS
+.........................................................................................
+15
+3.1 L
+ook and Feel Requi
+rements
+...................................................................................................
+15
+3.2 Pe
+rformance Requi
+rements
+......................................................................................................
+15
+Page 
+2
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+Document Introducti
+on
+This docum
+ent us
+es the Vol
+ere templat
+e for
+ writing and d
+esigning requir
+ements sp
+ecifications. Th
+e
+template itself is copyright. We hereby acknowl
+edge this co
+pyright. Details can be found a
+t the
+Atlantic Systems Gui
+ld web s
+ite at 
+www.
+atlsysguild.com
+. 
+Page 
+3
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+PRODUCT CON
+STRAINTS
+1.1 Purpose
+ of the the Product
+1.1.1 Backgroun
+d to the Project
+ Effort
+The need for a
+ method
+ of visu
+alisati
+on of bio
+logical data has b
+een identified. Cur
+rently, there are
+many groups off
+ering many different tools fo
+r visualising data. Th
+ese visu
+alisation t
+ools provide a
+range from tabula
+r to three-dime
+nsional graphical views. How
+ever, a need has been identified f
+or a
+tool t
+hat can display data in a three dime
+nsional environment,
+ whi
+ch a
+llows th
+e use
+r to inv
+estigate
+the dat
+a and e
+asily see various
+ attribut
+es of th
+e data at a glance.
+A ne
+ed fo
+r the above
+-mention
+ed tool  ha
+s be
+en identified a
+nd, th
+ere being no appl
+icable tool
+available, a p
+roject to create such a
+ tool
+ was conceptualised.
+The prima
+ry stak
+ehold
+er (see 1.2.1
+) has made
+ the case that the tool to
+ be created is of r
+elevance use
+and t
+here is a r
+eal need for it. T
+his ne
+ed is established th
+rough cont
+inual use
+ of other similar tools
+and a
+ continu
+ed id
+entification o
+f their sho
+rtfalls.
+1.1.2 Goals of the Product
+We want to g
+ive the user the abil
+ity to visua
+lise and inv
+estigate their data in a
+ three dimensional
+envi
+ronme
+nt. The
+ use
+r should h
+ave the abilit
+y to see (at a glance) the differences of variou
+s selected
+attribut
+es of th
+eir data.
+The ov
+erall goal of this produ
+ct is to p
+rovide the us
+ers with somethin
+g that has
+ previousl
+y been
+unavailable.
+Page 
+4
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+1.2
+ 
+Client,
+ Customer and other
+ Stakeholders
+1.2.1 The Client
+The client for this p
+rodu
+ct is 
+Dr Delmiro Fernandez-
+Reyes
+, a s
+uperviso
+r at the NIMR. Eventually,
+the cli
+ent would
+ like t
+o pr
+esent and mak
+e av
+ailable the product for the
+ benefit of r
+esearch meri
+t. Th
+e
+client has said th
+at he is sol
+ely respons
+ible for a
+pprovin
+g changes in th
+e scope of th
+e project.
+1.2.2 The Customer
+The cu
+stome
+r for this pr
+oduct is anyone from the pa
+rasitology department
+ at the NIMR, represented
+here by 
+Dr Delmiro Fernandez-
+Reyes
+. Potentia
+l custome
+rs may include anyone who wo
+rks in th
+e
+field o
+f research an
+d would find this pr
+oduct useful.
+1.2.3 Other Stakeholders
+Other stakehold
+ers includ
+e:
+
+Ben Ta
+gger – des
+igner, develop
+er, tester and m
+aintainer.
+
+Anthony Finkel
+stein – UCL
+ supervisor of Be
+n Tagger
+
+Everyone in t
+he p
+arasitolo
+gy department at
+ NIMR.
+Page 
+5
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+1.3 The Users of the Product
+Peopl
+e who ma
+y use
+ this produ
+ct;
+
+Anyone investig
+ating proteins. 
+
+Research Sci
+entists 
+
+Data-mining
+ Scientists 
+
+Research Students 
+
+Organisati
+ons in t
+his field 
+Some attributes the produc
+t might ca
+ter for
+;
+
+Non-English sp
+eakers 
+
+Peopl
+e wantin
+g diffe
+ring degrees of detail 
+
+Peopl
+e who w
+ant to a
+nalyse their data (in t
+heir preferred fo
+rmat) 
+For each Us
+er, de
+scribe as full
+y as possibl
+e all the know
+n attribut
+es, su
+ch as;
+
+Subje
+ct matter experience 
+
+Technolo
+gical experience 
+
+Intellectual abilities 
+
+Attitude to job
+ 
+
+Attitude to t
+echno
+logy 
+
+Edu
+cation 
+
+Linguistic skills 
+Page 
+6
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+1.4 Require
+ments Constraints
+1.4.1
+ 
+Solution Constra
+ints
+The followin
+g specifie
+s co
+nstraints on th
+e wa
+y that the problem must
+ be solved
+
+The produc
+t must
+ be a
+vailable on both W
+indows and L
+inux operating platforms
+
+The execution
+ of t
+he a
+pplication mus
+t be kept on th
+e server side.
+
+The solut
+ion mus
+t be produc
+ed in a
+ timel
+y manner – see ti
+me restrictions
+.
+1.4.2 Implementation Envir
+onmen
+t
+This section will de
+scribe the technolo
+gical and ph
+ysical environment
+ that the product wil
+l be
+installed.
+
+The produc
+t should
+ run on a m
+inim
+um of a mid-
+range persona
+l compute
+r.
+
+The produc
+t shall run wit
+h the minim
+um input tool
+s of mous
+e and k
+eyboard.
+
+The use
+r must
+ have a
+ capabilit
+y for creating tab-delimited
+ text files.
+1.4.3
+ 
+Partner
+ Applicat
+ions
+This section will de
+scribe some
+ of th
+e appl
+ications th
+at are not
+ part of th
+e product, but with whi
+ch
+the product will, o
+r ma
+y, collaborate.
+
+Microsoft Windows 98, 2000, NT a
+nd X
+P Ope
+rating Systems
+
+Linux and Sol
+aris O
+perating Systems
+
+Matlab – us
+ed fo
+r some
+ of th
+e pre-produ
+ct data generations. M
+atlab c
+an a
+lso be u
+sed for
+manipul
+ating the fo
+rmat of th
+e product's required data.
+
+Tomca
+t/Apa
+che/Ant – possibl
+y to be use
+d for p
+roduc
+t deployment
+1.4.4
+ 
+How Long to Develop?
+The Gr
+id 3D appl
+ication w
+as originally developed t
+o be
+ included fo
+r a scientific paper to b
+e
+publish
+ed at some point in M
+arch 2005. I
+t was, th
+erefore, essential th
+at th
+e appl
+ication
+ be ready by
+then. Th
+e motivati
+on for
+ developin
+g the ap
+plication wit
+hin this sho
+rt time
+ frame was
+ to, fir
+stly,
+includ
+ed it in th
+e pap
+er, but also to p
+rodu
+ce an original produc
+t in a
+ con
+stantly advancing genre.
+Page 
+7
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+1.5 Naming
+ Conven
+tions and Definitions
+This section s
+hall provid
+e a di
+ctionary containing the meanin
+g of al
+l the na
+me use
+d wit
+hin this
+requirements spe
+cification do
+cument.
+
+Biolo
+gical data – data of a biol
+ogical scientific n
+ature generated b
+y some
+ produc
+t or process
+(exter
+nal to th
+e Gr
+id 3D appli
+cation
+). To use
+ the biological d
+ata with th
+e Gr
+id 3D
+appli
+cation,
+ it must
+ be fo
+rmatted i
+n the specified mann
+er (see         ).
+
+Dem
+onstrator – r
+efers to a u
+ser of th
+e Gr
+id 3D appl
+ication. T
+he demonstrator u
+ses the three
+dime
+nsional view generated b
+y the appl
+ication t
+o demonstr
+ate on
+e or more properties of t
+he
+data to any other person.
+
+Grid 3D – th
+e application f
+or whi
+ch this do
+cument
+ cont
+ains the requi
+rements. F
+or a detailed
+representation of the
+ Grid 3D app
+lication, please refer to th
+e De
+sign do
+cument.
+
+Identifier – r
+efers to a u
+ser of t
+he Grid 3D app
+lication. T
+he identi
+fier use
+ the appl
+ication to
+identify diff
+erent “poin
+ts of int
+erest”
+. For example,
+ a poi
+nt th
+at is not cl
+ose to a
+ny other poi
+nt
+may be of interest. An identi
+fier may become an investigator.
+
+Investigator – refers to a us
+er of th
+e Gr
+id 3D appl
+ication. T
+he investigator uses th
+e
+appli
+cation
+ in o
+rder to find de
+tailed information
+ about spe
+cific points. An inv
+estigator ma
+y
+originate as an identifie
+r.
+1.6 Assumptions
+This section c
+ontains
+ a list of assumptions
+ that are to b
+e made b
+y the de
+velop
+ers.
+
+The use
+rs hav
+e the computing s
+kill fo
+r basic
+ operation of on
+e of th
+e ope
+rating systems
+docume
+nted in 1.4.3. B
+asic operation
+ entails:
+•
+starting and terminatin
+g an op
+erating system se
+ssion
+•
+use of a Jav
+a-enabled int
+ernet browser
+•
+compe
+tent use of k
+eyboard and mouse
+•
+basic file handli
+ng
+•
+command line input s
+kills
+
+The use
+rs hav
+e access to a m
+inim
+um specifi
+cation
+ work s
+tation on whi
+ch to ru
+n the produ
+ct.
+See 3.3 fo
+r minimum requirements for the w
+ork s
+tation.
+Page 
+8
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+FUNCTION
+AL REQUI
+REMENT
+S
+2.1 The Scope
+ of the Product
+2.1.1 The Context of the Work
+The followin
+g diagram represents a
+ context diagram fo
+r the Grid 3D appli
+cation. F
+or a description
+of any of the below-mentioned n
+ames, please refer to 1.5.
+2.1.1
+.1
+ 
+Initia
+lisation
+The followin
+g diagram refers to th
+e initiation pha
+se o
+f the Grid 3D
+ application.
+Page 
+9
+ of 
+15
+Biolog
+ical 
+Data
+Identifie
+r
+Investigator
+Demonstr
+ator
+Various 
+Processes
+/Product
+s
+Gets Dat
+a
+Gets Dat
+a
+Gets Dat
+a
+Grid 3D 
+Application
+Suppl
+ies dat
+a
+Suppl
+ies data
+Suppl
+ies dat
+a
+Returns point 
+view/inf
+o
+Returns 
+inform
+ation
+Returns 3D 
+view
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+2.1.1
+.2 Running
+The cont
+ext diagram a
+bove represents the
+ Grid 3D app
+lication during the initialisati
+on s
+tages. It is
+import
+ant to diff
+erentiate this with the work c
+ontext for the application in
+ a state of runnin
+g. T
+he
+following diagram aims to d
+escribe the wor
+k cont
+ext for the appli
+cation w
+hen it is be
+ing run b
+y the
+users (identifie
+d above). In the followin
+g diagram, the users are grouped as on
+e ent
+ity. This is fo
+r
+conv
+enience only and should
+ be thou
+ght of a
+s separate ent
+ities. However, the work context appli
+es
+to each of th
+em in th
+e same
+ manne
+r and, t
+herefore, have been grouped to fu
+rther the simplicity and
+understandabilit
+y of the diagram.
+Page 
+10
+ of 
+15
+- Identifier
+- Investigator
+- Dem
+onstrator
+Grid 3D 
+Application
+Rotate Grid
+Move
+ Grid
+Zoom
+ Grid
+Select Point(
+s)
+Retrieve Point I
+nfo
+Return de
+sired Gr
+aphic
+al 
+Representation
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+2.1.2 Work Partitioning
+The pu
+rpos
+e of this section is
+ to identify all the busin
+ess e
+vents to which th
+e produ
+ct re
+sponds. This
+is to id
+entify the logical parts of wo
+rk th
+at can be us
+ed a
+s the ba
+sis for d
+iscovering the detailed
+requirements.
+Event L
+ist:
+#
+Ev
+ent
+ Name
+I
+n
+put
+ an
+d
+ Out
+put
+ F
+l
+ows
+1
+Identifier suppli
+es da
+ta
+Data (in)
+2
+Appli
+cation re
+turns view/info to id
+entifier
+Graphi
+cal view (
+out)
+3
+Investigator supplie
+s dat
+a
+Data (in)
+4
+Appli
+cation re
+turns details to inv
+estigator
+Textual
+ info (
+out)
+5
+Dem
+onstr
+ator suppli
+es dat
+a
+Data (in)
+6
+Appli
+cation pr
+ovid
+es 3D vi
+ew
+Graphi
+cal view (
+out)
+7
+User requests ch
+ange of grid orientation
+Mous
+e move
+ment
+ (in)
+8
+User selects multiple points
+Mous
+e and Ke
+yboard (in)
+Page 
+11
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+2.1.3
+ 
+Produ
+ct Boundary
+This section a
+ims to g
+enerate some
+ use
+ cases for t
+he Grid 3D appli
+cation. Th
+ese sha
+ll be generated
+from the events list
+ contained in 2.1.2. I
+t is hop
+ed th
+at use
+ cases can be given that cover all the
+events lis
+ted in 2.1.2. W
+ith this in mind, the us
+e ca
+ses will c
+over more than on
+e event as more than
+one event can be ca
+ptured with a
+ single use-case.
+Use ca
+se
+for events
+1,2,6,7.
+Use ca
+se
+3,4,6,7
+Page 
+12
+ of 
+15
+Identifie
+r
+Grid 3D 
+Application
+Suppl
+ies dat
+a
+Returns initia
+l 
+view
+Request c
+hang
+e 
+of or
+ientation
+Reflect cha
+nge of 
+orientation
+Investigator
+Grid 3D 
+Application
+Suppl
+ies dat
+a
+Returns point 
+details
+Request c
+hang
+e 
+of or
+ientation
+Reflect cha
+nge of 
+orientation
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+Use ca
+se
+5,6,7
+Page 
+13
+ of 
+15
+Demonstr
+ator
+Grid 3D 
+Application
+Suppl
+ies dat
+a
+Returns point 
+details
+Request c
+hang
+e 
+of or
+ientation
+Reflect cha
+nge of 
+orientation
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+2.2 Functional
+ and Data Require
+ments
+2.2.1
+ 
+Functional
+ Requirements
+This section d
+escribes the functi
+onal r
+equirements fo
+r the Grid 3D a
+ppli
+cation. Ea
+ch functional
+requirement should
+ have a fit cr
+iterion in o
+rder to mak
+e it possible t
+o test wh
+ether the r
+equirement is
+impleme
+nted as specified in th
+e delivered produ
+ct.
+
+The produc
+t shall plot the data points in a
+ scientif
+ically correct mann
+er.
+
+The grid axis should
+ be labell
+ed c
+orrectly according to the input f
+rom the d
+ata file.
+
+Data points should be c
+oloured in a
+ccordance to th
+e cluster number (
+contained in the
+ data
+file)
+
+The produc
+t should
+ be able to handl
+e up to
+ 2000 d
+ata points.
+
+A single click of t
+he mous
+e ove
+r a data point shoul
+d br
+ing up th
+e name of th
+e data point
+.
+
+A doubl
+e-click of
+ the mous
+e over the data point shoul
+d ca
+use the appl
+ication t
+o dis
+play all
+the data point
+'s det
+ails.
+
+The produc
+t should
+ allow multiple points to c
+licked s
+o tha
+t multiple
+ name
+s can be d
+isplayed.
+
+The produc
+t should
+ allow th
+e grid to be oriented by the u
+ser. Rotati
+on, z
+oom
+ and m
+ove
+functions
+ should
+ be emplo
+yed.
+2.2.2
+ 
+Data R
+equirements
+The use
+ of th
+e Grid 3D a
+ppli
+cation invo
+lves the use
+r supplying a data file. This d
+ata fil
+e cont
+ains all
+the info
+rmation of the points that a
+re to b
+e plo
+tted.
+The data file s
+hould c
+ontain:
+
+A name for the data point
+
+3 pa
+ramet
+ers from whi
+ch th
+e data point
+ is to be plott
+ed
+
+A single parameter to d
+esignate the c
+olour of t
+he point
+. This i
+s the attribut
+e that is to be u
+sed
+as the compari
+son.
+
+A description fo
+r the d
+ata point.
+In order for the grid to reflect the nature of th
+e us
+er's data, the
+ system should
+ allow fo
+r the user to
+specify their own axis
+. With this in m
+ind, the first row
+ of the da
+ta file should contain th
+e column
+headings. T
+he followin
+g table propos
+es th
+e format
+ for the da
+ta file.
+Name
+X_Ti
+tl
+e
+Y_Title
+Z_Titl
+e
+C
+lu
+s
+ter
+_T
+it
+le
+Des
+cription
+Point_Name
+X_Va
+lue
+Y_V
+alue
+Z_Value
+<number>
+<description>
+Page 
+14
+ of 
+15
+
+
+Softwar
+e
+ Re
+quir
+eme
+nts Engin
+e
+eri
+ng f
+or Grid 3D Applic
+a
+t
+ion
+NON-
+FUNCTION
+AL REQUI
+REMENTS
+3.1 Look
+ and Feel
+ Require
+ments
+The produc
+t is to be u
+sed pr
+imar
+ily by research s
+cientists and the
+refore mus
+t have a look
+ and feel
+appropriate for this use
+.
+These requireme
+nts are:
+
+The poin
+ts should b
+e large enough to se
+e and se
+lect
+
+The poin
+ts should not
+ be too bi
+g, so as
+ to dis
+tort the overall pattern of
+ the point
+ spread.
+
+The axis shoul
+d be clearly labelled and e
+asily recognised after the grid has been o
+riented int
+o
+a dif
+ferent pos
+ition.
+
+The appli
+cation
+ should b
+e colou
+red s
+o that th
+e screen s
+hots ca
+n be printed out cl
+early (i.e.,
+black on whit
+e background).
+
+The appli
+cation
+ should b
+e intui
+tive a
+nd not r
+equire any specialist trainin
+g.
+3.2 Perfo
+rmance Require
+ments
+This section a
+ims to spe
+cify some
+ of the t
+iming and p
+erformance const
+raints to w
+hich the p
+roduct
+will a
+im to adhere.
+
+The program should
+ start within
+ 30 s
+econd
+s
+•
+This dep
+ends on t
+he number o
+f data points that are to b
+e plott
+ed.
+
+The interaction wit
+h the data points should hav
+e a delay of no lon
+ger than 2 s
+econds.
+
+The response to a
+ change in the orientation shoul
+d be fast enou
+gh to a
+void inte
+rrupt
+ing the
+user's flow of thou
+ght.
+Page 
+15
+ of 
+15

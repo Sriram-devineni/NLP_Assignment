@@ -1,0 +1,2078 @@
+Qheadache, Version 1.0
+Software Requirements Specification 
+draft A
+Sep
+tember 29, 2003
+Jean­Phi
+lippe Br
+ossat
+
+
+Index
+1  I
+ntrodu
+ction
+......................................................................................................................
+3
+1.1  P
+urpos
+e
+.....................................................................................................................
+3
+1.2  S
+cope
+........................................................................................................................
+3
+1.3  D
+efinitions
+, Acronym
+s, and A
+bbreviations
+..............................................................
+3
+1.4  R
+eferences
+................................................................................................................
+3
+1.5  S
+RS Docum
+ent Overview
+........................................................................................
+4
+2  G
+ENERAL DESCRIPTION
+............................................................................................
+4
+2.1  P
+roduc
+t Perspective
+..................................................................................................
+4
+2.1.1  U
+ser Interfaces 
+.................................................................................................
+4
+2.1.2  H
+ardware Interfaces 
+.........................................................................................
+4
+2.1.3  S
+oftware Interfaces
+...........................................................................................
+4
+2.1.4  C
+om
+muni
+cations
+ Interfaces
+..............................................................................
+4
+2.1.5  M
+emory C
+ons
+traints
+.........................................................................................
+4
+2.1.6  S
+ite Adaptation R
+equi
+rements
+..........................................................................
+4
+2.2  P
+roduc
+t Func
+tions
+.....................................................................................................
+5
+2.2.1  U
+ndo e
+t Redo A
+ctions
+.
+.....................................................................................
+5
+2.2.2  T
+ime passed t
+o pl
+ay.
+.........................................................................................
+5
+2.2.3  C
+ount
+ of action num
+ber.
+...................................................................................
+5
+2.2.4  S
+core.
+................................................................................................................
+5
+2.2.5  S
+core window
+s.
+.................................................................................................
+5
+2.3  U
+ser Characteristics
+..................................................................................................
+5
+2.4  S
+tart Up R
+equi
+rements
+.............................................................................................
+5
+2.5  A
+ppo
+rtioni
+ng
+ of
+ Requi
+rements
+.................................................................................
+5
+3  S
+PECIFIC REQUIREMENTS
+........................................................................................
+5
+3.1  E
+xternal Interfaces
+....................................................................................................
+5
+3.1.1  U
+ser Interfaces
+..................................................................................................
+6
+3.1.1.1  
+ 
+Introdu
+ction
+..............................................................................................
+6
+3.1.1.2  M
+ain w
+indow
+............................................................................................
+6
+3.1.2  S
+oftware Interfaces
+...........................................................................................
+6
+3.1.3  
+ 
+Com
+muni
+cations
+ Interfaces
+.............................................................................
+6
+3.2  F
+unc
+tiona
+l Requi
+rements
+.........................................................................................
+6
+3.2.1  A
+ctions
+.
+.............................................................................................................
+6
+3.2.1.1  P
+resentation
+ of the bo
+ard.
+.........................................................................
+6
+3.2.1.2  B
+lock selection
+..........................................................................................
+7
+3.2.1.3  B
+lock deselection
+......................................................................................
+7
+3.2.1.4  B
+lock m
+ovement
+.......................................................................................
+7
+3.2.1.5  U
+ndo A
+ction
+..............................................................................................
+8
+3.2.1.6  R
+edo A
+ction
+..............................................................................................
+8
+3.2.2  E
+nd of
+ the game m
+anagement
+..........................................................................
+9
+3.2.2.1  E
+nd of
+ the ga
+me 
+.......................................................................................
+9
+3.2.2.2  F
+inish W
+indow
+s with Statistics.
+...............................................................
+9
+
+
+3.2.2.3  S
+imple Finish W
+indow
+s
+..........................................................................
+10
+3.2.3  S
+tatistics M
+anagement.
+...................................................................................
+10
+3.2.3.1  P
+layer Statistics m
+anagement
+.................................................................
+10
+3.2.3.2  G
+ame Statistics m
+anagement
+..................................................................
+10
+3.2.3.3  S
+tatistics erasing
+.....................................................................................
+11
+3.2.3.4  S
+tatistic W
+indow
+.
+....................................................................................
+11
+3.2.4  F
+ile m
+anagement
+............................................................................................
+12
+3.2.4.1  O
+pen ga
+me
+..............................................................................................
+12
+3.2.4.2  S
+ave game
+...............................................................................................
+12
+3.2.4.3  S
+ave game as
+...........................................................................................
+13
+3.2.4.4  E
+xit
+..........................................................................................................
+13
+3.2.5  M
+enu b
+ar
+.........................................................................................................
+14
+3.2.5.1  G
+ame m
+enu
+.............................................................................................
+14
+3.2.5.2  A
+ction
+ m
+enu
+............................................................................................
+14
+3.2.5.3  S
+tatisctis m
+enu
+........................................................................................
+15
+3.2.5.4  H
+elp m
+enu
+...............................................................................................
+15
+3.3  P
+erformance Requi
+rements
+....................................................................................
+15
+3.4  S
+oftware System Attribut
+es
+....................................................................................
+15
+1
+Introduc
+tion
+1.1
+Purpose
+Thi
+s specific
+ations
+ es
+tablishes th
+e requireme
+nts for
+ the prod
+uct named
+Qheadache.
+ The int
+ended
+ aud
+ience is t
+he analyst,
+ progr
+amme
+r and
+ tester of
+Qheadache.
+1.2
+Scope
+The prod
+uct is a
+ compu
+terized
+ game that displa
+ys an
+ inter
+face used to
+ sol
+ve a
+spe
+cific head
+ache.
+1.3
+Definitions, Acronyms, and Abbreviations
+No
+t appli
+cable.
+1.4
+References
+No
+t appli
+cable.
+
+
+1.5
+SRS Document Overview
+The re
+maining se
+ctions 
+of th
+is document
+ pro
+vide
+ a general
+ descriptio
+n, inc
+luding
+cha
+racterist
+ics of
+ the use
+rs o
+f this project, the 
+product's
+ hardware, and the
+functional
+ and
+ da
+ta require
+ments o
+f th
+e product.
+ Ge
+neral
+ description
+ of t
+he
+project
+ is discusse
+d in 
+section 2 of th
+is d
+ocum
+ent. Se
+ctio
+n 2 gives the functional
+requireme
+nts, data requir
+emen
+ts and constr
+aints a
+nd assumpt
+ions made
+ while
+designin
+g th
+e game. I
+t also
+ gives t
+he 
+user 
+viewpoi
+nt of pro
+duct
+ use
+. Sec
+tion
+ 3
+gives t
+he 
+specific
+ requireme
+nts of 
+the prod
+uct. Sec
+tion
+ 3.0
+ also
+ discusse
+s the
+external
+ interface require
+ments and
+ gives d
+eta
+iled descriptio
+n of functional
+requireme
+nts.
+2
+GENERAL DESCRIPTION
+2.1
+Product Perspective
+2.1.1
+User Interfaces 
+The prod
+uct runs as
+ a s
+tand­
+alone appli
+cation
+.
+Its u
+ser interface
+ uses 
+menus,
+ graphi
+cs a
+nd sou
+nds.
+2.1.2
+Hardware Interfaces 
+The prod
+uct requires t
+he use of 
+a keyboa
+rd and
+ a m
+ouse t
+o in
+terface
+ wi
+th the
+user
+. It re
+quires  a graphical
+ displ
+ay of at l
+east 800
+*60
+0 resolution.
+2.1.3
+Software Interfaces
+The prod
+uct uses 
+the Qt graphical
+ librar
+y. It mu
+st run 
+with all th
+e ope
+rating
+system
+s that Qt suppor
+ts.
+2.1.4
+Communications Interfaces
+No
+t appli
+cable.
+2.1.5
+Memory Constraints
+No
+t appli
+cable.
+2.1.6
+Site Adaptation Requirements
+No
+t appli
+cable.
+
+
+2.2
+Product Functions
+2.2.1
+Undo et Redo Actions.
+The use
+r mu
+st und
+o and
+ redo
+ its last t
+housand actions.
+2.2.2
+Time passed to play.
+The prod
+uct mu
+st count and
+ display
+ the 
+time that th
+e user uses
+ to play.
+2.2.3
+Count of action number.
+The prod
+uct mu
+st count and
+ display
+ the 
+nu
+mber 
+of the user's action.
+2.2.4
+Score.
+The prod
+uct mu
+st record th
+e score (tim
+e and
+ num
+ber of coun
+ts) of 
+a play
+assoc
+iated
+ wit
+h the name of
+ a user.
+2.2.5
+Score window.
+The prod
+uct mu
+st displ
+ay a w
+indow
+ with all
+ the player's
+ sco
+res.
+2.3
+User Characteristics
+No
+ qualification is necessary
+.
+2.4
+Start Up Requirements
+No
+t appli
+cable.
+2.5
+Apportioning of Requirements
+No
+t appli
+cable.
+3
+SPECIFIC REQUIREMENTS
+3.1
+External Interfaces
+The prod
+uct generall
+y requires a
+ mouse and
+ a keyboa
+rd for inpu
+t. Other poin
+tin
+g
+and
+ inpu
+t devices
+ are
+ allowab
+le, pro
+vided they provide
+ similar
+ functi
+ons to
+ a
+mo
+use
+ and
+ keybo
+ard
+, namely
+ the ability to move a
+ cursor
+ onscree
+n to select
+buttons and
+ the ability to
+ type names.
+ 
+The prod
+uct uses 
+menus, graph
+ics and
+ sounds.
+ Th
+e hardware
+ and
+ operatin
+g
+
+
+system
+ must pro
+vide
+ an 800x60
+0 scree
+n resoluti
+on. 
+Soun
+d is 
+not re
+quired to
+ play
+the ga
+me.
+3.1.1
+User Interfaces
+3.1.1.1
+ 
+Introdu
+ction
+The use
+rs consist o
+f anyone
+ who wants to
+ pl
+ay a simple game w
+ho kn
+ows
+ how to
+operate a compu
+ter, with a be
+ginn
+ing le
+vel player
+ startin
+g at
+ age
+ 8, up throug
+h an
+adv
+anced
+ level player
+ who 
+could
+ be 
+an adult.
+ 
+3.1.1.2
+Main window
+The main window
+ shall prov
+ide the following par
+ts : 
+–
+A board,
+ see cha
+pter 
+3.2.
+1.1
+.
+–
+a me
+nu bar,
+ see chapter 
+3.2
+.5
+.
+3.1.2
+Software Interfaces
+No
+t appli
+cable.
+3.1.3
+ 
+Communications Interfaces
+No
+t appli
+cable.
+3.2
+Functional Requirements
+3.2.1
+Actions.
+3.2.1.1
+Presentation
+ of the boar
+d.
+The boa
+rd is a
+ rectangula
+r zone wh
+ere the user
+ could
+ mo
+ve so
+me b
+locks.
+ Let x
+ be
+the mes
+ure uni
+t. The h
+eight 
+of t
+he board
+ game is 
+5x, i
+ts wid
+th is 4
+x : x can't be
+less t
+han 50
+ pixels and
+ greater 
+than 100 pixels. The 
+blocks
+ ar
+e separa
+ted by a
+mar
+ge of 0.1
+x.
+There are
+ four square
+ blocks
+ with a sid
+e of 
+x.
+There are
+ four rectangular
+ blocks
+ wi
+th the follow
+ing dimensions : a
+ he
+ight 
+of 2x
+and
+ a width of x
+.
+There is one 
+block
+ wi
+th the followin
+g dimensions : a
+ height of x and
+ a widt
+h of
+
+
+2x.
+There is one 
+square block
+ wit
+h a side
+ of 2x.
+The boa
+rd is blac
+k and the blo
+cks are ye
+llow.
+3.2.1.2
+Block selection
+3.2.1.2.1
+Description
+See
+ above
+ chapter
+ 
+3.2
+.1.
+1
+.
+3.2.1.2.2
+Input
+Lef
+t­clicked dow
+n on
+ a bloc
+k.
+3.2.1.2.3
+Processing
+The ga
+me
+ state b
+ecomes 
+"
+Bloc
+k depla
+cement
+".
+3.2.1.2.4
+Output
+No
+ne.
+3.2.1.3
+Block deselection
+3.2.1.3.1
+Description
+See
+ above
+ chapter
+ 
+3.2
+.1.
+1
+.
+3.2.1.3.2
+Input
+Lef
+t­clicked up on 
+a sele
+cted bloc
+k.
+3.2.1.3.3
+Processing
+The ga
+me
+ state b
+ecomes 
+"
+Bloc
+k selection
+".
+3.2.1.3.4
+Output
+No
+ne.
+3.2.1.4
+Block m
+ovement
+3.2.1.4.1
+Description
+See
+ above
+ chapter
+ 
+3.2
+.1.
+1
+.
+3.2.1.4.2
+Input
+Mouse
+ mo
+vem
+ent 
+durin
+g the 
+"
+Block
+ m
+ovement
+" 
+stat
+e. 
+
+
+3.2.1.4.3
+Processing
+The sele
+cted
+ block
+ follow
+s the mouse m
+ove
+ment wi
+thou
+t overlapp
+ the 
+other
+blocks
+ and
+ exit 
+of t
+he game zone. Th
+e sele
+cted block
+ can't
+ mo
+ve near
+ other blocks
+at least 0
+.05x fro
+m th
+e other
+s blocks.
+3.2.1.4.4
+Output
+No
+ne.
+3.2.1.5
+Undo
+ Action
+3.2.1.5.1
+Descritption
+The use
+r can
+ can
+cel
+ a m
+oveme
+nt. 
+3.2.1.5.2
+Input
+Menu
+ selection.
+3.2.1.5.3
+Processing
+The ga
+me
+ displ
+ays
+ the block
+ posi
+tions at t
+he plac
+es where they were b
+efore th
+e
+last mo
+vement
+. This
+ action
+ is 
+con
+sider
+ like a movemen
+t. The "undo" acti
+on is
+unv
+ailable if t
+here was no pr
+evious 
+movem
+ent.
+3.2.1.5.4
+Output
+Ne
+w ga
+me 
+board displa
+y.
+3.2.1.6
+Redo A
+ction
+3.2.1.6.1
+Descritption
+The use
+r can
+ redo
+ a m
+ove
+ment
+ th
+at has 
+been can
+celed.
+3.2.1.6.2
+Input
+Menu
+ selection.
+3.2.1.6.3
+Processing
+The ga
+me
+ displ
+ays
+ the block
+ posi
+tions at t
+he plac
+es where they were b
+efore th
+e
+last mo
+vement 
+was
+ can
+celed. This
+ action
+ is 
+con
+sider
+ like a movemen
+t. The redo
+acti
+on is un
+vail
+able, if t
+he previou
+s acti
+on wasn't a
+n "undo"
+ action.
+3.2.1.6.4
+Output
+Ne
+w ga
+me 
+board displa
+y.
+
+
+3.2.2
+End of the game management
+3.2.2.1
+End of the gam
+e 
+3.2.2.1.1
+Description
+How th
+e user finish
+s the gam
+e.
+3.2.2.1.2
+Input
+The g
+rea
+t square is m
+ove
+d at the bo
+ttom of 
+the board.
+3.2.2.1.3
+Processing
+All th
+e playe
+r statistics
+ are
+ freezed.
+3.2.2.1.4
+Outputs
+If the nu
+mber of 
+block
+ mo
+veme
+nts of the 
+curr
+ent 
+player
+ is lowe
+r than t
+he 
+highes
+t
+num
+ber
+ of block movemen
+t recorde
+d in the statis
+tic file, t
+he The 
+"
+Finish W
+indow
+with Statistcs
+"
+ is displ
+ayed,
+ see
+ chapter 
+3.2
+.2.
+2
+. If not
+ th
+e 
+"
+Simple finis
+h W
+ind
+ow
+"
+is displa
+yed
+, see ch
+apter 
+3.2.
+2.3
+.
+3.2.2.2
+Finish W
+indow
+ with Statistics.
+3.2.2.2.1
+Description
+The F
+inish 
+Window
+ wi
+th St
+atisctis co
+ntains
+ a the fo
+llowin
+g t
+ext : "You
+ win !
+ Enter
+your
+ name : ", an
+ Edit
+ Bo
+x that can
+ con
+tain
+ 20 characters and
+ a pus
+hbutton
+ wit
+h
+the labe
+l "OK".
+3.2.2.2.2
+Input
+The ga
+me
+s is ove
+r, see chapt
+er 
+3.2
+.2.
+1
+.
+3.2.2.2.3
+Processing
+The pla
+yer clicks on
+ the pu
+shbu
+tton
+ "OK
+". Th
+e pl
+ayer statis
+tics
+ are recorde
+d in th
+e
+statistic file of th
+e software,
+ accor
+ding to the require
+ment
+ of
+ the chapter 
+3.2.
+3.2
+.
+3.2.2.2.4
+Outputs
+The 
+"
+finis
+h
+"
+ window
+ is closed.
+ Th
+e statis
+tic window
+ is d
+isplaye
+d, se
+e chapter
+3.2
+.3.
+4
+.
+
+
+3.2.2.3
+Simple Finish W
+indow
+3.2.2.3.1
+Description
+The Si
+mple Finish
+ Wind
+ow contains
+ a t
+he following 
+text : "You
+ win !
+" and
+ a
+push
+but
+ton with th
+e label "OK".
+3.2.2.3.2
+Input
+The ga
+me
+s is ove
+r, see chapt
+er 
+3.2
+.2.
+1
+.
+3.2.2.3.3
+Processing
+The pla
+yer clicks on
+ the pu
+shbu
+tton
+ "OK
+".
+3.2.2.3.4
+Outputs
+The 
+Simple Finish Window
+ is c
+losed.
+ The st
+atistic window
+ is d
+ispl
+aye
+d, see
+cha
+pter 
+3.2
+.3.
+4
+.
+3.2.3
+Statistics Management.
+3.2.3.1
+Player Statistics m
+an
+age
+ment
+3.2.3.1.1
+Desciption
+The fo
+llowing sta
+tisti
+cs a
+re re
+corded
+ during t
+he game
+ :
+–
+num
+ber o
+f bloc
+k m
+ovements sinc
+e the start.
+–
+tim
+e since
+ the start.
+3.2.3.1.2
+Input
+A block m
+ovem
+ent
+.
+3.2.3.1.3
+Processing
+The numb
+er of 
+block mo
+vem
+ent 
+in incremen
+ted
+ of 1.
+ The di
+ffere
+nce of ti
+me
+ of
+ the
+block
+ mo
+veme
+nt and
+ th
+e prev
+ious recorde
+d tim
+e is re
+corded
+.
+3.2.3.1.4
+Output
+No
+ne.
+3.2.3.2
+Gam
+e Statistics m
+an
+age
+ment
+3.2.3.2.1
+Desciption
+The ga
+me
+ statistics
+ is com
+posed of
+ 10
+ player
+ sta
+tist
+ics.
+
+
+3.2.3.2.2
+Input
+The F
+inish 
+Window
+ wi
+th St
+atistics is c
+omplet
+ed by
+ the player,
+ see 
+chapt
+er 
+3.2.2.2
+.
+3.2.3.2.3
+Processing
+The s
+tatistics
+ of the 
+player
+ (its name, the block
+ m
+ove
+ment
+ numb
+er, th
+e time
+passed
+ to solv
+e th
+e headache) is 
+recorded
+ in the statis
+tic file. I
+f 10
+ player
+ sta
+tisti
+cs
+are
+ alrea
+dy recor
+ded, the 
+player
+ sta
+tist
+ics
+ of 
+the file wi
+th the greates
+t n
+umber of
+block
+ mo
+veme
+nts is 
+erased.
+3.2.3.2.4
+Output
+If the file was
+ correctly updated,
+ there is no o
+upu
+t. If not, like
+ wr
+ong pe
+missions
+or disk full, an
+ error me
+ssage is displa
+yed.
+3.2.3.3
+Statistics erasing
+3.2.3.3.1
+Descritption
+The use
+r could
+ erase
+ all the statis
+tics.
+3.2.3.3.2
+Input
+Menu
+ selection.
+3.2.3.3.3
+Processing
+The data
+ stored
+ in the statistic file ar
+e erased
+.
+3.2.3.3.4
+Output
+If the file was
+ correctly updated,
+ there is no o
+upu
+t. If not, like
+ wr
+ong pe
+missions
+or disk full, an
+ error me
+ssage is displa
+yed.
+3.2.3.4
+Statistic W
+indow
+.
+3.2.3.4.1
+Descritption
+The P
+layer
+ Statis
+tics
+ Window
+ is c
+ompo
+sed of a
+ listbox 
+of 10
+ lines. Each line
+ is
+composed
+ of t
+he name of 
+a pla
+yer,
+ the nu
+mber of
+ block m
+oveme
+nt, the time used
+by the player
+ to solv
+e th
+e head
+ache.
+ 
+Thi
+s statistcs are 
+read from t
+he statistic file of
+ the ga
+me
+.
+3.2.3.4.2
+Input
+End
+ of 
+the ga
+me 
+(see
+ chapter
+ 
+3.2
+.2.
+1
+) or me
+nu se
+lect
+ion.
+
+
+3.2.3.4.3
+Processing
+Window
+ display.
+3.2.3.4.4
+Output
+No
+ne.
+3.2.4
+File management
+3.2.4.1
+Open gam
+e
+3.2.4.1.1
+Description
+Open
+ a pre
+vio
+us saved ga
+me
+.
+3.2.4.1.2
+Input
+Menu
+ selection.
+3.2.4.1.3
+Processing
+A dialog bo
+x is open : t
+he user c
+ould
+ choose a
+ file
+ that co
+ntains
+ all th
+e data of th
+e
+game 
+previously
+ save
+d.
+3.2.4.1.4
+Ouput
+The boa
+rd ga
+me 
+is re­
+draw
+ according
+ to t
+he file d
+ata.
+ The playe
+r sta
+tistics are
+ se
+t
+to th
+e player
+ statistics
+ of the file data.
+3.2.4.2
+Save gam
+e
+3.2.4.2.1
+Description
+Save
+ the current game
+.
+3.2.4.2.2
+Input
+Menu
+ selection.
+3.2.4.2.3
+Processing
+If the ga
+me
+ was
+ ne
+ver saved,
+ the pr
+ocessing is ide
+ntiqual
+ to the action
+ "Save
+ as..
+.".
+If not, the followin
+g internal data are
+ save
+d in
+to th
+e pre
+vio
+us  file that was used to
+to save
+ the the game
+ : th
+e curren
+t posit
+ions of t
+he blocks, their last
+ 100
+00
+previo
+us posi
+tio
+ns, t
+he number of t
+he prev
+ious 
+movements and
+ the time 
+passed
+ by
+the user t
+o solv
+e th
+e headach
+e.
+
+
+3.2.4.2.4
+Ouput
+No
+ne.
+3.2.4.3
+Save gam
+e as
+3.2.4.3.1
+Description
+Save
+ the current game
+.
+3.2.4.3.2
+Input
+Menu
+ selection.
+3.2.4.3.3
+Processing
+A dialog bo
+x is open : t
+he user c
+ould
+ choose a
+ file
+ that wi
+ll contain
+ all
+ the dat
+a of
+the cu
+rrent ga
+me. N
+ext, the followin
+g in
+ternal
+ data
+ are save
+d in
+to th
+e file : t
+he
+current po
+sition
+s of the 
+blocks,
+ thei
+r prev
+ious posi
+tions, th
+e nu
+mber 
+of the
+previo
+us m
+ove
+ments and
+ the time passed
+ by
+ the user to so
+lve the he
+adache.
+3.2.4.3.4
+Ouput
+No
+ne.
+3.2.4.4
+Exit
+3.2.4.4.1
+Description
+Stop th
+e game
+3.2.4.4.2
+Input
+Menu
+ selection.
+3.2.4.4.3
+Processing
+If the ga
+me
+ is no
+t save
+d, a dialog
+ box is displa
+yed that asks
+ to
+ th
+e pla
+yer if he
+wants to
+ save th
+e game. Two
+ choices
+ are po
+ssib
+le : "Yes" and "No". 
+If  "Yes"
+ is
+select
+ed, th
+e acti
+on "S
+ave" is processed
+ and
+ th
+e main wind
+ow disappe
+ared
+. If "No"
+is selec
+ted, the ma
+in w
+indow
+ disa
+ppeare
+d.
+3.2.4.4.4
+Ouput
+No
+ne.
+
+
+3.2.5
+Menu bar
+3.2.5.1
+Gam
+e m
+enu
+3.2.5.1.1
+Description
+Cont
+ains
+ "Open gam
+e ...", "
+Save Gam
+e ...", "
+Save Gam
+e A
+s..." and "Exi
+t". In th
+is
+order.
+ 
+3.2.5.1.2
+Input
+Menu
+ selection.
+ 
+3.2.5.1.3
+Processing
+Actio
+n in ques
+tion is
+ perfo
+rmed
+ :
+–
+"Open ga
+me ...
+" ­>
+ act
+ion "Open g
+ame", se
+e chapter 
+3.2
+.4.
+1
+.
+–
+"Save
+ Ga
+me ..." ­>
+ act
+ion
+ "Save
+ Ga
+me", see chapter 
+3.2.
+4.2
+.
+–
+"Save
+ Ga
+me As ..." ­>
+ acti
+on "Save
+ ga
+me as",
+ see chapter 
+3.2
+.4.
+3
+.
+–
+"Exit
+" ­>
+ act
+ion "Ex
+it", se
+e chapter 
+3.2
+.4.
+4
+.
+3.2.5.1.4
+Output
+Menu
+ disappe
+ars.
+ Re
+quireme
+nts of
+ the action
+ determ
+ines th
+e continu
+ation. 
+3.2.5.2
+Action
+ m
+enu
+3.2.5.2.1
+Description
+Cont
+ains
+ "U
+nd
+o" and
+ "Redo".
+ In this order.
+ The 
+menu selection is un
+vailable
+ if 
+the
+assoc
+iated
+ acti
+on is unvai
+lable.
+3.2.5.2.2
+Inputs
+Menu
+ selection.
+ 
+3.2.5.2.3
+Processing
+Actio
+n in ques
+tion is
+ perfo
+rmed
+ :
+–
+"Undo"
+ ­>
+ action
+ "Undo",
+ see chapter 
+3.2.
+1.5
+.
+–
+"Redo"
+ ­>
+ action
+ "Re
+do",
+ see c
+hapt
+er 
+3.2.1.6
+.
+3.2.5.2.4
+Outputs
+Menu
+ disappe
+ars.
+ Re
+quireme
+nts of
+ the action
+ determ
+ines th
+e continu
+ation. 
+
+
+3.2.5.3
+Statisctis m
+enu
+3.2.5.3.1
+Description
+Cont
+ains
+ "D
+isplay"
+ and
+ "Era
+se". In this order.
+ 
+3.2.5.3.2
+Inputs
+Menu
+ selection.
+ 
+3.2.5.3.3
+Processing
+Actio
+n in ques
+tion is
+ perfo
+rmed
+ :
+–
+"Displa
+y" ­>
+ displa
+ys th
+e s
+tatis
+tic window,
+ see chapter 
+3.2
+.3.
+4
+.
+–
+"Erase"
+ ­>
+ erase
+ the st
+atistics,
+ se
+e cha
+pter 
+3.2
+.3.
+3
+.
+3.2.5.3.4
+Outputs
+Menu
+ disappe
+ars.
+ Re
+quireme
+nts of
+ the action
+ determ
+ines th
+e continu
+ation. 
+3.2.5.4
+Help m
+enu
+3.2.5.4.1
+Description
+Cont
+ains
+ "Abou
+t". 
+3.2.5.4.2
+Inputs
+Menu
+ selection.
+ 
+3.2.5.4.3
+Processing
+"About
+ W
+ind
+ow" is displa
+yed
+. The "Abo
+ut Wind
+ows"
+ is c
+ompo
+sed of th
+e follow
+ing
+text "Q
+head
+ache 1.0
+ by Jean­
+Philippe
+ Brossa
+t jp_b
+rossa
+t@yahoo.
+fr"
+3.2.5.4.4
+Outputs
+Menu
+ disappe
+ars.
+ Re
+quireme
+nts of
+ the action
+ determ
+ines th
+e continu
+ation.
+3.3
+Performance Requirements
+There can
+ be
+ only
+ one user 
+per 
+mach
+ine.
+3.4
+Software System Attributes
+The soft
+ware mu
+st be por
+table
+ to t
+he Windows
+ OS.

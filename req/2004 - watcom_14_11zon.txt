@@ -1,0 +1,10189 @@
+ 
+ 
+ 
+ 
+ 
+ 
+Open Watcom Linux Port 
+Compiler / Linker Software Requirements 
+Specification 
+  
+ 
+ 
+Copyright © 2004 SciTech Software, Inc.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Created on
+ 1/14/2004 11:08 AM 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 2
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+Table of Contents 
+Exec
+utive s
+ummary 
+4
+ 
+1.
+ 
+Introd
+uction 
+4
+ 
+1.1
+ 
+Defi
+nitions,
+ ac
+ronyms and a
+bbre
+viations
+ 
+4
+ 
+1.2
+ 
+Refere
+nces
+ 
+5
+ 
+2.
+ 
+Key Com
+pone
+nts of t
+he Ope
+n Watcom
+ C Com
+piler and Li
+nker 
+5
+ 
+2.1
+ 
+ORL
+ 
+5
+ 
+2.1.1
+ 
+Defi
+nitio
+n 
+5
+ 
+2.1.2
+ 
+Descri
+ptio
+n 
+5
+ 
+2.2
+ 
+WLCo
+re 
+7
+ 
+2.2.1
+ 
+Defi
+nitio
+n 
+7
+ 
+2.2.2
+ 
+Descri
+ptio
+n 
+7
+ 
+2.3
+ 
+Loa
+d EL
+F 
+12
+ 
+2.3.1
+ 
+Defi
+nitio
+n 
+12
+ 
+2.3.2
+ 
+Descri
+ptio
+n 
+12
+ 
+2.4
+ 
+GC386 
+13
+ 
+2.4.1
+ 
+Defi
+nitio
+n 
+13
+ 
+2.4.2
+ 
+Descri
+ptio
+n 
+13
+ 
+2.5
+ 
+OW
+L 
+30
+ 
+2.5.1
+ 
+Defi
+nitio
+n 
+30
+ 
+2.5.2
+ 
+Descri
+ptio
+n 
+30
+ 
+3.
+ 
+Po
+rting Op
+en Watco
+m C Com
+piler and
+ Li
+nk
+er to
+ Li
+nux 
+32
+ 
+3.1
+ 
+Po
+sition
+-Ind
+epen
+dent Code 
+32
+ 
+3.1.1
+ 
+Command Li
+ne Swi
+tches 
+33
+ 
+3.1.2
+ 
+ELF Object 
+Fil
+es 
+33
+ 
+3.1.3
+ 
+PIC G
+eneration 
+35
+ 
+3.1.4
+ 
+Notes
+ 
+38
+ 
+3.2
+ 
+Bu
+ild
+ing
+ Sh
+ared
+ Obj
+ects 
+39
+ 
+3.2.1
+ 
+Linke
+r C
+ommand Li
+ne 
+39
+ 
+3.2.2
+ 
+ELF Heade
+r 
+39
+ 
+3.2.3
+ 
+Segm
+ent
+s an
+d Sect
+ions
+ 
+39
+ 
+3.2.4
+ 
+Program
+ Headers
+ 
+40
+ 
+3.2.5
+ 
+Dynam
+ic Section 
+41
+ 
+3.2.6
+ 
+Dy
+nam
+ic Sym
+bol
+s 
+42
+ 
+3.2.7
+ 
+Dy
+nam
+ic R
+elocat
+ions
+ 
+43
+ 
+3.2.8
+ 
+Global Offset 
+Table
+ 
+44
+ 
+3.2.9
+ 
+Procedure
+ Linkage
+ Ta
+ble 
+45
+ 
+3.2.10
+ 
+Notes
+ 
+48
+ 
+3.3
+ 
+Using Sha
+red 
+Objects
+ 
+48
+ 
+3.3.1
+ 
+Reading Share
+d Objects
+ 
+48
+ 
+3.3.2
+ 
+Pro
+gram
+ Interp
+reter
+ 
+48
+ 
+3.3.3
+ 
+Requi
+red Li
+braries 
+48
+ 
+3.3.4
+ 
+Global Offset 
+Table
+ 
+49
+ 
+3.3.5
+ 
+Procedure
+ Linkage
+ Ta
+ble 
+49
+ 
+3.3.6
+ 
+Notes
+ 
+50
+ 
+4.
+ 
+Ex
+istin
+g Prob
+lems 
+50
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 3
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+4.1.1
+ 
+Su
+pport
+ of R_386_PC
+32 rel
+ocat
+ions
+ 
+50
+ 
+4.1.2
+ 
+Su
+pport
+ of STT_
+NOT
+YP
+E s
+ymbol
+s 
+51
+ 
+4.1.3
+ 
+Accu
+rat
+e se
+gm
+ent
+ m
+appi
+ng 
+52
+ 
+5.
+ 
+Esti
+matio
+n 
+54
+ 
+5.1
+ 
+Po
+sition
+-Ind
+epen
+dent Code 
+54
+ 
+5.2
+ 
+Bu
+ild
+ing
+ Sh
+ared
+ Obj
+ects 
+54
+ 
+5.3
+ 
+Using Sha
+red 
+Objects
+ 
+55
+ 
+5.4
+ 
+Fin
+al In
+tegratio
+n 
+55
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 4
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+Compiler / Linker Software Requirements 
+Specification  
+ 
+Executive summar
+y 
+Thi
+s doc
+um
+ent
+ desc
+ribes
+ a det
+ailed ap
+proac
+h to porting Open Wat
+com
+ Compiler an
+d Li
+nker to Li
+nux 
+platfo
+rm
+.  
+1.  Introduction  
+Th
+is document ou
+tlin
+es a set
+ of step
+s th
+at sho
+uld be tak
+en to
+ prov
+ide sh
+ared
+ libraries and
+ position
+ 
+inde
+pen
+dent code s
+upport
+ to the Ope
+n Wat
+com
+ co
+mpiler as a 
+part
+ of the Ope
+n Wat
+com
+ Li
+nux porting 
+effort. 
+All in
+form
+atio
+n is 
+presen
+ted
+ relativ
+e to
+ 
+open
+_w
+atcom
+_devel_1.
+1.7
+. S
+ince Op
+en Watco
+m is op
+en-source 
+project, 
+we ass
+ume som
+e of the topics c
+overed m
+ight
+ bec
+ome obs
+olete or 
+inaccurate at the m
+oment of 
+read
+ing th
+is document. A co
+nsid
+erab
+le am
+ount of 
+exp
+erim
+ental wo
+rk was 
+perform
+ed prior writin
+g th
+is 
+Sp
+ecification
+. So
+me resu
+lts 
+of th
+at wo
+rk are 
+inclu
+ded in this do
+cument. 
+Th
+is document con
+sists 
+of four larg
+e section
+s. Section
+ one
+ is an i
+ntroduct
+ory sect
+ion.
+ Sect
+ion two descri
+bes 
+the key c
+omponents
+ of 
+Ope
+n Watcom
+ C Com
+piler an
+d Li
+nker. Section t
+hree de
+fines steps, 
+neede
+d for 
+addi
+ng PIC an
+d s
+hare
+d object
+ su
+pport. Sect
+ion four 
+desc
+ribes som
+e pr
+oblems foun
+d during our 
+investig
+ation
+. 
+1.1 
+Defini
+tions, acron
+yms and abbrev
+iations 
+ 
+ABI 
+A
+pp
+licatio
+n 
+B
+inary 
+I
+nterface 
+ELF
+ 
+E
+xecuta
+ble and 
+L
+ink
+ing
+ 
+F
+ormat 
+Th
+ere are three m
+ain typ
+es of ELF 
+files: 
+ 
+A  relo
+catab
+le  file  h
+olds  code  an
+d  data  suitab
+le  fo
+r  linkin
+g  with
+  other  o
+bject  files  to
+  create  an  
+executa
+ble 
+or a
+ sha
+red object file. 
+ 
+An e
+xecut
+able fi
+le hol
+ds a 
+program
+ sui
+table for e
+xecut
+ion;
+ the fi
+le speci
+fies ho
+w t
+he fu
+nct
+ion e
+xec(
+) 
+creates a 
+progra
+m’s proces
+s image. 
+ 
+A sha
+red object file hol
+ds c
+ode and 
+dat
+a suitable f
+or link
+ing
+ in
+ two
+ co
+ntexts. First, t
+he lin
+k ed
+itor m
+ay 
+process  it  wit
+h  ot
+her  
+relocat
+able  and  s
+hare
+d  object  
+files  
+to  create  anot
+her  
+object  
+file.  Second,  the  
+dynamic lin
+ker co
+mbines it wi
+th an ex
+ecu
+table file 
+and 
+othe
+r sha
+red objects
+ to c
+reate a 
+process im
+age. 
+wlin
+k h
+ave limited
+ supp
+ort of 
+build
+ing and
+ usin
+g of
+ ELF 
+files. 
+OMF
+ 
+Relocatable 
+O
+bject 
+M
+odule 
+F
+orm
+at 
+Thi
+s form
+at (devel
+oped by
+ M
+icros
+oft
+) is produce
+d by wcc3
+86 (a
+nd has “
+native” su
+pport in wl
+ink). 
+ORL 
+O
+bject 
+R
+eading 
+L
+ibrary
+ 
+API fo
+r reading
+ object 
+files.
+ 
+PDC 
+P
+ositio
+n 
+D
+epende
+nt 
+C
+od
+e (op
+posite to PIC
+) 
+PIC 
+P
+ositio
+n 
+I
+nde
+pende
+nt 
+C
+od
+e 
+Thi
+s lets a se
+gment
+’s vi
+rtual
+ add
+ress
+ cha
+nge from
+ one
+ pro
+cess to
+ ano
+ther, with
+ou
+t inv
+alidatin
+g ex
+ecu
+tio
+n 
+beha
+vior. Beca
+use P
+IC uses 
+relative ad
+dressi
+ng bet
+ween
+ se
+gm
+ent
+s, the differe
+nce 
+bet
+ween virtual
+ 
+addresses
+ in m
+emory m
+ust match the 
+differe
+nce 
+betw
+een virtual
+ addresses
+ in the f
+ile. The d
+ifference 
+bet
+ween t
+he vi
+rtual
+ address 
+of any segm
+ent
+ in m
+emory and the correspon
+din
+g virtual address i
+n th
+e file 
+is 
+thus
+ a si
+ngle const
+ant val
+ue for any
+ one e
+xecutabl
+e or sha
+red 
+object
+ in a given 
+proces
+s. 
+wcc386
+ 
+Op
+en Watco
+m C Co
+mpiler 
+wlink
+ 
+Ope
+n Wat
+com
+ Linke
+r 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 5
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+1.2   Referen
+ces   
+1. 
+SYST
+EM
+ V APPLIC
+AT
+IO
+N BINARY INTERFAC
+E, Edition 
+4.1 
+2. 
+SYST
+EM V APPLIC
+AT
+ION 
+BINARY 
+INT
+ERF
+ACE, In
+tel3
+86
+™ Arch
+itecture Process
+or 
+Sup
+plem
+ent, Fo
+urth Ed
+ition
+ 
+3. 
+Lin
+ux Stand
+ard Base Sp
+eci
+ficatio
+n for the 
+IA
+32
+ Architectu
+re 1.9.0-
+200
+31
+030
+ 
+4.    OM
+F    1.1    Speci
+ficat
+ion    
+ 
+2. 
+Key
+ Comp
+onents of the Open 
+Watcom C Compiler and Linker 
+Certain
+ parts 
+of th
+e Op
+en Watco
+m so
+urce cod
+e are es
+pecially 
+importan
+t for o
+ur p
+roject. 
+Su
+ch 
+parts will 
+be 
+refe
+rre
+d as
+ “co
+mponent
+s” t
+hroughout this docum
+ent, al
+though some of t
+hem
+ are l
+ogical
+ly interrel
+ated 
+sou
+rce 
+files, a
+nd others a
+re s
+ubproject
+s (subdirect
+ori
+es unde
+r the Open Wat
+com
+ source
+ tree). T
+he inform
+al 
+names d
+efin
+ed here will b
+e used in th
+e further parts 
+of th
+is do
+cument. 
+Each c
+ompone
+nt is descri
+bed
+ in two sect
+ions. Fi
+rst
+ sect
+ion descri
+bes t
+he purpose 
+of the c
+ompone
+nt, and 
+provides t
+he list of
+ co
+re s
+ourc
+e files. Sec
+ond sect
+ion 
+desc
+ribes the pri
+nciples of funct
+ion of the 
+cor
+responding com
+pone
+nt. Im
+portant
+ funct
+ions, 
+dat
+a struct
+ures, a
+nd c
+onstants are
+ de
+scri
+bed as
+ wel
+l. 
+2.1   ORL   
+2.1.1   Definition   
+Abb
+reviation
+ of “Obj
+ect Read
+ing Li
+bra
+ry”. L
+ocat
+ed 
+in 
+$O
+WRO
+OT/bld/orl
+. 
+OR
+L is desi
+gned fo
+r readi
+ng vari
+ous
+ form
+ats 
+of ob
+ject files: 
+ELF, OMF
+, and COFF. We
+ are 
+interested 
+main
+ly in
+ th
+e ELF stuff (
+$OWROOT/bld/
+orl/elf
+). 
+ELF link
+ing
+ inform
+ation (e.g
+. relo
+cation
+ en
+tries) is
+ m
+apped
+ to ab
+stract
+ OR
+L l
+inki
+ng information. F
+or 
+exam
+ple, ELF 
+relocation type
+ 
+R_
+386
+_32
+ is 
+map
+ped to
+ 
+ORL_
+RELOC_
+TYPE_WORD_
+32
+. 
+2.1.2   De
+scription   
+There
+ are
+ sev
+eral
+ ha
+ndle types de
+fined i
+n ORL. M
+ost important
+ are
+ 
+orl_se
+c_h
+andle
+ and
+ 
+orl
+_symb
+ol_handl
+e
+. There a
+re m
+any fu
+nct
+ions
+ operating with sect
+ions a
+nd sy
+mbol
+s: 
+ 
+char *            ORLSecGetName( orl_sec_handle ); 
+orl_sec_offset    ORLSecGetBase( orl_sec_handle ); 
+orl_sec_size      ORLSecGetSize( orl_sec_handle ); 
+orl_sec_type      ORLSecGetType( orl_sec_handle ); 
+orl_sec_flags     ORLSecGetFlags( orl_sec_handle ); 
+orl_sec_alignment ORLSecGetAlignment( orl_sec_handle ); 
+orl_sec_handle    ORLSecGetStringTable( orl_sec_handle ); 
+orl_sec_handle    ORLSecGetSymbolTable( orl_sec_handle ); 
+orl_sec_handle    ORLSecGetRelocTable( orl_sec_handle ); 
+orl_linnum *      ORLSecGetLines( orl_sec_handle ); 
+orl_table_index   ORLSecGetNumLines( orl_sec_handle ); 
+orl_sec_offset    ORLSecGetOffset( orl_sec_handle ); 
+orl_return        ORLSecGetContents( orl_sec_handle, char ** ); 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 6
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+orl_return        ORLSecQueryReloc( orl_sec_handle, orl_sec_offset, 
+orl_reloc_return_func ); 
+orl_return        ORLSecScanReloc( orl_sec_handle, orl_reloc_return_func ); 
+orl_table_index   ORLCvtSecHdlToIdx( orl_sec_handle ); 
+orl_sec_handle    ORLCvtIdxToSecHdl( orl_file_handle, orl_table_index ); 
+char *            ORLSecGetClassName( orl_sec_handle ); 
+orl_sec_combine   ORLSecGetCombine( orl_sec_handle ); 
+orl_sec_frame     ORLSecGetAbsFrame( orl_sec_handle ); 
+orl_sec_handle    ORLSecGetAssociated( orl_sec_handle ); 
+orl_group_handle  ORLSecGetGroup( orl_sec_handle ); 
+orl_return        ORLRelocSecScan( orl_sec_handle, orl_reloc_return_func ); 
+orl_return        ORLSymbolSecScan( orl_sec_handle, orl_symbol_return_func ); 
+orl_return        ORLNoteSecScan( orl_sec_handle, orl_note_callbacks *, void * 
+); 
+ 
+char *             ORLSymbolGetName( orl_symbol_handle ); 
+orl_symbol_value   ORLSymbolGetValue( orl_symbol_handle ); 
+orl_symbol_binding ORLSymbolGetBinding( orl_symbol_handle ); 
+orl_symbol_type    ORLSymbolGetType( orl_symbol_handle ); 
+unsigned char      ORLSymbolGetRawInfo( orl_symbol_handle ); 
+orl_sec_handle     ORLSymbolGetSecHandle( orl_symbol_handle ); 
+orl_symbol_handle  ORLSymbolGetAssociated( orl_symbol_handle ); 
+ 
+These a
+nd othe
+r functions allow access
+ to t
+he object 
+file
+ in t
+he uni
+form
+ way. Actu
+al m
+apping 
+from
+ ELF to 
+ORL is 
+perfo
+rmed
+ by 
+$OWROOT/bld/
+orl/elf/c/elfentr.c
+ (sections, 
+sym
+bols
+), 
+elfload.c
+ (section
+s), 
+elflwlv.c
+ (sy
+mbol
+s, rel
+ocat
+ions)
+. 
+ORL is 
+used by Op
+en Watcom
+ Lin
+ker, m
+ostly in
+ 
+$OWROOT/bld/wl/c/o
+bjorl.c
+. 
+ELF 
+relocations (
+i.e. 386
+ ABI) ar
+e m
+apped to ab
+stract 
+ORL relo
+cation
+s in the fo
+llowing
+ way: 
+ 
+$OWROOT/bld/orl/elf/c/elflwlv.c 
+static orl_reloc_type convert386Reloc( elf_reloc_type elf_type ) { 
+    switch( elf_type ) { 
+    case R_386_NONE: 
+        return( ORL_RELOC_TYPE_ABSOLUTE ); 
+    case R_386_32: 
+    case R_386_GOT32: 
+    case R_386_GOTOFF: 
+        return( ORL_RELOC_TYPE_WORD_32 ); 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 7
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+    case R_386_PC32: 
+    case R_386_PLT32: 
+    case R_386_GOTPC: 
+        return( ORL_RELOC_TYPE_REL_32 ); 
+    default: 
+        assert( 0 ); 
+    } 
+    return( ORL_RELOC_TYPE_NONE ); 
+} 
+ 
+2.2   WL
+Core   
+2.2.1   Definition   
+Sy
+nthet
+ical
+ly sel
+ect
+ed pa
+rt of the O
+pen Wat
+com
+ Li
+nker 
+(
+$O
+WRO
+OT/bld/wl
+), pe
+rform
+ing t
+he ba
+sic linking 
+task
+s (e.g
+. relocatio
+ns), an
+d interactin
+g to ORL. Main
+ files: 
+ob
+j2sup
+p.c
+, 
+obj
+calc.c
+, 
+ob
+jor
+l.c
+, 
+objpa
+ss1.c
+, 
+objpass2.c
+. 
+2.2.2   De
+scription   
+We are in
+terested
+ m
+ainly in
+ ELF link
+ing. 
+Since ORL is
+ use
+d to 
+read ELF ob
+ject 
+files, t
+here is an interfac
+e 
+to ORL im
+plemented
+ in
+ 
+ob
+jorl.c
+. T
+he linker
+ uses
+ ot
+her
+ dat
+a struct
+ures
+ than OR
+L, s
+o there is an
+other 
+map
+ping
+ im
+plemen
+ted
+ in
+ the men
+tio
+ned file. Relo
+catio
+ns are m
+apped in the fo
+llo
+wing way: 
+ 
+switch( reloc->type ) { 
+// ... 
+case ORL_RELOC_TYPE_ABSOLUTE: 
+    type = FIX_OFFSET_32 | FIX_ABS; 
+    break; 
+// ... 
+case ORL_RELOC_TYPE_REL_32: 
+    type = FIX_OFFSET_32 | FIX_REL; 
+    break; 
+// ... 
+case ORL_RELOC_TYPE_WORD_32: 
+    type = FIX_OFFSET_32; 
+    break; 
+} 
+ 
+Const
+ants 
+FIX_
+ are 
+defin
+ed in th
+e sp
+irit of 
+OMF sp
+ecificatio
+n (i.e. 
+FIX
+UPP
+ rec
+ords). Howe
+ver, s
+ome of
+ 
+these co
+nstan
+ts implement sp
+ecific 
+features, e
+.g. Powe
+rPC 
+relocations
+. 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 8
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+$OWROOT/bld/wl/h/obj2supp.h 
+typedef enum { 
+    FIX_CHANGE_SEG      = 0x00000001,   // has to be 1.  used in pointers! 
+    FIX_ADDEND_ZERO     = 0x00000002, 
+    FIX_UNSAFE          = 0x00000004, 
+    FIX_ABS             = 0x00000008, 
+  
+    FIX_BASE            = 0x00000010, 
+    FIX_HIGH            = 0x00000020, 
+    FIX_REL             = 0x00000040, 
+    FIX_SHIFT           = 0x00000080, 
+ 
+    FIX_TARGET_SHIFT    = 8,            // contains frame_type 
+    FIX_TARGET_MASK     = 0x00000700, 
+  
+    FIX_NO_BASE         = 0x00001000, 
+    FIX_SIGNED          = 0x00002000, 
+    FIX_LOADER_RES      = 0x00004000, 
+    FIX_SEC_REL         = 0x00008000, 
+  
+    FIX_NO_OFFSET       = 0, 
+    FIX_OFFSET_8        = 0x00010000, 
+    FIX_OFFSET_16       = 0x00020000, 
+    FIX_OFFSET_21       = 0x00030000, 
+    FIX_OFFSET_32       = 0x00040000, 
+    FIX_OFFSET_24       = 0x00050000, 
+    FIX_OFFSET_SHIFT    = 16, 
+    FIX_OFFSET_MASK     = 0x00070000, 
+  
+    FIX_TOC             = 0x00100000,   // PPC PE 
+    FIX_TOCV            = 0x00200000,   // PPC PE 
+    FIX_IFGLUE          = 0x00300000,   // PPC PE 
+    FIX_SPECIAL_MASK    = 0x00300000, 
+ 
+    FIX_FRAME_SHIFT     = 24,           // contains frame_type 
+    FIX_FRAME_MASK      = 0x07000000, 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 9
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+// now for some handy constants which use these 
+  
+    FIX_BASE_OFFSET_16  = (FIX_BASE | FIX_OFFSET_16), 
+    FIX_BASE_OFFSET_32  = (FIX_BASE | FIX_OFFSET_32), 
+    FIX_HIGH_OFFSET_8   = (FIX_HIGH | FIX_OFFSET_8), 
+    FIX_HIGH_OFFSET_16  = (FIX_HIGH | FIX_OFFSET_16), 
+} fix_type; 
+ 
+During
+ the fi
+rst p
+ass, rel
+ocatio
+ns are conv
+ert
+ed to in
+tern
+al rep
+resen
+tation
+: 
+ 
+$OWROOT/bld/wl/c/objorl.c 
+static orl_return P1Relocs( orl_sec_handle sec ) 
+/**********************************************/ 
+{ 
+    return ORLRelocSecScan( sec, DoReloc ); 
+} 
+ 
+Here
+ 
+ORLRel
+ocSecSc
+an
+ is 
+ORL-fun
+ction
+ that iterates th
+rough
+ th
+e rel
+ocatio
+n list, an
+d 
+Do
+Reloc
+()
+ is called
+ 
+to convert eac
+h relocation 
+(see
+ above
+). 
+Relo
+catio
+n processin
+g is actually i
+mplemented
+ in 
+ob
+j2supp
+.c
+. Th
+is file is a k
+ey part of t
+he link
+er. 
+Othe
+r im
+portant participa
+nts of linking 
+proce
+ss ar
+e sym
+bols. Like 
+relocatio
+ns, 
+ELF sym
+bols (accessible 
+through
+ ORL fu
+nction
+s) are co
+nv
+erted
+ to th
+e in
+tern
+al 
+symb
+ol
+ structures: 
+ 
+$OWROOT/bld/wl/h/syms.h 
+typedef struct symbol { 
+    struct symbol *     hash; 
+    struct symbol *     publink; 
+    struct symbol *     link; 
+    targ_addr           addr; 
+    unsigned_16         namelen; 
+    sym_info            info;       // flags & floating point fixup type. 
+    struct mod_entry *  mod; 
+    union { 
+        void *          edges;      // for dead code elim. when sym undefd 
+        struct segdata *seg;        // seg symbol is in. 
+        char *          alias;      // for aliased syms. 
+        void *          import;     // NOVELL & OS/2 only: imported symbol 
+data. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 10
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+        offset          cdefsize;   // altdef comdefs: size of comdef 
+    } p; 
+    union { 
+        dos_sym_data    d; 
+        struct symbol * altdefs;    // for keeping track of comdat & comdef 
+defs 
+        struct symbol * datasym;    // altdef comdats: sym which has data def 
+        int             aliaslen;   // for aliases - length of name. 
+    } u; 
+    union { 
+        struct symbol * mainsym;    // altdefs: main symbol definition 
+        struct symbol * def;        // for lazy externs 
+        struct symbol **vfdata;     // for virtual function lazy externs. 
+        void *          export;     // OS/2 & PE only: exported sym info. 
+    } e; 
+    char *              name; 
+    char *              prefix;     // primarily for netware, though could be 
+                                    // subverted for other use. gives symbol 
+                                    // namespace qualification 
+} symbol; 
+ 
+There
+ are
+ m
+any 
+SYM_
+ and 
+ST_
+ const
+ants descri
+bing various sy
+mbol
+ propert
+ies. 
+Final
+ly, cal
+cul
+ation 
+of segm
+ent
+ ad
+dresses 
+(duri
+ng the sec
+ond pass)
+ is per
+formed i
+n 
+obj
+calc.c
+. In
+form
+atio
+n 
+prod
+uced du
+ring
+ th
+is pro
+cess 
+will b
+e used later for 
+creati
+ng an ex
+ecu
+tab
+le file. On
+e can iterate th
+rou
+gh the 
+groups
+ (i.e. gr
+oupe
+d segm
+ent
+s) this way
+: 
+ 
+group_entry *currgrp; 
+for( currgrp = Groups; currgrp != NULL; currgrp = currgrp->next_group ) { 
+    // Do something... 
+} 
+ 
+There
+ are
+ som
+e im
+port
+ant gl
+obal va
+riables
+. In the
+ exam
+ple 
+above, we
+ see 
+Grou
+ps
+ is t
+he list of all 
+groups. 
+Varia
+ble 
+Da
+taGro
+up
+ specifi
+es 
+the data group, varia
+ble 
+NumGr
+oups
+ co
+ntains t
+he total num
+ber 
+of groups
+. 
+Gr
+oup ent
+ry is defi
+ned
+ as:
+ 
+ 
+$OWROOT/bld/wl/h/objstruc.h 
+typedef struct group_entry { 
+    GROUP_ENTRY *       next_group; 
+    SEG_LEADER *        leaders; 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 11
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+    symbol *            sym; 
+    section *           section; 
+    targ_addr           grp_addr; 
+    unsigned_16         segflags; 
+    offset              size; 
+    offset              totalsize; 
+    offset              linear;         // preferred base address 
+    union { 
+        void *          grp_relocs;     // OS2/ELF only. 
+        class_entry *   class;          // CV (during addr calc ) 
+    } g; 
+    union { 
+        unsigned        qnxflags;       // QNX 
+        unsigned        miscflags;      // OS/2 
+    } u; 
+    unsigned            num; 
+    unsigned            isfree : 1; 
+    unsigned            isautogrp : 1; 
+} group_entry; 
+ 
+ 
+Here
+ 
+siz
+e
+ is g
+roup size in
+ the file; 
+totalsiz
+e
+ is group
+ size i
+n the m
+emory (e.g
+. un
+initialized
+ data do no
+t 
+requ
+ire 
+space in
+ th
+e file). 
+An
+other impor
+tant gl
+obal vari
+abl
+e is 
+Fm
+tData
+. T
+his structure c
+ont
+ains fields 
+desc
+ribing the form
+at and 
+vari
+ous
+ prope
+rties of
+ the output file. Fo
+r our purposes
+, the most im
+port
+ant fields a
+re 
+type
+ and 
+dll
+. For 
+ELF 
+share
+d objects
+, the follo
+wing t
+est evaluates
+ as 
+TRUE
+: 
+(Fm
+tDa
+ta.type
+ & MK
+_ELF) &
+& Fmt
+Data.dll
+. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 12
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+2.3   Load   
+ELF   
+2.3.1   Definition   
+Part
+ of O
+pen Wat
+com
+ Linke
+r (
+$OWROOT
+/bld/wl
+), d
+esign
+ed fo
+r writin
+g ex
+ecu
+table files in
+ ELF 
+form
+at. 
+Co
+nsists of 
+two
+ files: 
+loadel
+f.c
+ and 
+loa
+delf2.c
+. 
+2.3.2   De
+scription   
+Currently, L
+oadELF is a
+ble to create 
+only EL
+F exec
+utable
+ files (s
+hare
+d object
+s are 
+not
+ supported). M
+ost of 
+the work is p
+erform
+ed in
+ 
+loa
+delf.c
+. T
+he second file, 
+loadelf2.c
+, contains
+ only the 
+routine
+s for 
+creating E
+LF 
+sym
+bol
+ tables.
+ 
+The m
+ain fu
+nct
+ion i
+s 
+FiniELFLo
+adFile()
+. The fo
+llo
+wing task
+s are 
+performed
+ th
+ere: 
+1. 
+Initialize th
+e ELF 
+head
+er, 
+prog
+ram head
+ers, 
+and section
+ headers. 
+2. 
+Wri
+te groups (i.e. c
+ode
+ an
+d data) to the EL
+F file (p
+rogram
+ and
+ sect
+ion hea
+ders
+ are
+ cha
+nged during 
+this pro
+cess; i.e. section
+s: 
+.text
+, 
+.data
+, and 
+.bss
+). 
+3. 
+Write rel
+ocation
+ section
+ (
+.rel
+a.te
+xt
+). 
+4. 
+Wri
+te DWAR
+F debug inform
+ation (i
+f need
+ed). 
+5. 
+Wri
+te sy
+mbol
+ table (
+.symt
+ab
+), hash (
+.hash
+), and str
+ing
+s (
+.strt
+ab
+). 
+6. 
+Wri
+te sect
+ion s
+trings
+ (
+.shs
+trt
+ab
+). 
+7.    Write    
+section    
+headers
+.    
+8. 
+Write 
+DWARF trailer (i
+f needed
+). 
+9. 
+Rewind
+ an
+d write th
+e ELF 
+hea
+der and 
+progra
+m headers. 
+ 
+Task 
+1 i
+s pe
+rformed i
+n 
+void 
+SetHe
+aders
+( ElfHdr
+ *hdr 
+)
+. Sectio
+ns are i
+nitialized
+ in
+ 
+void InitSectio
+ns( 
+ElfHdr *hdr
+)
+. 
+ElfH
+dr is de
+fined as:
+ 
+ 
+$OWROOT/bld/wl/h/loadelf2.h 
+typedef struct { 
+    Elf32_Ehdr eh; 
+    Elf32_Shdr *strhdr; 
+    Elf32_Phdr *ph; 
+    unsigned   ph_size; 
+    Elf32_Shdr *sh; 
+    unsigned   sh_size; 
+    stringtable secstrtab; 
+    struct { 
+        int        secstr;  // Index of strings section for section names 
+        int        grpbase; // Index base for Groups in section 
+        int        grpnum;  // Number of groups 
+        int        relbase; // Index base for relocation sections 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 13
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+        int        relnum;  // number of relocations 
+        int        symstr;  // Index of symbol's string table 
+        int        symtab;  // Index of symbol table 
+        int        symhash; // Index of symbol hash table 
+        int        dbgbegin;// Index of first debug section 
+        int        dbgnum;  // Number of debug sections 
+    } i;  // Indexes into sh 
+    unsigned_32 curr_off; 
+} ElfHdr; 
+ 
+Th
+e m
+ost in
+terestin
+g structure is 
+i
+, wh
+ere sectio
+n ind
+exes are sp
+ecifi
+ed. This stru
+cture is filled
+ in
+ 
+InitSectio
+ns()
+. So the 
+orde
+r of sections is 
+predefi
+ned. 
+Program
+ heade
+r is c
+reated i
+n 
+SetHe
+aders
+()
+ as 
+well. 
+Task 
+2 i
+s pe
+rformed i
+n 
+void WriteELFGr
+oups
+( ElfHdr *hdr
+ )
+. In
+ this fun
+ction
+, group
+ list is iterated (as 
+descri
+bed in WLCo
+re). For 
+each
+ grou
+p, code or 
+data are 
+written
+ to
+ the ELF file, 
+using
+ 
+Wr
+iteGroupLoad()
+. 
+Th
+e co
+rresp
+ond
+ing
+ prog
+ram
+ head
+ers and
+ sectio
+ns are 
+filled
+ as well, 
+using
+ 
+SetGr
+oupHe
+aders
+()
+. N
+ote t
+hat 
+uninitialized
+ data (
+.bs
+s
+) a
+re proces
+sed in t
+he special 
+way. 
+Relo
+catio
+ns are written
+ using 
+void 
+Wri
+teRe
+locsSecti
+ons( ElfHdr *hdr
+ )
+. In
+ this im
+plementatio
+n, all 
+relo
+cation
+s are 
+presen
+ted with 
+explicit add
+ends (i.e. 
+SHT
+_RELA
+). 
+Task 
+5 i
+s pe
+rformed by
+ 
+WriteElfSy
+mT
+able( ElfSymTa
+ble 
+*tab, ElfH
+dr 
+*hdr
+, in
+t ha
+shidx
+, int 
+symt
+abi
+dx, int str
+tabi
+dx )
+. B
+oth sym
+bol tab
+le an
+d h
+ash are written in
+ this fun
+ction
+. Th
+en strin
+g tab
+le is 
+written
+ using
+ 
+WriteSHString
+s()
+. 
+Fun
+ctio
+n 
+WriteSHString
+s()
+ is reu
+sed for th
+e n
+ext task (i.e. 
+writing
+ section n
+ames). 
+Note t
+hat field 
+curr_off
+ (from
+ 
+ElfHdr
+) is 
+wid
+ely u
+sed. Th
+is field
+ sp
+ecifi
+es the curre
+nt 
+offs
+et in the 
+ELF 
+file. Howev
+er, it is n
+ot up
+dated
+ au
+tomatical
+ly, e.g. after 
+Wr
+iteLoad()
+ the
+refore
+ precise 
+calculations a
+re 
+need
+ed to keep 
+this v
+alue up
+ to date. 
+Fun
+ctio
+ns to write ELF 
+(and oth
+er) ex
+ecu
+table files are lo
+cat
+ed in 
+$OWROOT/bld/wl/c/
+loadfile.c
+. 
+2.4   GC3
+86   
+2.4.1   Definition   
+Code
+ Ge
+nerat
+or for 32-bi
+t family of 
+x86 CPUs, 
+use
+d by Open Watcom
+ C C
+ompiler co
+nsists of
+ three
+ 
+“layers”: 
+• 
+Gene
+ral
+ Code 
+Gene
+rat
+or, l
+ocated i
+n 
+$OWROOT/bld/cg
+. 
+• 
+Common x8
+6 Code
+ Ge
+nerat
+or (16/32-bit), locat
+ed i
+n 
+$O
+WRO
+OT/bld/cg/intel
+. 
+• 
+Sp
+ecific 
+32
+-bit x8
+6 Cod
+e Generato
+r, lo
+cated
+ in 
+$OWROOT/bld/cg
+/intel/3
+86
+. 
+2.4.2   De
+scription   
+Doc
+umentation fo
+r the Code Gene
+rat
+or (
+$O
+WRO
+OT/bld/cg/doc
+) c
+overs
+ only the inte
+rface to the c
+ode
+ 
+gene
+rat
+or (i.e. 
+"Gene
+ral Code Ge
+nerat
+or"). T
+he c
+ode
+ ge
+nerator (bac
+k e
+nd) interface
+ is a s
+et of
+ proce
+dure
+ 
+cal
+ls. These
+ ar
+e di
+vided
+ into Code
+ Ge
+nerat
+ion (
+CG
+), Data Gen
+eration
+ (
+DG
+), m
+iscel
+laneous
+ Back
+ End (
+BE
+), 
+Fron
+t end
+ su
+pplied
+ (
+FE
+), and deb
+ugge
+r information (
+DB
+) ro
+utin
+es. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 14
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+Th
+ere is in
+ternal 
+mach
+ine-indep
+end
+ent fo
+rm
+at (allo
+wing scalab
+ility, 
+multiple p
+latfo
+rm
+s, and m
+ach
+ine-
+independ
+ent optimizatio
+ns). Th
+e m
+ain parts of th
+ese in
+term
+ediate d
+ata (passed
+ to th
+e cod
+e generat
+or for 
+particular ma
+chine) are "
+blocks" an
+d "
+instruc
+tio
+ns": 
+ 
+$OWROOT/bld/cg/h/block.h 
+typedef struct block { 
+        struct block_ins        ins; 
+        struct block            *next_block;    /* used for DFS */ 
+        struct block            *prev_block; 
+        union { 
+            struct interval_def *interval; 
+            struct block        *partition; 
+            struct block        *loop; 
+        } u; 
+        struct block            *loop_head; 
+        struct data_flow_def    *dataflow; 
+        struct block_edge       *input_edges; 
+        pointer                 cc;             /* AKA cc_control */ 
+        dominator_info          dom;            /* least node in dominator set 
+*/ 
+        type_length             stack_depth;    /* set by FlowSave stuff */ 
+        union { 
+            struct block        *alter_ego;     /* used in loop unrolling */ 
+            struct block        *next;          /* used for CALL_LABEL kludge 
+*/ 
+        } v; 
+        label_handle            label;          /* front end identification */ 
+        local_bit_set           available_bit; 
+        interval_depth          depth;          /* loop nesting depth */ 
+        block_num               id;             /* internal identification */ 
+        block_num               gen_id; 
+        block_num               inputs;         /* number of input edges */ 
+        block_num               targets;        /* number of target blocks */ 
+        block_class             class; 
+        signed_32               iterations; 
+        unsigned_32             unroll_count; 
+        struct block_edge       edge[ 1 ]; 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 15
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+} block; 
+$OWROOT/bld/cg/h/inslist.h 
+typedef struct ins_header { 
+        struct instruction      *prev; 
+        struct instruction      *next; 
+        struct name_set         live; 
+        source_line_number      line_num; 
+        opcode_defs             opcode; 
+        instruction_state       state; 
+} ins_header; 
+ 
+typedef struct instruction { 
+        struct ins_header       head; 
+        struct opcode_entry     *table; 
+        union { 
+            struct opcode_entry *gen_table; 
+            struct instruction  *parm_list; 
+            struct instruction  *cse_link; 
+        } u; 
+        struct register_name    *zap; 
+        union name              *result;        /*  result location */ 
+        instruction_id          id; 
+        type_class_def          type_class; 
+        type_class_def          base_type_class; 
+        unsigned_16             sequence; 
+#include "cgnoalgn.h" 
+        union { 
+                byte            byte; 
+                bool            bool; 
+                call_flags      call_flags; 
+                nop_flags       nop_flags; 
+                byte            zap_value;      /* for conversions on AXP */ 
+        }                       flags; 
+        union { 
+            byte                index_needs;    /*  a.k.a. reg_set_index */ 
+            byte                stk_max; 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 16
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+        } t; 
+        byte                    stk_entry; 
+        byte                    num_operands; 
+        instruction_flags       ins_flags; 
+        byte                    stk_exit; 
+        union { 
+            byte                stk_extra; 
+            byte                stk_depth; 
+        }                       s; 
+#include "cgrealgn.h" 
+        union name              *operands[ 1 ]; /*  operands */ 
+} instruction; 
+ 
+Sample
+:
+ Wal
+king t
+hrough t
+he bl
+ocks an
+d i
+nstruct
+ions 
+ 
+block       *blk; 
+instruction *ins; 
+ 
+blk = HeadBlock; 
+while( blk != NULL ) { 
+    ins = blk->ins.hd.next; 
+    while( ins->head.opcode != OP_BLOCK ) { 
+        // Do something... 
+        ins = ins->head.next; 
+    } 
+    blk = blk->next_block; 
+} 
+ 
+Inst
+ructions a
+re m
+achine-inde
+pende
+nt. For e
+xam
+ple, 
+opc
+ode == OP
+_ADD
+ specifies
+ addition. Ope
+rands 
+and 
+resu
+lt h
+ave the 
+name
+ type 
+that
+ can re
+prese
+nt CPU register, me
+mory location, immediate constant, etc.: 
+ 
+$OWROOT/bld/cg/h/name.h 
+typedef union name { 
+        struct  name_def        n; 
+        struct  var_name        v; 
+        struct  const_name      c; 
+        struct  memory_name     m; 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 17
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+        struct  temp_name       t; 
+        struct  register_name   r; 
+        struct  indexed_name    i; 
+        union   name            *_n; 
+} name; 
+Th
+is data look
+s lik
+e m
+ach
+ine-d
+epend
+ent, since differe
+nt architectures 
+have differe
+nt registers. Ho
+we
+ver
+, this 
+is top-level
+ abstract
+ion.
+ The c
+ode
+ ge
+nerat
+or for pa
+rticular a
+rchitecture 
+supplies 
+the corres
+ponding 
+set of 
+registers
+. Actually there are
+ many register s
+ets (e.g
+. stack 
+poi
+nter,
+ re
+gisters f
+or temporar
+y stora
+ge, fixed 
+registers
+, etc.) 
+The 
+hw
+_re
+g_s
+et
+ type i
+s able to hol
+d one
+ or more regi
+sters
+ (or be em
+pty). 
+For
+ 32-bit fam
+ily of 
+x86 proce
+ssor
+s, the r
+egister set
+s are
+ de
+fined
+ in 
+$O
+WR
+OOT
+/cg/intel
+/386/c/386r
+gtbl.c
+. 
+Th
+ere are m
+any in
+lin
+e fun
+ction
+s operating
+ with
+ reg
+ister sets (
+$OWROOT/cg
+/h/cg
+hwreg
+.h
+). M
+ost of the
+m 
+implement "set
+ arith
+metic"
+: 
+HW_Asgn
+, 
+HW
+_C
+As
+gn
+, 
+HW
+_CEq
+ual
+, 
+HW_COnlyOn
+, 
+HW
+_C
+Ov
+lap
+, 
+HW_CS
+ubse
+t
+, 
+HW
+_CT
+urnOff
+, 
+HW
+_C
+Tu
+rnOn
+, 
+HW
+_Equal
+, 
+HW
+_O
+nlyOn
+, 
+HW_Ov
+lap
+, 
+HW
+_S
+ubset
+, 
+HW_T
+urnO
+ff
+, 
+HW
+_Tur
+nO
+n
+. 
+ 
+Sample
+:
+ Ex
+clud
+ing
+ th
+e 
+EB
+X
+ register (re
+qui
+red fo
+r PIC) 
+ 
+hw_reg_set all; 
+// ... 
+HW_CTurnOff( all, HW_EBX ); 
+ 
+There
+ are
+ two l
+evel
+s of c
+ode 
+generat
+ion for x86:
+ m
+iddl
+e level and
+ low l
+evel (ass
+um
+ing hi
+gh level
+ is 
+machi
+ne-i
+ndepende
+nt). 
+High
+ lev
+el uses 
+instruction
+ an
+d r
+elated fu
+nctio
+ns (only some ar
+e show
+n): 
+ 
+// Creating new instruction 
+instruction *MakeUnary( opcode_defs, name *, name *, type_class_def ); 
+instruction *MakeBinary( opcode_defs, name *, name *, name *, type_class_def ); 
+instruction *MakeMove( name *, name *, type_class_def ); 
+// Miscellaneous allocations 
+name *AllocRegName( hw_reg_set ); 
+name *AllocTemp( type_class_def ); 
+name *AllocIntConst( int ); 
+name *AllocUIntConst( uint ); 
+// Placing the instruction 
+void AddIns( instruction * ); 
+void PrefixIns( instruction *, instruction * ); 
+void SuffixIns( instruction *, instruction * ); 
+void ReplIns( instruction *, instruction * ); 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 18
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+Sample
+:
+ Gene
+rat
+ing ad
+d e
+bx, 0B
+AB
+Eh
+ in the cu
+rre
+nt bl
+ock 
+ 
+name        *ebx; 
+instruction *ins; 
+ 
+ebx = AllocRegName( HW_EBX ); 
+ins = MakeBinary( OP_ADD, ebx, AllocIntConst( 0xBABE ), ebx, WD ); 
+AddIns(ins); 
+ 
+At the low level, we 
+generat
+e the act
+ual
+ x86 opcodes
+ (once
+ and for all). T
+ransform
+ation f
+rom middl
+e level 
+to low lev
+el is 
+perform
+ed m
+ainly b
+y 
+i86
+enc.c
+, 
+i86enc
+2.c
+ (
+$OWROOT/bl
+d/cg
+/intel
+), 
+i86enc32
+.c
+ 
+(
+$OWROOT/
+bld/cg
+/intel/386
+). 
+There
+ are
+ sev
+eral
+ m
+acros f
+or em
+itting 
+binary
+ opcodes:
+ 
+_Code; 
+ . . . 
+_Next; 
+ . . . 
+_Emit; 
+ 
+Opc
+odes a
+re inserted 
+usi
+ng the special functions
+, e.g.: 
+ 
+void LayOpbyte( opcode op ); 
+void LayOpword( opcode op ); 
+void LayReg( hw_reg_set r ); 
+void LayRegOp( name *r ); 
+void LayRMRegOp( name *r ); 
+ 
+Sample
+:
+ Gen
+eratin
+g 
+PUSHF
+ 
+ 
+_Code; 
+LayOpbyte( 0x9C ); 
+_Emit; 
+ 
+Ho
+we
+ver
+, there are m
+ore 
+digestible fu
+nct
+ions 
+for c
+ommon cases, e
+.g. 
+GenR
+egMov
+e()
+. 
+Th
+e inform
+atio
+n ab
+ov
+e shou
+ld g
+ive th
+e basic 
+knowledg
+e to th
+e developer un
+fam
+iliar with
+ CG38
+6. Th
+e last 
+unc
+overe
+d topi
+c is how 
+object
+ files are
+ produced. 
+Un
+fortunately the onl
+y object
+ form
+at supp
+ort
+ed i
+s OM
+F. Theref
+ore
+ m
+any thi
+ngs i
+n CG386 are ri
+gidly bound 
+to OMF stru
+cture. OMF 
+outpu
+t is im
+plemented
+ m
+ostly in
+ 
+$OWROOT/bl
+d/cg
+/intel/c/i8
+6obj.c
+, 
+i86esc
+.c
+, 
+and 
+$OWROOT/bld/cg
+/c/po
+sixio.c
+. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 19
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+Bu
+t th
+ere is last b
+ut on
+e stag
+e, b
+efore 
+data beca
+me written
+ to th
+e obj
+ect fil
+e. Th
+is stag
+e is op
+timizin
+g 
+(al
+though som
+e optimizat
+ions we
+re 
+per
+formed during pre
+vious
+ stage
+s). The o
+ptimizer 
+(
+$OWROOT/
+bld/cg
+/c/o
+pt*.c
+) has the
+ ope
+rations 
+queue
+. The “tr
+ace”
+ bel
+ow s
+hows
+ interc
+omm
+unications 
+between
+ th
+e opti
+mizer and
+ OMF ou
+tpu
+t rou
+tin
+es 
+(fo
+r well-k
+now
+n “H
+ello, w
+orld!” p
+rog
+ram): 
+#include <stdio.h> 
+ 
+int main(void) { 
+    printf("Hello, world!\n"); 
+    return 0; 
+} 
+ 
+Trace: 
+i86obj.c: InitSegDefs() 
+i86obj.c: DefSegment(id=00000001(1),attr=00000007(7),str="_TEXT",align=00000001(1),use_16=FALSE) 
+i86obj.c: DefSegment(id=00000002(2),attr=0000001C(28),str="CONST",align=00000004(4),use_16=FALSE) 
+i86obj.c: 
+DefSegment(id=00000003(3),attr=0000000C(12),str="CONST2",align=00000004(4),use_16=FALSE) 
+i86obj.c: DefSegment(id=00000004(4),attr=00000006(6),str="_DATA",align=00000004(4),use_16=FALSE) 
+i86obj.c: DefSegment(id=0000000B(11),attr=00000002(2),str="_BSS",align=00000004(4),use_16=FALSE) 
+i86obj.c: ObjInit() 
+i86obj.c: InitFPPatches() 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000032(50),increment=00000032(50)) 
+i86obj.c: OutName(name="hello.c",dst) 
+i86obj.c: NeedMore(arr,more=00000021(33)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutString(name="OS220",dest) 
+i86obj.c: NeedMore(arr,more=00000005(5)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutModel(dest) 
+i86obj.c: GetMemModel() 
+i86obj.c: OutString(name="3fOpd",dest) 
+i86obj.c: NeedMore(arr,more=00000005(5)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="hello.c",dst)
+ 
+i86obj.c: NeedMore(arr,more=00000021(33)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/stdio.h",dst) 
+i86obj.c: NeedMore(arr,more=00000022(34)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/sys/cdefs.h",dst) 
+i86obj.c: NeedMore(arr,more=00000026(38)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/sys/types.h",dst) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 20
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: NeedMore(arr,more=00000026(38)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/inttypes.h",dst) 
+i86obj.c: NeedMore(arr,more=00000025(37)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/endian.h",dst) 
+i86obj.c: NeedMore(arr,more=00000023(35)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/stddef.h",dst) 
+i86obj.c: NeedMore(arr,more=00000023(35)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/sys/stat.h",dst) 
+i86obj.c: NeedMore(arr,more=00000025(37)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/stdarg.h",dst) 
+i86obj.c: NeedMore(arr,more=00000023(35)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutName(name="/usr/lib/dietlibc/include/stdarg-cruft.h",dst) 
+i86obj.c: NeedMore(arr,more=00000029(41)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000005(5),increment=00000005(5)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000005(5),increment=00000005(5)) 
+i86obj.c: DoSegGrpNames(dgroup_def,tgroup_def) 
+i86obj.c: GetNameIdx(name="",suff,alloc=) 
+i86obj.c: GetNameIdx(name="CODE",suff,alloc=) 
+i86obj.c: GetNameIdx(name="DATA",suff,alloc=) 
+i86obj.c: GetNameIdx(name="BSS",suff,alloc=) 
+i86obj.c: GetNameIdx(name="TLS",suff,alloc=) 
+i86obj.c: GetNameIdx(name="FLAT",suff,alloc=) 
+i86obj.c: GetNameIdx(name="DGROUP",suff,alloc=) 
+i86obj.c: OutIdx(value=00000007(7),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FillArray(res,size=00000040(64),starting=00000005(5),increment=00000005(5)) 
+i86obj.c: DoSegment(seg,dgroup_def,tgroup_def,use_16=FALSE) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: SegmentAttr(align=00000001(1),tipe=00000007(7),use_16=FALSE) 
+i86obj.c: GetNameIdx(name="_TEXT",suff,alloc=) 
+i86obj.c: SegmentClass(rec) 
+i86obj.c: DoASegDef(rec,use_16=FALSE) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000100(256),increment=00000100(256)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000014(20),increment=00000032(50)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000100(256),increment=00000032(50)) 
+i86obj.c: OutByte(value=00000029(41)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutOffset(value=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 21
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: OutIdx(value=00000008(8),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000002(2),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FlushNames() 
+i86obj.c: PickOMF(cmd=00000098(152)) 
+i86obj.c: OutInt(value=0000FE80(65152)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutByte(value=0000004F(79)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: DoSegment(seg,dgroup_def,tgroup_def,use_16=FALSE) 
+i86obj.c: AskSegIndex(seg=00000002(2)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: SegmentAttr(align=00000004(4),tipe=0000001C(28),use_16=FALSE) 
+i86obj.c: OutGroup(sidx=00000002(2),group_def,index_p) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutIdx(value=00000002(2),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: GetNameIdx(name="",suff,alloc=CONST) 
+i86obj.c: SegmentClass(rec) 
+i86obj.c: DoASegDef(rec,use_16=FALSE) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000100(256),increment=00000100(256)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000014(20),increment=00000032(50)) 
+i86obj.c: OutByte(value=000000A9(169)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutOffset(value=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutIdx(value=00000009(9),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000003(3),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FlushNames() 
+i86obj.c: PickOMF(cmd=00000098(152)) 
+i86obj.c: DoSegment(seg,dgroup_def,tgroup_def,use_16=FALSE) 
+i86obj.c: AskSegIndex(seg=00000003(3)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: SegmentAttr(align=00000004(4),tipe=0000000C(12),use_16=FALSE) 
+i86obj.c: OutGroup(sidx=00000003(3),group_def,index_p) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutIdx(value=00000003(3),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: GetNameIdx(name="",suff,alloc=CONST2) 
+i86obj.c: SegmentClass(rec) 
+i86obj.c: DoASegDef(rec,use_16=FALSE) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000100(256),increment=00000100(256)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000014(20),increment=00000032(50)) 
+i86obj.c: OutByte(value=000000A9(169)) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 22
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutOffset(value=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutIdx(value=0000000A(10),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000003(3),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FlushNames() 
+i86obj.c: PickOMF(cmd=00000098(152)) 
+i86obj.c: DoSegment(seg,dgroup_def,tgroup_def,use_16=FALSE) 
+i86obj.c: AskSegIndex(seg=00000004(4)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: SegmentAttr(align=00000004(4),tipe=00000006(6),use_16=FALSE) 
+i86obj.c: OutGroup(sidx=00000004(4),group_def,index_p) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutIdx(value=00000004(4),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: GetNameIdx(name="",suff,alloc=_DATA) 
+i86obj.c: SegmentClass(rec) 
+i86obj.c: DoASegDef(rec,use_16=FALSE) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000100(256),increment=00000100(256)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000014(20),increment=00000032(50)) 
+i86obj.c: OutByte(value=000000A9(169)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutOffset(value=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutIdx(value=0000000B(11),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000003(3),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FlushNames() 
+i86obj.c: PickOMF(cmd=00000098(152)) 
+i86obj.c: DoSegment(seg,dgroup_def,tgroup_def,use_16=FALSE) 
+i86obj.c: AskSegIndex(seg=0000000B(11)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: SegmentAttr(align=00000004(4),tipe=00000002(2),use_16=FALSE) 
+i86obj.c: OutGroup(sidx=00000005(5),group_def,index_p) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutIdx(value=00000005(5),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: GetNameIdx(name="",suff,alloc=_BSS) 
+i86obj.c: SegmentClass(rec) 
+i86obj.c: DoASegDef(rec,use_16=FALSE) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000100(256),increment=00000100(256)) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000014(20),increment=00000032(50)) 
+i86obj.c: OutByte(value=000000A9(169)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: OutOffset(value=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 23
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: OutIdx(value=0000000C(12),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000004(4),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FlushNames() 
+i86obj.c: PickOMF(cmd=00000098(152)) 
+i86obj.c: FlushNames() 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: OutIdx(value=00000006(6),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: FlushNames() 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: TellObjNewProc(proc=00000085(133)) 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: AskNameCode(hdl=00000049(73),class=00000000(0)) 
+i86obj.c: AskBackSeg() 
+i86obj.c: SetOP(seg=00000002(2)) 
+i86obj.c: AskSegIndex(seg=00000002(2)) 
+i86obj.c: TellObjNewLabel(lbl=00000000(0)) 
+i86obj.c: SetUpObj(is_data=TRUE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: OutLabel(lbl=0811B9C8(135379400)) 
+i86obj.c: InitPatch() 
+i86obj.c: FillArray(res,size=0000000C(12),starting=0000000A(10),increment=0000000A(10)) 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: AskOP() 
+i86obj.c: SetUpObj(is_data=TRUE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: OutDBytes(len=0000000F(15),src) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000001(1),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: OutIdx(value=00000002(2),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutOffset(value=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: NeedMore(arr,more=0000000F(15)) 
+i86obj.c: IncLocation(by=0000000F(15)) 
+i86obj.c: SetBigLocation(loc=0000000F(15)) 
+i86obj.c: SetMaxWritten() 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 24
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: AskNameCode(hdl=0811BE38(135380536),class=00000002(2)) 
+i86obj.c: AskSegID(hdl=0811BE38(135380536),class=00000002(2)) 
+i86obj.c: AskSegPrivate(id=00000002(2)) 
+i86obj.c: AskSegIndex(seg=00000002(2)) 
+i86obj.c: AskSegID(hdl=0811BE38(135380536),class=00000002(2)) 
+i86obj.c: AskSegNear(id=00000002(2)) 
+i86obj.c: AskSegIndex(seg=00000002(2)) 
+i86obj.c: AskBackSeg() 
+i86obj.c: AskCodeSeg() 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+optmain.c: InputOC(oc) 
+optmain.c: LDone(oc) 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: AskCodeSeg() 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+optmain.c: InputOC(oc) 
+optmain.c: LDone(oc) 
+i86esc.c: DoSymRef(opnd,val=00000000(0),base=FALSE) 
+i86esc.c: DoFESymRef(sym=0811BE38(135380536),class=00000002(2),val=00000000(0),fixup=00000001(1)) 
+i86obj.c: AskSegID(hdl=0811BE38(135380536),class=00000002(2)) 
+i86esc.c: 
+DoRelocRef(sym=0811BE38(135380536),class=00000002(2),seg=00000002(2),val=00000000(0),kind=0000000
+0(0)) 
+optmain.c: InputOC(oc) 
+optmain.c: LDone(oc) 
+optmain.c: InputOC(oc) 
+optmain.c: LDone(oc) 
+optmain.c: InputOC(oc) 
+optmain.c: LDone(oc) 
+optmain.c: InputOC(oc) 
+optmain.c: LDone(oc) 
+optmain.c: InputOC(oc) 
+optmain.c: LDone(oc) 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: AskCodeSeg() 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86esc.c: CodeHasAbsPatch(code) 
+i86esc.c: CodeHasAbsPatch(code) 
+i86esc.c: CodeHasAbsPatch(code) 
+i86esc.c: OutputOC(oc,next_lbl) 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: AskLocation() 
+i86esc.c: DoAlignment(len=00000000(0)) 
+i86obj.c: SavePendingLine(new=00000000(0)) 
+i86esc.c: SendBytes(ptr,len=00000000(0)) 
+i86obj.c: SavePendingLine(new=00000000(0)) 
+i86obj.c: OutLabel(lbl=0811BE00(135380480)) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 25
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: UseImportForm(attr=00000007(7)) 
+i86obj.c: OutExport(sym=00000085(133)) 
+i86obj.c: OutIdx(value=00000002(2),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutObjectName(sym=00000085(133),dest) 
+i86obj.c: OutName(name="main",dst) 
+i86obj.c: NeedMore(arr,more=00000005(5)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: OutIdx(value=00000000(0),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: InitPatch() 
+i86obj.c: FillArray(res,size=0000000C(12),starting=0000000A(10),increment=0000000A(10)) 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86esc.c: DumpSavedDebug() 
+i86esc.c: OutputOC(oc,next_lbl) 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: AskLocation() 
+i86esc.c: DoAlignment(len=00000000(0)) 
+i86obj.c: SavePendingLine(new=00000000(0)) 
+i86esc.c: SendBytes(ptr,len=00000000(0)) 
+i86obj.c: SavePendingLine(new=00000000(0)) 
+i86obj.c: OutLabel(lbl=0811BC0C(135379980)) 
+i86obj.c: InitPatch() 
+i86obj.c: FillArray(res,size=0000000C(12),starting=0000000A(10),increment=0000000A(10)) 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86esc.c: DumpSavedDebug() 
+i86esc.c: OutputOC(oc,next_lbl) 
+i86esc.c: DumpSavedDebug() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86esc.c: ExpandObj(cur,explen=00000009(9)) 
+i86obj.c: OutDBytes(len=00000001(1),src) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000001(1),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutOffset(value=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000004(4)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: IncLocation(by=00000001(1)) 
+i86obj.c: SetBigLocation(loc=00000001(1)) 
+i86obj.c: SetMaxWritten() 
+i86obj.c: OutReloc(seg=00000002(2),class=00000001(1),rel=FALSE) 
+i86obj.c: AskSegIndex(seg=00000002(2)) 
+i86obj.c: CheckLEDataSize(max_size=0000000C(12),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: DoFix(idx=00000001(1),rel=FALSE,base=00000001(1),class=00000001(1),sidx=00000002(2)) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 26
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: NeedMore(arr,more=00000003(3)) 
+i86obj.c: AskIndexRec(sidx=00000002(2)) 
+i86obj.c: OutIdx(value=00000002(2),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutIdx(value=00000002(2),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutDataLong(value=00000000(0)) 
+i86obj.c: OutDataInt(value=00000000(0)) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000002(2),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: IncLocation(by=00000002(2)) 
+i86obj.c: SetBigLocation(loc=00000003(3)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: SetMaxWritten() 
+i86obj.c: OutDataInt(value=00000000(0)) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000002(2),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: IncLocation(by=00000002(2)) 
+i86obj.c: SetBigLocation(loc=00000005(5)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: SetMaxWritten() 
+i86esc.c: OutputOC(oc,next_lbl) 
+i86esc.c: DumpSavedDebug() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86esc.c: ExpandCJ(oc) 
+i86obj.c: OutDataByte(value=000000E8(232)) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000001(1),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: IncLocation(by=00000001(1)) 
+i86obj.c: SetBigLocation(loc=00000006(6)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: SetMaxWritten() 
+i86esc.c: OutCodeDisp(lbl=0811AF38(135376696),f=00000001(1),rel=TRUE,class=00000008(8)) 
+i86obj.c: UseImportForm(attr=0000000F(15)) 
+i86obj.c: OutImport(sym=00000049(73),class=00000001(1),rel=TRUE) 
+i86obj.c: FillArray(res,size=00000001(1),starting=00000100(256),increment=00000032(50)) 
+i86obj.c: CheckImportSwitch(next_is_static=FALSE) 
+i86obj.c: OutName(name="printf",dst) 
+i86obj.c: NeedMore(arr,more=00000007(7)) 
+i86obj.c: OutIdx(value=00000000(0),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: DumpImportResolve(sym=00000049(73),idx=00000001(1)) 
+i86obj.c: OutSpecialCommon(imp_idx=00000001(1),class=00000001(1),rel=TRUE) 
+i86obj.c: CheckLEDataSize(max_size=0000000C(12),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: DoFix(idx=00000001(1),rel=TRUE,base=00000002(2),class=00000001(1),sidx=00000000(0)) 
+i86obj.c: NeedMore(arr,more=00000003(3)) 
+i86obj.c: OutIdx(value=00000002(2),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 27
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: OutIdx(value=00000001(1),dest) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: OutDataLong(value=00000000(0)) 
+i86obj.c: OutDataInt(value=00000000(0)) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000002(2),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: IncLocation(by=00000002(2)) 
+i86obj.c: SetBigLocation(loc=00000008(8)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: SetMaxWritten() 
+i86obj.c: OutDataInt(value=00000000(0)) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000002(2),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: IncLocation(by=00000002(2)) 
+i86obj.c: SetBigLocation(loc=0000000A(10)) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: SetMaxWritten() 
+i86esc.c: OutputOC(oc,next_lbl) 
+i86esc.c: DumpSavedDebug() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86esc.c: ExpandObj(cur,explen=00000003(3)) 
+i86obj.c: OutDBytes(len=00000003(3),src) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000001(1),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: NeedMore(arr,more=00000003(3)) 
+i86obj.c: IncLocation(by=00000003(3)) 
+i86obj.c: SetBigLocation(loc=0000000D(13)) 
+i86obj.c: SetMaxWritten() 
+i86esc.c: OutputOC(oc,next_lbl) 
+i86esc.c: DumpSavedDebug() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86esc.c: ExpandObj(cur,explen=00000002(2)) 
+i86obj.c: OutDBytes(len=00000002(2),src) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000001(1),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+i86obj.c: NeedMore(arr,more=00000002(2)) 
+i86obj.c: IncLocation(by=00000002(2)) 
+i86obj.c: SetBigLocation(loc=0000000F(15)) 
+i86obj.c: SetMaxWritten() 
+i86esc.c: OutputOC(oc,next_lbl) 
+i86esc.c: DumpSavedDebug() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: OutDataByte(value=000000C3(195)) 
+i86obj.c: SetPendingLine() 
+i86obj.c: CheckLEDataSize(max_size=00000001(1),need_init=TRUE) 
+i86obj.c: OutLEDataStart(iterated=FALSE) 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 28
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: IncLocation(by=00000001(1)) 
+i86obj.c: SetBigLocation(loc=00000010(16)) 
+i86obj.c: NeedMore(arr,more=00000001(1)) 
+i86obj.c: SetMaxWritten() 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: AskCodeSeg() 
+i86obj.c: SetOP(seg=00000001(1)) 
+i86obj.c: AskSegIndex(seg=00000001(1)) 
+i86obj.c: ObjFini() 
+i86obj.c: FiniTarg() 
+i86obj.c: FlushObject() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: GenComdef() 
+i86obj.c: EjectLEData() 
+i86obj.c: EjectImports() 
+i86obj.c: SetPatches() 
+i86obj.c: SetAbsPatches() 
+i86obj.c: PickOMF(cmd=000000A0(160)) 
+i86obj.c: PickOMF(cmd=0000009C(156)) 
+i86obj.c: EjectExports() 
+i86obj.c: PickOMF(cmd=00000090(144)) 
+i86obj.c: FreeObjCache() 
+i86obj.c: FlushNames() 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: AskIndexRec(sidx=00000001(1)) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: FiniTarg() 
+i86obj.c: FlushObject() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: GenComdef() 
+i86obj.c: EjectLEData() 
+i86obj.c: EjectImports() 
+i86obj.c: SetPatches() 
+i86obj.c: SetAbsPatches() 
+i86obj.c: PickOMF(cmd=000000A0(160)) 
+i86obj.c: EjectExports() 
+i86obj.c: FreeObjCache() 
+i86obj.c: AskIndexRec(sidx=00000002(2)) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: FiniTarg() 
+i86obj.c: FlushObject() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: GenComdef() 
+i86obj.c: EjectLEData() 
+i86obj.c: EjectImports() 
+i86obj.c: EjectExports() 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 29
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+i86obj.c: FreeObjCache() 
+i86obj.c: AskIndexRec(sidx=00000003(3)) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: FiniTarg() 
+i86obj.c: FlushObject() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: GenComdef() 
+i86obj.c: EjectLEData() 
+i86obj.c: EjectImports() 
+i86obj.c: EjectExports() 
+i86obj.c: FreeObjCache() 
+i86obj.c: AskIndexRec(sidx=00000004(4)) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: FiniTarg() 
+i86obj.c: FlushObject() 
+i86obj.c: SetUpObj(is_data=FALSE) 
+i86obj.c: CheckLEDataSize(max_size=00000010(16),need_init=FALSE) 
+i86obj.c: GenComdef() 
+i86obj.c: EjectLEData() 
+i86obj.c: EjectImports() 
+i86obj.c: EjectExports() 
+i86obj.c: FreeObjCache() 
+i86obj.c: AskIndexRec(sidx=00000005(5)) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: KillArray(arr) 
+i86obj.c: KillStatic(arr) 
+i86obj.c: FiniAbsPatches() 
+i86obj.c: EndModule()
+ 
+ 
+Th
+is trace shows 
+how OMF 
+object 
+file is written
+ in
+ 
+i86obj.
+c
+. We 
+will refer to th
+is trace 
+in th
+e latter 
+sect
+ions. 
+OMF 
+file is com
+posed 
+of 
+object records. T
+hese rec
+ords c
+ontain m
+iscel
+laneous linking inform
+ati
+on, e
+.g.:  
+EX
+TD
+EF
+ 
+Ex
+tern
+al Nam
+es Defin
+itio
+n Reco
+rd (im
+ported sym
+bols) 
+PUBDEF
+ 
+Pu
+blic Nam
+es Defi
+nition R
+ecord (ex
+ported symbol
+s) 
+SEGDEF
+ 
+Seg
+ment Defi
+nitio
+n Record
+ (d
+escribes
+ a logi
+cal segm
+ent) 
+GRP
+DEF
+ 
+Gro
+up Defin
+itio
+n Record (segmen
+ts to
+ be co
+llected
+ tog
+ether) 
+FIXUPP
+              Fi
+xup              Record              (relocat
+ions)              
+BAKPAT
+            B
+ackpat
+ch            Record            (rel
+ocat
+ions)            
+LEDATA
+ 
+Lo
+gical
+ En
+um
+erat
+ed 
+Dat
+a Record (bi
+nary
+ code 
+or dat
+a) 
+ 
+Actu
+al writing
+ is 
+perfo
+rm
+ed by 
+void P
+utObjR
+ec( by
+te cla
+ss, by
+te *b
+uff, uint len )
+ located in 
+posixio.c
+. 
+For e
+xam
+ple, class of 
+LEDATA
+ is eith
+er
+ 0x
+A0
+ or
+ 
+0x
+A1
+. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 30
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+2.5   OWL   
+2.5.1   Definition   
+Abb
+reviation
+ of 
+“Obj
+ect Wr
+itin
+g Library”. Lo
+cated
+ in 
+$O
+WRO
+OT/bld/owl
+. 
+OWL 
+is d
+esigned
+ for writing
+ object files 
+in ELF 
+and CO
+FF fo
+rm
+ats. 
+We are in
+terested
+ main
+ly in
+ th
+e ELF 
+(
+ow
+elf.c
+). However
+, OWL is not
+ an abstract
+ wra
+pper 
+(like ORL). 
+But rather 
+a set of data structures 
+and 
+funct
+ions, use
+ful for creat
+ing ob
+ject
+ files. 
+2.5.2   De
+scription   
+OWL i
+s currently used 
+by RISC
+ co
+de 
+gener
+ators (Alpha 
+AXP a
+nd P
+ower
+PC). As m
+entione
+d a
+bove
+, OWL i
+s 
+not
+ curre
+ntly used 
+by CG386. 
+OWL provi
+des
+ set
+ of usef
+ul funct
+ions for cr
+eat
+ing E
+LF object
+ files. T
+hese
+ funct
+ions c
+over sect
+ions,
+ 
+symbols, an
+d relo
+catio
+ns. Fo
+r un
+derstand
+ing OW
+L, on
+e can ex
+am
+ine 
+$OWROOT/bld/cg/risc/c/rscobj.c
+. 
+For e
+xam
+ple, 
+vo
+id OWLEmitRelo
+c( 
+owl_sectio
+n_handl
+e secti
+on, ow
+l_offset
+ offse
+t, ow
+l_symb
+ol_h
+an
+dle 
+sym,
+ ow
+l_rel
+oc_type
+ type 
+)
+ is in
+tend
+ed to ad
+d n
+ew relo
+cat
+ion to th
+e sp
+ecified
+ section
+. Relocatio
+n typ
+e is 
+defi
+ned
+ in OWL t
+erm
+s: 
+$OWROOT/bld/owl/h/owl.h 
+typedef enum { 
+    OWL_RELOC_ABSOLUTE,       // ref to a 32-bit absolute address 
+    OWL_RELOC_WORD,           // a direct ref to a 32-bit address 
+    OWL_RELOC_HALF_HI,        // ref to high half of 32-bit address 
+    OWL_RELOC_PAIR,           // pair - used to indicate prev hi and next lo 
+linked 
+    OWL_RELOC_HALF_LO,        // ref to low half of 32-bit address 
+    OWL_RELOC_BRANCH_REL,     // relative branch (Alpha: 21-bit; PPC: 14-bit) 
+    OWL_RELOC_BRANCH_ABS,     // absolute branch (Alpha: not used; PPC: 14-bit) 
+    OWL_RELOC_JUMP_REL,       // relative jump (Alpha: 14-bit hint; PPC: 24-
+bit) 
+    OWL_RELOC_JUMP_ABS,       // absolute jump (Alpha: not used; PPC:24-bit) 
+    OWL_RELOC_SECTION_OFFSET, // offset of item within it's section 
+    // meta reloc 
+    OWL_RELOC_SECTION_INDEX,  // index of section within COFF file 
+    OWL_RELOC_TOC_OFFSET,     // 16-bit offset within TOC (PPC) 
+    OWL_RELOC_GLUE,           // location of NOP for GLUE code 
+    OWL_RELOC_FP_OFFSET,      // cheesy hack for inline assembler 
+} owl_reloc_type; 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 31
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+These a
+bstract
+ types are m
+apped to ELF rel
+ocatio
+n typ
+es: 
+ 
+$OWROOT/bld/owl/c/owreloc.c 
+static Elf32_Word elfRelocTypes386[] = { 
+    R_386_NONE, 
+    R_386_32, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_PC32, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_32, 
+    R_386_32, 
+    R_386_GOT32, 
+    R_386_NONE, 
+}; 
+ 
+As sho
+wn abov
+e, OW
+L is i
+nten
+ded prim
+arily to
+ RI
+SC
+ suppo
+rt, so m
+any 386 ABI featu
+res ar
+e m
+issin
+g or 
+incomplete. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 32
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+3. 
+Porting Open Watcom C Compiler and Linker to Linux 
+Th
+e po
+rting
+ task
+ was o
+riginally 
+defined as: 
+• 
+Add
+ PIC sup
+port to th
+e co
+mpiler. 
+• 
+Im
+plem
+ent
+ bui
+lding of sha
+red object
+s (both PIC an
+d PDC
+). 
+• 
+Im
+plement u
+sing of ex
+istin
+g sh
+ared
+ ob
+jects. 
+Th
+is task
+ was 
+defined with the assu
+mptio
+n Op
+en Watco
+m is alread
+y ab
+le to bu
+ild
+ ELF 
+files (i.e. 
+suitab
+le fo
+r 
+Lin
+ux). Th
+is is al
+most tru
+e, bu
+t th
+ere are two
+ prob
+lem
+s: 
+• 
+Som
+e bu
+gs 
+(in 
+open
+_w
+atcom_devel
+_1.1.7
+) cau
+sing
+ prob
+lem
+s in
+ build
+ing
+ ELF ex
+ecu
+tab
+les (ev
+en 
+“Hello, worl
+d!”). 
+• 
+The 
+only objec
+t file fo
+rm
+at pr
+oduce
+d by CG386 i
+s OM
+F. 
+Th
+e first 
+prob
+lem is, o
+f course, tem
+porary. 
+After fi
+xing
+ the m
+entio
+ned bu
+gs, it is 
+possib
+le to
+ bu
+ild
+ ELF 
+executa
+ble from
+ OMF and E
+LF object files 
+and e.g. 
+dietlibc
+ library
+. 
+However, th
+e seco
+nd
+ prob
+lem is m
+ore ser
+ious. I
+t affects
+ the pers
+pective of
+ PIC
+ implem
+entat
+ion (an
+d 
+therefore, building of 
+“real
+” share
+d objects
+). The 
+corresp
+ond
+ing
+ issu
+es are 
+descri
+bed in
+ the latter sectio
+ns. 
+3.1   Position-Ind
+epend
+ent   
+Co
+de   
+PIC stan
+ds fo
+r Po
+sition
+-Ind
+epen
+dent Code. Th
+e fun
+ction
+s in a sh
+ared
+ library 
+may b
+e lo
+aded at 
+differen
+t 
+add
+resses
+ in diffe
+rent
+ programs, so t
+he c
+ode in the share
+d object
+ m
+ust not depe
+nd on the ad
+dres
+s (or 
+position
+) at which
+ it is lo
+aded. Fortun
+ately, on
+ x86 platfo
+rm all j
+umps are 
+PC-relativ
+e (excep
+t fo
+r th
+e 
+indirect ones). There
+ are
+, ho
+wev
+er, so
+me prob
+lem
+s with
+: 
+• 
+funct
+ions e
+xported by a s
+hared object
+; 
+• 
+indirect 
+fun
+ction
+ calls, i.e. 
+(*f)()
+; 
+• 
+global va
+riabl
+es (i
+ncl
+udi
+ng 
+static
+ on
+es). 
+These 
+problems are 
+sol
+ved (in 386 AB
+I) m
+ostly by 
+introdu
+cin
+g special relocatio
+n typ
+es. Th
+ese 
+relo
+cation 
+types are 
+speci
+fic to E
+LF obje
+ct files, 
+there a
+re no their e
+quival
+ents in OM
+F. 
+There
+ are
+ three
+ possible 
+workarounds: 
+• 
+introdu
+cing
+ OMF ex
+ten
+sion
+s fo
+r PIC sup
+port; 
+• 
+addi
+ng ELF
+ output
+ to CG386 (usi
+ng OWL); 
+• 
+writing
+ new cod
+e generator with
+ ELF ou
+tpu
+t (b
+ased
+ on
+ CG38
+6), 
+lik
+e RISC o
+nes. 
+Th
+e first ap
+proach
+ is t
+he sim
+plest fro
+m implementatio
+n persp
+ectiv
+e. B
+ut we will g
+et a non
+-stan
+dard object 
+file f
+ormat, ali
+en to bo
+th Linux
+ an
+d Windows wo
+rlds. Th
+eref
+ore su
+ch ap
+proach sho
+uld be o
+mmited
+. 
+The t
+hird approach seem
+s too ha
+rd to
+ im
+plement, since C
+G386 is t
+he m
+ost com
+plex code ge
+nerat
+or. And it 
+seem
+s im
+practical to ha
+ve two branc
+hes 
+of 
+CG386
+ that d
+iffer only in 
+the outp
+ut format. 
+So t
+he sec
+ond 
+approach is the
+ best 
+option. T
+here
+ are t
+hree
+ subt
+asks nee
+ded for PIC
+ support: 
+• 
+introdu
+cing
+ new co
+mman
+d line switch
+es in 
+wcc386
+ (for E
+LF a
+nd PIC
+); 
+• 
+im
+plem
+ent
+ing out
+put
+ of EL
+F ob
+ject
+ files in CG386;
+ 
+• 
+im
+ple
+menting 
+PIC (accordi
+ng to 
+386 
+ABI) i
+n CG386. 
+Of 
+cours
+e, change
+s to Open Wat
+com
+ Li
+nke
+r are
+ nee
+ded as
+ wel
+l. But 
+wlink
+ is descr
+ibed in
+ other sections. 
+Moreove
+r, we
+ can use 
+ld
+ to build share
+d object
+ from
+ ELFs 
+produce
+d by 
+wcc386
+. 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 33
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+3.1.1 
+Com
+mand Line Switch
+es 
+There a
+re no
+ EL
+F an
+d P
+IC s
+witches in Op
+en 
+Watco
+m C Com
+piler. In
+ 
+gcc
+, ELF 
+is d
+efau
+lt form
+at of obj
+ect 
+files, an
+d PIC
+ gene
+rat
+ion i
+s turned on by
+ either 
+-fPIC
+ or 
+-fpic
+. 
+Since c
+omm
+and line 
+of 
+wcc386
+ di
+ffe
+rs from
+ 
+gcc
+ very m
+uch, we
+ m
+ay follow the
+ “Watc
+om style”. For 
+ELF, 
+perhaps th
+e b
+est op
+tio
+n is 
+-elf
+. T
+he “el” 
+pre
+fix is 
+free
+, since
+ the “nea
+rest” 
+options are
+ 
+-ei
+ an
+d 
+-em
+. And 
+this 
+choice is
+ logical, beca
+use t
+he option 
+-ez
+ stands 
+for “
+generat
+e Pha
+rLa
+p EZ
+-OMF 
+object 
+files”. 
+For PIC, t
+he GNU style seems unacce
+ptable, since “
+fp” prefix is in
+tende
+d for floating-poi
+nt options. 
+Especially, 
+-fpi
+ mean
+s “in
+lin
+e 80
+x87
+ instru
+ctions with em
+ulation”. 
+Like i
+n the ELF case, s
+imply 
+-pic
+ ma
+y 
+be 
+acce
+ptable (howe
+ver, 
+“p” prefixe
+s pr
+eproc
+essor options
+). As alternative, 
+-zpic
+ see
+ms a good c
+hoice, 
+since “z” 
+groups 
+very s
+pecifi
+c options. T
+here is also 
+-re
+ switch
+ (alread
+y implemented
+). Th
+is switch
+ is 
+mapped
+ to 
+PO
+SITION
+_INDEPEND
+ANT
+ opt
+ion i
+n CG386, but
+ nothing reas
+ona
+ble is per
+formed w
+hen it 
+is tu
+rned on
+. 
+Final
+ly, our sw
+itch sh
+ould be 
+passe
+d from
+ 
+wcc386
+ to CG386
+. Th
+e in
+teresti
+ng files are: 
+$OW
+ROOT/bld/cc/c/coptions.c, cge
+n2.c,
+ $OW
+ROOT/b
+ld/cg/h/cgswitch.h,
+ and 
+$OWROOT/bld/cg
+/intel/h/cg
+i86
+swi.h
+. In
+ the co
+mpiler, switch
+es are st
+ored in
+ 
+CompFl
+ags
+ variable.
+ Other 
+im
+port
+ant va
+riabl
+es are
+ 
+GenSwitches
+ and 
+(especially) 
+Tar
+getSwitches
+. 
+Sw
+itch
+es ar
+e passed
+ to CG386
+ in 
+cge
+n2.c
+: 
+void DoCompile() 
+{ 
+            // ... 
+            cgi_info = BEInit( GenSwitches, TargetSwitches, OptSize, 
+ProcRevision ); 
+            // ... 
+} 
+3.1.2 
+ELF Obje
+ct Files 
+Since Ope
+n Watcom
+ already 
+contains OW
+L with 
+EL
+F support, it is p
+lanned to use th
+is library in CG38
+6. 
+Bo
+th CG386
+ an
+d OWL were 
+descri
+bed briefly in
+ th
+e previou
+s section
+s. 
+Many things i
+n CG386 are rigidly bo
+und to OM
+F st
+ructure
+. OM
+F output is implem
+ent
+ed mostly in 
+$OWROOT/bld/cg
+/intel/c/i8
+6obj.c
+, 
+i86esc
+.c
+, and 
+$O
+WR
+OOT
+/bld/cg/c/posi
+xio.c
+. Howev
+er, an
+y obj
+ect 
+file fo
+rm
+at defi
+nes 
+virtual
+ly the sam
+e object
+s: groups, se
+gm
+ent
+s, sy
+mbol
+s, relocat
+ions
+, et
+c. The
+ bi
+ggest
+ 
+conce
+ptual di
+fference
+ bet
+ween OM
+F a
+nd EL
+F i
+s rel
+ocat
+ion han
+dling. B
+ut the opposite probl
+em
+ was 
+success
+fully 
+solved 
+in ORL 
+and WLCore. So we 
+can im
+plement the sam
+e “mapping” a
+pproac
+h in CG386, 
+avoi
+ding harm
+ful
+ cha
+nges t
+o the c
+omplicat
+ed co
+de 
+gene
+rat
+or. 
+The sam
+ple tra
+ce (see 
+section 
+CG386) 
+shows
+ how OMF object file is creat
+ed. 
+Co
+de and
+ data (i.e. 
+binary p
+ayload) are written
+ by 
+EjectLEData()
+. Altho
+ugh th
+ere are man
+y calls of t
+his 
+function in the 
+trace, 
+data are
+ written 
+when the 
+following 
+condition is true
+: 
+ob
+j->d
+ata.us
+ed > 
+CurrSe
+g-
+>dat
+a_
+pref
+ix_size
+. Instead of calling 
+Pu
+tO
+bjRec()
+, we will 
+call 
+OWLEmit
+Da
+ta()
+. No
+te th
+at fix-up
+s are 
+written
+ in 
+EjectLEData
+()
+ as 
+well. So
+ 
+OWL
+EmitReloc
+()
+ sh
+ou
+ld b
+e used to
+ write rel
+ocatio
+ns. 
+Sam
+ple m
+appi
+ng bet
+ween
+ 
+i86o
+bj.c
+ and
+ OWL is sh
+own
+ below. Each
+ en
+try
+ m
+ean
+s th
+at we 
+can
+ use 
+specified 
+OWL fun
+ctio
+n for 
+OMF task
+, so there is no
+ direct corres
+pondence
+ bet
+ween colum
+ns. 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 34
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+OMF                      
+OWL                      
+DefS
+egm
+ent()
+     
+OWLSectio
+nInit()     
+Eject
+Im
+port
+s()    
+OWLEm
+itImport
+()
+EjectE
+xports
+()    
+OWLEmitExport()
+OutLa
+bel(
+)          
+OWLSy
+mbolInit()          
+ 
+RISC object c
+ode, l
+ocated in 
+$OWROOT/bl
+d/$OWROOT
+/bld/rsco
+bj.c
+. can be use
+d as a 
+refe
+rence. 
+Un
+fortu
+nately
+ OWL is RI
+SC-
+orie
+nted,
+ so
+ m
+issing
+ feat
+ures
+ should be
+ adde
+d. T
+here a
+re s
+ome relocation 
+typ
+es m
+issin
+g in
+ th
+e curren
+t OWL. Th
+ese rel
+ocatio
+ns are 
+describ
+ed in th
+e nex
+t section
+. Abstract relo
+cation
+ 
+types are 
+defined i
+n 
+ow
+l.h
+. T
+he m
+appi
+ng 
+bet
+ween
+ OWL rel
+ocat
+ions and 386 AB
+I is defi
+ned
+ in 
+ow
+rel
+oc.c
+: 
+ 
+static Elf32_Word elfRelocTypes386[] = { 
+    R_386_NONE, 
+    R_386_32, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_PC32, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_NONE, 
+    R_386_32, 
+    R_386_32, 
+    R_386_GOT32, 
+    R_386_NONE, 
+}; 
+ 
+Since s
+ome rel
+ocat
+ions are
+ 386-speci
+fic, the cor
+responding con
+stants to both fi
+les s
+houl
+d be a
+dde
+d. In 
+addition
+, new fix
+up flag
+s are n
+eed
+ed fo
+r the map
+ping
+ between
+ OMF-style fixu
+ps and
+ OWL 
+relo
+cati
+ons. 
+Ex
+tend
+ing
+ fixup
+s seem
+s to
+ be the h
+ardest p
+art o
+f th
+is sub
+task
+. 
+Th
+e on
+ly rem
+ark is th
+at OWL in
+ 
+open
+_w
+atcom_devel
+_1.1.7
+ seem
+ed t
+o be unde
+r devel
+opment
+, i.e. s
+ome 
+features are in
+comp
+lete. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 35
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+3.1.3   PIC   
+Gene
+rati
+on   
+ 
+GOT
+ base 
+regi
+ster
+ 
+ 
+The 
+EB
+X
+ reg
+ister serv
+es as the g
+lob
+al offset 
+tab
+le b
+ase reg
+ister fo
+r po
+sition
+-independent code. So
+ this 
+regi
+ster sh
+ould be e
+xcluded from
+ norm
+al cod
+e ge
+nerat
+ion. 
+Reg
+ister m
+acros were 
+descri
+bed
+ in CG38
+6 secti
+on. Th
+e fo
+llo
+wing tem
+plat
+e illu
+strates turn
+ing
+ off 
+EB
+X
+. 
+ 
+$OWROOT/bld/cg/intel/386/c/386rgtbl.c 
+extern  hw_reg_set      FixedRegs() { 
+/************************************ 
+    return the set of register which may not be modified within this routine 
+*/ 
+ 
+    hw_reg_set  fixed; 
+    // ... 
+    HW_CTurnOn( fixed, HW_EBX ); // PIC 
+    return( fixed ); 
+} 
+ 
+extern  hw_reg_set      AllCacheRegs() { 
+/*************************************** 
+    return the set of all registers that could be used to cache values 
+*/ 
+ 
+    hw_reg_set all; 
+    // ... 
+    HW_CTurnOff( all, HW_EBX ); // PIC 
+    return( all ); 
+} 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 36
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+Po
+sition
+-Ind
+epen
+dent Fun
+ction
+ Pro
+log
+ue
+ 
+ 
+prologue: 
+        pushl   %ebp 
+        movl    %esp, %ebp 
+        subl    $80, %esp 
+        pushl   %edi 
+        pushl   %esi 
+        pushl   %ebx 
+        call    .L1 
+.L1:    popl    %ebx 
+        addl    $_GLOBAL_OFFSET_TABLE_+[.-.L1], %ebx 
+ 
+The 
+call
+ in
+structio
+n pushes the ab
+solute add
+ress of t
+he next instru
+ction
+ on
+to th
+e stack. 
+Conse
+quent
+ly, the 
+po
+pl
+ instructio
+n pops th
+e absolute ad
+dress of 
+.L1
+ in
+to register 
+%e
+bx
+. 
+Th
+e last instructio
+n co
+mputes th
+e desired
+ abso
+lute value in
+to 
+%e
+bx
+. This works because 
+_GLOB
+AL_OFFSET_
+TABLE_
+ in t
+he e
+xpression 
+gives
+ the 
+distance 
+from
+ the 
+ad
+dl
+ in
+struction
+ to th
+e 
+global offset table; 
+[.-.L
+1]
+ gives 
+the distance
+ from
+ 
+.L1
+ to
+ the 
+ad
+dl
+ in
+stru
+ctio
+n. Add
+ing
+ their su
+m to
+ th
+e 
+absolute ad
+dress of 
+.L1
+, alr
+eady in
+ 
+%e
+bx
+, gi
+ves t
+he a
+bsol
+ute ad
+dres
+s of t
+he gl
+obal offset
+ table. 
+Th
+e last lin
+e see
+ms a b
+it co
+mplicated
+, sin
+ce t
+here is address 
+calcu
+latio
+n. But actu
+ally th
+is lin
+e sh
+ou
+ld b
+e 
+add  
+  
+$0x3
+,%ebx
+, wh
+ere immed
+iate is th
+e exp
+licit
+ add
+end
+ for 
+R_3
+86_
+GOTPC
+ relo
+catio
+n. No
+te th
+at cod
+e 
+gene
+rat
+or should creat
+e the undefi
+ned
+ sy
+mbol
+ 
+_GLOB
+AL_OFFSET_
+TABLE_
+, if 
+R_
+386
+_GOTPC
+ 
+encountere
+d. 
+Prol
+ogues
+ are
+ han
+dled in 
+$OWROOT/bld/cg
+/intel/c/i8
+6proc.c
+, so neede
+d code
+ should be a
+dde
+d t
+o 
+voi
+d 
+GenPro
+log
+( vo
+id )
+. 
+Tem
+plate
+: 
+    pointer lbl; 
+    // ... 
+            AllocStack(); 
+            AdjustPushLocals(); 
+            // PIC 
+            lbl = AskForNewLabel(); 
+            GenCallLabel( lbl ); 
+            CodeLabel( lbl, 0 ); 
+            QuickSave( HW_EBX, OP_POP ); 
+            GenRegAdd( HW_EBX, 3 ); 
+            // Add relocation R_386_GOTPC 
+            GenKillLabel( lbl ); 
+            ///PIC 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 37
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+In add
+itio
+n, register 
+EB
+X
+ should be 
+save
+d i
+n the st
+ack. T
+here is vari
+able 
+to_push
+ in
+ 
+Gen
+Prolog()
+, so the 
+needed cod
+e is: 
+HW_CTur
+nOn( 
+to_push
+, HW_EB
+X )
+. 
+Mo
+reover, 386 A
+BI no
+tes t
+hat 
+EB
+X
+, 
+ESI
+, and 
+EDI
+ sh
+ou
+ld 
+be sav
+ed in th
+e stack
+, fo
+r bo
+th PIC and
+ PDC. 
+Of 
+cou
+rse, 
+PIC
+ actio
+ns depend
+ on CG38
+6 switch
+ for PIC.
+ So
+ con
+dition
+al p
+rocessi
+ng as well 
+shou
+ld be also
+ 
+adde
+d. 
+Po
+sition
+-Ind
+epen
+dent Fun
+ction
+ Ep
+ilog
+ue
+ 
+All reg
+isters 
+previou
+sly sav
+ed in
+ stack
+ (see ab
+ove) sh
+ould be r
+esotred. 
+Alth
+oug
+h ep
+ilog
+ue is created
+ in 
+voi
+d GenE
+pilog( voi
+d )
+, th
+e in
+teresting
+ functio
+n is 
+vo
+id Do
+Epilog
+( vo
+id )
+. 
+Both are defi
+ned i
+n 
+$OWROOT/bld/cg
+/intel/c/i8
+6proc.c
+. 
+There is
+ variable
+ 
+to_p
+op
+, defining
+ th
+e r
+egister set to b
+e popp
+ed. 
+PIC Fun
+ctio
+n Calls
+ 
+Fun
+ctio
+n calls are h
+and
+led 
+in 
+$OWROOT/bld/cg
+/intel/c/i8
+6call.c
+. Th
+ere is also
+ im
+portant fun
+ction
+ 
+voi
+d 
+AddCa
+llIns( i
+nstruction 
+*ins, cn 
+call )
+ lo
+cated
+ in
+ 
+$OWROOT/bld/cg
+/c/bldca
+ll.c
+. 
+Sin
+ce ELF-sp
+ecific relo
+cations are 
+no
+t im
+plemented
+ yet,
+ th
+ere is 
+no cod
+e tem
+plate. However, t
+he task is 
+simple. For PDC, th
+e targ
+et add
+ress has 
+R_386
+_PC32
+ rel
+ocatio
+n. For 
+PIC, th
+is rel
+ocation
+ sh
+ou
+ld b
+e 
+R_38
+6_
+PLT
+32
+. Th
+e correspo
+nding
+ GNU assem
+bler lin
+e is 
+call functio
+n@PLT
+. 
+The i
+nform
+ation a
+bove c
+overs
+ direct 
+function calls. 
+Indi
+rect function 
+calls 
+are kind of PIC data 
+access 
+descri
+bed
+ bel
+ow. 
+PIC Data 
+Acce
+ss
+ 
+This tas
+k cove
+rs accessing t
+he global 
+data (i
+ncluding 
+extern
+ and 
+static
+). Positio
+n-ind
+epend
+ent instru
+ction
+s 
+can
+no
+t co
+ntain absolute ad
+dresses. 
+Instead
+, in
+stru
+ctio
+ns that refe
+rence sy
+mbol
+s hold the s
+ymbol
+s’ offset
+s 
+into th
+e g
+lob
+al offset tab
+le. Com
+bining th
+e of
+fset with the 
+global 
+offset ta
+ble addres
+s in 
+EB
+X
+ gi
+ves t
+he 
+abs
+olute address o
+f the table ent
+ry hol
+ding the desi
+red a
+ddress. 
+ 
+Sample                                  
+PDC                                  
+PIC                                  
+extern int src; 
+extern int dst; 
+extern int *ptr; 
+ptr = &dst; 
+ 
+ 
+ 
+*ptr = src; 
+.globl  src, dst, ptr
+ 
+ 
+movl    $dst, ptr 
+ 
+ 
+ 
+movl    ptr, %eax 
+movl    src, %edx 
+movl    %edx, (%eax) 
+.globl  src, dst, ptr 
+ 
+ 
+movl    ptr@GOT(%ebx), %eax 
+movl    dst@GOT(%ebx), %edx 
+movl    %edx, (%eax) 
+ 
+movl    ptr@GOT(%ebx), %eax 
+movl    (%eax), %eax 
+movl    src@GOT(%ebx), %edx 
+movl    (%edx), %edx 
+movl    %edx, (%eax) 
+ 
+ 
+ 
+Alth
+oug
+h referen
+ces lik
+e 
+name@GOT
+ seem com
+plicated, their m
+eaning is sim
+ple, e.g. 
+mo
+v    0x0(%
+ebx)
+, 
+%e
+ax
+, w
+here
+ 
+0x0
+ is ad
+dend
+ for rel
+ocation
+ 
+R_3
+86_
+GOT
+32
+, associated with 
+sym
+bol 
+ptr
+. F
+or PDC
+, 
+relo
+cation
+ typ
+e is 
+R_
+386_
+32
+, and
+ ge
+nerat
+ed code
+ is m
+uch s
+impler. 
+Finally, position-i
+nde
+pende
+nt 
+refe
+rences to 
+static data m
+ay be opti
+mized. Because 
+EB
+X
+ ho
+lds a k
+now
+n 
+address
+, the
+ gl
+obal 
+offset ta
+ble, a 
+program
+ may use it as
+ a base re
+gister. 
+Ex
+ternal re
+ferenc
+es sh
+ould 
+use
+ the 
+glob
+al offset tab
+le en
+try, becau
+se dynamic li
+nking m
+ay b
+ind th
+e en
+try to
+ a d
+efin
+itio
+n ou
+tsid
+e th
+e curren
+t 
+object
+ file’s sc
+ope
+. F
+or 
+static
+ variab
+les, the PIC cod
+e will b
+e th
+e following
+: 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 38
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+leal    ptr@GOTOFF(%ebx), %eax 
+leal    dst@GOTOFF(%ebx), %edx 
+movl    %edx, (%eax) 
+movl    ptr@GOTOFF(%ebx), %eax 
+movl    src@GOTOFF(%ebx), %edx 
+movl    %edx, (%eax) 
+ 
+Agai
+n, refe
+rences 
+name@GOTOFF
+ act
+ually co
+rrespon
+d to
+ relo
+cation
+s 
+R_386_GOTOF
+F
+, whe
+re 
+relo
+cation
+ symb
+ol is the se
+gm
+ent (e
+.g. 
+.bss
+), and im
+plici
+t ad
+dend
+ is offset 
+of 
+na
+me
+ in th
+is seg
+ment. 
+There
+ is 
+no code tem
+plate for data access. This task
+ is m
+ost com
+plicated, so a
+dditional investigation is 
+neede
+d. PIC da
+ta access m
+ight affect t
+he c
+omm
+on code
+ ge
+nerator (not only 
+CG386). 
+In 
+general, PIC
+ gl
+obal 
+variab
+le shou
+ld b
+e treated
+ as 
+po
+inter to
+ the ac
+tual addres
+s instead 
+of a
+ddres
+s itself. 
+On
+e po
+ten
+tially u
+sefu
+l fun
+ctio
+n is 
+AddGl
+obalInde
+x()
+ located in 
+$OW
+ROOT/bld/cg/
+intel
+/386/c/386
+op
+seg
+.c
+. Thi
+s fu
+nct
+ion adds
+ 
+EB
+X
+ to every
+ m
+emory refere
+nce. 
+Sum
+mary
+ 
+ 
+Fo
+r PIC su
+pport, co
+de generato
+r sho
+uld be ab
+le to
+ produ
+ce 
+some sp
+ecific relo
+catio
+ns (in ad
+dition
+ to 
+R_38
+6_3
+2
+ and 
+R_
+386
+_PC32
+). T
+hese 
+relocations
+ are
+ summa
+rized 
+belo
+w (now
+ from
+ the pe
+rspect
+ive of link 
+edito
+r). 
+ 
+R_38
+6_
+GOT32
+ 
+This 
+relocation type com
+putes
+ the 
+distance 
+from
+ the base 
+of the gl
+obal
+ offs
+et table to the 
+symbol’s glob
+al o
+ffset tab
+le en
+try. 
+It add
+ition
+ally in
+structs 
+the lin
+k ed
+itor to build a 
+glob
+al 
+offset
+ table. 
+R_38
+6_
+GOT
+OFF 
+This 
+relocation type com
+putes
+ the 
+diffe
+rence 
+betwee
+n a 
+symbol
+’s value a
+nd the a
+ddress
+ of 
+the 
+glob
+al offset tab
+le. It add
+itio
+nally in
+stru
+cts t
+he link
+ ed
+ito
+r to
+ build th
+e glob
+al offset tab
+le. 
+R_38
+6_GOTPC
+ 
+Th
+is relo
+cation typ
+e resem
+bles 
+R_
+386
+_PC32
+, except it use
+s the a
+ddress
+ of the gl
+obal
+ offset 
+tab
+le in
+ its calcu
+latio
+n. Th
+e sy
+mbol referen
+ced in th
+is relo
+catio
+n norm
+all
+y is 
+_GLOB
+AL_OFFSET_
+TABLE_
+, wh
+ich
+ add
+itio
+nally in
+stru
+cts th
+e lin
+k edito
+r to bu
+ild
+ the 
+global offset table. 
+R_38
+6_
+PLT
+32 
+Th
+is relo
+cation typ
+e co
+mputes th
+e ad
+dress of 
+the sy
+mbol
+’s proce
+dure l
+inkage t
+able ent
+ry and 
+addition
+ally instru
+cts t
+he link
+ edito
+r to
+ bu
+ild
+ a pro
+cedu
+re li
+nk
+age tab
+le. 
+ 
+ 
+3.1.4   Note
+s   
+ 
+The i
+nform
+ation 
+prese
+nted in the sect
+ions a
+bove s
+houl
+d not
+ be treat
+ed a
+s ret
+elling o
+f 386 ABI. It sh
+ould be 
+use
+d toget
+her wi
+th AB
+I d
+ocumentation. So
+me det
+ails are 
+omitted
+. Du
+ring
+ th
+e portin
+g wo
+rk, d
+evelop
+er 
+sho
+uld re
+fer
+ to AB
+I a
+nd other doc
+um
+ent
+ation; per
+form anal
+ysis usi
+ng 
+ob
+jdump
+ and
+ 
+readelf
+; etc. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 39
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+3.2 
+Building Sha
+red Objec
+ts 
+Th
+is section
+ describ
+es th
+e ch
+anges to Op
+en Watco
+m Li
+nke
+r, nee
+ded for buildin
+g s
+hare
+d libraries 
+(PIC a
+nd 
+PDC). 
+3.2.1 
+Linker Com
+mand Lin
+e 
+Fort
+unately, the comm
+and lin
+e op
+tio
+n fo
+r build
+ing a sh
+ared
+ object is al
+ready i
+mplemented
+ in
+ Op
+en Watco
+m 
+Linke
+r. In s
+uch case, 
+one s
+hould exec
+ute t
+he linke
+r this 
+way: 
+wlink form E
+LF DLL .
+.. 
+DLL
+ stands 
+for Dy
+nam
+ic Li
+nki
+ng Li
+bra
+ry that is sha
+red object in
+ th
+e Linux
+ world. On
+e can
+ ch
+eck th
+at ELF 
+share
+d object was re
+queste
+d by 
+exam
+ining 
+FmtData
+: 
+if( (FmtData.type & MK_ELF) && FmtData.dll ) { 
+    // Do something... 
+} 
+3.2.2   ELF   
+Hea
+der   
+Cu
+rren
+tly, Lo
+adELF is ab
+le to produ
+ce 
+only execu
+tab
+le files (
+ET_
+EXEC
+). Share
+d object
+s ha
+ve t
+ype 
+ET_
+DYN
+. T
+he following cha
+nge
+ is neede
+d: 
+$OWROOT/bld/wl/c/loadelf.c 
+static void SetHeaders( ElfHdr *hdr ) 
+/***********************************/ 
+{ 
+    // ... 
+    hdr->eh.e_type = FmtData.dll ? ET_DYN : ET_EXEC; 
+    // ... 
+} 
+3.2.3 
+Segm
+ents an
+d Section
+s 
+Th
+is is 
+on
+ly a sa
+mple. Cod
+ing
+ task
+s are 
+descri
+bed in
+ latter 
+sectio
+ns. 
+ELF e
+xecuta
+bles created by 
+wlink
+ are 
+organized i
+n the f
+ollowi
+ng way
+ (output from
+ 
+readelf -a
+): 
+Program Headers: 
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align 
+  PHDR           0x000034 0x08048034 0x00000000 0x????? 0x????? R E 0 
+  LOAD           0x?????? 0x080????? 0x00000000 0x????? 0x????? R E 0x1000 
+  LOAD           0x?????? 0x080????? 0x00000000 0x????? 0x????? RW  0x1000 
+  
+ Section to Segment mapping: 
+  Segment Sections... 
+   00 
+   01     .text 
+   02     .data .bss 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 40
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+Shared objects created by 
+ld
+ are organized in the following way (complete 
+example): 
+Program Headers: 
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align 
+  LOAD           0x000000 0x00000000 0x00000000 0x????? 0x????? R E 0x1000 
+  LOAD           0x?????? 0x???????? 0x???????? 0x????? 0x????? RW  0x1000 
+  DYNAMIC        0x?????? 0x???????? 0x???????? 0x????? 0x????? RW  0x4 
+  
+ Section to Segment mapping: 
+  Segment Sections... 
+   00     .hash .dynsym .dynstr .rel.dyn .rel.plt .plt .text .rodata 
+   01     .data .dynamic .got .bss 
+   02     .dynamic 
+ 
+We 
+will refer t
+o th
+ese sam
+ples fro
+m other sectio
+ns of th
+is do
+cument. 
+3.2.4   Program
+   Hea
+ders   
+ 
+Unnecessa
+ry 
+PT_
+PHD
+R
+ 
+ 
+Since s
+hare
+d object is
+ not a 
+program
+, the 
+program
+ header 
+entry 
+PT
+_PH
+DR
+ is not 
+nee
+ded. 
+Program
+ headers
+ 
+are allocated in 
+SetHeaders()
+, and
+ th
+e first ele
+ment is always 
+PT_P
+HDR
+. 
+Tem
+plate
+: 
+static void SetHeaders( ElfHdr *hdr ) 
+/***********************************/ 
+{ 
+    hdr->eh.e_phnum = NumGroups + (FmtData.dll ? 0 : 1); 
+    // ... 
+    if( !FmtData.dll ) { 
+        hdr->ph->p_type = PT_PHDR; 
+        hdr->ph->p_offset = sizeof(Elf32_Ehdr); 
+        hdr->ph->p_vaddr = sizeof(Elf32_Ehdr) + FmtData.base; 
+        hdr->ph->p_paddr = 0; 
+        hdr->ph->p_filesz = hdr->ph_size; 
+        hdr->ph->p_memsz = hdr->ph_size; 
+        hdr->ph->p_flags = PF_R | PF_X; 
+        hdr->ph->p_align = 0; 
+    } 
+    // ... 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 41
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+} 
+Bu
+t 
+PT_P
+HDR
+ is assu
+med in
+ 
+Wri
+teELFGro
+ups()
+, so
+ that fun
+ction
+ sh
+ould
+ be ch
+ang
+ed as well: 
+ph
+ = h
+dr-
+>ph + 
+(Fm
+tData.dll ?
+ 0 : 1)
+. 
+ 
+Necessa
+ry 
+PT_D
+YNA
+MIC
+ 
+ 
+Alth
+oug
+h 
+PT_PHDR
+ is ne
+ver used
+ in sha
+red ob
+ject
+s, 
+PT_D
+YNA
+MIC
+ is always use
+d there. T
+his progra
+m 
+heade
+r speci
+fies dy
+namic li
+nking i
+nform
+ation. 
+There
+fore 
+we c
+an leave
+ 
+hdr
+->eh.e_phn
+um =
+ Num
+Groups
+ + 1
+, for exec
+utable and 
+sha
+red object. 
+Following 
+the
+ GNU 
+conve
+ntion, we will 
+place dynam
+ic segm
+ent after 
+other se
+gm
+ents. 
+3.2.5   Dynam
+ic   Section   
+The 
+PT_D
+YNA
+MIC
+ segm
+ent
+ cont
+ains the 
+.dyn
+ami
+c
+ secti
+on. Th
+is section
+ (with typ
+e 
+SHT_
+DY
+NA
+MIC
+) 
+contains a
+n array of the 
+foll
+owing structures
+. 
+ 
+$OWROOT/bld/watcom/h/exeelf.h 
+typedef struct { 
+    Elf32_Sword         d_tag; 
+    union { 
+        Elf32_Word      d_val; 
+        Elf32_Addr      d_ptr; 
+    } d_un; 
+} Elf32_Dyn; 
+ 
+// dynamic array tags 
+ 
+#define DT_NULL         0 
+#define DT_NEEDED       1               // name of a needed library 
+#define DT_PLTRELSZ     2               // size of reloc entries for PLT 
+#define DT_PLTGOT       3               // address with PLT or GOT 
+#define DT_HASH         4               // symbol hash table address 
+#define DT_STRTAB       5               // string table address 
+#define DT_SYMTAB       6               // symbol table address 
+#define DT_RELA         7               // address of reloc table with addends 
+#define DT_RELASZ       8               // size of the DT_RELA table 
+#define DT_RELAENT      9               // size of a DT_RELA entry 
+#define DT_STRSZ        10              // size of the string table 
+#define DT_SYMENT       11              // size of a symbol table entry 
+#define DT_SONAME       14              // shared object name 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 42
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+#define DT_REL          17              // address of reloc table without 
+addends 
+#define DT_RELSZ        18              // size of the DT_REL table 
+#define DT_RELENT       19              // size of a DT_REL entry 
+#define DT_PLTREL       20              // type of reloc entry for PLT 
+#define DT_DEBUG        21              // for debugging information 
+#define DT_JMPREL       23              // reloc entries only with PLT 
+ 
+ 
+Thi
+s sect
+ion s
+houl
+d resi
+de i
+n the dat
+a se
+gm
+ent
+. We ca
+n create th
+is section at th
+e en
+d of 
+first lin
+ker pass (as 
+seg
+ment in
+ 
+DGRO
+UP
+). Th
+is sectio
+n will b
+e written
+ later u
+sing Lo
+adELF. Add
+itio
+nally, 
+the p
+rog
+ram
+ head
+er 
+PT_
+DYN
+AM
+IC
+ should be up
+dat
+ed. 
+3.2.6   Dynam
+ic   Sym
+bols   
+ 
+Sha
+red object
+s cont
+ain two sy
+mbol
+ tables (i
+.e. sect
+ions):
+ normal sym
+bol
+ table (
+SHT_SYMTAB
+), a
+nd 
+dynam
+ic sym
+bol table (
+SHT
+_DY
+NS
+YM
+). The nam
+e of 
+dynam
+ic sym
+bol
+ table is 
+.dyns
+ym
+ instead of 
+.sym
+tab
+. 
+Both are gene
+rally the sam
+e, but
+ dynam
+ic table d
+oes not contain l
+ocal sy
+mbol
+s (e
+xcept
+ sections)
+. Of
+ co
+urse, 
+the co
+rre
+sponding 
+string table sh
+oul
+d be c
+reated (
+.dyns
+tr
+ instead 
+of 
+.str
+tab
+). For 
+shared objects, 
+section 
+.has
+h
+ is 
+related to
+ dynamic sy
+mbol tab
+le. 
+Som
+e changes are neede
+d to 
+WriteElfSy
+mTa
+ble()
+, located in 
+loa
+delf2
+.c
+. Fu
+nct
+ion 
+Wri
+teSHS
+trings
+()
+ from 
+loadel
+f.c
+ shoul
+d be c
+hanged a
+s wel
+l. These
+ changes
+ include providing vi
+rtual
+ ad
+dresses 
+of the 
+cor
+responding sect
+ions 
+(there 
+is no m
+emory allocat
+ion 
+for norm
+al sym
+bol
+ table),
+ an
+d s
+upport
+ing differe
+nt 
+sect
+ion 
+nam
+es and
+ types.
+ Li
+ke norm
+al sym
+bol
+ table, t
+wo var
+iabl
+es are 
+nee
+ded 
+for dynam
+ic table: 
+ 
+$OWROOT/bld/wl/h/loadelf.c 
+static stringtable      SymStrTab; 
+static ElfSymTable *    ElfSymTab; 
+static stringtable      DynStrTab; // new 
+static ElfSymTable *    DynSymTab; // new 
+ 
+The c
+orres
+ponding c
+hanges
+ are neede
+d to 
+void InitSec
+tions
+( ElfH
+dr 
+*hdr
+ )
+ (i.e. 
+allocating
+ 
+.dyn
+sym
+ an
+d 
+.dynstr
+), a
+nd t
+o 
+void
+ ChkElf
+Da
+ta( v
+oid )
+ (i.e. in
+itializin
+g dynamic sy
+mbol tab
+le). ELF 
+hand
+le sho
+uld be 
+modified
+ as 
+well: 
+ 
+$OWROOT/bld/wl/h/loadelf2.h 
+typedef struct { 
+    Elf32_Ehdr eh; 
+    // ... 
+    stringtable secstrtab; 
+    struct { 
+        int        secstr;  // Index of strings section for section names 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 43
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+        int        grpbase; // Index base for Groups in section 
+        int        grpnum;  // Number of groups 
+        int        relbase; // Index base for relocation sections 
+        int        relnum;  // number of relocations 
+        int        symstr;  // Index of symbol's string table 
+        int        symtab;  // Index of symbol table 
+        int        symhash; // Index of symbol hash table 
+        int        dynsym;  // Index of dynamic symbol's string table 
+        int        dynstr;  // Index of dynamic symbol table 
+        int        dbgbegin;// Index of first debug section 
+        int        dbgnum;  // Number of debug sections 
+    } i;  // Indexes into sh 
+    unsigned_32 curr_off; 
+} ElfHdr; 
+ 
+Final
+ly, the dy
+nam
+ic array
+ shoul
+d be up
+dat
+ed (i
+.e. 
+DT_
+HASH
+, 
+DT
+_STRTAB
+,  
+DT_
+SYMTAB
+, 
+DT_ST
+RSZ
+, and 
+DT
+_S
+YME
+NT
+). 
+3.2.7   Dynam
+ic   Rel
+ocatio
+ns   
+ 
+Relo
+catio
+ns are written
+ using 
+Write
+RelocsSections
+()
+. Ho
+wever
+, a s
+hared object
+ shoul
+d c
+ont
+ain single 
+relo
+cation
+ tab
+le 
+.rel.dyn
+. So the new
+ funct
+ion, s
+ay 
+Write
+DynRelocs
+Secti
+on()
+, is need
+ed. Th
+is fun
+ctio
+n 
+shou
+ld m
+erge all relo
+catio
+ns i
+nto sing
+le tab
+le. It sho
+uld update 
+.dynamic
+ sectio
+n as well 
+(i.e. eith
+er 
+DT_RELA
+, 
+DT_
+RELASZ
+, 
+DT_RELAE
+NT
+ or
+ 
+DT
+_REL
+, 
+DT
+_RELSZ
+, 
+DT_RELENT
+). Note th
+at th
+e 
+curren
+t im
+plementatio
+n of 
+Wr
+iteRelocs
+Secti
+ons()
+ generates on
+ly “rela” 
+relo
+catio
+ns (i.e. ex
+plicit add
+end). 
+Tem
+plate 
+ 
+// Initialize sh and its fields 
+// ... 
+AddSecName( hdr, sh, ".rela.dyn" ); 
+for( group = Groups; group != NULL; group = group->next_group ) { 
+    relocs = group->g.grp_relocs; 
+    if( relocs != NULL ) { 
+        size = RelocSize( relocs ); 
+        sh->sh_size += size; 
+        DumpRelocList( relocs ); 
+        hdr->curr_off += size; 
+    } 
+    currgrp++; 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 44
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+} 
+// Update the dynamic array 
+// ... 
+ 
+3.2.8 
+Global Offset Table 
+Wh
+en link
+ ed
+itor en
+cou
+nters 
+one of t
+he fo
+llowing
+ relo
+cation
+ typ
+es: 
+• 
+R_38
+6_
+GOT32
+ 
+• 
+R_38
+6_
+GOT
+OFF 
+• 
+R_38
+6_GOTPC
+ 
+it sh
+ou
+ld bu
+ild
+ the Gl
+obal Offset Tab
+le. Ad
+ditio
+nally 
+wlink
+ sho
+uld process
+ this rel
+ocat
+ion types acc
+ording 
+to 386
+ ABI. 
+GOT
+ is defi
+ned as
+ 
+Elf32_
+Addr _GLOBAL
+_OFFSET_
+TABLE_
+[]
+. 
+The ta
+ble’s e
+ntry zero is 
+reserved to 
+hold the ad
+dres
+s of t
+he dynam
+ic st
+ruct
+ure
+, re
+fere
+nce
+d wi
+th the sy
+mbol
+ 
+_DYN
+AM
+IC
+. En
+tries 
+on
+e and
+ two
+ in th
+e g
+lobal offset tab
+le also
+ are 
+reserv
+ed. 
+One shou
+ld add
+ su
+ppo
+rt of these r
+elocati
+on typ
+es to both ORL an
+d WLC
+ore. 
+Fo
+r OR
+L, i
+ntroduce 
+new 
+constan
+ts in 
+orlglobl.h
+, e.
+g.: 
+ORL_
+RELOC_TY
+PE_GOT
+_32
+, 
+ORL_RELOC_
+TYPE
+_GOT
+_OFF
+, 
+ORL
+_RELOC_
+TYPE
+_GOT_
+REL
+. The
+n ext
+end the m
+appi
+ng bet
+ween ELF a
+nd OR
+L (
+elflwlv.c
+). 
+The
+n the m
+appi
+ng 
+bet
+ween 
+OR
+L_
+ and 
+FIX
+_
+ sh
+oul
+d be a
+dded t
+o 
+DoR
+eloc()
+, 
+objo
+rl.c
+. Of co
+urse
+, new
+ 
+FIX
+_
+ 
+constants a
+re needed as 
+well (
+obj2s
+upp
+.h
+). 
+Relo
+catio
+n processin
+g is p
+erfo
+rm
+ed in 
+ob
+j2s
+upp.c
+. S
+ome prep
+roce
+ssi
+ng is pe
+rform
+ed i
+n 
+obj
+orl.c
+ as 
+well. 
+Relocat
+ion t
+ypes m
+entioned a
+bove a
+re proce
+ssed i
+n the following way
+. 
+ 
+A
+ 
+Thi
+s m
+eans t
+he ad
+den
+d use
+d to comput
+e the 
+value 
+of the
+ rel
+ocatable 
+field. 
+G
+ 
+This m
+eans the
+ offset i
+nto t
+he global offset ta
+ble at which the addres
+s of t
+he relocation e
+ntry’s 
+symbol will resid
+e during
+ ex
+ecu
+tio
+n. 
+GOT
+ 
+This m
+eans the
+ addres
+s of 
+the global offset table. 
+S
+ 
+Thi
+s m
+eans t
+he val
+ue of the sy
+mbol
+ wh
+ose i
+ndex
+ resi
+des i
+n the rel
+ocat
+ion e
+ntry. 
+ 
+ 
+R_
+386
+_G
+OT32
+ 
+G + A
+ - P 
+R_
+386
+_G
+OTOFF 
+S + 
+A - GO
+T
+R_
+386
+_G
+OTPC 
+GOT + A
+ - P
+ 
+ 
+ 
+As s
+how
+n i
+n the table, 
+R_38
+6_
+GOT
+32
+ an
+d 
+R_38
+6_GOTPC
+ are processe
+d very
+ close t
+o 
+R_38
+6_PC3
+2
+ (
+S + 
+A -
+ P
+). T
+his m
+ean 
+bot
+h a
+re 
+FIX_OFFSET
+_32 |
+ FI
+X_REL
+. Si
+milarly, 
+R_38
+6_
+GOTOFF
+ shoul
+d be 
+FIX
+_OFFSET_
+32
+. Of course
+, ad
+ditional
+ 
+FIX_
+ fla
+gs are ne
+eded 
+to distinguis
+h them
+ for
+ further 
+proces
+sing
+ 
+in 
+obj2su
+pp.c
+. 
+We ca
+n bui
+ld the GO
+T during OR
+L c
+onve
+rsion, i.e. in 
+Do
+Relo
+c()
+. During
+ th
+is ph
+ase, 
+sym
+bol offsets 
+into 
+the GOT
+ are ca
+lculated. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 45
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+At the e
+nd of first
+ linke
+r pass
+, we ca
+n c
+reat
+e the 
+.go
+t
+ sectio
+n (i.e. seg
+ment in
+ 
+DG
+RO
+UP
+). At th
+is tim
+e, 
+_GLOB
+AL_OFFSET_
+TABLE_
+ sym
+bol sh
+ou
+ld b
+e defined
+ as well. Th
+is allo
+ws creati
+ng th
+e GOT 
+with 
+minim
+al changes to t
+he s
+ourc
+e code. 
+For
+ unresol
+ved ext
+ernal sy
+mbol
+s, GO
+T e
+ntries are 
+nee
+ded a
+s well. Li
+nke
+r shoul
+d create 
+R_38
+6_
+GL
+OB_
+DAT
+ relo
+catio
+ns fo
+r su
+ch GOT en
+tries. These re
+locati
+ons
+ are as
+sociated 
+with 
+unres
+olve
+d 
+sym
+bols. 
+An
+other rel
+ocation t
+ype t
+hat can a
+ppea
+r in shared
+ object
+ is 
+R_38
+6_R
+ELATIV
+E
+. Its offs
+et member gives a 
+location 
+withi
+n a s
+hare
+d objec
+t that contains 
+a va
+lue
+ re
+prese
+nting a 
+relative addres
+s. T
+he dynamic linker 
+com
+put
+es t
+he c
+orresponding virtual
+ ad
+dress 
+by addi
+ng the 
+virtual a
+ddress at
+ which t
+he s
+hared 
+object 
+was 
+loaded to th
+e relativ
+e add
+ress. Su
+ch rel
+ocations
+ are
+ create
+d from
+ 
+R_386_GOT32
+, if the 
+corres
+ponding 
+symbol is no
+t ex
+tern
+al. 
+In this sect
+ion, onl
+y GO
+T as
+pects rel
+ated with dat
+a were
+ desc
+ribed. C
+ode
+ as
+pect
+s are
+ de
+scr
+ibed i
+n the nex
+t 
+sect
+ion. 
+Final
+ly, the dy
+nam
+ic array
+ shoul
+d be up
+dat
+ed (
+PLTGOT
+). 
+No
+te t
+hat th
+ere is PowerPC TOC im
+plementatio
+n in Op
+en Watco
+m Lin
+ker. TOC is cl
+ose to
+ GOT in some 
+sen
+se, bu
+t in gen
+eral it is 
+differen
+t thing
+. Howev
+er, d
+eveloper sh
+ou
+ld tak
+e a lo
+ok
+ at ex
+istin
+g TOC 
+im
+plem
+ent
+ation, si
+nce i
+t cont
+ains s
+ome usef
+ul ideas
+. 
+3.2.9 
+Procedu
+re Li
+nka
+ge Tabl
+e 
+PLT is lik
+e GOT in
+ so
+me sen
+se, bu
+t it is associated
+ with PIC cod
+e in
+stead
+ of PIC 
+data. Al
+thou
+gh
+ 38
+6 ABI 
+defi
+nes P
+LT 
+for P
+DC a
+nd PIC
+, only PIC PLT
+ is nee
+ded for our c
+urrent task: 
+ 
+.PLT0:  pushl   4(%ebx) 
+        jmp     *8(%ebx) 
+        nop; nop 
+        nop; nop 
+ 
+.PLT1:  jmp     *name1@GOT(%ebx) 
+        pushl   $offset 
+        jmp     .PLT0@PC 
+ 
+.PLT2:  jmp     *name2@GOT(%ebx) 
+        pushl   $offset 
+        jmp     .PLT0@PC 
+ 
+        ... 
+ 
+.PLT0
+@PC
+ in each e
+ntry m
+eans t
+he distan
+ce betwee
+n t
+he corres
+ponding 
+jmp
+ and
+ 
+.PLT0
+, si
+nce 
+x8
+6 jum
+ps 
+are PC
+-relativ
+e. 
+The 
+GOT e
+ntry sho
+uld be cre
+ated f
+or eac
+h P
+LT ent
+ry. Such GOT e
+ntry shoul
+d c
+ont
+ain t
+he ad
+dres
+s of t
+he 
+following
+ 
+pus
+hl
+ in
+stru
+ctio
+n, not the real address
+ of e
+.g. 
+name1
+. Thu
+s 
+name1@GOT
+ means t
+he offset 
+of 
+the cor
+respon
+din
+g GO
+T en
+try. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 46
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+A new
+ 
+R_3
+86_J
+UM
+P_
+SLOT
+ relo
+cation
+ shou
+ld be created. 
+Its offset
+ will sp
+ecify th
+e g
+lobal o
+ffset tab
+le 
+entry 
+used in t
+he pre
+vious 
+jm
+p
+ instru
+ction
+. Th
+e relo
+cation
+ en
+try 
+also 
+contains a sy
+mbol
+ table index
+, thus 
+telling t
+he dynamic linker 
+wh
+at sym
+bol
+ is be
+ing 
+refe
+renced
+, e.g
+. 
+na
+me1
+. Instru
+ction
+s 
+pus
+hl   
+$offs
+et
+ pu
+shes 
+the offset of such
+ relo
+cation
+ in th
+e PLT rel
+ocatio
+n tab
+le (
+rel.plt
+). 
+Wh
+en first creatin
+g th
+e m
+emo
+ry im
+age o
+f the prog
+ram
+, th
+e dynamic lin
+ker sets th
+e second
+ an
+d th
+e third
+ 
+entries in th
+e glo
+bal offset table to
+ sp
+ecial 
+values. T
+herefore
+ these e
+ntries a
+re re
+served. 
+Sin
+ce PLT co
+ntain
+s in
+stru
+ction
+ opcod
+es, an im
+plementatio
+n template is p
+resen
+ted fo
+r adv
+ice: 
+ 
+typedef struct pltent1 { 
+    unsigned_16 push_ins; 
+    unsigned_32 push_ofs; 
+    unsigned_16 jmp_ins; 
+    unsigned_32 jmp_ofs; 
+    unsigned_32 nops; 
+} PLTENT1; 
+ 
+typedef struct pltentn { 
+    unsigned_16 jmp1_ins; 
+    unsigned_32 jmp1_ofs; 
+    unsigned_8  push_ins; 
+    unsigned_32 push_ofs; 
+    unsigned_8  jmp2_ins; 
+    unsigned_32 jmp2_ofs; 
+} PLTENTN; 
+ 
+typedef union pltent { 
+    PLTENT1     first; 
+    PLTENTN     entry; 
+} PLTENT; 
+ 
+typedef struct plt { 
+    unsigned    nentries; 
+    PLTENT      *entries; 
+} PLT; 
+ 
+void InitPLT ( PLT *plt ) { 
+    plt->entries = AllocMem( sizeof( PLTENT ) ); 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 47
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+    plt->entries[0].first.push_ins = 0xB3FF; 
+    plt->entries[0].first.push_ofs = 0x00000004; 
+    plt->entries[0].first.jmp_ins  = 0xA3FF; 
+    plt->entries[0].first.jmp_ofs  = 0x00000008; 
+    plt->entries[0].first.nops     = 0x90909090; 
+    plt->nentries = 1; 
+} 
+ 
+void Add2PLT ( PLT *plt, unsigned_32 gotoff) { 
+    static unsigned_32 reloff = 0; 
+    plt->entries = ReallocMem( plt->entries, (plt->nentries + 1) * sizeof( 
+PLTENT ) ); 
+    plt->entries[plt->nentries].entry.jmp1_ins = 0xA3FF; 
+    plt->entries[plt->nentries].entry.jmp1_ofs = gotoff; 
+    plt->entries[plt->nentries].entry.push_ins = 0x68; 
+    plt->entries[plt->nentries].entry.push_ofs = reloff; reloff += sizeof( 
+Elf32_Rel ); 
+    // Add R_386_JUMP_SLOT relocation for push_ofs (somehow)... 
+    plt->entries[plt->nentries].entry.jmp2_ins = 0xE9; 
+    plt->entries[plt->nentries].entry.jmp2_ofs = -0x10 - plt->nentries * 
+sizeof( PLTENT ); 
+    plt->nentries++; 
+} 
+ 
+Wh
+en relo
+cation
+ 
+R_38
+6_
+PLT
+32
+ is en
+coun
+tered
+, the link
+er sh
+ou
+ld create 
+new PLT en
+try for th
+e 
+cor
+responding sym
+bol
+ (but
+ only if its type i
+s 
+STT_
+FUNC
+). Fo
+r fu
+rther refer
+ences to
+ th
+e sa
+me sy
+mbol, we 
+will refer to the prev
+iously created
+ PLT en
+try. 
+R_
+386
+_PLT3
+2
+ relocati
+ons are 
+proces
+sed as 
+L + A - 
+P
+, 
+whe
+re 
+L
+ m
+eans the 
+place (sec
+tion 
+offset 
+or a
+ddress
+) of 
+the proce
+dure linkage table
+ entry 
+for a 
+sym
+bol, 
+A
+ 
+and 
+P
+ were
+ de
+fined i
+n the pre
+vious sect
+ion. The c
+orresponding OR
+L t
+ype, 
+ORL_
+RELOC_TY
+PE_PLT
+_32
+, is already d
+efined (b
+ut not im
+plemented
+ yet). Th
+is is relativ
+e typ
+e, so
+ th
+e 
+mappi
+ng shoul
+d i
+nclude
+ 
+FIX_OFF
+SET_32 |
+ FIX_REL
+. S
+ource fi
+les and fu
+nct
+ions part
+icipating 
+in 
+rel
+ocat
+ion process we
+re 
+desc
+ribed
+ in the pre
+vious
+ sect
+ion. 
+At the e
+nd of first
+ linke
+r pass
+, we ca
+n c
+reat
+e the 
+.plt
+ section
+ (i.e. seg
+ment in
+ 
+AUTO
+ group). T
+his allows
+ 
+creatin
+g th
+e PLT with m
+inima
+l ch
+ang
+es to
+ the sou
+rce cod
+e. No
+te t
+hat th
+e sep
+arated
+ relo
+catio
+n section
+ 
+(
+.rel.plt
+) is 
+needed fo
+r PLT relo
+catio
+ns. Th
+is relo
+cation
+ tab
+le shou
+ld also
+ resid
+e in th
+e cod
+e seg
+ment. 
+Final
+ly, the dy
+nam
+ic array
+ shoul
+d be up
+dat
+ed (
+PLTRELSZ
+, 
+PLTREL
+, and 
+JM
+PR
+EL
+). 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 48
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+3.2.10
+   Note
+s   
+The i
+nform
+ation 
+prese
+nted in the sect
+ions a
+bove s
+houl
+d not
+ be treat
+ed a
+s ret
+elling o
+f 386 ABI. It sh
+ould be 
+use
+d toget
+her wi
+th AB
+I d
+ocumentation. So
+me det
+ails are om
+itted, 
+e.g. 
+section fl
+ags f
+or the dy
+nam
+ic sect
+ion. 
+Du
+ring the po
+rting wo
+rk, de
+velope
+r should refer 
+to AB
+I and ot
+her doc
+um
+ent
+ation;
+ per
+form
+ anal
+ysis usi
+ng 
+objdum
+p
+ an
+d 
+readelf
+; etc. 
+Not
+e that sy
+mbol
+ types 
+(
+STT_
+) are
+ ve
+ry import
+ant for dynamic linki
+ng tasks. 
+Fo
+r e
+xam
+ple, 
+STT_FUNC
+ is 
+clo
+sely 
+related
+ with
+ PLT. Th
+e cu
+rren
+t im
+plementatio
+n (i.e. 
+open_w
+atc
+om_devel
+_1.1.7
+) sometim
+es loses 
+sym
+bol
+ types, 
+so s
+uch issues 
+need
+ to be 
+fixed. 
+3.3 
+Using Shar
+ed Objects 
+Th
+is section
+ describ
+es th
+e ch
+anges to Op
+en Watco
+m Li
+nker, needed fo
+r usin
+g ex
+isting
+ sh
+ared
+ libraries 
+(PIC 
+and PDC). Not
+e that a s
+hared library
+ m
+ay use othe
+r shared libraries
+ as 
+well. 
+Sin
+ce m
+any th
+ings are related 
+to bu
+ild
+ing
+ shared lib
+raries
+ (which i
+s co
+vere
+d in the provi
+ous sect
+ions of t
+his 
+document), th
+is sectio
+n is su
+fficien
+tly sho
+rt. 
+3.3.1 
+Rea
+ding Sha
+red Obje
+cts 
+Sha
+red object
+ is an
+other kind of ELF
+ obj
+ect file. ORL is ab
+le to
+ read 
+ELF object files. 
+Some 
+features
+ 
+related to share
+d objects a
+re imple
+mented as
+ well. T
+hus 
+wlink
+ fails 
+(i.e.
+ 
+Segmen
+tatio
+n fault
+) when 
+one 
+tries to
+ link
+ a sh
+ared
+ ob
+ject. ORL shou
+ld be reviewed
+ an
+d fi
+xed in
+ resp
+ectiv
+e to th
+ese issues. 
+Add
+itio
+nally, t
+he link
+er shou
+ld co
+llect th
+e names o
+f sha
+red objects for furt
+her 
+proce
+ssing (see 
+"Neede
+d 
+Lib
+raries" b
+elow). If t
+his list is 
+no
+n-em
+pty, th
+e link
+er shou
+ld perform so
+me task
+s descr
+ibed
+ in th
+e further 
+sect
+ions. 
+3.3.2   Program
+   Interprete
+r   
+The a
+dditional
+ program
+ heade
+r 
+PT
+_INTE
+RP
+ is needed for
+ an
+ ex
+ecutab
+le th
+at uses sha
+red object(s
+). It 
+specifies t
+he location a
+nd size
+ of a 
+null-term
+inated 
+path 
+name to
+ invo
+ke as 
+an in
+terpreter. 
+Th
+is seg
+ment typ
+e 
+is m
+eani
+ngful
+ onl
+y for e
+xecut
+able fi
+les (though it m
+ay occur for s
+hare
+d objects); it m
+ay not occ
+ur m
+ore t
+han 
+once in
+ a file. 
+If it is presen
+t, i
+t must p
+reced
+e any loa
+dable
+ segm
+ent entr
+y. Fo
+r Linux
+, the prog
+ram 
+interpreter is 
+/lib/ld-linux
+.so
+.2 
+The 
+nee
+ded change
+s in Loa
+dELF
+ are si
+mple an
+d obvious. 
+3.3.3   Req
+uired   Librarie
+s   
+The a
+dditional 
+ele
+ment of t
+he dynam
+ic array 
+(i.e. 
+.dyn
+ami
+c
+ sect
+ion)
+ is nee
+ded. Whe
+n the dy
+nam
+ic linker
+ 
+creates the
+ m
+emory segm
+ents
+ for a
+n obj
+ect
+ file, the d
+ependenci
+es (recorded i
+n 
+DT
+_NEEDED
+ en
+tries of th
+e 
+dynam
+ic structure
+) tell what s
+hare
+d objects 
+are neede
+d to supply the
+ progra
+m’s services. 
+DT_NEEDE
+D
+ ho
+lds th
+e st
+ring
+ tab
+le offset 
+of a 
+nu
+ll-term
+inated st
+ring, gi
+ving t
+he nam
+e of a 
+nee
+ded library. 
+Th
+e offset is an
+ ind
+ex in
+to the tab
+le record
+ed in th
+e 
+DT
+_STRTAB
+ entry. The
+ dy
+nam
+ic array
+ m
+ay cont
+ain 
+multip
+le en
+tries with th
+is typ
+e. Th
+ese en
+tries’ relativ
+e order is sign
+ifican
+t, tho
+ugh
+ th
+eir relat
+ion to en
+tries 
+of 
+other types i
+s not. 
+Dy
+nam
+ic array
+ is desc
+ribed i
+n the pre
+vious 
+sect
+ions. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 49
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+3.3.4 
+Global Offset Table 
+The G
+OT pr
+ocessi
+ng is descri
+bed
+ in previ
+ous sect
+ion. If a
+ny specific 
+reloc
+ation is e
+ncountered, the linke
+r 
+shoul
+d re
+sol
+ve them
+ and creat
+e the 
+Global O
+ffset Ta
+ble. 
+See also t
+he next 
+section. 
+3.3.5 
+Procedu
+re Li
+nka
+ge Tabl
+e 
+The 
+PLT 
+proce
+ssi
+ng is descri
+bed i
+n previous 
+sect
+ion.
+ If any speci
+fic rel
+ocat
+ion i
+s enc
+ount
+ered, the linke
+r 
+shoul
+d re
+sol
+ve them
+ and creat
+e the Procedure Linkage
+ Ta
+ble. 
+There
+ is, howe
+ver
+, one
+ import
+ant case 
+not co
+vere
+d i
+n the previ
+ous sect
+ions. If PDC shared object
+ is nee
+ded 
+for the
+ program, the linker c
+reates PDC 
+PL
+T. Its
+ form
+at diffe
+rs from
+ PIC PLT: 
+ 
+.PLT0:  pushl   got_plus_4 
+        jmp     *got_plus_8 
+        nop; nop 
+        nop; nop 
+ 
+.PLT1:  jmp     *name1_in_GOT 
+        pushl   $offset 
+        jmp     .PLT0@PC 
+ 
+.PLT2:  jmp     *name2_in_GOT 
+        pushl   $offset 
+        jmp     .PLT0@PC 
+ 
+        ... 
+Here
+ 
+got_plus_
+4
+ and 
+got_pl
+us_8
+ sp
+ecify ex
+plicit add
+resses of th
+e seco
+nd
+ an
+d th
+ird
+ GOT en
+tries, 
+resp
+ectiv
+ely. Si
+milarly, 
+name
+1_i
+n_GOT
+ sp
+ecifies add
+ress 
+of th
+e GOT en
+try fo
+r 
+name1
+. 
+Instead
+ of im
+plementatio
+n tem
+plate (v
+ery similar to
+ PIC 
+one), a sam
+ple disassem
+bly is presente
+d: 
+08048224 <.plt>: 
+ 8048224:       ff 35 b4 93 04 08       pushl  0x80493b4 
+;&GOT[1] 
+ 804822a:       ff 25 b8 93 04 08       jmp    *0x80493b8 
+; GOT[2] 
+ 8048230:       00 00 
+ 8048232:       00 00 
+ 8048234:       ff 25 bc 93 04 08       jmp    *0x80493bc 
+; GOT[3] 
+ 804823a:       68 00 00 00 00          push   $0x0 
+ 804823f:       e9 e0 ff ff ff          jmp    8048224 
+ 8048244:       ff 25 c0 93 04 08       jmp    *0x80493c0 
+; GOT[4] 
+ 804824a:       68 08 00 00 00          push   $0x8 
+ 804824f:       e9 d0 ff ff ff          jmp    8048224 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 50
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+3.3.6   Note
+s   
+Du
+ring the po
+rting wo
+rk, de
+velope
+r should refer 
+to AB
+I and ot
+her doc
+um
+ent
+ation;
+ per
+form
+ anal
+ysis usi
+ng 
+objdum
+p
+ an
+d 
+readelf
+; etc. 
+Not
+e that sy
+mbol
+ types 
+(
+STT_
+) are
+ ve
+ry import
+ant for dynamic linki
+ng tasks. 
+Fo
+r e
+xam
+ple, 
+STT_FUNC
+ is 
+clo
+sely 
+related
+ with
+ PLT. Th
+e cu
+rren
+t im
+plementatio
+n (i.e. 
+open_w
+atc
+om_devel
+_1.1.7
+) sometim
+es loses 
+sym
+bol
+ types, 
+so s
+uch issues 
+need
+ to be 
+fixed. 
+4.  Existing  
+Problems  
+Sev
+eral prob
+lem
+s ex
+ist in
+ 
+ope
+n_w
+atcom_
+devel
+_1.1.7
+, m
+ore precely, in t
+he linke
+r. So one is una
+ble to 
+make 
+even the “
+Hello, worl
+d!” 
+program
+. 
+NOT
+E:
+ By th
+e time of th
+e fin
+al rev
+ision
+ of th
+is do
+cument all 
+the pro
+blem
+s men
+tio
+ned in th
+is section
+ were 
+fixed i
+n the Open 
+Wat
+com
+ Perf
+orce
+ de
+pot theref
+ore altering an
+ esti
+mated
+ time requ
+irem
+ents. (See 
+estim
+ation sect
+ion). 
+4.1.1 
+Suppo
+rt of R_386
+_PC3
+2 relocation
+s 
+After linki
+ng, t
+he relocated va
+lues
+ are
+ 4 less t
+han they shoul
+d be. 
+Gcc, 
+nasm
+, and
+ other Linux
+ co
+mpilers typ
+ically g
+enerate t
+he following
+: 
+ 
+e8 fc ff ff ff    call  somefunc 
+ 
+(
+0xfffffffc
+ is the i
+mplicit ad
+dend fo
+r 
+R386_P
+C3
+2
+ relo
+cation). 
+Watco
+m C typ
+ically g
+enerates th
+e following
+ (of co
+urse, in
+ OMF 
+form
+at):
+ 
+ 
+e8 00 00 00 00    call  somefunc 
+ 
+$OWROOT/bld/wl/c/obj2supp.c 
+static bool CheckSpecials( fix_data *fix, frame_spec *targ ) 
+/**********************************************************/ 
+{ 
+      .     .     . 
+      if( !(fix->type & FIX_REL) ) return FALSE; 
+      .     .     . 
+      fixsize = CalcFixupSize( fix->type ); 
+      off -= fixsize; 
+      .     .     . 
+} 
+ 
+Th
+is algorith
+m in
+tro
+duces 
+ou
+r 4-b
+yte e
+rror. Such correcti
+on isn'
+t neede
+d for 
+ELF R386_P
+C3
+2
+, sin
+ce 
+implicit ad
+dend
+ is sp
+ecified
+ (
+0xfffffffc ==
+ -4
+). 
+QU
+ICK
+ FI
+X
+: Offset co
+rrectio
+n shou
+ld b
+e disab
+led in case
+ implicit addend was 
+speci
+fied. 
+ 
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 51
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+ 
+$OWROOT/bld/wl/c/obj2supp.c 
+static bool CheckSpecials( fix_data *fix, frame_spec *targ ) 
+/**********************************************************/ 
+{ 
+      .     .     . 
+      if( !(fix->type & FIX_REL) ) return FALSE; 
+      .     .     . 
+      fixsize = CalcFixupSize( fix->type ); 
+      if( fix->type & FIX_ADDEND_ZERO ) off -= fixsize; // quickfix #01 
+      .     .     . 
+} 
+ 
+NOT
+E
+. This 
+is temporary sol
+ution. Ne
+w OR
+L relocati
+on type
+ (or 
+option) i
+s nee
+ded for a 
+more accurate 
+fix. 
+Th
+is bug was alread
+y fi
+xed in 
+the d
+evelop
+ment so
+urce tree at th
+e m
+oment of writin
+g th
+is SRS. 
+4.1.2 
+Support of STT_NOTYPE sym
+bols 
+Tw
+o of sy
+mbol
+ types 
+defi
+ned i
+n AB
+I: 
+STT_
+NOTYPE
+   The sy
+mbol
+'s type i
+s not
+ specified. 
+STT_
+FUNC
+ 
+The sym
+bol is 
+associated 
+with a 
+funct
+ion or other e
+xecutabl
+e co
+de. 
+Many of “real
+-life” ELF 
+object files has
+ sy
+mbol
+s of 
+STT_
+NOTYPE
+, e.
+g. 
+_star
+t
+ in dietlib
+c's 
+start.o
+. W
+hen 
+lin
+king
+ th
+at sort o
+f obj
+ect files, Op
+en Watcom
+ Lin
+ker co
+mplain
+s su
+ch sy
+mbols are no
+t found
+. Th
+is error is 
+fatal. 
+ORL
+ treats
+ 
+ST
+T_
+NOTYPE
+ an
+d unk
+now
+n sym
+bol typ
+es as 
+ORL_
+SYM_
+TY
+PE_NON
+E
+. This (som
+eho
+w) 
+confuses t
+he linke
+r. 
+ 
+$OWROOT/bld/orl/elf/c/elflwlv.c 
+            default: 
+                current->type = ORL_SYM_TYPE_NONE; // ? 
+ 
+QU
+ICK
+ FI
+X
+: If sym
+bol'
+s associated section (i.e. 
+st_sh
+ndx
+) looks li
+ke e
+xecutable, t
+reat that sym
+bol as 
+ORL_
+SYM_
+TY
+PE_FUN
+CTION
+. 
+ 
+$OWROOT/bld/orl/elf/c/elflwlv.c 
+orl_return ElfCreateSymbolHandles( elf_sec_handle elf_sec_hnd ) 
+{ 
+    elf_sec_handle      sym_sec; // Nick's quickfix #02 
+        .       .       . 
+            default: 
+                // hotfix #02 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 52
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+                if( ( sym_sec = ElfSymbolGetSecHandle( current ) ) != NULL 
+                && sym_sec->type == ORL_SEC_TYPE_PROG_BITS 
+                && sym_sec->flags & ORL_SEC_FLAG_EXEC 
+                ) { 
+                    current->type = ORL_SYM_TYPE_FUNCTION; 
+                } else { 
+                    current->type = ORL_SYM_TYPE_NONE; 
+                } 
+ 
+NOT
+E
+. Thi
+s workaround works pret
+ty wel
+l for curre
+nt versi
+on, but
+ has
+ some dra
+wbac
+ks in “share
+d 
+libraries” 
+persp
+ective. 
+Whe
+n anot
+her
+ object fi
+le refe
+rence
+s a function from
+ a sha
+red object
+, the link e
+ditor 
+autom
+atically c
+reates a 
+proce
+dure
+ linka
+ge ta
+ble entry 
+for the
+ refe
+renced
+ sy
+mbol. Sha
+red object 
+symbols 
+with
+ typ
+es o
+ther th
+an 
+STT_
+FUNC
+ will no
+t be referen
+ced au
+tomatical
+ly th
+roug
+h th
+e procedure link
+age 
+tab
+le. 
+The acc
+urate fi
+x s
+houl
+d treat 
+STT_
+NOTYPE
+ as “norm
+al” sym
+bol. 
+4.1.3   Accu
+rate   
+seg
+ment   
+mappin
+g   
+Sect
+ions
+ 
+.data
+ and 
+.bs
+s
+ share
+ the sam
+e segment in 
+ELF exe
+cutables produced by 
+wlink
+. If 
+.bss
+ section
+ is 
+created, the m
+emory size (
+p_memsz
+) of that
+ segm
+ent beca
+me i
+nvalid. The produced EL
+F causes 
+seg
+mentatio
+n fau
+lt. 
+readelf -a 
+ 
+Section Headers: 
+        .       .       . 
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf 
+Al 
+  [ 2] .text             PROGBITS        08048100 000100 00103d 00  AX  0   0  
+4 
+  [ 3] .data             PROGBITS        0804a000 002000 000288 00  WA  0   0  
+4 
+  [ 4] .bss              NOBITS          0804b000 003000 0000b4 00  WA  0   0  
+4 
+        .       .       . 
+Program Headers: 
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align 
+  PHDR           0x000034 0x08048034 0x00000000 0x00060 0x00060 R E 0 
+  LOAD           0x000100 0x08048100 0x00000000 0x0103d 0x0103d R E 0x1000 
+  LOAD           0x002000 0x0804a000 0x00000000 0x00288 0x000c4 RW  0x1000 
+ 
+ Section to Segment mapping: 
+  Segment Sections... 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 53
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+   00 
+   01     .text 
+   02 
+ 
+It seem
+s page a
+lignm
+ent
+ is not
+ taken
+ into acc
+ount whe
+n 
+.bss
+ sectio
+n is created
+. 
+QU
+ICK
+ FI
+X
+: 
+p_memsz
+ shou
+ld be ad
+justed
+ after creatin
+g the 
+.bss
+. 
+ 
+$OWROOT/bld/wl/c/loadelf.c 
+            InitBSSSect( sh, off, CalcSplitSize(), linear ); 
+            ph->p_memsz += ROUND_UP( ph->p_filesz, FmtData.objalign ); // 
+quickfix #03 
+ 
+readelf -a 
+Section Headers: 
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf 
+Al 
+        .       .       . 
+  [ 2] .text             PROGBITS        08048100 000100 00103d 00  AX  0   0  
+4 
+  [ 3] .data             PROGBITS        0804a000 002000 000288 00  WA  0   0  
+4 
+  [ 4] .bss              NOBITS          0804b000 003000 0000b4 00  WA  0   0  
+4 
+        .       .       . 
+Program Headers: 
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align 
+  PHDR           0x000034 0x08048034 0x00000000 0x00060 0x00060 R E 0 
+  LOAD           0x000100 0x08048100 0x00000000 0x0103d 0x0103d R E 0x1000 
+  LOAD           0x002000 0x0804a000 0x00000000 0x00288 0x010c4 RW  0x1000 
+ 
+ Section to Segment mapping: 
+  Segment Sections... 
+   00 
+   01     .text 
+   02     .data .bss 
+ 
+ 
+NOT
+E
+. Thi
+s workaround works wel
+l en
+ough, but the probl
+em shoul
+d be
+ re
+vised
+. M
+ore ac
+curat
+e fix i
+s 
+req
+uire
+d. 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom
+ Linux Port 
+Page 54
+ of 55 
+Compiler /
+ Linke
+r Software 
+Requirements Specification 
+ 
+ 
+5.  Estimation
+  
+There
+ are
+ two i
+nde
+pende
+nt tasks: Code 
+Ge
+nerat
+or (PIC support) and Li
+nker (
+building a
+nd usi
+ng s
+hared 
+object
+s). S
+o it is possi
+ble to perform
+ these t
+asks si
+multaneou
+sly. GN
+U C
+ Compiler can 
+be use
+d for Li
+nke
+r 
+testin
+g, as well
+ as 
+ld
+ for C
+ode Ge
+nerat
+or. Then the final
+ integrat
+ion (i
+.e. t
+esting)
+ should be 
+per
+formed, 
+usi
+ng o
+nly Open Wat
+com
+ tool
+s. 
+5.1   Position-Ind
+epend
+ent   
+Co
+de   
+Command l
+ine proces
+sing
+ 
+Est
+imation:
+          1          
+day
+          
+Descr
+iptio
+n: 
+see sectio
+n 3.1.1
+ 
+Ex
+tend
+ing
+ OWL
+ 
+Est
+imation:
+          8          
+day
+s          
+Descr
+iptio
+n: 
+see sectio
+n 3.1.2
+ 
+Im
+plem
+ent
+ing ELF 
+out
+put
+ in CG386
+ 
+Est
+imation:
+          20
+          day
+s          
+Descri
+ptio
+n: 
+see sectio
+n 3.1.2
+. Th
+is is pretty 
+com
+plicated task. 
+No PIC 
+suppo
+rt yet (see b
+elow)
+. 
+Adding
+ PIC sup
+por
+t to
+ CG386
+ 
+Est
+imation:
+          20
+          day
+s          
+Descri
+ptio
+n: 
+see sectio
+n 3.1.3
+. Th
+is is on
+e of m
+ost co
+mplic
+ated
+ task
+s. 
+Ex
+tend
+ing
+ ELF ou
+tpu
+t in
+ CG38
+6
+ 
+Est
+imation:
+          5          
+day
+s          
+Descri
+ption:
+ 
+see sect
+ions 3.1.2, 3.1.3. This task m
+eans ad
+ding PIC feat
+ures t
+o ELF
+. 
+Integ
+ration
+ 
+Est
+imation:
+          5          
+day
+s          
+Descri
+ptio
+n: 
+Mo
+stly testin
+g. Co
+mplicated
+ test k
+it (i.e. C so
+urce cod
+e) is 
+need
+ed to en
+sure all th
+ing
+s are 
+im
+ple
+mented correctly. 
+Total
+ 
+59
+ day
+s 
+5.2 
+Building Sha
+red Objec
+ts 
+Ex
+tend
+ing
+ OR
+L
+ 
+Est
+imation:
+          3          
+day
+s          
+Descr
+iptio
+n: 
+see sectio
+n 3.2.7
+ 
+Ex
+tend
+ing
+ WLCo
+re
+ 
+Est
+imation:
+          15
+          day
+s          
+Descri
+ption:
+ 
+see 
+sect
+ions 3.2.7, 3.
+2.8, 3.2.9 
+Im
+provi
+ng LoadELF
+ 
+Est
+imation:
+          5          
+day
+s          
+Descri
+ption:
+ 
+see 
+sect
+ions 3.2.1 – 3.
+2.9 
+Integ
+ration
+ 
+SciT
+ech
+ Softwar
+e, In
+c. 
+ 
+
+
+Open Watcom Linux Port 
+Page 55 of 55 
+Compiler / Linker Software 
+Requirements Specification 
+ 
+ 
+SciTech Software, Inc. 
+ 
+Estimation:          4          days          
+Description: 
+Mostly testing. Complicated test kit (i.e
+. object files) is needed to ensure all things are 
+implemented correctly. 
+Total
+ 
+27 days
+ 
+5.3   Using Shared Objects 
+Command line processing
+ 
+Estimation:          1          day          
+Description: 
+see section 3.3.3 
+Improving LoadELF
+ 
+Estimation
+: 
+1 day. Minimal changes are needed (assumi
+ng we are already able to build a shared 
+object). 
+Description
+: 
+see sections 3.3.2, 3.3.3 
+Extending ORL
+ 
+Estimation:          10          days          
+Description: 
+see section 3.3.1 
+Extending WLCore
+ 
+Estimation:          8          days          
+Description: 
+see sections 3.3.4, 3.3.5 
+Integration
+ 
+Estimation:          10          days          
+Description: 
+Mostly testing. Complicated test kit (i.e
+. object files) is needed to ensure all things are 
+implemented correctly. There are many variants, e.g. 
+executable uses three shared objects, where the 1st 
+shared object uses the 2n
+d, and the 3rd uses some another shared object. 
+Total
+ 
+30 days
+ 
+5.4   Final   Integration   
+Estimation:          10          days          
+Description: 
+Mostly testing. Trying to link ELF obj
+ect files (i.e. those generated by Open Watcom C) 
+using Open Watcom Linker. 
+ 
